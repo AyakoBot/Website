@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ColorFadeText from '$lib/components/generic/colorFadeText.svelte';
+	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 </script>
 
 <footer class="bg-neutral-900/75 w-full box-shadow-main flex md:mt-0 mt-4">
