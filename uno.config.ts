@@ -11,6 +11,7 @@ export default defineConfig({
 			'bg-white rounded-xl color-[#fe3521] px-5 py-2 hover:bg-[#fe3521] hover:color-white',
 		'btn-loud':
 			'opacity-0 bg-gradient-to-r from-[#fe3521] via-[#3dff56] to-[#fe3521] bg-200 p-2 px-6 rounded-xl text-lg transition-all bg-[position:0%_center] hover:bg-[position:-100%_center] font-bold',
-   'btn-quiet': 'hover:color-[#b0ff00] transition-all'
+		'btn-quiet': 'hover:color-[#b0ff00] transition-all',
+		'debug-border': 'border-2 border-red-500',
 	},
 });
