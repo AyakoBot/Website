@@ -12,9 +12,11 @@
  before:block before:h-60vh before:left-0 before:top-0 before:z-0 before:w-100vw before:fixed before:pointer-events-none before:bg-center before:bg-no-repeat before:bg-scroll before:scale-100 before:bg-[100%100%] before:h-60vh before:pointer-events-none before:fixed
   after:bg-black after:block after:h-full after:left-0 after:opacity-0 after:fixed after:scale-100 after:top-0 after:transition-opacity after:duration-1s after:ease-in-out after:delay-0.25s after:transition-visibility after:delay-1s after:delay-0.25s after:invisible after:w-full"
 >
-	<Blob />
-	<hr />
 	<NavBar />
-	<slot />
+	<hr />
+	<Blob />
+	<content>
+		<slot />
+	</content>
 	<Footer />
 </div>
