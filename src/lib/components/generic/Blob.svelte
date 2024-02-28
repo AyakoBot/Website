@@ -22,8 +22,6 @@
 		const x = coords.x;
 		const y = coords.y;
 
-		console.log('update');
-
 		[blobSlow, blobFast].forEach((b) => {
 			b?.animate(
 				{
