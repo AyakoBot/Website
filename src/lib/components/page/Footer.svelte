@@ -2,7 +2,7 @@
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 </script>
 
-<footer class="bg-neutral-900/75 w-full box-shadow-main flex md:mt-0 mt-20">
+<footer class="bg-neutral-900/75 w-full box-shadow-main flex md:mt-0 mt-20 z-2">
 	<ul class="flex flex-col justify-around items-center w-full">
 		<li class="flex flex-row items-center justify-evenly w-full flex-wrap">
 			<ul id="left" class="flex flex-row items-center justify-evenly">
