@@ -15,7 +15,7 @@
 	<NavBar />
 	<hr />
 	<Blob />
-	<content>
+	<content class="mx-2">
 		<slot />
 	</content>
 	<Footer />
