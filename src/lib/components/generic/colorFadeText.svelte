@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	export let text: string;
-
 	let fade: HTMLElement | null = null;
 
 	onMount(() => {
@@ -27,5 +25,5 @@
 	class="bg-gradient-to-r via-[#fe3521] from-[#b0ff00] to-[#b0ff00] bg-200 bg-repeat-x w-full m-auto bg-clip-text text-fill-color"
 	bind:this={fade}
 >
-	{text}
+	<slot />
 </p>
