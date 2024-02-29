@@ -33,8 +33,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@prisma/client": "^5.10.2",
 		"@sveltejs/adapter-cloudflare": "^4.1.0",
 		"@unlighthouse/vite": "^0.10.6",
-		"@unocss/reset": "^0.58.5"
+		"@unocss/reset": "^0.58.5",
+		"prisma": "^5.10.2"
 	}
 }
