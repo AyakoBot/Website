@@ -1,5 +1,5 @@
 <nav
-	class="absolute w-full p-2 bg-neutral-900/75 flex flex-col justify-between items-center box-shadow-main md:flex-row"
+	class="absolute w-full p-2 bg-neutral-900/75 flex flex-col justify-between items-center box-shadow-main md:flex-row z-99"
 >
 	<ul id="left" class="flex flex-row items-center">
 		<li class="pr-2">
