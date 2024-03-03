@@ -4,14 +4,20 @@
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 	import CountUp from '$lib/components/generic/CountUp.svelte';
 	import type { Returned as GETStats } from './api/stats/+server.js';
+	import type { Returned as GETServers } from './api/servers/+server.js';
 
-	const getServers = async (): Promise<GETStats> => {
+	const getStats = async (): Promise<GETStats> => {
 		const res = await fetch('/api/stats');
-  console.log(res.ok);
 		return res.json();
 	};
 
-	const stats = getServers();
+	const getServers = async (): Promise<GETServers> => {
+		const res = await fetch('/api/servers');
+		return res.json();
+	};
+
+	const stats = getStats();
+	const servers = getServers();
 </script>
 
 <br class="pt-30" />
@@ -47,25 +53,34 @@
 	</a>
 </div>
 
-<div class="mt-20">
-	<p>Ayako manages</p>
+<div class="mt-40">
+	<p class="text-10">Ayako manages</p>
 	{#await stats}
-		<ColorFadeText><CountUp num={0} /></ColorFadeText>
-		<p>Discord Communities with</p>
-		<ColorFadeText><CountUp num={0} /></ColorFadeText>
+		<p class="text-15"><ColorFadeText><CountUp num={0} /></ColorFadeText></p>
+		<p class="text-10">Discord Communities with</p>
+		<p class="text-15"><ColorFadeText><CountUp num={0} /></ColorFadeText></p>
 	{:then stats}
-		{console.log(stats)}
-		<ColorFadeText><CountUp num={stats.guildCount} /></ColorFadeText>
-		<p>Discord Communities with</p>
-		<ColorFadeText><CountUp num={stats.userCount} /></ColorFadeText>
+		<p class="text-15"><ColorFadeText><CountUp num={stats.guildCount} /></ColorFadeText></p>
+		<p class="text-10">Discord Communities with</p>
+		<p class="text-15"><ColorFadeText><CountUp num={stats.userCount} /></ColorFadeText></p>
 	{:catch error}
 		{console.error(error)}
-		<ColorFadeText><CountUp num={0} /></ColorFadeText>
-		<p>Discord Communities with</p>
-		<ColorFadeText><CountUp num={0} /></ColorFadeText>
+		<p class="text-15"><ColorFadeText><CountUp num={0} /></ColorFadeText></p>
+		<p class="text-10">Discord Communities with</p>
+		<p class="text-15"><ColorFadeText><CountUp num={0} /></ColorFadeText></p>
 	{/await}
+	<p class="text-10">Members</p>
+</div>
 
-	<p>Members</p>
+<div>
+	{#await servers}
+		<p>Waiting</p>
+	{:then servers}
+		<p>Resolved</p>
+	{:catch error}
+		{console.error(error)}
+		<p>Error</p>
+	{/await}
 </div>
 
 <style scoped>

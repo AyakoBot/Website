@@ -8,8 +8,6 @@ export const GET: RequestHandler = async () => {
 
 	const count = await DataBase.stats.findFirst();
 
- console.log(count);
-
 	return json({
 		// servers: servers.map((s) => ({ ...s, membercount: String(s.membercount) })),
 		guildCount: Number(count?.guildcount),
