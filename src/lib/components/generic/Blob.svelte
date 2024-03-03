@@ -3,10 +3,10 @@
 
 	let blobSlow: HTMLDivElement;
 	let blobFast: HTMLDivElement;
-
-	const coords = { x: 0, y: 0 };
-
 	let lastUpdate = Date.now();
+
+	$: x = 0;
+	$: y = 0;
 
 	onMount(() => {
 		[blobSlow, blobFast].forEach((b) => {
@@ -19,17 +19,8 @@
 	});
 
 	$: {
-		const x = coords.x;
-		const y = coords.y;
-
 		[blobSlow, blobFast].forEach((b) => {
-			b?.animate(
-				{
-					left: `${x - window.scrollX}px`,
-					top: `${y - window.scrollY}px`,
-				},
-				{ duration: 3000, fill: 'forwards' },
-			);
+			b?.animate({ left: `${x}px`, top: `${y}px` }, { duration: 3000, fill: 'forwards' });
 		});
 	}
 </script>
@@ -38,8 +29,8 @@
 	on:mousemove={(e) => {
 		if (lastUpdate + 10 < Date.now()) {
 			lastUpdate = Date.now();
-			coords.x = e.clientX;
-			coords.y = e.clientY;
+			x = e.clientX;
+			y = e.clientY;
 		}
 	}}
 />
