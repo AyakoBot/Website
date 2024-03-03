@@ -7,12 +7,4 @@ import UnoCSS from '@unocss/svelte-scoped/vite';
 
 export default defineConfig({
 	plugins: [sveltekit(), UnoCSS({ injectReset: '' })], // Unlighthouse({}),
-	server: {
-		proxy: {
-			'/api': {
-				target: 'https://api.ayakobot.com',
-				changeOrigin: true,
-			},
-		},
-	},
 });
