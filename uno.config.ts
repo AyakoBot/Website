@@ -13,6 +13,6 @@ export default defineConfig({
 		'btn-loud':
 			'bg-gradient-to-r from-[#fe3521] via-[#3dff56] to-[#fe3521] bg-200 p-2 px-6 rounded-xl transition-all bg-[position:0%_center] hover:bg-[position:100%_center] font-bold',
 		'btn-quiet': 'hover:color-[#b0ff00] transition-all',
-		'debug-border': 'border-2 border-red-500',
+		'debug-border': 'border-2 border-red-500 border-dashed',
 	},
 });

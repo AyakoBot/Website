@@ -3,31 +3,31 @@
 	import RandomLetters from '$lib/components/generic/RandomLetters.svelte';
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 	import CountUp from '$lib/components/generic/CountUp.svelte';
-	import { onMount } from 'svelte';
+	import type { Returned as GETStats } from './api/stats/+server.js';
 
-	onMount(async () => {
-	const fetchServers = () => {
-  const servers = await fetch('/servers');
-  if (servers.)
+	const getServers = async (): Promise<GETStats> => {
+		const res = await fetch('/api/stats');
+  console.log(res.ok);
+		return res.json();
+	};
 
-		const data = await servers.json();
- }
- 
- });
+	const stats = getServers();
 </script>
 
 <br class="pt-30" />
 <Flower />
 
-<div class="flex flex-col justify-center items-center">
-	<p class="text-4xl code mt-100">
+<div class="flex flex-col justify-center items-center absolute w-1/2 left-1/4 md:top-3/5 top-1/2">
+	<p class="md:text-4xl text-2xl code">
 		<RandomLetters text="Powerful Server Management" />
 		<br />
 		<RandomLetters text="And Moderation Bot" />
 	</p>
 </div>
 
-<div class="z-2 mt-10 flex flex-col items-center justify-around md:flex-row mt-20">
+<div
+	class="z-2 flex flex-col items-center justify-around md:flex-row mt-150 md:mt-160 md:ml-6 ml-0"
+>
 	<a class="btn-medium op-0 transition-all font-bold" href="https://invite.ayakobot.com" id="invite">
 		Invite Ayako
 	</a>
@@ -47,9 +47,25 @@
 	</a>
 </div>
 
-<div>
+<div class="mt-20">
 	<p>Ayako manages</p>
-	<ColorFadeText><CountUp num="" /></ColorFadeText>
+	{#await stats}
+		<ColorFadeText><CountUp num={0} /></ColorFadeText>
+		<p>Discord Communities with</p>
+		<ColorFadeText><CountUp num={0} /></ColorFadeText>
+	{:then stats}
+		{console.log(stats)}
+		<ColorFadeText><CountUp num={stats.guildCount} /></ColorFadeText>
+		<p>Discord Communities with</p>
+		<ColorFadeText><CountUp num={stats.userCount} /></ColorFadeText>
+	{:catch error}
+		{console.error(error)}
+		<ColorFadeText><CountUp num={0} /></ColorFadeText>
+		<p>Discord Communities with</p>
+		<ColorFadeText><CountUp num={0} /></ColorFadeText>
+	{/await}
+
+	<p>Members</p>
 </div>
 
 <style scoped>

@@ -5,11 +5,7 @@ export async function handle({
 }: {
 	resolve: (
 		e: typeof event,
-		{
-			transformPageChunk,
-		}: {
-			transformPageChunk: (chunk: { html: string }) => void;
-		},
+		{ transformPageChunk }: { transformPageChunk: (chunk: { html: string }) => void },
 	) => Promise<void>;
 	event: unknown;
 }) {

@@ -13,8 +13,8 @@
 			>
 		</li>
 		<li class="flex flex-row justify-between items-end w-40%">
-			<p class="font-bold lg:text-9 text-8 color-[#b0ff00]">Ayako</p>
-			<p class="break-keep whitespace-nowrap pb-1.5 color-[#fe3521] font-bold pl-2 lg:text-5 text-4">
+			<p class="font-bold lg:text-9 text-8 color-[#b0ff00] of-unset">Ayako</p>
+			<p class="break-keep whitespace-nowrap pb-1.5 color-[#fe3521] font-bold pl-2 lg:text-5 text-4 of-unset">
 				Discord Bot
 			</p>
 		</li>

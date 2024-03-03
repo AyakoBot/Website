@@ -20,10 +20,12 @@ p,
 button,
 #main {
 	font-family: 'Futura', 'Trebuchet MS', Arial, sans-serif;
+ overflow: hidden;
 }
 
 html {
 	scroll-behavior: auto;
+ overflow-y: unset;
 }
 
 body,
