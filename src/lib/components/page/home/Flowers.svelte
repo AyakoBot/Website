@@ -97,11 +97,7 @@
 					opacity: '0',
 					rotate: '-45deg',
 				},
-				{
-					...applyingCoords.flower2,
-					opacity: '1',
-					rotate: '-80deg',
-				},
+				{ ...applyingCoords.flower2, opacity: '1', rotate: '-80deg' },
 			],
 			animationOptions,
 		);
@@ -114,11 +110,7 @@
 					opacity: '0',
 					rotate: '12deg',
 				},
-				{
-					...applyingCoords.flower3,
-					opacity: '1',
-					rotate: '50deg',
-				},
+				{ ...applyingCoords.flower3, opacity: '1', rotate: '50deg' },
 			],
 			animationOptions,
 		);
@@ -131,11 +123,7 @@
 					opacity: '0',
 					rotate: '-10deg',
 				},
-				{
-					...applyingCoords.flower4,
-					opacity: '1',
-					rotate: '-35deg',
-				},
+				{ ...applyingCoords.flower4, opacity: '1', rotate: '-35deg' },
 			],
 			animationOptions,
 		);
@@ -148,11 +136,7 @@
 					opacity: '0',
 					rotate: '80deg',
 				},
-				{
-					...applyingCoords.flower5,
-					opacity: '1',
-					rotate: '100deg',
-				},
+				{ ...applyingCoords.flower5, opacity: '1', rotate: '100deg' },
 			],
 			animationOptions,
 		);
@@ -217,9 +201,7 @@
 		draggable="false"
 		{alt}
 	/>
-	<p
-		class="text-15 fw-bold code absolute bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 sm:text-20 z-2"
-	>
+	<p class="text-15 fw-bold code bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 sm:text-20 z-2 mt-20 lg:mt-70 md:mt-60 sm:mt-50">
 		<ColorFadeAndRandomLetters text="AYAKO" />
 	</p>
 </div>
