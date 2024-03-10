@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import RandomLetters from '$lib/components/generic/RandomLetters.svelte';
+	import ColorFadeAndRandomLetters from '$lib/components/generic/ColorFadeAndRandomLetters.svelte';
 
 	const animationOptions = {
 		duration: 2000,
@@ -217,8 +217,10 @@
 		draggable="false"
 		{alt}
 	/>
-	<p class="text-15 fw-bold code absolute bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 sm:text-20 z-2">
-		<RandomLetters text="AYAKO" animate={true} isTitle={true} />
+	<p
+		class="text-15 fw-bold code absolute bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 sm:text-20 z-2"
+	>
+		<ColorFadeAndRandomLetters text="AYAKO" />
 	</p>
 </div>
 

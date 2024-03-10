@@ -4,7 +4,6 @@
 
 	export let text: string;
 	export let isTitle: boolean = false;
-	export let animate: boolean = false;
 	let randomLetters: HTMLElement | ColorFade;
 
 	let title = String(text);
@@ -40,10 +39,6 @@
 	});
 </script>
 
-<hi bind:this={randomLetters} class="code opacity-0">
-	{#if animate}
-		<ColorFade>{title}</ColorFade>
-	{:else}
-		{title}
-	{/if}
-</hi>
+<h1 bind:this={randomLetters} class="code opacity-0">
+	{title}
+</h1>
