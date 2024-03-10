@@ -19,7 +19,7 @@
 				</li>
 				<li>
 					<ul class="flex flex-col justify-around">
-						<li class="md:text-6xl text-4xl font-bold"><ColorFadeText>Ayako</ColorFadeText></li>
+						<li class="md:text-6xl text-4xl font-bold"><ColorFadeText text="Ayako" /></li>
 						<li class="md:text-4xl text-2xl">ayakobot.com</li>
 					</ul>
 				</li>
@@ -32,10 +32,10 @@
 						<li><a class="btn-quiet text-5 font-bold color-yellow" href="/donate">👑Premium👑</a></li>
 						<li>
 							<a class="text-5 font-bold" href="https://top.gg/bot/650691698409734151/vote"
-								><ColorFadeText>Vote</ColorFadeText></a
+								><ColorFadeText text="Vote" /></a
 							>
 						</li>
-						<li><a class="text-5 font-bold" href="/donate"><ColorFadeText>Donate</ColorFadeText></a></li>
+						<li><a class="text-5 font-bold" href="/donate"><ColorFadeText text="Donate" /></a></li>
 					</ul>
 				</li>
 				<li>
