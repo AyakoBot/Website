@@ -20,12 +20,12 @@ p,
 button,
 #main {
 	font-family: 'Futura', 'Trebuchet MS', Arial, sans-serif;
- overflow: hidden;
+	overflow: hidden;
 }
 
 html {
 	scroll-behavior: auto;
- overflow-y: unset;
+	overflow-y: unset;
 }
 
 body,
@@ -36,8 +36,7 @@ body,
 
 body:before {
 	content: '';
-}v
-
+}
 body:after {
 	content: '';
 }
