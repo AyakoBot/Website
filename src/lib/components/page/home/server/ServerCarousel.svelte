@@ -6,7 +6,6 @@
 	export let pauseOnHover: boolean = false;
 	export let speed: 'fast' | 'normal' | 'slow' = 'fast';
 	export let direction: 'left' | 'right' = 'left';
-	export let items: { quote: string; name: string; title: string }[] = [];
 
 	const getServers = async (): Promise<GETServers> => {
 		const res = await fetch('/api/servers');
@@ -24,16 +23,15 @@
 	});
 
 	const addAnimation = () => {
-		if (container && scroller) {
-			const scrollerContent = Array.from(scroller.children);
+		if (container && scroller) return;
+		const scrollerContent = Array.from(scroller.children);
 
-			scrollerContent.forEach((item) => {
-				const duplicatedItem = item.cloneNode(true);
-				if (scroller) scroller.appendChild(duplicatedItem);
-			});
+		scrollerContent.forEach((item) => {
+			const duplicatedItem = item.cloneNode(true);
+			if (scroller) scroller.appendChild(duplicatedItem);
+		});
 
-			start = true;
-		}
+		start = true;
 	};
 </script>
 
