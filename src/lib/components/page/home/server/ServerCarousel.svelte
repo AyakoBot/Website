@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Returned as GETServers } from '../../../../../routes/api/servers/+server.js';
 	import { onMount } from 'svelte';
-	import Server from './Server.svelte.js';
+	import Server from './Server.svelte';
 
 	export let pauseOnHover: boolean = false;
 	export let speed: 'fast' | 'normal' | 'slow' = 'fast';
