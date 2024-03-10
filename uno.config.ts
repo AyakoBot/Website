@@ -9,7 +9,7 @@ export default defineConfig({
 	],
 	shortcuts: {
 		'btn-medium':
-			'bg-white rounded-xl color-[#fe3521] px-5 py-2 hover:bg-[#fe3521] hover:color-white',
+			'bg-white rounded-xl color-[#fe3521] px-5 py-2 hover:bg-[#fe3521] hover:color-white transition-all',
 		'btn-loud':
 			'bg-gradient-to-r from-[#fe3521] via-[#3dff56] to-[#fe3521] bg-200 p-2 px-6 rounded-xl transition-all bg-[position:0%_center] hover:bg-[position:100%_center] font-bold',
 		'btn-quiet': 'hover:color-[#b0ff00] transition-all',

@@ -1,5 +1,5 @@
 
-	<a class="btn-medium op-0 transition-all font-bold" href="https://invite.ayakobot.com" id="invite">
+	<a class="btn-medium op-0 font-bold" href="https://invite.ayakobot.com" id="invite">
 		Invite Ayako
 	</a>
 	<img
@@ -10,7 +10,7 @@
 		height="64"
 	/>
 	<a
-		class="btn-loud op-0 opacity-0 transition-all font-bold"
+		class="btn-loud op-0 opacity-0 font-bold"
 		href="https://invite.ayakobot.com"
 		id="support"
 	>
