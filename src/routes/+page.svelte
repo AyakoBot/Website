@@ -9,7 +9,7 @@
 <br class="pt-30" />
 <Flower />
 
-<div class="flex flex-col justify-center items-center mt-100">
+<div class="flex flex-col justify-center items-center mt-120">
 	<p class="md:text-4xl text-2xl code">
 		<RandomLetters text="Powerful Server Management" />
 		<RandomLetters text="And Moderation Bot" />
