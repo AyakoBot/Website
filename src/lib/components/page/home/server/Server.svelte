@@ -18,7 +18,7 @@
 	>
 		<div
 			class="absolute h-200% w-200% animate-[spin_4s_linear_infinite] custom-gradient transition-all ease-in-out {hover
-				? 'brightness-50'
+				? 'opacity-20'
 				: ''}"
 		/>
 
@@ -27,7 +27,7 @@
 				src="{server.banner}?size=2048"
 				alt=""
 				class="w-[calc(18.75rem-3px)] h-[calc(100%-4px)] rounded-2xl aspect-video absolute {hover
-					? 'scale-90% brightness-50'
+					? 'scale-90% opacity-20'
 					: ''} transition-all"
 			/>
 		{:else}
@@ -39,15 +39,15 @@
 				width="128"
 				height="128"
 				class="{server.icon ? 'rounded-full' : ''} aspect-square absolute h-128px w-129px {hover
-					? 'scale-90% brightness-50'
+					? 'scale-90% opacity-20'
 					: ''} transition-all"
 			/>
 		{/if}
 
 		<div
 			class="z-20 m-5 op-0 {hover
-				? 'op-100 translate-y-0'
-				: ''} transition-all translate-y--5 ease-in-out flex flex-col justify-center items-center p-5"
+				? 'op-100 scale-105%'
+				: ''} transition-all scale-90% ease-in-out flex flex-col justify-center items-center p-5 w-full"
 		>
 			<img
 				src="{server.icon}?size=2048"
@@ -55,14 +55,14 @@
 				height="64"
 				width="64"
 				class="rounded-full aspect-square {hover
-					? 'scale-y-100'
-					: ''} scale-y-0 transition-all ease-in-out"
+					? 'scale-105%'
+					: ''} scale-90% transition-all ease-in-out"
 			/>
-			<span class="{hover ? 'scale-y-100' : ''} scale-y-0 transition-all ease-in-out">
+			<span class="{hover ? 'scale-105%' : ''} scale-90% transition-all ease-in-out w-full p-2">
 				{server.name.slice(0, 30)}
 			</span>
 			<br />
-			<span class="{hover ? 'scale-y-100' : ''} scale-y-0 transition-all ease-in-out">
+			<span class="{hover ? 'scale-105%' : ''} scale-90% transition-all ease-in-out">
 				{numberWithCommas(server.membercount)} Members
 			</span>
 		</div>
