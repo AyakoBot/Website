@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Returned as GETServers } from '../../../../../routes/api/servers/+server.js';
 	import { onMount } from 'svelte';
-	import Server from './Server.svelte.js';
+	import Server from './Server.svelte';
 
 	const getServers = async (): Promise<GETServers> => {
 		const res = await fetch('/api/servers');
