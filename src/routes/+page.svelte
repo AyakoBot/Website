@@ -1,9 +1,21 @@
 <script lang="ts">
-	import InfiniteCarousel from '$lib/components/page/home/server/ServerCarousel.svelte';
+	import type { Returned as GETReviews } from './api/reviews/+server.js';
+	import InfiniteServerCarousel from '$lib/components/page/home/server/Carousel.svelte';
+	import InfiniteReviewCarousel from '$lib/components/page/home/reviews/Carousel.svelte';
 	import RandomLetters from '$lib/components/generic/RandomLetters.svelte';
 	import Buttons from '$lib/components/page/home/Buttons.svelte';
 	import Count from '$lib/components/page/home/Count.svelte';
+	import AverageReview from '$lib/components/page/home/AverageReview.svelte';
 	import Flower from '$lib/components/page/home/Flowers.svelte';
+	import FeatureTeaser from '$lib/components/page/home/features/main.svelte';
+	import LastCall from '$lib/components/page/home/LastCall.svelte';
+
+	const getReviews = async (): Promise<GETReviews> => {
+		const res = await fetch('/api/reviews');
+		return (await res.json()).sort(() => 0.5 - Math.random());
+	};
+
+	const reviews = getReviews();
 </script>
 
 <br class="pt-30" />
@@ -18,7 +30,7 @@
 
 <div class="w-full flex flex-row justify-center items-center mt-20">
 	<div
-		class="z-2 flex flex-col items-center justify-center items-center md:flex-row md:ml-6 ml-0 w-1/2"
+		class="z-2 flex flex-col items-center justify-center items-center md:flex-row w-1/2"
 	>
 		<Buttons />
 	</div>
@@ -28,4 +40,12 @@
 	<Count />
 </div>
 
-<InfiniteCarousel />
+<InfiniteServerCarousel />
+<div class="mt-10">
+	<AverageReview {reviews} />
+</div>
+<InfiniteReviewCarousel {reviews} />
+
+<FeatureTeaser />
+
+<LastCall />

@@ -2,6 +2,7 @@
 	import type { Returned as GETServers } from '../../../../../routes/api/servers/+server.js';
 	import { onMount } from 'svelte';
 	import Server from './Server.svelte';
+	import Loading from '$lib/components/generic/Loading.svelte';
 
 	const getServers = async (): Promise<GETServers> => {
 		const res = await fetch('/api/servers');
@@ -32,30 +33,24 @@
 </script>
 
 <div class="mt-20 flex flex-col justify-center items-center">
- <p>A selection of large Discord Servers Ayako manages</p>
- <p class="text-xs">hover to see more info</p>
 	{#await servers}
-		<img
-			src="https://cdn.ayakobot.com/Loading.gif"
-			width="128"
-			height="128"
-			alt="Loading..."
-			class="m-15"
-		/>
+		<Loading />
 	{:then servers}
 		<div
 			bind:this={container}
-			class="relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
+			class="relative z-20 max-w-100vw overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
 		>
 			<ul
 				bind:this={scroller}
-				class="flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap animate-[scroll_240s_reverse_linear_infinite] hover:animate-paused"
+				class="flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap animate-[scroll_80s_reverse_linear_infinite] hover:animate-paused"
 			>
 				{#each servers as server (server.guildid)}
 					<Server {server} />
 				{/each}
 			</ul>
 		</div>
+		<p class="color-neutral-500">A selection of large Discord Servers Ayako manages</p>
+		<p class="text-xs color-neutral-500">hover to see more info</p>
 	{:catch error}
 		{console.error(error)}
 		<p>Error</p>

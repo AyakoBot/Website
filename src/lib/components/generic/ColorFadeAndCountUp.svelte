@@ -54,7 +54,7 @@
 </script>
 
 <p
-	class="bg-gradient-to-r via-[#fe3521] from-[#b0ff00] to-[#b0ff00] bg-200 bg-repeat-x w-full m-auto bg-clip-text text-fill-color"
+	class="bg-gradient-to-r via-[#fe3521] from-[#b0ff00] to-[#b0ff00] bg-[length:200%] bg-repeat-x w-full m-auto bg-clip-text text-fill-color"
 	bind:this={element}
 >
 	{numberWithCommas(currentCount)}
