@@ -4,7 +4,6 @@ import type { RequestHandler } from './$types';
 import getChunks from '$lib/scripts/util/getChunks';
 
 export const GET: RequestHandler = async (req) => {
-	console.log();
 	const params = req.url.searchParams;
 	if (!params.get('blocks')) {
 		return error(400, {

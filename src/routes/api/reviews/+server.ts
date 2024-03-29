@@ -3,7 +3,7 @@ import DataBase from '$lib/server/database.js';
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async () => {
-	const reviews = await DataBase.reviews.findMany({ where: {} });
+	const reviews = await DataBase.reviews.findMany();
 	if (!reviews.length) return json([]);
 
 	const users = await Promise.all(
