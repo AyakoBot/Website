@@ -1,0 +1,26 @@
+<script lang="ts">
+	export let checked: boolean = false;
+	export let title: string;
+</script>
+
+<div class="p-2">
+	<label class="flex items-center relative w-max cursor-pointer select-none relative">
+		<span class="font-bold mr-3">{title}</span>
+		<input
+			type="checkbox"
+			class="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-full focus:outline-none {checked
+				? 'bg-[#3dff56]'
+				: 'bg-[#fe3521]'}"
+			on:click={() => {
+				checked = !checked;
+			}}
+		/>
+		<span class="absolute font-medium uppercase text-.5rem right-1 text-white">off</span>
+		<span class="absolute font-medium uppercase text-.5rem right-9 text-white">on</span>
+		<span
+			class="w-6 h-6 right-7.2 absolute rounded-full transition ease-in-out duration-.15s bg-neutral-100 {checked
+				? 'translate-x-6.4'
+				: ''}"
+		/>
+	</label>
+</div>

@@ -30,6 +30,7 @@ html {
 
 body,
 #main {
+	color: white;
 	min-height: 100lvh;
 	min-width: 100lvw;
 }
