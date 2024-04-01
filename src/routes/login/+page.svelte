@@ -1,11 +1,13 @@
 <script lang="ts">
 	import Loading from '$lib/components/generic/Loading.svelte';
 	import Switch from '$lib/components/generic/Switch.svelte';
+	import { page } from '$app/stores';
 
-	$: checked = true;
+	const code = $page.url.searchParams.has('code');
+	let checked = true;
 </script>
 
-{#if location.href.includes('code')}
+{#if code}
 	<Loading />
 {:else}
 	<div class="flex flex-col justify-center items-center">
@@ -13,7 +15,7 @@
 
 		<a
 			href="https://discord.com/oauth2/authorize?client_id={import.meta.env
-				.VITE_ID}&response_type=code&redirect_uri=${encodeURIComponent(
+				.VITE_ID}&response_type=code&redirect_uri={encodeURIComponent(
 				`${import.meta.env.VITE_HOSTNAME}/login`,
 			)}&scope=identify+guilds{checked ? '+guilds.join' : ''}"
 			class="text-xl btn-loud"
