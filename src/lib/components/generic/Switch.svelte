@@ -14,6 +14,9 @@
 			on:click={() => {
 				checked = !checked;
 			}}
+			on:keydown={() => {
+				checked = !checked;
+			}}
 		/>
 		<span class="absolute font-medium uppercase text-.5rem right-1 text-white">off</span>
 		<span class="absolute font-medium uppercase text-.5rem right-9 text-white">on</span>
