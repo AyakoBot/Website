@@ -1,6 +1,7 @@
 <script lang="ts">
 	import NavBar from '$lib/components/page/NavBar.svelte';
 	import Footer from '$lib/components/page/Footer.svelte';
+ import Sidebar from '$lib/components/page/Sidebar.svelte';
 	import Blob from '$lib/components/generic/Blob.svelte';
 
 	import '$lib/scripts/index.js';
@@ -13,6 +14,7 @@
   after:bg-black after:block after:h-full after:left-0 after:opacity-0 after:fixed after:scale-100 after:top-0 after:transition-opacity after:duration-1s after:ease-in-out after:delay-0.25s after:transition-visibility after:delay-1s after:delay-0.25s after:invisible after:w-full"
 >
 	<NavBar />
+ <Sidebar />
 	<hr />
 	<Blob />
 	<content class="mx-2 z-1 my-30">

@@ -1,7 +1,7 @@
 <nav
 	class="absolute w-full p-2 bg-neutral-900/75 flex flex-col justify-between items-center box-shadow-main md:flex-row z-99"
 >
-	<ul id="left" class="flex flex-row items-center">
+	<ul id="left" class="flex flex-row items-center ml-15">
 		<li class="pr-2">
 			<a href="/">
 				<img
@@ -14,7 +14,9 @@
 		</li>
 		<li class="flex flex-row justify-between items-end w-40%">
 			<p class="font-bold lg:text-9 text-8 color-[#b0ff00] of-unset">Ayako</p>
-			<p class="break-keep whitespace-nowrap pb-1.5 color-[#fe3521] font-bold pl-2 lg:text-5 text-4 of-unset">
+			<p
+				class="break-keep whitespace-nowrap pb-1.5 color-[#fe3521] font-bold pl-2 lg:text-5 text-4 of-unset"
+			>
 				Discord Bot
 			</p>
 		</li>
@@ -28,11 +30,17 @@
 			<a class="btn-medium text-4 lg:text-5 font-bold" href="/appeals">Appeals</a>
 		</li>
 		<li>
-			<a class="btn-quiet text-4 lg:text-5 font-bold" href="https://invite.ayakobot.com" target="_blank"
-				>Invite</a
+			<a
+				class="btn-quiet text-4 lg:text-5 font-bold"
+				href="https://invite.ayakobot.com"
+				target="_blank">Invite</a
 			>
 		</li>
-		<li><a class="btn-quiet text-4 lg:text-5 font-bold" href="https://support.ayakobot.com">Support</a></li>
-		<li><a class="color-yellow btn-quiet text-4 lg:text-5 font-bold" href="/donate">👑Premium👑</a></li>
+		<li>
+			<a class="btn-quiet text-4 lg:text-5 font-bold" href="https://support.ayakobot.com">Support</a>
+		</li>
+		<li>
+			<a class="color-yellow btn-quiet text-4 lg:text-5 font-bold" href="/donate">👑Premium👑</a>
+		</li>
 	</ul>
 </nav>
