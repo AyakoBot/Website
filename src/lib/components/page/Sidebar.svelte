@@ -10,6 +10,10 @@
 	$: opened = false;
 
 	const open = () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+
+		document.documentElement.style.overflowY = 'hidden';
+
 		opened = true;
 
 		backdrop.animate([{ opacity: '0%' }, { opacity: '100%' }], {
@@ -27,6 +31,8 @@
 
 	const close = () => {
 		opened = false;
+
+		document.documentElement.style.overflowY = 'scroll';
 
 		backdrop.animate([{ opacity: '100%' }, { opacity: '0%' }], {
 			duration: 300,
@@ -53,7 +59,7 @@ hover:bg-[#fe3521] hover:color-white"
 
 <nav
 	bind:this={sidebar}
-	class=" z-10000 h-full w-1/3 bg-neutral-900 fixed -left-100% box-shadow-main transition ease-in-out flex flex-col"
+	class=" z-10000 h-full w-1/3 bg-neutral-900 fixed -left-100% box-shadow-main transition ease-in-out flex flex-col scroll-auto"
 >
 	<div class="flex flex-row items-center justify-between p-2 mx-2">
 		<button
