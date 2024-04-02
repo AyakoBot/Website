@@ -27,7 +27,7 @@
 		if (element) observer.observe(element);
 	});
 
-	const counters: Map<number, number> = new Map();
+	const counters: Map<number, NodeJS.Timeout> = new Map();
 	$: currentCount = 0;
 
 	const animateCountUp = (targetValue: number) => {
