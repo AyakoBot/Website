@@ -1,4 +1,6 @@
 <script lang="ts">
+	// TODO: mobile
+
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Fa from 'svelte-fa';
 	import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
