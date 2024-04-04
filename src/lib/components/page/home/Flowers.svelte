@@ -152,14 +152,14 @@
 		flower5?.remove();
 	};
 
-	const src = `https://cdn.ayakobot.com/website_assets/flower.png`;
+	const src = 'https://cdn.ayakobot.com/website_assets/flower.png';
 	const alt = 'Flower';
 </script>
 
 <svelte:window bind:innerWidth />
 
 <div
-	class="flex justify-center items-center absolute w-90vw h-50vh of-hidden of-y-hidden left-0 top-5 z-1 lg:mt-0 md:mt-5 sm:mt-10 mt-25 translate-x-5%"
+	class="flex justify-center items-center absolute w-90vw h-50vh of-hidden of-y-hidden left-0 top-5 z-1 lg:mt-0 md:mt-5 sm:-mt-10 mt-10 translate-x-5%"
 >
 	<img
 		id="flower1"
@@ -201,7 +201,9 @@
 		draggable="false"
 		{alt}
 	/>
-	<p class="text-15 fw-bold code bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 sm:text-20 z-2 mt-20 lg:mt-80 md:mt-60 sm:mt-50">
+	<p
+		class="text-15 fw-bold code bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 sm:text-20 z-2 mt-20 lg:mt-80 md:mt-60 sm:mt-65"
+	>
 		<ColorFadeAndRandomLetters text="AYAKO" />
 	</p>
 </div>

@@ -1,21 +1,24 @@
-
-	<a class="btn-medium op-0 font-bold w-20%" href="https://invite.ayakobot.com" id="invite">
-		Invite Ayako
-	</a>
-	<img
-		id="flowerSpin"
-		src="https://cdn.ayakobot.com/website_assets/greenFlower.png"
-		alt="Flower"
-		width="64"
-		height="64"
-	/>
-	<a
-		class="btn-loud op-0 opacity-0 font-bold w-20%"
-		href="https://invite.ayakobot.com"
-		id="support"
-	>
-		Support Server
-	</a>
+<a
+	class="btn-medium op-0 font-bold w-full sm:w-40% md:w-30% px-0"
+	href="https://invite.ayakobot.com"
+	id="invite"
+>
+	Invite Ayako
+</a>
+<img
+	id="flowerSpin"
+	src="https://cdn.ayakobot.com/website_assets/greenFlower.png"
+	alt="Flower"
+	width="64"
+	height="64"
+/>
+<a
+	class="btn-loud op-0 opacity-0 font-bold w-full sm:w-40% md:w-30% px-0"
+	href="https://invite.ayakobot.com"
+	id="support"
+>
+	Support Server
+</a>
 
 <style scoped>
 	#invite {

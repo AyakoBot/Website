@@ -1,13 +1,14 @@
 <script lang="ts">
-	// TODO: mobile
-
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
+	import Buttons from '$lib/components/page/NavBar/Buttons.svelte';
+	import Header from '$lib/components/page/Sidebar/Header.svelte';
+	import { faBars } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
-	import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 
 	let sidebar: HTMLElement;
 	let backdrop: HTMLButtonElement;
 	$: opened = false;
+	$: width = 0;
 
 	const open = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -48,6 +49,8 @@
 	};
 </script>
 
+<svelte:window bind:innerWidth={width} />
+
 <button
 	class="bg-white color-[#fe3521] rounded-full top-4 left-4 absolute z-9999 p-3 w-12 h-12 transition ease-in-out aspect-square flex justify-center items-center
 hover:bg-[#fe3521] hover:color-white"
@@ -59,31 +62,17 @@ hover:bg-[#fe3521] hover:color-white"
 
 <nav
 	bind:this={sidebar}
-	class=" z-10000 h-full w-1/3 bg-neutral-900 fixed -left-100% box-shadow-main transition ease-in-out flex flex-col scroll-auto"
+	class=" z-10000 h-full w-full md:w-1/2 lg:w-1/3 bg-neutral-900 fixed -left-100% box-shadow-main transition ease-in-out flex flex-col scroll-auto"
 >
-	<div class="flex flex-row items-center justify-between p-2 mx-2">
-		<button
-			class="bg-white color-[#fe3521] rounded-full z-9999 w-12 h-12 p-3 aspect-square transition ease-in-out flex justify-center items-center
- hover:bg-[#fe3521] hover:color-white"
-			on:click={() => close()}
-			on:keydown={() => close()}
-		>
-			<Fa icon={faClose} size="1.5x" />
-		</button>
+	<Header />
 
-		<p class="font-bold lg:text-9 text-8 color-[#b0ff00] of-unset">Ayako</p>
-
-		<a href="/">
-			<img
-				src="https://cdn.ayakobot.com/website_assets/NavBarIcon.png"
-				alt="Ayako Logo Icon"
-				width="64"
-				height="64"
-			/>
-		</a>
-	</div>
+	{#if width < 640}
+		<div class="px-4"><Buttons /></div>
+	{/if}
 
 	<FancyBorder />
+
+	<div></div>
 </nav>
 
 <button
