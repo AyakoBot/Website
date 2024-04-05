@@ -1,4 +1,4 @@
-<div class="w-full h-40 relative">
+<div class="w-full h-5 relative">
  <div
   class="absolute inset-x-20 top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm"
  />

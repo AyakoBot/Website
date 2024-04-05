@@ -17,7 +17,7 @@ hover:bg-[#fe3521] hover:color-white"
 
 	<p class="font-bold lg:text-9 text-8 color-[#b0ff00] of-unset">Ayako</p>
 
-	<a href="/">
+	<a href="/" on:click={() => close()} on:keydown={() => close()}>
 		<img
 			src="https://cdn.ayakobot.com/website_assets/NavBarIcon.png"
 			alt="Ayako Logo Icon"

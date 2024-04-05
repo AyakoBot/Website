@@ -13,7 +13,7 @@
 	<div class="absolute top-0 h-20 w-full flex flex-row justify-center items-center">
 		{#if $page.data.name}
 			<div class="flex flex-row justify-between items-center">
-				<div class="flex flex-row justify-evenly items-center mr-5">
+				<div class="flex flex-row justify-evenly items-center mr-10">
 					<img
 						src={$page.data.pfp}
 						alt=""

@@ -77,7 +77,7 @@ hover:bg-[#fe3521] hover:color-white"
 
 	<FancyBorder />
 
-	<Buttons />
+	<Buttons {close} />
 
 	<Profile {close} />
 </nav>
