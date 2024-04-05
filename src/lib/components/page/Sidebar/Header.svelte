@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { faClose } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
+
+	export let close: Function;
 </script>
 
 <div class="flex flex-row items-center justify-between p-2 mx-2">

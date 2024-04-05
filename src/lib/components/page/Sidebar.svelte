@@ -1,9 +1,14 @@
 <script lang="ts">
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
-	import Buttons from '$lib/components/page/NavBar/Buttons.svelte';
+	import NavBarButtons from '$lib/components/page/NavBar/Buttons.svelte';
 	import Header from '$lib/components/page/Sidebar/Header.svelte';
+	import Buttons from '$lib/components/page/Sidebar/Buttons.svelte';
+	import Profile from '$lib/components/page/Sidebar/Profile.svelte';
 	import { faBars } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
+
+	export let pfp: string | undefined;
+	export let name: string | undefined;
 
 	let sidebar: HTMLElement;
 	let backdrop: HTMLButtonElement;
@@ -64,19 +69,21 @@ hover:bg-[#fe3521] hover:color-white"
 	bind:this={sidebar}
 	class=" z-10000 h-full w-full md:w-1/2 lg:w-1/3 bg-neutral-900 fixed -left-100% box-shadow-main transition ease-in-out flex flex-col scroll-auto"
 >
-	<Header />
+	<Header {close} />
 
 	{#if width < 640}
-		<div class="px-4"><Buttons /></div>
+		<div class="px-4"><NavBarButtons /></div>
 	{/if}
 
 	<FancyBorder />
 
-	<div></div>
+	<Buttons />
+
+	<Profile {close} />
 </nav>
 
 <button
-	class="w-100vw h-100vh bg-neutral-900/50 {opened ? 'z-9999' : '-z-1000'} op-0"
+	class="w-100vw h-100vh bg-neutral-900/50 {opened ? 'z-9999' : '-z-1000'} op-0 absolute"
 	bind:this={backdrop}
 	on:click={() => close()}
 	on:keydown={() => close()}
