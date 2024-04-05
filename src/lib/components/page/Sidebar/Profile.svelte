@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
@@ -23,7 +24,9 @@
 					<ColorFadeText text={$page.data.name} />
 				</div>
 
-				<a href="/logout" class="btn-medium" on:click={() => close()}>Log-Out</a>
+				<form method="POST" action="/api?/logout" use:enhance>
+					<button class="btn-medium">Log-Out</button>
+				</form>
 			</div>
 		{:else}
 			<a href="/login" class="btn-medium" on:click={() => close()}>Log-In</a>

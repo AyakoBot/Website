@@ -1,5 +1,6 @@
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
+import type { Returned as GETLogin } from '../api/login/+server.js';
 
 export const load: PageServerLoad = async (event) => {
 	const userId = event.cookies.get('discord-id');
@@ -13,5 +14,20 @@ export const load: PageServerLoad = async (event) => {
 	});
 	if (!res.ok) redirect(307, '/login');
 
-	redirect(307, '/');
+	const json = (await res.json()) as GETLogin;
+
+	const basicCookieOptions: Parameters<typeof event.cookies.set>[2] = {
+		expires: new Date(Date.now() + json.expires),
+		path: '/',
+		maxAge: json.expires,
+		sameSite: true,
+		httpOnly: false,
+		secure: false,
+	};
+
+	event.cookies.set('discord-id', json.id, basicCookieOptions);
+	event.cookies.set('discord-username', json.username, basicCookieOptions);
+	event.cookies.set('discord-avatar', json.avatar, basicCookieOptions);
+
+	throw redirect(307, '/?reload=true');
 };

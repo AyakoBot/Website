@@ -1,5 +1,4 @@
 import { json, error } from '@sveltejs/kit';
-import DataBase from '$lib/server/database.js';
 import type { RequestHandler } from './$types';
 import type { RESTPostOAuth2AccessTokenResult, RESTGetAPIUserResult } from 'discord-api-types/v10';
 import getAvatarURL from '$lib/scripts/util/getAvatarURL';
@@ -52,14 +51,21 @@ export const GET: RequestHandler = async (req) => {
 		secure: import.meta.env.VITE_ENV === 'prod',
 		httpOnly: true,
 	});
-	req.cookies.set('discord-id', user.id, basicCookieOptions);
-	req.cookies.set('discord-username', user.global_name ?? user.username, basicCookieOptions);
-	req.cookies.set('discord-avatar', getAvatarURL(user), basicCookieOptions);
 
-	return json({} as Returned);
+	return json({
+		id: user.id,
+		username: user.global_name ?? user.username,
+		avatar: getAvatarURL(user),
+		expires: token.expires_in,
+	} as Returned);
 };
 
-export type Returned = {};
+export type Returned = {
+	id: string;
+	username: string;
+	avatar: string;
+	expires: number;
+};
 
 const joinGuild = (auth: string, userId: string) => {
 	fetch(`https://discord.com/api/v10/guilds/298954459172700181/members/${userId}`, {

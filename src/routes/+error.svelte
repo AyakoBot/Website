@@ -1,3 +1,18 @@
+<script lang="ts">
+	import { page } from '$app/stores';
+	import { invalidateAll } from '$app/navigation';
+	import { redirect } from '@sveltejs/kit';
+	import { onMount } from 'svelte';
+
+	onMount(async () => {
+		const reload = $page.url.searchParams.get('reload');
+		if (!reload) return;
+
+		await invalidateAll();
+		redirect(307, '/');
+	});
+</script>
+
 <div class="flex flex-col items-center">
 	<img src="https://cdn.ayakobot.com/website_assets/AyakoCry.webp" alt="" width="128" />
 
