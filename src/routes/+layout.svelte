@@ -23,7 +23,7 @@
 
 	<hr />
 
-	<content class="mx-2 z-1 my-30">
+	<content class="mx-2 z-1 my-40 md:my-30">
 		<slot />
 	</content>
 

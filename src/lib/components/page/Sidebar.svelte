@@ -67,7 +67,7 @@ hover:bg-[#fe3521] hover:color-white"
 
 <nav
 	bind:this={sidebar}
-	class=" z-10000 h-full w-full md:w-1/2 lg:w-1/3 bg-neutral-900 fixed -left-100% box-shadow-main transition ease-in-out flex flex-col scroll-auto"
+	class="z-10000 h-full w-full md:w-1/2 lg:w-1/3 bg-neutral-900 fixed -left-100% box-shadow-main transition ease-in-out flex flex-col scroll-auto"
 >
 	<Header {close} />
 

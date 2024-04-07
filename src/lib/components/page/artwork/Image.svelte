@@ -42,15 +42,17 @@
 			<img
 				{src}
 				alt={artwork.art.description}
-				class="w-100vw h-auto {hovering ? 'scale-75 -translate-y-10' : ''} transition"
+				class="w-100vw h-auto {hovering ? 'scale-75 -translate-y-12.5%' : ''} transition"
 			/>
 
-			{#if hovering}
-				<div class="flex flex-row justify-center items-center absolute bottom-5 text-xl gap-5">
-					<img src={artwork.user.avatar} alt="" width="32" height="32" class="rounded-full" />
-					<ColorFadeText text={artwork.user.username} />
-				</div>
-			{/if}
+			<div
+				class="flex flex-row justify-center items-center absolute bottom-12.5% translate-y-50% text-xl gap-5 transition {hovering
+					? 'op-100'
+					: 'op-0'}"
+			>
+				<img src={artwork.user.avatar} alt="" width="32" height="32" class="rounded-full" />
+				<ColorFadeText text={artwork.user.username} />
+			</div>
 		</div>
 	{:else if failed}
 		<img {src} alt="Not Found" class="w-full h-auto" />
