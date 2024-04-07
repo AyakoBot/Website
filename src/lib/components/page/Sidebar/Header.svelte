@@ -5,7 +5,7 @@
 	export let close: Function;
 </script>
 
-<div class="flex flex-row items-center justify-between p-2 mx-2">
+<div class="flex flex-row items-center justify-between p-2 pb-0 mx-2">
 	<button
 		class="bg-white color-[#fe3521] rounded-full z-9999 w-12 h-12 p-3 aspect-square transition ease-in-out flex justify-center items-center
 hover:bg-[#fe3521] hover:color-white"

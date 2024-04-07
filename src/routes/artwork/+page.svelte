@@ -5,7 +5,6 @@
 	import SearchBar from '$lib/components/generic/SeachBar.svelte';
 	import Image from '$lib/components/page/artwork/Image.svelte';
 	import { ArtType } from '$lib/scripts/types.js';
-	import sleep from '$lib/scripts/util/sleep.js';
 	import type { Returned as GETArt } from '../api/artworks/+server.js';
 
 	const getArt = async (query?: string, type?: ArtType) => {
@@ -35,7 +34,7 @@
 		<FancyBorder />
 	</div>
 
-	<div class="w-full h-full m-auto mt-2">
+	<div class="w-full h-full m-auto mt-5">
 		{#await art}
 			<div class="w-100vw flex flex-row justify-center items-center">
 				<Loading />

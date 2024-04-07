@@ -4,11 +4,12 @@ export default defineConfig({
 	rules: [
 		['box-shadow-main', { 'box-shadow': '0 0.1em 0.3em 0.1em rgba(23, 23, 23, 0.75)' }],
 		['text-fill-color', { '-webkit-text-fill-color': 'transparent' }],
-		['code', { 'font-family': '"IBM Plex Mono", monospace' }],
+		['code-font', { 'font-family': '"IBM Plex Mono", monospace' }],
 		[/^column-count-(.+)$/, ([, d]) => ({ 'column-count': d })],
 		[/^column-width-(\d+)$/, ([, d]) => ({ 'column-width': `${Number(d) / 4}rem` })],
 	],
 	shortcuts: {
+		code: 'color-white bg-[#1e1e1e] py-1 px-2 rounded-2xl',
 		'btn-medium':
 			'bg-white rounded-xl color-[#fe3521] px-5 py-2 hover:bg-[#fe3521] hover:color-white transition-all',
 		'btn-loud':

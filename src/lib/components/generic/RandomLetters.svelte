@@ -39,6 +39,6 @@
 	});
 </script>
 
-<h1 bind:this={randomLetters} class="code opacity-0">
+<h1 bind:this={randomLetters} class="code-font opacity-0">
 	{title}
 </h1>

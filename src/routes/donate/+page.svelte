@@ -13,8 +13,9 @@
 	<a href="https://www.patreon.com/Lars_und_so" class="btn-loud mt-2 w-60">Donate on Patreon</a>
 	<a href="https://www.paypal.me/AyakoDevelopment" class="btn-loud mt-2 w-60">Donate on PayPal</a>
 
-	<br class="mt-10" />
-	<FancyBorder />
+	<div class="mt-2.5 mb-5 w-full">
+		<FancyBorder />
+	</div>
 
 	<span>Empty pockets but still wanna help?</span>
 	<span>Vote for Ayako on Bot Voting Pages</span>

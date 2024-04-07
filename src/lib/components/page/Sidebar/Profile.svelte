@@ -7,10 +7,10 @@
 	export let close: Function;
 </script>
 
-<div class="absolute bottom-0 h-20 left-0 w-full">
+<div class="absolute bottom-1.5 h-20 left-0 w-full">
 	<FancyBorder />
 
-	<div class="absolute top-0 h-20 w-full flex flex-row justify-center items-center">
+	<div class="absolute top-0 h-20 w-full flex flex-row justify-center items-center mt-2">
 		{#if $page.data.name}
 			<div class="flex flex-row justify-between items-center">
 				<div class="flex flex-row justify-evenly items-center mr-10">
