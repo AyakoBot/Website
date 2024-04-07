@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Returned as GETServers } from '../../../../../routes/api/servers/+server.js';
 	import { onMount } from 'svelte';
-	import Server from './Server.svelte';
+	import Server from '$lib/components/generic/Server.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
 
 	const getServers = async (): Promise<GETServers> => {
@@ -30,6 +30,8 @@
 			if (scroller) scroller.appendChild(duplicatedItem);
 		});
 	};
+
+	const numberWithCommas = (x: number) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 </script>
 
 <div class="mt-20 flex flex-col justify-center items-center">
@@ -45,7 +47,9 @@
 				class="flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap animate-[scroll_80s_reverse_linear_infinite] hover:animate-paused"
 			>
 				{#each servers as server (server.guildid)}
-					<Server {server} />
+					<Server {server}>
+						{numberWithCommas(server.membercount)} Members
+					</Server>
 				{/each}
 			</ul>
 		</div>

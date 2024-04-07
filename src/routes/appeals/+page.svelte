@@ -2,7 +2,7 @@
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
 	import type { Returned as GETAppealableServers } from '../api/@me/appeals/servers/+server.js';
-	import Server from '$lib/components/page/home/server/Server.svelte';
+	import Server from '$lib/components/generic/Server.svelte';
 
 	$: name = '';
 

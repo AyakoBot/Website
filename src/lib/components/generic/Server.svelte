@@ -1,12 +1,14 @@
 <script lang="ts">
-	import type { Returned as GETServers } from '../../../../../routes/api/servers/+server.js';
-
 	$: hover = false;
-	export let server: GETServers[number];
-	const numberWithCommas = (x: number) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	export let server: {
+		icon: string | null;
+		banner: string | null;
+		membercount?: number;
+		name: string;
+	};
 </script>
 
-<li class="container">
+<li>
 	<div
 		on:mouseover={() => (hover = true)}
 		on:mouseleave={() => (hover = false)}
@@ -14,7 +16,7 @@
 		on:blur={() => (hover = false)}
 		tabindex="-1"
 		role="button"
-		class="w-75 max-h-full h-auto rounded-2xl flex-shrink-0 mx-8 aspect-video hover:scale-105% transition-all ease-in-out relative flex flex-col justify-center items-center of-hidden"
+		class="w-75 max-h-full h-auto rounded-2xl flex-shrink-0 mx-8 aspect-video hover:scale-105 transition-all ease-in-out relative flex flex-col justify-center items-center of-hidden cursor-default"
 	>
 		<div
 			class="absolute h-50vh w-50vh animate-[spin_4s_linear_infinite] custom-gradient transition-all ease-in-out box-shadow-main {hover
@@ -27,7 +29,7 @@
 				src="{server.banner}?size=2048"
 				alt=""
 				class="w-[calc(18.75rem-3px)] h-[calc(100%-4px)] rounded-2xl aspect-video absolute {hover
-					? 'scale-90% op-20'
+					? 'scale-90 op-20'
 					: ''} transition-all"
 			/>
 		{:else}
@@ -39,15 +41,15 @@
 				width="128"
 				height="128"
 				class="{server.icon ? 'rounded-full' : ''} aspect-square absolute h-128px w-129px {hover
-					? 'scale-90% opacity-20'
+					? 'scale-90 opacity-20'
 					: ''} transition-all"
 			/>
 		{/if}
 
 		<div
 			class="z-20 op-0 {hover
-				? 'op-100 scale-105% z-unset'
-				: 'z--1'} transition-all scale-90% ease-in-out flex flex-col justify-center items-center w-full h-full"
+				? 'op-100 scale-105 z-unset'
+				: 'z--1'} transition-all scale-90 ease-in-out flex flex-col justify-center items-center w-full h-full"
 		>
 			<img
 				src="{server.icon}?size=2048"
@@ -55,15 +57,15 @@
 				height="64"
 				width="64"
 				class="rounded-full aspect-square {hover
-					? 'scale-105%'
-					: ''} scale-90% transition-all ease-in-out"
+					? 'scale-105'
+					: ''} scale-90 transition-all ease-in-out"
 			/>
-			<span class="{hover ? 'scale-105%' : ''} scale-90% transition-all ease-in-out w-full p-2">
+			<span class="{hover ? 'scale-105' : ''} scale-90 transition-all ease-in-out w-full p-2">
 				{server.name.slice(0, 50)}
 			</span>
 			<br />
-			<span class="{hover ? 'scale-105%' : ''} scale-90% transition-all ease-in-out">
-				{numberWithCommas(server.membercount)} Members
+			<span class="scale-90 transition-all ease-in-out">
+				<slot />
 			</span>
 		</div>
 	</div>
