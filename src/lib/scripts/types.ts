@@ -5,6 +5,12 @@ export type ReviewDispatch = {
 	unhovered: GETReviews[number];
 };
 
+export type SearchBarDispatch = {
+	query: { query: string; option: string | undefined };
+	type: { query: string; option: string | undefined };
+	any: { query: string; option: string | undefined };
+};
+
 export enum ArtType {
 	emoji = 'emoji',
 	full = 'full',
