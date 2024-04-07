@@ -13,7 +13,7 @@
 		if (type) urlSearchParams.set('type', type);
 
 		const res = await fetch(`/api/artworks?${urlSearchParams.toString()}`);
-		return await (res.json() as Promise<GETArt>);
+		return res.json() as Promise<GETArt>;
 	};
 
 	let art = getArt();
@@ -40,7 +40,7 @@
 
 <div class="flex flex-col justify-center items-center w-full mt-25">
 	<div class="mb-5 w-full absolute top-40 left-0">
-		<div class="flex flex-row justify-center items-center ">
+		<div class="flex flex-row justify-center items-center">
 			<input
 				type="text"
 				placeholder="Search"
