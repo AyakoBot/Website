@@ -1,12 +1,14 @@
 <script lang="ts">
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import type { Returned as GETArt } from '../../../../routes/api/artworks/+server.js';
 	import Loading from '$lib/components/generic/Loading.svelte';
 
 	export let artwork: GETArt[number];
 
 	const src = `https://cdn.ayakobot.com/Ayako_Artwork/${artwork.art.url}`;
+	const abortLoad = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEAAAAALAAAAAABAAEAAAI=;';
+	const img = new Image();
 
 	let loaded = false;
 	let failed = false;
@@ -14,7 +16,6 @@
 	let hovering = false;
 
 	onMount(() => {
-		const img = new Image();
 		img.src = src;
 		loading = true;
 
@@ -26,6 +27,12 @@
 			loading = false;
 			failed = true;
 		};
+	});
+
+	onDestroy(() => {
+		img.src = abortLoad;
+		img.onload = null;
+		img.onerror = null;
 	});
 </script>
 
