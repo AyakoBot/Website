@@ -84,8 +84,9 @@ model art {
   userid   String  @db.VarChar
   created  Decimal @id @db.Decimal
   url      String
-  type     String  @default("full")
   verified Boolean @default(false)
+  type     ArtType @default(full)
+  desc     String?
 
   @@index([created])
 }
@@ -1045,4 +1046,10 @@ enum WeekendType {
   onlyOnWeekend
   onlyOnWeekdays
   everyDay
+}
+
+enum ArtType {
+  full
+  icon
+  emoji
 }

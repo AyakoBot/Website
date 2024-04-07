@@ -5,6 +5,8 @@ export default defineConfig({
 		['box-shadow-main', { 'box-shadow': '0 0.1em 0.3em 0.1em rgba(23, 23, 23, 0.75)' }],
 		['text-fill-color', { '-webkit-text-fill-color': 'transparent' }],
 		['code', { 'font-family': '"IBM Plex Mono", monospace' }],
+		[/^column-count-(.+)$/, ([, d]) => ({ 'column-count': d })],
+		[/^column-width-(\d+)$/, ([, d]) => ({ 'column-width': `${Number(d) / 4}rem` })],
 	],
 	shortcuts: {
 		'btn-medium':
