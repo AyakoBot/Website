@@ -24,8 +24,6 @@ export const GET: RequestHandler = async (req) => {
 	const token = (await tokeRes.json()) as RESTPostOAuth2AccessTokenResult | { error: string };
 	if ('error' in token) return error(400, token.error);
 
-	console.log(token.token_type);
-
 	const userRes = await fetch('https://discord.com/api/v10/users/@me', {
 		headers: { Authorization: `${token.token_type} ${token.access_token}` },
 	});
