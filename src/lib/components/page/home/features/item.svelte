@@ -107,6 +107,7 @@
 			class="rounded-2xl op-0 box-shadow-main"
 			width="95%"
 			alt=""
+			loading="lazy"
 		/>
 
 		<img
@@ -115,6 +116,7 @@
 			class="rounded-2xl absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 -z-20"
 			width="264"
 			alt=""
+			loading="lazy"
 		/>
 
 		<div bind:this={hoverMeText} class="text-sm text-neutral-300/75">Hover</div>

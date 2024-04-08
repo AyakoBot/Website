@@ -11,6 +11,7 @@
 	alt="Flower"
 	width="64"
 	height="64"
+	loading="eager"
 />
 <a
 	class="btn-loud op-0 opacity-0 font-bold w-full sm:w-40% md:w-30% px-0"

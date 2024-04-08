@@ -10,7 +10,13 @@
 
 <div class="flex justify-start items-center flex-col w-100%">
 	<h1 class="text-xl">{credit.username}</h1>
-	<img src={credit.avatar} alt="" width="128" class="rounded-full my-5 box-shadow-main" />
+	<img
+		src={credit.avatar}
+		alt=""
+		width="128"
+		class="rounded-full my-5 box-shadow-main"
+		loading="lazy"
+	/>
 
 	<div class="my-2">
 		{#if credit.socials?.length}

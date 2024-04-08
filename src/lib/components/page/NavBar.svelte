@@ -16,6 +16,7 @@
 					alt="Ayako Logo Icon"
 					width="64"
 					height="64"
+					loading="eager"
 				/></a
 			>
 		</li>

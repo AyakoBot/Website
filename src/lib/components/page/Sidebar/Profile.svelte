@@ -20,6 +20,7 @@
 						width="48"
 						height="48"
 						class="rounded-full mx-2 box-shadow-main"
+      loading="lazy"
 					/>
 					<ColorFadeText text={$page.data.name} />
 				</div>

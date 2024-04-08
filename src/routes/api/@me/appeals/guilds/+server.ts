@@ -2,10 +2,13 @@ import DataBase from '$lib/server/database.js';
 import { json, error } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import type { APIGuild } from 'discord-api-types/v10';
+import user2Cookies from '$lib/scripts/util/user2Cookies';
 
 export const GET: RequestHandler = async (req) => {
+	const authenticated = await user2Cookies(req);
+	if (authenticated) return error(authenticated, 'Invalid or no token provided');
+
 	const token = req.cookies.get('discord-token');
-	if (!token) return error(403, 'Unauthorized. Please Log-In first');
 
 	const res = await fetch('https://discord.com/api/v10/users/@me/guilds', {
 		headers: { Authorization: `Bearer ${token}` },

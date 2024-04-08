@@ -3,7 +3,14 @@
 </script>
 
 <footer class="bg-neutral-900/75 w-full box-shadow-main flex md:mt-0 mt-20 z-2 relative">
- <img src="https://cdn.ayakobot.com/website_assets/AyakoPeek.webp" alt="" width="32" height="32" class="absolute right-15 -top-8" />
+	<img
+		src="https://cdn.ayakobot.com/website_assets/AyakoPeek.webp"
+		alt=""
+		width="32"
+		height="32"
+		class="absolute right-15 -top-8"
+		loading="eager"
+	/>
 	<ul class="flex flex-col justify-around items-center w-full">
 		<li class="flex flex-row items-center justify-evenly w-full flex-wrap">
 			<ul id="left" class="flex flex-row items-center justify-evenly">
@@ -15,6 +22,7 @@
 							class="md:w-128px md:h-128px w-64px h-64px"
 							width="128"
 							height="128"
+       loading="eager"
 						/></a
 					>
 				</li>

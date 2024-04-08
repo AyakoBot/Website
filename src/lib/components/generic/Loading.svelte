@@ -4,4 +4,5 @@
 	height="128"
 	alt="Loading..."
 	class="m-15"
+	loading="eager"
 />

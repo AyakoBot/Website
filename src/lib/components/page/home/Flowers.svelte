@@ -168,6 +168,7 @@
 		{src}
 		draggable="false"
 		{alt}
+		loading="eager"
 	/>
 	<img
 		id="flower2"
@@ -176,6 +177,7 @@
 		{src}
 		draggable="false"
 		{alt}
+		loading="eager"
 	/>
 	<img
 		id="flower3"
@@ -184,6 +186,7 @@
 		{src}
 		draggable="false"
 		{alt}
+		loading="eager"
 	/>
 	<img
 		id="flower4"
@@ -192,6 +195,7 @@
 		{src}
 		draggable="false"
 		{alt}
+		loading="eager"
 	/>
 	<img
 		id="flower5"
@@ -200,6 +204,7 @@
 		{src}
 		draggable="false"
 		{alt}
+		loading="eager"
 	/>
 	<p
 		class="text-15 fw-bold code-fontcode bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 sm:text-20 z-2 mt-20 lg:mt-80 md:mt-60 sm:mt-65"

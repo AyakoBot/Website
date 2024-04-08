@@ -3,6 +3,7 @@
 	import Loading from '$lib/components/generic/Loading.svelte';
 	import type { Returned as GETAppealableGuilds } from '../api/@me/appeals/guilds/+server.js';
 	import Guild from '$lib/components/generic/Guild.svelte';
+	import SearchBar from '$lib/components/generic/SearchBar.svelte';
 
 	$: name = '';
 
@@ -32,9 +33,15 @@
 	});
 </script>
 
+<div class="w-100vw">
+	<SearchBar on:any={(e) => (name = e.detail.query)} options={[]} />
+</div>
+
 {#await guilds}
-	<Loading />
-	<h1>Loading your Servers...</h1>
+	<div class="flex justify-center items-center flex-col">
+		<Loading />
+		<h1>Loading your Servers...</h1>
+	</div>
 {:then guilds}
 	{#if guilds.appealEnabled.filter(filter)}
 		<h1 class="text-3xl">Appealable Servers</h1>
@@ -44,8 +51,8 @@
 					.toLowerCase()
 					.includes(name.toLowerCase())) as guild, i (i)}
 				<Guild guild={fixLinks(guild)}>
-     <a class="btn-medium" href="guilds/{guild.id}/appeals">Appeal</a>
-    </Guild>
+					<a class="btn-medium" href="guilds/{guild.id}/appeals">Appeal</a>
+				</Guild>
 			{/each}
 		</ul>
 	{/if}

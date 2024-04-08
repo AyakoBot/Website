@@ -47,6 +47,7 @@
 			on:blur={() => (hovering = false)}
 		>
 			<img
+				loading="lazy"
 				{src}
 				alt={artwork.art.description}
 				class="w-100vw h-auto {hovering ? 'scale-75 -translate-y-12.5%' : ''} transition"
@@ -57,12 +58,19 @@
 					? 'op-100'
 					: 'op-0'}"
 			>
-				<img src={artwork.user.avatar} alt="" width="32" height="32" class="rounded-full" />
+				<img
+					src={artwork.user.avatar}
+					alt=""
+					width="32"
+					height="32"
+					class="rounded-full"
+					loading="lazy"
+				/>
 				<ColorFadeText text={artwork.user.username} />
 			</div>
 		</div>
 	{:else if failed}
-		<img {src} alt="Not Found" class="w-full h-auto" />
+		<img {src} alt="Not Found" class="w-full h-auto" loading="lazy" />
 	{:else if loading}
 		<Loading />
 	{/if}

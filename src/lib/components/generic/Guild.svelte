@@ -26,6 +26,7 @@
 
 		{#if guild.banner}
 			<img
+				loading="lazy"
 				src="{guild.banner}?size=2048"
 				alt=""
 				class="w-[calc(18.75rem-3px)] h-[calc(100%-4px)] rounded-2xl aspect-video absolute {hover
@@ -34,6 +35,7 @@
 			/>
 		{:else}
 			<img
+				loading="eager"
 				src={guild.icon
 					? `${guild.icon}?size=2048`
 					: 'https://cdn.ayakobot.com/website_assets/UnknownPfp.png'}
@@ -52,6 +54,7 @@
 				: 'z--1'} transition-all scale-90 ease-in-out flex flex-col justify-center items-center w-full h-full"
 		>
 			<img
+   loading="eager"
 				src="{guild.icon}?size=2048"
 				alt=""
 				height="64"

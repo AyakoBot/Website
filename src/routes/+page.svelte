@@ -31,10 +31,10 @@
 
 <div class="w-full h-full mt-100vh">
 	<div class="flex flex-col justify-center items-center -mt-140 sm:-mt-120">
-		<p class="md:text-4xl text-2xl code-font">
+		<div class="md:text-4xl text-2xl code-font">
 			<RandomLetters text="Powerful Server Management" />
 			<RandomLetters text="And Moderation Bot" />
-		</p>
+		</div>
 	</div>
 
 	<div class="w-full flex flex-row justify-center items-center mt-20">

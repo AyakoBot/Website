@@ -17,19 +17,17 @@ export const GET: RequestHandler = async (req) => {
 
 	const tokeRes = await fetch('https://discord.com/api/v10/oauth2/token', {
 		method: 'POST',
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
-		},
+		headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 		body,
 	});
 
 	const token = (await tokeRes.json()) as RESTPostOAuth2AccessTokenResult | { error: string };
 	if ('error' in token) return error(400, token.error);
 
+	console.log(token.token_type);
+
 	const userRes = await fetch('https://discord.com/api/v10/users/@me', {
-		headers: {
-			Authorization: `${token.token_type} ${token.access_token}`,
-		},
+		headers: { Authorization: `${token.token_type} ${token.access_token}` },
 	});
 
 	const user = (await userRes.json()) as RESTGetAPIUserResult | { error: string };

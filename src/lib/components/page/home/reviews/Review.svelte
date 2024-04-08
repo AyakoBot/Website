@@ -47,6 +47,7 @@
 				class="{review.avatar ? 'rounded-full' : ''} aspect-square absolute {hover
 					? 'scale-90% op-20'
 					: ''} transition-all"
+				loading="lazy"
 			/>
 		{/if}
 

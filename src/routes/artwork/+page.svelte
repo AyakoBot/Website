@@ -2,7 +2,7 @@
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
 	import NoResults from '$lib/components/generic/NoResults.svelte';
-	import SearchBar from '$lib/components/generic/SeachBar.svelte';
+	import SearchBar from '$lib/components/generic/SearchBar.svelte';
 	import Image from '$lib/components/page/artwork/Image.svelte';
 	import { ArtType } from '$lib/scripts/types.js';
 	import type { Returned as GETArt } from '../api/artworks/+server.js';

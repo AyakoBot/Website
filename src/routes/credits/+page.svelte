@@ -14,11 +14,18 @@
 </script>
 
 <div class="flex flex-col items-center justify-center w-full">
-	<img src="https://cdn.ayakobot.com/website_assets/ayakoLove.png" width="128" alt="" />
+	<img
+		src="https://cdn.ayakobot.com/website_assets/ayakoLove.png"
+		width="128"
+		alt=""
+		loading="lazy"
+	/>
 
 	<h1 class="text-xl">Creators & Credits</h1>
 
-	<div class="grid auto-rows-max grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 mt-10">
+	<div
+		class="grid auto-rows-max grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 mt-10"
+	>
 		{#await credits}
 			<Loading />
 		{:then credits}

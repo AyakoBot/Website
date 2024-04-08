@@ -3,7 +3,12 @@
 </script>
 
 <div class="flex flex-col items-center">
-	<img src="https://cdn.ayakobot.com/website_assets/ayakodevil.png" alt="" width="128" />
+	<img
+		src="https://cdn.ayakobot.com/website_assets/ayakodevil.png"
+		alt=""
+		width="128"
+		loading="lazy"
+	/>
 
 	<h1 class="text-xl mt-2">Premium?</h1>
 	<span>No one likes Pay-Walls.<br />Neither do we.</span>

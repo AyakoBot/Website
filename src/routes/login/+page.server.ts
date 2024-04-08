@@ -17,7 +17,7 @@ export const load: PageServerLoad = async (event) => {
 	const json = (await res.json()) as GETLogin;
 
 	const basicCookieOptions: Parameters<typeof event.cookies.set>[2] = {
-		expires: new Date(Date.now() + json.expires),
+		expires: new Date(Date.now() + json.expires * 1000),
 		path: '/',
 		maxAge: json.expires,
 		sameSite: true,
