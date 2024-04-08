@@ -1,5 +1,6 @@
 import type { RequestEvent } from '@sveltejs/kit';
 import type { APIUser } from 'discord-api-types/v10';
+import getAvatarURL from './getAvatarURL';
 
 export default async (req: RequestEvent) => {
 	const token = req.cookies.get('discord-token');
@@ -23,5 +24,5 @@ export default async (req: RequestEvent) => {
 
 	req.cookies.set('discord-id', user.id, basicCookieOptions);
 	req.cookies.set('discord-username', user.username, basicCookieOptions);
-	if (user.avatar) req.cookies.set('discord-avatar', user.avatar, basicCookieOptions);
+	req.cookies.set('discord-avatar', getAvatarURL(user), basicCookieOptions);
 };
