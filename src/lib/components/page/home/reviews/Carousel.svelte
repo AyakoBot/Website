@@ -1,11 +1,8 @@
 <script lang="ts">
-	import type { Returned as GETReviews } from '../../../../../routes/api/reviews/+server.js';
-	import { tweened } from 'svelte/motion';
-	import { cubicOut } from 'svelte/easing';
-
-	import { onMount } from 'svelte';
-	import Review from './Review.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
+	import { onMount } from 'svelte';
+	import type { Returned as GETReviews } from '../../../../../routes/api/reviews/+server.js';
+	import Review from './Review.svelte';
 
 	export let reviews: Promise<GETReviews>;
 
@@ -15,7 +12,7 @@
 	let hoveredReviewId: string | null;
 	$: hoveredReviewId = null;
 
-	let timeout: number | null = null;
+	let timeout: NodeJS.Timeout | null = null;
 	let reviewDiv: HTMLDivElement;
 
 	let content: string;

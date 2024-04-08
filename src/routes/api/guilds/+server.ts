@@ -3,10 +3,10 @@ import DataBase from '$lib/server/database.js';
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async () => {
-	const servers = await DataBase.guilds.findMany({ where: { membercount: { gte: 10000 } } });
-	if (!servers) return json([]);
+	const guilds = await DataBase.guilds.findMany({ where: { membercount: { gte: 10000 } } });
+	if (!guilds) return json([]);
 
-	return json(servers.map((s) => ({ ...s, membercount: Number(s.membercount) })) as Returned);
+	return json(guilds.map((s) => ({ ...s, membercount: Number(s.membercount) })) as Returned);
 };
 
 export type Returned = {

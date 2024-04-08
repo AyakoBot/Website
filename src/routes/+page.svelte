@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
 	import RandomLetters from '$lib/components/generic/RandomLetters.svelte';
 	import AverageReview from '$lib/components/page/home/AverageReview.svelte';
@@ -9,7 +8,7 @@
 	import LastCall from '$lib/components/page/home/LastCall.svelte';
 	import FeatureTeaser from '$lib/components/page/home/features/main.svelte';
 	import InfiniteReviewCarousel from '$lib/components/page/home/reviews/Carousel.svelte';
-	import InfiniteServerCarousel from '$lib/components/page/home/server/Carousel.svelte';
+	import InfiniteGuildCarousel from '$lib/components/page/home/guild/Carousel.svelte';
 	import { onMount } from 'svelte';
 	import type { Returned as GETReviews } from './api/reviews/+server.js';
 
@@ -48,7 +47,7 @@
 		<Count />
 	</div>
 
-	<InfiniteServerCarousel />
+	<InfiniteGuildCarousel />
 	<div class="mt-10">
 		<AverageReview {reviews} />
 	</div>

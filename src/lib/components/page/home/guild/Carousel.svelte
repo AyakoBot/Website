@@ -1,15 +1,15 @@
 <script lang="ts">
-	import type { Returned as GETServers } from '../../../../../routes/api/servers/+server.js';
+	import type { Returned as GETGuilds } from '../../../../../routes/api/guilds/+server.js';
 	import { onMount } from 'svelte';
-	import Server from '$lib/components/generic/Server.svelte';
+	import Guild from '$lib/components/generic/Guild.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
 
-	const getServers = async (): Promise<GETServers> => {
-		const res = await fetch('/api/servers');
+	const getGuilds = async (): Promise<GETGuilds> => {
+		const res = await fetch('/api/guilds');
 		return (await res.json()).sort(() => 0.5 - Math.random());
 	};
 
-	const servers = getServers();
+	const guilds = getGuilds();
 
 	let container: HTMLDivElement;
 	let scroller: HTMLUListElement;
@@ -19,7 +19,7 @@
 	});
 
 	const addAnimation = async () => {
-		await servers;
+		await guilds;
 
 		if (!container || !scroller) return;
 
@@ -35,9 +35,9 @@
 </script>
 
 <div class="mt-20 flex flex-col justify-center items-center">
-	{#await servers}
+	{#await guilds}
 		<Loading />
-	{:then servers}
+	{:then guilds}
 		<div
 			bind:this={container}
 			class="relative z-20 max-w-100vw overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
@@ -46,10 +46,10 @@
 				bind:this={scroller}
 				class="flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap animate-[scroll_80s_reverse_linear_infinite] hover:animate-paused"
 			>
-				{#each servers as server (server.guildid)}
-					<Server {server}>
-						{numberWithCommas(server.membercount)} Members
-					</Server>
+				{#each guilds as guild (guild.guildid)}
+					<Guild {guild}>
+						{numberWithCommas(guild.membercount)} Members
+					</Guild>
 				{/each}
 			</ul>
 		</div>

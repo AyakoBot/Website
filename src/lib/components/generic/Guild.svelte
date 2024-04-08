@@ -1,6 +1,6 @@
 <script lang="ts">
 	$: hover = false;
-	export let server: {
+	export let guild: {
 		icon: string | null;
 		banner: string | null;
 		membercount?: number;
@@ -24,9 +24,9 @@
 				: ''}"
 		/>
 
-		{#if server.banner}
+		{#if guild.banner}
 			<img
-				src="{server.banner}?size=2048"
+				src="{guild.banner}?size=2048"
 				alt=""
 				class="w-[calc(18.75rem-3px)] h-[calc(100%-4px)] rounded-2xl aspect-video absolute {hover
 					? 'scale-90 op-20'
@@ -34,13 +34,13 @@
 			/>
 		{:else}
 			<img
-				src={server.icon
-					? `${server.icon}?size=2048`
+				src={guild.icon
+					? `${guild.icon}?size=2048`
 					: 'https://cdn.ayakobot.com/website_assets/UnknownPfp.png'}
 				alt=""
 				width="128"
 				height="128"
-				class="{server.icon ? 'rounded-full' : ''} aspect-square absolute h-128px w-129px {hover
+				class="{guild.icon ? 'rounded-full' : ''} aspect-square absolute h-128px w-129px {hover
 					? 'scale-90 opacity-20'
 					: ''} transition-all"
 			/>
@@ -52,7 +52,7 @@
 				: 'z--1'} transition-all scale-90 ease-in-out flex flex-col justify-center items-center w-full h-full"
 		>
 			<img
-				src="{server.icon}?size=2048"
+				src="{guild.icon}?size=2048"
 				alt=""
 				height="64"
 				width="64"
@@ -61,9 +61,8 @@
 					: ''} scale-90 transition-all ease-in-out"
 			/>
 			<span class="{hover ? 'scale-105' : ''} scale-90 transition-all ease-in-out w-full p-2">
-				{server.name.slice(0, 50)}
+				{guild.name.slice(0, 50)}
 			</span>
-			<br />
 			<span class="scale-90 transition-all ease-in-out">
 				<slot />
 			</span>
