@@ -9,7 +9,10 @@ export const GET: RequestHandler = async (req) => {
 
 	const { guildId } = req.params;
 	const userId = req.cookies.get('discord-id');
-	const where = { where: { userid: userId, guildid: guildId } };
+	const where = {
+		where: { userid: userId, guildid: guildId },
+	orderBy: { uniquetimestamp: 'desc' } as const,
+	};
 
 	return json(
 		(

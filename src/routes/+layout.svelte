@@ -5,7 +5,6 @@
 	import Sidebar from '$lib/components/page/Sidebar.svelte';
 	import Blob from '$lib/components/generic/Blob.svelte';
 
-	export let data: LayoutServerData;
 
 	import '$lib/scripts/index.js';
 </script>
@@ -19,11 +18,11 @@
 	<Blob />
 
 	<NavBar />
-	<Sidebar name={data.name} pfp={data.pfp} />
+	<Sidebar />
 
-	<hr />
+	<hr class="op-0"/>
 
-	<content class="mx-2 z-1 my-40 md:my-30">
+	<content class="mx-2 z-1 my-40 md:my-30 w-fit max-w-100%">
 		<slot />
 	</content>
 

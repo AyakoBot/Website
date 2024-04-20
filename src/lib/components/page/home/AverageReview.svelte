@@ -5,7 +5,7 @@
 	export let reviews: Promise<GETReviews>;
 </script>
 
-<p class="text-10">with an average of</p>
+<p class="text-10">and an average of</p>
 {#await reviews}
 	<p class="text-15"><ColorFadeAndCountUp num={5} /></p>
 {:then reviews}

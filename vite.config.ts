@@ -6,5 +6,9 @@ import { defineConfig } from 'vite';
 import UnoCSS from '@unocss/svelte-scoped/vite';
 
 export default defineConfig({
-	plugins: [sveltekit(), UnoCSS({ injectReset: '' })], // Unlighthouse({}),
+	plugins: [
+		sveltekit(),
+		UnoCSS({ injectReset: '' }),
+		// Unlighthouse({}),
+	],
 });

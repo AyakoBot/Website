@@ -13,3 +13,8 @@ prisma.$use(async (params, next) => {
 });
 
 export default prisma;
+
+export const disconnect = async (): Promise<void> => {
+	console.log('DB Disco');
+	return prisma.$disconnect();
+};

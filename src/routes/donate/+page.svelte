@@ -12,6 +12,8 @@
 
 	<h1 class="text-xl mt-2">Premium?</h1>
 	<span>No one likes Pay-Walls.<br />Neither do we.</span>
+	<FancyBorder />
+
 	<h1 class="text-xl mt-2">Consider donating</h1>
 	<span>and help Ayako stay free forever</span>
 
