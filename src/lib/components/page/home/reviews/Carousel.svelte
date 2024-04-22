@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Loading from '$lib/components/generic/Loading.svelte';
 	import { onMount } from 'svelte';
-	import type { Returned as GETReviews } from '../../../../../routes/api/reviews/+server.js';
+	import type { Returned as GETReviews } from '$api/reviews/+server.js';
 	import Review from './Review.svelte';
 
 	export let reviews: Promise<GETReviews>;

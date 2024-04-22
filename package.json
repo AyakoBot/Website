@@ -31,6 +31,8 @@
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
 		"unocss": "^0.58.5",
+		"unocss-preset-animations": "^1.0.2",
+		"unocss-preset-shadcn": "^0.2.3",
 		"vite": "^5.0.3"
 	},
 	"type": "module",
@@ -43,11 +45,13 @@
 		"@prisma/client": "^5.11.0",
 		"@sveltejs/adapter-cloudflare": "^4.1.0",
 		"@unocss/reset": "^0.58.5",
-		"bits-ui": "^0.21.1",
+		"bits-ui": "^0.21.2",
 		"clsx": "^2.1.0",
 		"discord-api-types": "^0.37.78",
 		"dotenv": "^16.4.5",
+		"lucide-svelte": "^0.372.0",
 		"svelte-fa": "^4.0.2",
-		"tailwind-merge": "^2.2.2"
+		"tailwind-merge": "^2.2.2",
+		"tailwind-variants": "^0.2.1"
 	}
 }

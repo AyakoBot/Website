@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ColorFadeAndCountUp from '$lib/components/generic/ColorFadeAndCountUp.svelte';
-	import type { Returned as GETStats } from '../../../../routes/api/stats/+server.js';
+	import type { Returned as GETStats } from '$api/stats/+server.js';
 
 	const getStats = async (): Promise<GETStats> => {
 		const res = await fetch('/api/stats');

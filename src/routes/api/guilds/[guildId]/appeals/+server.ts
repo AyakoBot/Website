@@ -2,6 +2,7 @@ import user2Cookies from '$lib/scripts/util/user2Cookies';
 import DataBase from '$lib/server/database.js';
 import { error, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+import { PunishmentType, type AppealPunishment } from '$lib/scripts/types';
 
 export const GET: RequestHandler = async (req) => {
 	const authenticated = await user2Cookies(req);
@@ -11,7 +12,7 @@ export const GET: RequestHandler = async (req) => {
 	const userId = req.cookies.get('discord-id');
 	const where = {
 		where: { userid: userId, guildid: guildId },
-	orderBy: { uniquetimestamp: 'desc' } as const,
+		orderBy: { uniquetimestamp: 'desc' } as const,
 	};
 
 	return json(
@@ -52,21 +53,4 @@ export const GET: RequestHandler = async (req) => {
 	);
 };
 
-enum PunishmentType {
-	bans = 'bans',
-	channelbans = 'channelbans',
-	kicks = 'kicks',
-	mutes = 'mutes',
-	warns = 'warns',
-	tempchannelbans = 'tempchannelbans',
-	tempbans = 'tempbans',
-	tempmutes = 'tempmutes',
-}
-
-export type Returned = {
-	type: PunishmentType;
-	reason: string;
-	id: number;
-	channelname: string;
-	duration?: number;
-}[];
+export type Returned = AppealPunishment[];

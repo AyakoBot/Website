@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
-	import type { Returned as GETFeatures } from '../../../../../routes/api/features/+server';
+	import type { Returned as GETFeatures } from '$api/features/+server';
 	import Item from './item.svelte';
 
 	const getFeatures = async (): Promise<GETFeatures> => {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ColorFadeAndCountUp from '$lib/components/generic/ColorFadeAndCountUp.svelte';
-	import type { Returned as GETReviews } from '../../../../routes/api/reviews/+server.js';
+	import type { Returned as GETReviews } from '$api/reviews/+server.js';
 
 	export let reviews: Promise<GETReviews>;
 </script>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Returned as GETGuilds } from '../../../../../routes/api/guilds/+server.js';
+	import type { Returned as GETGuilds } from '$api/guilds/+server.js';
 	import { onMount } from 'svelte';
 	import Guild from '$lib/components/generic/Guild.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';

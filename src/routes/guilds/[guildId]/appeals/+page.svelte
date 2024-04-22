@@ -2,8 +2,9 @@
 	import { page } from '$app/stores';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
-	import type { Returned as GETPunishments } from '../../../api/guilds/[guildId]/appeals/+server.js';
-	import Punishment from './../../../../lib/components/page/appeals/Punishment.svelte';
+	import SearchBar from '$lib/components/generic/SearchBar.svelte';
+	import Punishment from '$lib/components/page/appeals/Punishment.svelte';
+	import type { Returned as GETPunishments } from '$api/guilds/[guildId]/appeals/+server.js';
 
 	const getPunishments = async () => {
 		const res = await fetch(`/api/guilds/${$page.params.guildId}/appeals`);
@@ -11,6 +12,8 @@
 	};
 
 	const punishments = getPunishments();
+
+	$: query = '';
 </script>
 
 {#await punishments}
@@ -20,17 +23,29 @@
 	</div>
 {:then punishments}
 	{#if punishments.length}
-		<ul class="flex flex-col gap-20 mx-5">
-			{#each [...new Set(punishments.map((p) => p.type))] as type, j (j)}
+		<div class="w-100vw">
+			<SearchBar on:any={(e) => (query = e.detail.query)} options={[]} />
+		</div>
+
+		{#if !punishments.filter((p) => p.reason.toLowerCase().includes(query)).length}
+			<p>No Punishments found. Try refining your Search-Query</p>
+		{/if}
+
+		<ul class="flex flex-col justify-center items-center gap-20 mx-5">
+			{#each [...new Set(punishments.map((p) => p.type))].filter((type) => punishments
+						.filter((p) => p.type === type)
+						.filter((p) => p.reason.toLowerCase().includes(query)).length) as type, j (j)}
 				<li>
 					{#if j !== 0}
 						<FancyBorder />
 					{/if}
 					<h1 class="text-2xl my-5">{type[0].toUpperCase() + type.slice(1, -1)}s</h1>
 
-					<ul class="flex flex-col gap-4 flex-wrap justify-center items-center mt-7.5 gap-5">
-						{#each punishments.filter((p) => p.type === type) as punishment, i (i)}
-							<Punishment p={punishment} />
+					<ul class="flex flex-col gap-4 flex-wrap justify-center items-center mt-7.5 gap-5 md:grid md:grid-cols-2">
+						{#each punishments
+							.filter((p) => p.type === type)
+							.filter((p) => p.reason.toLowerCase().includes(query)) as punishment, i (i)}
+							<Punishment p={punishment} appeal={true} />
 						{/each}
 					</ul>
 				</li>

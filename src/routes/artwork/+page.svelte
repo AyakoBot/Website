@@ -5,7 +5,7 @@
 	import SearchBar from '$lib/components/generic/SearchBar.svelte';
 	import Image from '$lib/components/page/artwork/Image.svelte';
 	import { ArtType } from '$lib/scripts/types.js';
-	import type { Returned as GETArt } from '../api/artworks/+server.js';
+	import type { Returned as GETArt } from '$api/artworks/+server.js';
 
 	const getArt = async (query?: string, type?: ArtType) => {
 		const urlSearchParams = new URLSearchParams('');

@@ -77,10 +77,7 @@
 </script>
 
 <div
-	class="border-solid border-4 relative border-orange-700 rounded-2xl cursor-pointer duration-1000 transition-all max-w-100 h-150 text-shadow text-shadow-color-black text-shadow-md
- before:content-[''] before:w-full before:h-full before:absolute before:top-0 before:left-0 before:[background-image:linear-gradient(130deg,_transparent_0%_33%,_rgb(236,64,122)_66%,_rgb(253,196,53)_100%)]
- before:bg-[length:300%_300%] before:bg-[0%_0%] before:transition-all before:duration-1000 before:ease-in-out before:z-1 before:ease-in-out before:duration-1000 before:rounded-2xl
- hover:before:bg-[position:100%_100%] hover:before:border-transparent hover:before:scale-x-108 hover:before:scale-y-103 hover:before:-z-20 
+	class="bg-fancy max-w-100 h-150
  hover:border-op-0"
 	on:mouseover={() => hovering(true)}
 	on:mouseleave={() => hovering(false)}

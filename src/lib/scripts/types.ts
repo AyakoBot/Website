@@ -1,4 +1,4 @@
-import type { Returned as GETReviews } from '../../routes/api/reviews/+server.js';
+import type { Returned as GETReviews } from '$api/reviews/+server.js';
 
 export type ReviewDispatch = {
 	hovered: GETReviews[number];
@@ -17,3 +17,22 @@ export enum ArtType {
 	icon = 'icon',
 	all = 'all',
 }
+
+export enum PunishmentType {
+	bans = 'bans',
+	channelbans = 'channelbans',
+	kicks = 'kicks',
+	mutes = 'mutes',
+	warns = 'warns',
+	tempchannelbans = 'tempchannelbans',
+	tempbans = 'tempbans',
+	tempmutes = 'tempmutes',
+}
+
+export type AppealPunishment = {
+	type: PunishmentType;
+	reason: string;
+	id: number;
+	channelname: string;
+	duration?: number;
+};

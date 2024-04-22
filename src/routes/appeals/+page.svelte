@@ -1,7 +1,7 @@
 <script lang="ts">
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
-	import type { Returned as GETAppealableGuilds } from '../api/@me/appeals/guilds/+server.js';
+	import type { Returned as GETAppealableGuilds } from '$api/@me/appeals/guilds/+server.js';
 	import Guild from '$lib/components/generic/Guild.svelte';
 	import SearchBar from '$lib/components/generic/SearchBar.svelte';
 
@@ -47,9 +47,7 @@
 		<h1 class="text-3xl">Appealable Servers</h1>
 		<FancyBorder />
 		<ul class="flex flex-row gap-4 flex-wrap justify-center items-center mt-7.5">
-			{#each guilds.appealEnabled.filter((g) => g.name
-					.toLowerCase()
-					.includes(name.toLowerCase())) as guild, i (i)}
+			{#each guilds.appealEnabled.filter((g) => g.name.toLowerCase().includes(name)) as guild, i (i)}
 				<Guild guild={fixLinks(guild)}>
 					<a class="btn-medium" href="guilds/{guild.id}/appeals">Appeal</a>
 				</Guild>

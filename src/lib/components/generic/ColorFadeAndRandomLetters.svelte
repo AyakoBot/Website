@@ -48,7 +48,7 @@
 </script>
 
 <p
-	class="bg-gradient-to-r via-[#fe3521] from-[#b0ff00] to-[#b0ff00] bg-[length:200%] bg-repeat-x w-full m-auto bg-clip-text text-fill-color code-font opacity-0"
+	class="bg-gradient-to-r via-[#fe3521] from-[#b0ff00] to-[#b0ff00] bg-[length:200%] bg-repeat-x w-full m-auto bg-clip-text text-fill-color code-font opacity-0 font-bold"
 	bind:this={element}
 >
 	{text}

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ReviewDispatch } from '$lib/scripts/types.js';
 	import { createEventDispatcher } from 'svelte';
-	import type { Returned as GETReviews } from '../../../../../routes/api/reviews/+server.js';
+	import type { Returned as GETReviews } from '$api/reviews/+server.js';
 
 	const dispatch = createEventDispatcher<ReviewDispatch>();
 

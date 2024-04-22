@@ -27,7 +27,7 @@
 		await sleep(queryDelay);
 		if (wasTypingAt > Date.now() - queryDelay) return;
 
-		query = value;
+		query = value.toLowerCase();
 		dispatch('any', { option: type, query });
 		dispatch('query', { option: type, query });
 	};
