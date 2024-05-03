@@ -22,7 +22,7 @@
 			class="absolute h-50vh w-50vh animate-[spin_4s_linear_infinite] custom-gradient transition-all ease-in-out box-shadow-main {hover
 				? 'op-20'
 				: ''}"
-		/>
+		></div>
 
 		{#if guild.banner}
 			<img
@@ -54,7 +54,7 @@
 				: 'z--1'} transition-all scale-90 ease-in-out flex flex-col justify-center items-center w-full h-full"
 		>
 			<img
-   loading="eager"
+				loading="eager"
 				src="{guild.icon}?size=2048"
 				alt=""
 				height="64"

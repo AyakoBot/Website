@@ -14,7 +14,7 @@
 <div class="mt-10">
 	<div class="flex flex-row justify-center items-center flex-wrap">
 		<p class="text-10">Add&nbsp;</p>
-		<p class="text-10"><ColorFadeText text="Ayako" /></p>
+		<div class="text-10"><ColorFadeText text="Ayako" /></div>
 		<p class="text-10">&nbsp;to your Server and get access to Features like</p>
 	</div>
 

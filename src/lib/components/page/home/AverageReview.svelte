@@ -7,15 +7,15 @@
 
 <p class="text-10">and an average of</p>
 {#await reviews}
-	<p class="text-15"><ColorFadeAndCountUp num={5} /></p>
+	<div class="text-15"><ColorFadeAndCountUp num={5} /></div>
 {:then reviews}
-	<p class="text-15">
+	<div class="text-15">
 		<ColorFadeAndCountUp
 			num={reviews.map((r) => r.score / 20).reduce((acc, cur) => acc + cur, 0) / reviews.length}
 		/>
-	</p>
+	</div>
 {:catch error}
 	{console.error(error)}
-	<p class="text-15"><ColorFadeAndCountUp num={5} /></p>
+	<div class="text-15"><ColorFadeAndCountUp num={5} /></div>
 {/await}
 <p class="text-10">Stars per Review</p>

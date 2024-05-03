@@ -17,8 +17,8 @@
 					width="64"
 					height="64"
 					loading="eager"
-				/></a
-			>
+				/>
+			</a>
 		</li>
 		<li class="flex flex-row justify-between items-end w-40%">
 			<p class="font-bold lg:text-9 text-8 color-[#b0ff00] of-unset">Ayako</p>

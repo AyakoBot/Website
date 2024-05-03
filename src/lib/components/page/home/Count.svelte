@@ -12,17 +12,17 @@
 
 <p class="text-10">Ayako manages</p>
 {#await stats}
-	<p class="text-15"><ColorFadeAndCountUp num={0} /></p>
+	<div class="text-15"><ColorFadeAndCountUp num={0} /></div>
 	<p class="text-10">Discord Communities with</p>
-	<p class="text-15"><ColorFadeAndCountUp num={0} /></p>
+	<div class="text-15"><ColorFadeAndCountUp num={0} /></div>
 {:then stats}
-	<p class="text-15"><ColorFadeAndCountUp num={stats.guildCount} /></p>
+	<div class="text-15"><ColorFadeAndCountUp num={stats.guildCount} /></div>
 	<p class="text-10">Discord Communities with</p>
-	<p class="text-15"><ColorFadeAndCountUp num={stats.userCount} /></p>
+	<div class="text-15"><ColorFadeAndCountUp num={stats.userCount} /></div>
 {:catch error}
 	{console.error(error)}
-	<p class="text-15"><ColorFadeAndCountUp num={0} /></p>
+	<div class="text-15"><ColorFadeAndCountUp num={0} /></div>
 	<p class="text-10">Discord Communities with</p>
-	<p class="text-15"><ColorFadeAndCountUp num={0} /></p>
+	<div class="text-15"><ColorFadeAndCountUp num={0} /></div>
 {/await}
 <p class="text-10">Members</p>

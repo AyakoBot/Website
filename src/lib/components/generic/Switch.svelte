@@ -2,7 +2,7 @@
 	export let title: string;
 	export let checked: boolean = false;
 	export let required: boolean = false;
- export let type: 'y/n' | 'on/off' = 'on/off';
+	export let type: 'y/n' | 'on/off' = 'on/off';
 </script>
 
 <div class="p-2">
@@ -21,12 +21,16 @@
 				checked = !checked;
 			}}
 		/>
-		<span class="absolute font-medium uppercase text-.5rem right-1 text-white">{type === 'y/n' ? 'no' : 'off'}</span>
-		<span class="absolute font-medium uppercase text-.5rem right-9 text-white">{type === 'y/n' ? 'yes' : 'on'}</span>
+		<span class="absolute font-medium uppercase text-.5rem right-1 text-white"
+			>{type === 'y/n' ? 'no' : 'off'}</span
+		>
+		<span class="absolute font-medium uppercase text-.5rem right-9 text-white"
+			>{type === 'y/n' ? 'yes' : 'on'}</span
+		>
 		<span
 			class="w-6 h-6 right-7.2 absolute rounded-full transition ease-in-out duration-.15s bg-neutral-100 {checked
 				? 'translate-x-6.4'
 				: ''}"
-		/>
+		></span>
 	</label>
 </div>

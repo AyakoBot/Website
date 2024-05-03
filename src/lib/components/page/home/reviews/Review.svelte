@@ -34,13 +34,11 @@
 			class="absolute h-50vh w-50vh animate-[spin_4s_linear_infinite] custom-gradient transition-all ease-in-out box-shadow-main {hover
 				? 'op-20'
 				: ''}"
-		/>
+		></div>
 
 		{#if review.avatar}
 			<img
-				src={review.avatar
-					? `${review.avatar}?size=2048`
-					: 'https://cdn.ayakobot.com/website_assets/UnknownPfp.png'}
+				src={`${review.avatar.replace('?size=512', '')}?size=2048`}
 				alt=""
 				width="128"
 				height="128"

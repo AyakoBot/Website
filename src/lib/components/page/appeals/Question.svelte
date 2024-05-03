@@ -13,7 +13,7 @@
 	{#if q.answertype === AnswerType.number}
 		<input type="number" name={String(q.uniquetimestamp)} required={q.required} />
 	{:else if q.answertype === AnswerType.paragraph}
-		<textarea name={String(q.uniquetimestamp)} required={q.required} />
+		<textarea name={String(q.uniquetimestamp)} required={q.required}></textarea>
 	{:else if q.answertype === AnswerType.short}
 		<input type="text" name={String(q.uniquetimestamp)} required={q.required} />
 	{:else if q.answertype === AnswerType.boolean}

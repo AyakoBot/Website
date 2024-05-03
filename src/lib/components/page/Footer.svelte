@@ -15,16 +15,16 @@
 		<li class="flex flex-row items-center justify-evenly w-full flex-wrap">
 			<ul id="left" class="flex flex-row items-center justify-evenly">
 				<li class="pr-4">
-					<a href="/"
-						><img
+					<a href="/">
+						<img
 							src="https://cdn.ayakobot.com/website_assets/Icon.png"
 							alt="Ayako's Icon"
 							class="md:w-128px md:h-128px w-64px h-64px"
 							width="128"
 							height="128"
-       loading="eager"
-						/></a
-					>
+							loading="eager"
+						/>
+					</a>
 				</li>
 				<li>
 					<ul class="flex flex-col justify-around">

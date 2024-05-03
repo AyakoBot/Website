@@ -1,7 +1,8 @@
 import { json, error } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import type { RESTPostOAuth2AccessTokenResult, RESTGetAPIUserResult } from 'discord-api-types/v10';
-import getAvatarURL from '$lib/scripts/util/getAvatarURL';
+import getAvatarURL from '$lib/scripts/util/getAvatarURL.js';
+import { SECRET, BOT_TOKEN } from '$env/static/private';
 
 export const GET: RequestHandler = async (req) => {
 	const bearer = req.request.headers.get('Authorization')?.replace('Bearer ', '');
@@ -9,7 +10,7 @@ export const GET: RequestHandler = async (req) => {
 
 	const body = new URLSearchParams({
 		client_id: import.meta.env.VITE_ID as string,
-		client_secret: process.env.SECRET as string,
+		client_secret: SECRET as string,
 		grant_type: 'authorization_code',
 		code: bearer,
 		redirect_uri: `${import.meta.env.VITE_HOSTNAME}/login`,
@@ -68,7 +69,7 @@ const joinGuild = (auth: string, userId: string) => {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bot ${process.env.BOT_TOKEN}`,
+			Authorization: `Bot ${BOT_TOKEN}`,
 		},
 		body: JSON.stringify({ access_token: auth }),
 	});

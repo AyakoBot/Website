@@ -157,7 +157,7 @@
 </script>
 
 <svelte:window bind:innerWidth />
-
+<!-- 
 <div
 	class="flex justify-center items-center absolute w-90vw h-50vh of-hidden of-y-hidden left-0 top-5 z-1 lg:mt-0 md:mt-5 sm:-mt-10 mt-10 translate-x-5%"
 >
@@ -211,7 +211,7 @@
 	>
 		<ColorFadeAndRandomLetters text="AYAKO" />
 	</p>
-</div>
+</div> -->
 
 <style scoped>
 	#flower1 {

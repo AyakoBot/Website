@@ -40,12 +40,13 @@
 		id="rotate"
 		class="bg-white h-52 absolute aspect-square rounded-full bg-gradient-to-r from-[#b0ff00] to-[#fe3521] z--9998 of-hidden ml--100px mt--100px blur-150 op-0"
 		bind:this={blobSlow}
-	/>
+	></div>
+
 	<div
 		id="rotateFaster"
 		class="bg-white h-52 absolute aspect-square rounded-full bg-gradient-to-r from-[#b0ff00] to-[#fe3521] z--9998 of-hidden ml--100px mt--100px blur-150 op-0"
 		bind:this={blobFast}
-	/>
+	></div>
 </div>
 
 <style scoped>

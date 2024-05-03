@@ -84,4 +84,4 @@ hover:bg-[#fe3521] hover:color-white"
 	bind:this={backdrop}
 	on:click={() => close()}
 	on:keydown={() => close()}
-/>
+></button>

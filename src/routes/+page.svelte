@@ -9,7 +9,7 @@
 	import FeatureTeaser from '$lib/components/page/home/features/main.svelte';
 	import InfiniteReviewCarousel from '$lib/components/page/home/reviews/Carousel.svelte';
 	import InfiniteGuildCarousel from '$lib/components/page/home/guild/Carousel.svelte';
- import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
+	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import { onMount } from 'svelte';
 	import type { Returned as GETReviews } from './api/reviews/+server.js';
 
@@ -54,11 +54,11 @@
 	</div>
 	<InfiniteReviewCarousel {reviews} />
 
- <FancyBorder />
+	<FancyBorder />
 
 	<FeatureTeaser />
 
- <FancyBorder />
+	<FancyBorder />
 
 	<LastCall />
 </div>
