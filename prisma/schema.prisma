@@ -632,10 +632,12 @@ model reminders {
 }
 
 model reviews {
-  userid  String  @id @db.VarChar
-  score   Decimal @default(1) @db.Decimal
-  content String
-  fetchat Decimal @db.Decimal
+  userid   String  @id @db.VarChar
+  score    Decimal @default(1) @db.Decimal
+  content  String
+  fetchat  Decimal @db.Decimal
+  username String
+  avatar   String?
 
   @@index([userid])
 }
