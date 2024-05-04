@@ -7,7 +7,12 @@
 
 <div class="p-2">
 	<label class="flex items-center relative w-max cursor-pointer select-none relative">
-		<span class="font-bold mr-3">{title}</span>
+		{#if title}
+			<span class="font-bold mr-3">
+				{title}
+			</span>
+		{/if}
+
 		<input
 			{required}
 			type="checkbox"

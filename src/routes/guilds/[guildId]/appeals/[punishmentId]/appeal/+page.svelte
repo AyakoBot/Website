@@ -1,14 +1,19 @@
 <script lang="ts">
+	import type { Returned as GETAppeals } from '$api/guilds/[guildId]/appeals/[punishmentId]/appeal/+server.js';
+	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
 	import Punishment from '$lib/components/page/appeals/Punishment.svelte';
 	import Question from '$lib/components/page/appeals/Question.svelte';
-	import type { Returned as GETAppeals } from '$api/guilds/[guildId]/appeals/[punishmentId]/appeal/+server.js';
+	import * as Form from '$lib/components/ui/form';
+
+ const guildId = $page.params.guildId
+ const punId = $page.params.punishmentId
 
 	const getData = async () => {
 		const res = await fetch(
-			`/api/guilds/${$page.params.guildId}/appeals/${$page.params.punishmentId}/appeal`,
+			`/api/guilds/${guildId}/appeals/${punId}/appeal`,
 		);
 
 		return res.json() as Promise<GETAppeals>;
@@ -29,7 +34,7 @@
 	</ul>
 
 	{#if !('message' in data)}
-		<form class="flex flex-col justify-center items-center gap-5">
+ <form class="flex flex-col justify-center items-center gap-5" use:enhance method="POST" action="/api/guilds/{guildId}/appeals/{punId}?/appeal">
 			{#each data.questions as question, i (i)}
 				{#if i}
 					<FancyBorder />
@@ -41,14 +46,15 @@
 			<FancyBorder />
 			<p>
 				The information you provide in this form will be used to process your appeal. By submitting this
-				form, you agree to our <a href="/terms" target="_blank" class="underline">Terms of Service</a> and
+				form, you agree to our <a href="/terms" target="_blank" class="underline">Terms of Service</a>
+				and
 				<a href="/privacy" class="underline">Privacy Policy</a>.
-    <br />
-    Never submit any sensitive information in this form.
-    Provided information will be shared with selected members of the server you appeal to.
+				<br />
+				Never submit any sensitive information in this form. Provided information will be shared with selected
+				members of the server you appeal to.
 			</p>
 
-			<button class="btn-loud" type="submit">Submit</button>
+			<Form.Button class="btn-loud">Submit</Form.Button>
 		</form>
 	{:else}
 		<div class="flex flex-col justify-center items-center">

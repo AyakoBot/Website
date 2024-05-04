@@ -29,9 +29,9 @@ const getReviews = async () => {
 	const reviews = await DataBase.reviews.findMany();
 
 	const outdatedReviews = reviews.filter((r) => Number(r.fetchat) < Date.now() - 86400000);
-	if (outdatedReviews.length || !reviews.length) return updateReviews();
+	if (outdatedReviews.length || !reviews.length) await updateReviews();
 
-	return reviews;
+	return reviews.length ? reviews : DataBase.reviews.findMany();
 };
 
 const updateReviews = async () => {
@@ -60,7 +60,7 @@ const updateReviews = async () => {
 		},
 	});
 
-	return DataBase.$transaction(
+	const transactionResponse = await DataBase.$transaction(
 		newReviews.map((r) => {
 			const user = users.find((u) => r.poster.avatar.includes(u.userid));
 			const avatar =
@@ -73,7 +73,7 @@ const updateReviews = async () => {
 
 			return DataBase.reviews.upsert({
 				where: { userid: user?.userid ?? r.posterId },
-				update: { avatar },
+				update: { avatar, fetchat: Date.now() },
 				create: {
 					content: r.content,
 					userid: r.posterId,
@@ -85,4 +85,6 @@ const updateReviews = async () => {
 			});
 		}),
 	);
+
+	return transactionResponse;
 };

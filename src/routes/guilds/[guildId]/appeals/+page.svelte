@@ -41,7 +41,7 @@
 					{/if}
 					<h1 class="text-2xl my-5">{type[0].toUpperCase() + type.slice(1, -1)}s</h1>
 
-					<ul class="flex flex-col gap-4 flex-wrap justify-center items-center mt-7.5 gap-5 md:grid md:grid-cols-2">
+					<ul class="flex flex-row flex-wrap justify-center items-center mt-7.5 gap-5">
 						{#each punishments
 							.filter((p) => p.type === type)
 							.filter((p) => p.reason.toLowerCase().includes(query)) as punishment, i (i)}

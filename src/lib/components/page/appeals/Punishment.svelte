@@ -8,7 +8,7 @@
 	export let appeal: boolean = false;
 </script>
 
-<li class="bg-fancy max-w-95% min-w-fit">
+<li class="bg-fancy max-w-95%">
 	<div
 		class="flex flex-col justify-evenly items-center w-full gap-5 flex-wrap text-shadow text-shadow-color-black text-shadow-md m-auto"
 	>

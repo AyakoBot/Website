@@ -1,51 +1,55 @@
 <script lang="ts">
-	import { AnswerType } from '@prisma/client';
 	import type { Returned as GETAppeals } from '$api/guilds/[guildId]/appeals/[punishmentId]/appeal/+server.js';
 	import Switch from '$lib/components/generic/Switch.svelte';
+	import Label from '$lib/components/ui/label/label.svelte';
+	import { AnswerType } from '@prisma/client';
+	import Number from './Number.svelte';
+	import Paragraph from './Paragraph.svelte';
+	import Short from './Short.svelte';
+	import Select from '$lib/components/generic/select/Select.svelte';
+
 	export let q: GETAppeals['questions'][number];
 </script>
 
-<div class="flex flex-col justify-center items-center gap-2">
-	<label for={String(q.uniquetimestamp)} class="text-2xl">
-		{q.question}
-	</label>
+<div class="flex flex-col justify-center items-center gap-2 relative">
+	<Label for={String(q.uniquetimestamp)} class="text-2xl">{q.question}</Label>
 
 	{#if q.answertype === AnswerType.number}
-		<input type="number" name={String(q.uniquetimestamp)} required={q.required} />
+		<Number {q} />
 	{:else if q.answertype === AnswerType.paragraph}
-		<textarea name={String(q.uniquetimestamp)} required={q.required}></textarea>
+		<Paragraph {q} />
 	{:else if q.answertype === AnswerType.short}
-		<input type="text" name={String(q.uniquetimestamp)} required={q.required} />
+		<Short {q} />
 	{:else if q.answertype === AnswerType.boolean}
-		<Switch title={q.question ?? ''} required={q.required} />
+		<Switch title={''} required={q.required} />
 	{:else if q.answertype === AnswerType.multiple_choice}
-		<select name={String(q.uniquetimestamp)} required={q.required}>
-			<option value="" selected={true} disabled={true}>Select an Option</option>
-
-			{#if !q.required}
-				<option value="">None</option>
-			{/if}
-
-			{#each q.options as option, j (j)}
-				<option value={option}>{option}</option>
-			{/each}
-		</select>
+		<Select
+			options={q.options}
+			required={q.required}
+			label={q.question ?? 'Select an Option'}
+			single={false}
+		/>
 	{:else if q.answertype === AnswerType.single_choice}
-		<fieldset class="flex flex-row justify-evenly items-center gap-5">
-			<legend class="text-2xl">{q.question}</legend>
-			{#if !q.required}
-				<div class="flex flex-row justify-center items-center gap-0">
-					<input type="radio" name={String(q.uniquetimestamp)} value="" checked />
-					<label for={String(q.uniquetimestamp)}>None</label>
-				</div>
-			{/if}
-
-			{#each q.options as option, j (j)}
-				<input type="radio" name={String(q.uniquetimestamp)} value={option} />
-				<label for={String(q.uniquetimestamp)}>{option}</label>
-			{/each}
-		</fieldset>
-	{:else}
-		<p>Unknown Answer Type for Question: <span class="code">{q.question}</span></p>
+		<Select
+			options={q.options}
+			required={q.required}
+			label={q.question ?? 'Select an Option'}
+			single={true}
+		/>
+	{:else if q.answertype === AnswerType.text}{:else}
+		<p>
+			Unknown Answer Type for Question: <span class="code">{q.question}</span>
+			<br />
+			Type: <span class="code">{q.answertype}</span>
+		</p>
+	{/if}
+	{#if q.required && q.answertype !== AnswerType.text}
+		<div
+			class="absolute text-10px top-full {q.answertype === AnswerType.boolean
+				? ''
+				: 'right-2'} color-red"
+		>
+			Required
+		</div>
 	{/if}
 </div>

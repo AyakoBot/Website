@@ -3,7 +3,7 @@ import DataBase from '$lib/server/database.js';
 import { error, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { PunishmentType, type AppealPunishment } from '$lib/scripts/types';
-import type { appealquestions, appealsettings } from '@prisma/client';
+import type { appealquestions } from '@prisma/client';
 
 export const GET: RequestHandler = async (req) => {
 	const authenticated = await user2Cookies(req);

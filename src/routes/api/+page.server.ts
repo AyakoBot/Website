@@ -3,6 +3,8 @@ import type { Actions } from './$types';
 
 export const actions = {
 	logout: async (event) => {
+  // TODO: logout 403
+  
 		const basicCookieOptions: Parameters<typeof event.cookies.set>[2] = {
 			path: '/',
 			sameSite: true,

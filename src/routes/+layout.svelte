@@ -1,9 +1,8 @@
 <script lang="ts">
-	import type { LayoutServerData } from './$types';
-	import NavBar from '$lib/components/page/NavBar.svelte';
-	import Footer from '$lib/components/page/Footer.svelte';
-	import Sidebar from '$lib/components/page/Sidebar.svelte';
 	import Blob from '$lib/components/generic/Blob.svelte';
+	import Footer from '$lib/components/page/Footer.svelte';
+	import NavBar from '$lib/components/page/NavBar.svelte';
+	import Sidebar from '$lib/components/page/Sidebar.svelte';
 
 
 	import '$lib/scripts/index.js';
