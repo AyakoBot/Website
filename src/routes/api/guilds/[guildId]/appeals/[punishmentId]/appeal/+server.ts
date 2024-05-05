@@ -62,3 +62,18 @@ export type Returned = {
 	punishment: AppealPunishment;
 	questions: appealquestions[];
 };
+
+export const POST: RequestHandler = async (req) => {
+	const authenticated = await user2Cookies(req);
+	if (authenticated) return error(authenticated, 'Invalid or no token provided');
+
+	const body = await req.request.json();
+	console.log(body);
+
+	return json({ goofy: true });
+};
+
+export type POSTBody = {
+	id: number;
+	fields: { id: number; value: string | string[] }[];
+};

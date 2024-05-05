@@ -10,9 +10,10 @@
 	export let single: boolean = true;
 	export let required: boolean = false;
 	export let label: string;
+ export let id: string;
 	let element: HTMLDivElement;
 
-	const id = Math.random().toString(36).substring(7);
+	id ??= Math.random().toString(36).substring(7);
 
 	let expanded: boolean;
 	$: expanded = false;

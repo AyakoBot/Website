@@ -28,6 +28,7 @@
 			required={q.required}
 			label={q.question ?? 'Select an Option'}
 			single={false}
+			id={String(q.uniquetimestamp)}
 		/>
 	{:else if q.answertype === AnswerType.single_choice}
 		<Select
@@ -35,6 +36,7 @@
 			required={q.required}
 			label={q.question ?? 'Select an Option'}
 			single={true}
+			id={String(q.uniquetimestamp)}
 		/>
 	{:else if q.answertype === AnswerType.text}{:else}
 		<p>

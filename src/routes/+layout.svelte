@@ -4,7 +4,6 @@
 	import NavBar from '$lib/components/page/NavBar.svelte';
 	import Sidebar from '$lib/components/page/Sidebar.svelte';
 
-
 	import '$lib/scripts/index.js';
 </script>
 

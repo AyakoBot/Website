@@ -13,7 +13,7 @@ export default defineConfig({
 		'btn-medium':
 			'font-bold bg-white rounded-xl color-[#fe3521] px-5 py-2 hover:bg-[#fe3521] hover:color-white transition-all text-shadow-none',
 		'btn-loud':
-			'font-bold bg-gradient-to-r from-[#fe3521] via-[#3dff56] to-[#fe3521] bg-[length:200%] p-2 px-6 rounded-xl transition-all bg-[position:0%_center] hover:bg-[position:100%_center] font-bold text-shadow-none',
+			'font-bold bg-gradient-to-r from-[#fe3521] via-[#3dff56] to-[#fe3521] bg-[length:200%] p-2 px-6 rounded-xl transition-all bg-[position:0%_center] hover:bg-[position:100%_center] font-bold text-shadow-none disabled:opacity-50 disabled:cursor-not-allowed',
 		'btn-quiet': 'hover:color-[#b0ff00] transition-all text-shadow-none',
 		'debug-border': 'border-2 border-red-500 border-dashed',
 		mention: 'bg-[rgba(88,101,242,0.3)] px-1 rounded-md',
