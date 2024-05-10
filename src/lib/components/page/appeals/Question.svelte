@@ -1,12 +1,12 @@
 <script lang="ts">
 	import type { Returned as GETAppeals } from '$api/guilds/[guildId]/appeals/[punishmentId]/appeal/+server.js';
+	import Select from '$lib/components/generic/Select.svelte';
 	import Switch from '$lib/components/generic/Switch.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
 	import { AnswerType } from '@prisma/client';
 	import Number from './Number.svelte';
 	import Paragraph from './Paragraph.svelte';
 	import Short from './Short.svelte';
-	import Select from '$lib/components/generic/select/Select.svelte';
 
 	export let q: GETAppeals['questions'][number];
 </script>
