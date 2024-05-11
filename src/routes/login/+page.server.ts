@@ -20,9 +20,9 @@ export const load: PageServerLoad = async (event) => {
 	const basicCookieOptions: Parameters<typeof event.cookies.set>[2] = {
 		expires: new Date(Date.now() + json.expires * 1000),
 		path: '/',
-  domain: '.ayakobot.com',
+		domain: '.ayakobot.com',
 		maxAge: json.expires,
-		sameSite: true,
+		sameSite: 'strict',
 		httpOnly: false,
 		secure: false,
 	};
@@ -30,6 +30,7 @@ export const load: PageServerLoad = async (event) => {
 	event.cookies.set('discord-id', json.id, basicCookieOptions);
 	event.cookies.set('discord-username', json.username, basicCookieOptions);
 	event.cookies.set('discord-avatar', json.avatar, basicCookieOptions);
+	event.cookies.set('discord-token', json.access_token, basicCookieOptions);
 
 	throw redirect(307, '/?reload=true');
 };

@@ -1,11 +1,29 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
-	import { PUBLIC_API } from '$env/static/public';
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
+	import Cookies from 'js-cookie';
 
 	export let close: Function;
+
+	const logout = () => {
+		const basicCookieOptions: Parameters<typeof Cookies.remove>[1] = {
+			path: '/',
+			domain: '.ayakobot.com',
+			sameSite: 'strict',
+			httpOnly: false,
+			secure: false,
+		};
+
+		Cookies.remove('discord-token', {
+			...basicCookieOptions,
+			secure: import.meta.env.VITE_ENV === 'prod',
+		});
+
+		Cookies.remove('discord-id', basicCookieOptions);
+		Cookies.remove('discord-username', basicCookieOptions);
+		Cookies.remove('discord-avatar', basicCookieOptions);
+	};
 </script>
 
 <div class="absolute bottom-1.5 h-20 left-0 w-full">
@@ -21,14 +39,12 @@
 						width="48"
 						height="48"
 						class="rounded-full mx-2 box-shadow-main"
-      loading="lazy"
+						loading="lazy"
 					/>
 					<ColorFadeText text={$page.data.name} />
 				</div>
 
-				<form method="POST" action="{PUBLIC_API}?/logout" use:enhance>
-					<button class="btn-medium">Log-Out</button>
-				</form>
+				<button class="btn-medium" on:click={logout} on:keydown={logout}>Log-Out</button>
 			</div>
 		{:else}
 			<a href="/login" class="btn-medium" on:click={() => close()}>Log-In</a>
