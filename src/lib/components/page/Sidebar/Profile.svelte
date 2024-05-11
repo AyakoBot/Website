@@ -6,6 +6,9 @@
 
 	export let close: Function;
 
+	const name = Cookies.get('discord-username');
+	const pfp = decodeURIComponent(Cookies.get('discord-avatar') ?? '');
+
 	const logout = () => {
 		const basicCookieOptions: Parameters<typeof Cookies.remove>[1] = {
 			path: '/',
@@ -30,18 +33,18 @@
 	<FancyBorder />
 
 	<div class="absolute top-0 h-20 w-full flex flex-row justify-center items-center mt-2">
-		{#if $page.data.name}
+		{#if name}
 			<div class="flex flex-row justify-between items-center">
 				<div class="flex flex-row justify-evenly items-center mr-10">
 					<img
-						src={$page.data.pfp}
+						src={pfp}
 						alt=""
 						width="48"
 						height="48"
 						class="rounded-full mx-2 box-shadow-main"
 						loading="lazy"
 					/>
-					<ColorFadeText text={$page.data.name} />
+					<ColorFadeText text={name} />
 				</div>
 
 				<button class="btn-medium" on:click={logout} on:keydown={logout}>Log-Out</button>
