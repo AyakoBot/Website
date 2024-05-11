@@ -48,8 +48,8 @@
 		<link rel="icon" type="image/x-icon" href="https://cdn.ayakobot.com/website_assets/ayako.ico" />
 		<link rel="apple-touch-icon" href="https://cdn.ayakobot.com/website_assets/Icon.png" />
 		<link rel="canonical" href="https://ayakobot.com/" />
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-VL2J918CLL"></script>
-		<script>
+		<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL2J918CLL"></script> -->
+		<!-- <script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
 				dataLayer.push(arguments);
@@ -75,12 +75,12 @@
 				r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
 				a.appendChild(r);
 			})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-		</script>
-		<script
+		</script> -->
+		<!-- <script
 			defer
 			src="https://static.cloudflareinsights.com/beacon.min.js"
 			data-cf-beacon='{"token": "7000e6a65e924271b47af909773e0038"}'
-		></script>
+		></script> -->
 		%unocss-svelte-scoped.global% 
   %sveltekit.head%
 		<link rel="stylesheet" href="/main.css"></style>
@@ -614,8 +614,11 @@
 				window.cmp_setGppStub('__gpp');
 			}
 		</script> -->
-		<noscript><h1>Please enable JavaScript to view this Website</h1></noscript>
+		<script>0</script>
+  <noscript><h1>Please enable JavaScript to view this Website</h1></noscript>
 
-		<div style="display: contents">%sveltekit.body%</div>
+		<div style="display: contents">
+   %sveltekit.body%
+  </div>
 	</body>
 </html>
