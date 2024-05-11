@@ -1,14 +1,15 @@
 <script lang="ts">
+	import { PUBLIC_API } from '$env/static/public';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
-	import Loading from '$lib/components/generic/Loading.svelte';
-	import type { Returned as GETAppealableGuilds } from '$api/@me/appeals/guilds/+server.js';
 	import Guild from '$lib/components/generic/Guild.svelte';
+	import Loading from '$lib/components/generic/Loading.svelte';
 	import SearchBar from '$lib/components/generic/SearchBar.svelte';
+	import type { Returned as GETAppealableGuilds } from '@ayako/server/src/routes/@me/appeals/guilds/+server.js';
 
 	$: name = '';
 
 	const getGuilds = async () => {
-		const res = await fetch('/api/@me/appeals/guilds');
+		const res = await fetch(`${PUBLIC_API}/@me/appeals/guilds`);
 		const guilds = (await res.json()) as GETAppealableGuilds;
 
 		return {

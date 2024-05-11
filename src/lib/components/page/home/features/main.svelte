@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { PUBLIC_API } from '$env/static/public';
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
-	import type { Returned as GETFeatures } from '$api/features/+server';
+	import type { Returned as GETFeatures } from '@ayako/server/src/routes/features/+server';
 	import Item from './item.svelte';
 
 	const getFeatures = async (): Promise<GETFeatures> => {
-		const res = await fetch('/api/features?blocks=3');
+		const res = await fetch(`${PUBLIC_API}/features?blocks=3`);
 		return res.json();
 	};
 

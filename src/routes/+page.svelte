@@ -11,7 +11,8 @@
 	import InfiniteGuildCarousel from '$lib/components/page/home/guild/Carousel.svelte';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import { onMount } from 'svelte';
-	import type { Returned as GETReviews } from './api/reviews/+server.js';
+	import type { Returned as GETReviews } from '@ayako/server/src/routes/reviews/+server.js';
+	import { PUBLIC_API } from '$env/static/public';
 
 	onMount(async () => {
 		const reload = $page.url.searchParams.get('reload');
@@ -21,7 +22,7 @@
 	});
 
 	const getReviews = async (): Promise<GETReviews> => {
-		const res = await fetch('/api/reviews');
+		const res = await fetch(`${PUBLIC_API}/reviews`);
 		return (await res.json()).sort(() => 0.5 - Math.random());
 	};
 

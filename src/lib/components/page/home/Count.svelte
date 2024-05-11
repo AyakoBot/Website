@@ -1,9 +1,10 @@
 <script lang="ts">
 	import ColorFadeAndCountUp from '$lib/components/generic/ColorFadeAndCountUp.svelte';
-	import type { Returned as GETStats } from '$api/stats/+server.js';
+	import type { Returned as GETStats } from '@ayako/server/src/routes/stats/+server.js';
+ import { PUBLIC_API } from '$env/static/public';
 
 	const getStats = async (): Promise<GETStats> => {
-		const res = await fetch('/api/stats');
+		const res = await fetch(`${PUBLIC_API}/stats`);
 		return res.json();
 	};
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	$: hover = false;
+
 	export let guild: {
 		icon: string | null;
 		banner: string | null;
@@ -42,7 +43,7 @@
 				alt=""
 				width="128"
 				height="128"
-				class="{guild.icon ? 'rounded-full' : ''} aspect-square absolute h-128px w-129px {hover
+				class="{guild.icon ? 'rounded-full' : ''} aspect-square absolute h-128px w-128px {hover
 					? 'scale-90 opacity-20'
 					: ''} transition-all"
 			/>

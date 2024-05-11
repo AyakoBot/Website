@@ -1,11 +1,12 @@
 <script lang="ts">
-	import type { Returned as GETGuilds } from '$api/guilds/+server.js';
-	import { onMount } from 'svelte';
+	import { PUBLIC_API } from '$env/static/public';
 	import Guild from '$lib/components/generic/Guild.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
+	import type { Returned as GETGuilds } from '@ayako/server/src/routes/guilds/+server.js';
+	import { onMount } from 'svelte';
 
 	const getGuilds = async (): Promise<GETGuilds> => {
-		const res = await fetch('/api/guilds');
+		const res = await fetch(`${PUBLIC_API}/guilds`);
 		return (await res.json()).sort(() => 0.5 - Math.random());
 	};
 

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
+	import { PUBLIC_API } from '$env/static/public';
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 
@@ -25,7 +26,7 @@
 					<ColorFadeText text={$page.data.name} />
 				</div>
 
-				<form method="POST" action="/api?/logout" use:enhance>
+				<form method="POST" action="{PUBLIC_API}?/logout" use:enhance>
 					<button class="btn-medium">Log-Out</button>
 				</form>
 			</div>

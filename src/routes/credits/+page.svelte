@@ -1,11 +1,12 @@
 <script lang="ts">
+	import { PUBLIC_API } from '$env/static/public';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
-	import CreditItem from '$lib/components/page/credits/item.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
-	import type { Returned as GETCredits } from '$api/contributers/+server.ts';
+	import CreditItem from '$lib/components/page/credits/item.svelte';
+	import type { Returned as GETCredits } from '@ayako/server/src/routes/contributers/+server.ts';
 
 	const getCredits = async (): Promise<GETCredits> => {
-		const res = await fetch('/api/contributers');
+		const res = await fetch(`${PUBLIC_API}/contributers`);
 		return (await (res.json() as Promise<GETCredits>)).sort(
 			(a, b) => b.roles.length - a.roles.length,
 		);

@@ -2,6 +2,7 @@
 	import Loading from '$lib/components/generic/Loading.svelte';
 	import Switch from '$lib/components/generic/Switch.svelte';
 	import { page } from '$app/stores';
+	import { PUBLIC_HOSTNAME, PUBLIC_ID } from '$env/static/public';
 
 	const code = $page.url.searchParams.has('code');
 	let checked = true;
@@ -14,9 +15,8 @@
 		<Switch bind:checked title="Join Support Server" />
 
 		<a
-			href="https://discord.com/oauth2/authorize?client_id={import.meta.env
-				.VITE_ID}&response_type=code&redirect_uri={encodeURIComponent(
-				`${import.meta.env.VITE_HOSTNAME}/login`,
+			href="https://discord.com/oauth2/authorize?client_id={PUBLIC_ID}&response_type=code&redirect_uri={encodeURIComponent(
+				`${PUBLIC_HOSTNAME}/login`,
 			)}&scope=identify+guilds{checked ? '+guilds.join' : ''}"
 			class="text-xl btn-loud"
 		>
