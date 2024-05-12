@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Cookies from 'js-cookie';
