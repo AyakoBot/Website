@@ -1,15 +1,9 @@
 <script lang="ts">
-	import { PUBLIC_API } from '$env/static/public';
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 	import type { Returned as GETFeatures } from '@ayako/server/src/routes/features/+server';
 	import Item from './item.svelte';
 
-	const getFeatures = async (): Promise<GETFeatures> => {
-		const res = await fetch(`${PUBLIC_API}/features?blocks=3`);
-		return res.json();
-	};
-
-	const featureBlocks = getFeatures();
+	export let featureBlocks: GETFeatures;
 </script>
 
 <div class="mt-10">
@@ -20,19 +14,17 @@
 	</div>
 
 	<div class="flex flex-col justify-center gap-10 items-center m-10">
-		{#await featureBlocks then featureBlocks}
-			{#each featureBlocks as features}
-				<div class="flex flex-row justify-center gap-10 items-center flex-wrap">
-					{#each features as feature}
-						<Item
-							subtitle={feature.subtitle}
-							title={feature.title}
-							img={feature.image}
-							placeholder={feature.placeholder}
-						/>
-					{/each}
-				</div>
-			{/each}
-		{/await}
+		{#each featureBlocks as features}
+			<div class="flex flex-row justify-center gap-10 items-center flex-wrap">
+				{#each features as feature}
+					<Item
+						subtitle={feature.subtitle}
+						title={feature.title}
+						img={feature.image}
+						placeholder={feature.placeholder}
+					/>
+				{/each}
+			</div>
+		{/each}
 	</div>
 </div>

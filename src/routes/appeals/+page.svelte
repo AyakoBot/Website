@@ -1,24 +1,13 @@
 <script lang="ts">
-	import { PUBLIC_API } from '$env/static/public';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Guild from '$lib/components/generic/Guild.svelte';
-	import Loading from '$lib/components/generic/Loading.svelte';
 	import SearchBar from '$lib/components/generic/SearchBar.svelte';
 	import type { Returned as GETAppealableGuilds } from '@ayako/server/src/routes/@me/appeals/guilds/+server.js';
+	import type { PageServerData } from './$types';
+
+	export let data: PageServerData;
 
 	$: name = '';
-
-	const getGuilds = async () => {
-		const res = await fetch(`${PUBLIC_API}/@me/appeals/guilds`);
-		const guilds = (await res.json()) as GETAppealableGuilds;
-
-		return {
-			appealEnabled: guilds.appealEnabled.sort((a, b) => a.name.localeCompare(b.name)),
-			otherMutuals: guilds.otherMutuals.sort((a, b) => a.name.localeCompare(b.name)),
-		};
-	};
-
-	const guilds = getGuilds();
 
 	const filter = (g: GETAppealableGuilds['appealEnabled'][0]) =>
 		g.name.toLowerCase().includes(name.toLowerCase());
@@ -38,40 +27,30 @@
 	<SearchBar on:any={(e) => (name = e.detail.query)} options={[]} />
 </div>
 
-{#await guilds}
-	<div class="flex justify-center items-center flex-col">
-		<Loading />
-		<h1>Loading your Servers...</h1>
-	</div>
-{:then guilds}
-	{#if guilds.appealEnabled.filter(filter)}
-		<h1 class="text-3xl">Appealable Servers</h1>
-		<FancyBorder />
-		<ul class="flex flex-row gap-4 flex-wrap justify-center items-center mt-7.5">
-			{#each guilds.appealEnabled.filter((g) => g.name.toLowerCase().includes(name)) as guild, i (i)}
-				<Guild guild={fixLinks(guild)}>
-					<a class="btn-medium" href="guilds/{guild.id}/appeals">Appeal</a>
-				</Guild>
-			{/each}
-		</ul>
-	{/if}
+{#if data.appealEnabled.filter(filter)}
+	<h1 class="text-3xl">Appealable Servers</h1>
+	<FancyBorder />
+	<ul class="flex flex-row gap-4 flex-wrap justify-center items-center mt-7.5">
+		{#each data.appealEnabled.filter((g) => g.name.toLowerCase().includes(name)) as guild, i (i)}
+			<Guild guild={fixLinks(guild)}>
+				<a class="btn-medium" href="guilds/{guild.id}/appeals">Appeal</a>
+			</Guild>
+		{/each}
+	</ul>
+{/if}
 
-	{#if guilds.otherMutuals.filter(filter)}
-		<h1 class="text-3xl mt-10">Unappealable Servers</h1>
-		<span class="text-xs color-neutral-500">
-			Consider telling a server admin to set up punishment appeals using <br />
-			<code class="code code-font"> /settings appeals </code>
-		</span>
-		<FancyBorder />
-		<ul class="flex flex-row gap-4 flex-wrap justify-center items-center mt-7.5">
-			{#each guilds.otherMutuals.filter((g) => g.name
-					.toLowerCase()
-					.includes(name.toLowerCase())) as guild, i (i)}
-				<Guild guild={fixLinks(guild)} />
-			{/each}
-		</ul>
-	{/if}
-{:catch error}
-	{console.error(error)}
-	<p>Error</p>
-{/await}
+{#if data.otherMutuals.filter(filter)}
+	<h1 class="text-3xl mt-10">Unappealable Servers</h1>
+	<span class="text-xs color-neutral-500">
+		Consider telling a server admin to set up punishment appeals using <br />
+		<code class="code code-font"> /settings appeals </code>
+	</span>
+	<FancyBorder />
+	<ul class="flex flex-row gap-4 flex-wrap justify-center items-center mt-7.5">
+		{#each data.otherMutuals.filter((g) => g.name
+				.toLowerCase()
+				.includes(name.toLowerCase())) as guild, i (i)}
+			<Guild guild={fixLinks(guild)} />
+		{/each}
+	</ul>
+{/if}

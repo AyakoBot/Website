@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 	import { onDestroy, onMount } from 'svelte';
-	import type { Returned as GETArt } from '$api/artworks/+server.js';
+	import type { Returned as GETArt } from '@ayako/server/src/routes/artworks/+server.js';
 	import Loading from '$lib/components/generic/Loading.svelte';
 
 	export let artwork: GETArt[number];

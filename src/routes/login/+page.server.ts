@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { Returned as GETLogin } from '@ayako/server/src/routes/login/+server.js';
-import { PUBLIC_API } from '$env/static/public';
+import { PUBLIC_API, PUBLIC_HOSTNAME } from '$env/static/public';
 
 export const load: PageServerLoad = async (event) => {
 	const userId = event.cookies.get('discord-id');
@@ -20,7 +20,7 @@ export const load: PageServerLoad = async (event) => {
 	const basicCookieOptions: Parameters<typeof event.cookies.set>[2] = {
 		expires: new Date(Date.now() + json.expires * 1000),
 		path: '/',
-		domain: '.ayakobot.com',
+		domain: PUBLIC_HOSTNAME.replace('https://', ''),
 		maxAge: json.expires,
 		sameSite: 'strict',
 		httpOnly: false,

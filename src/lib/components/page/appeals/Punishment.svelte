@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Timestamp from '$lib/components/generic/Timestamp.svelte';
-	import type { Returned as GETPunishments } from '$api/guilds/[guildId]/appeals/+server.js';
+	import type { Returned as GETPunishments } from '@ayako/server/src/routes/guilds/[guildId]/appeals/+server.js';
 
 	export let p: GETPunishments[number];
 	export let appeal: boolean = false;
@@ -20,12 +20,12 @@
 		<div class="flex flex-row justify-evenly items-center mb-5 gap-10 w-full">
 			<div>
 				<u>Date:</u>
-				<p class="flex flex-col justify-center items-center gap-1">
+				<div class="flex flex-col justify-center items-center gap-1">
 					<Timestamp time={p.id} type="f" />
 					<span class="flex flex-row justify-center items-center"
 						>(<Timestamp time={p.id} type="R" />)</span
 					>
-				</p>
+				</div>
 			</div>
 			<div class="flex flex-col justify-center items-center {appeal ? 'w-100' : ''}">
 				<u>Channel:</u>

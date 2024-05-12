@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Returned as GETAppeals } from '$api/guilds/[guildId]/appeals/[punishmentId]/appeal/+server.js';
+	import type { Returned as GETAppeals } from '@ayako/server/src/routes/guilds/[guildId]/appeals/[punishmentId]/appeal/+server.js';
 
 	export let q: GETAppeals['questions'][number];
 	let value = '';

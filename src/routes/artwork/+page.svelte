@@ -1,18 +1,24 @@
 <script lang="ts">
+	import { PUBLIC_API } from '$env/static/public';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
 	import NoResults from '$lib/components/generic/NoResults.svelte';
 	import SearchBar from '$lib/components/generic/SearchBar.svelte';
 	import Image from '$lib/components/page/artwork/Image.svelte';
 	import { ArtType } from '$lib/scripts/types.js';
-	import type { Returned as GETArt } from '$api/artworks/+server.js';
+	import type { Returned as GETArt } from '@ayako/server/src/routes/artworks/+server.js';
+	import type { PageServerData } from './$types.js';
+
+	export let data: PageServerData;
 
 	const getArt = async (query?: string, type?: ArtType) => {
+		if (!query && !type) return data.art;
+
 		const urlSearchParams = new URLSearchParams('');
 		if (query) urlSearchParams.set('q', query);
 		if (type) urlSearchParams.set('type', type);
 
-		const res = await fetch(`/api/artworks?${urlSearchParams.toString()}`);
+		const res = await fetch(`${PUBLIC_API}/artworks?${urlSearchParams.toString()}`);
 		return res.json() as Promise<GETArt>;
 	};
 

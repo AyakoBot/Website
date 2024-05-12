@@ -1,18 +1,9 @@
 <script lang="ts">
-	import { PUBLIC_API } from '$env/static/public';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
-	import Loading from '$lib/components/generic/Loading.svelte';
 	import CreditItem from '$lib/components/page/credits/item.svelte';
-	import type { Returned as GETCredits } from '@ayako/server/src/routes/contributers/+server.ts';
+	import type { PageServerData } from './$types';
 
-	const getCredits = async (): Promise<GETCredits> => {
-		const res = await fetch(`${PUBLIC_API}/contributers`);
-		return (await (res.json() as Promise<GETCredits>)).sort(
-			(a, b) => b.roles.length - a.roles.length,
-		);
-	};
-
-	const credits = getCredits();
+	export let data: PageServerData;
 </script>
 
 <div class="flex flex-col items-center justify-center w-full">
@@ -29,16 +20,8 @@
 	<div
 		class="grid auto-rows-max grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 mt-10"
 	>
-		{#await credits}
-			<div class="w-full flex justify-center items-center">
-				<Loading />
-			</div>
-		{:then credits}
-			{#each credits as credit, i (i)}
-				<CreditItem {credit} />
-			{/each}
-		{:catch error}
-			{console.error(error)}
-		{/await}
+		{#each data.credits as credit, i (i)}
+			<CreditItem {credit} />
+		{/each}
 	</div>
 </div>

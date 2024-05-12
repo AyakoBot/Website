@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import RandomLetters from '$lib/components/generic/RandomLetters.svelte';
 	import AverageReview from '$lib/components/page/home/AverageReview.svelte';
 	import Buttons from '$lib/components/page/home/Buttons.svelte';
@@ -7,12 +8,12 @@
 	import Flower from '$lib/components/page/home/Flowers.svelte';
 	import LastCall from '$lib/components/page/home/LastCall.svelte';
 	import FeatureTeaser from '$lib/components/page/home/features/main.svelte';
-	import InfiniteReviewCarousel from '$lib/components/page/home/reviews/Carousel.svelte';
 	import InfiniteGuildCarousel from '$lib/components/page/home/guild/Carousel.svelte';
-	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
+	import InfiniteReviewCarousel from '$lib/components/page/home/reviews/Carousel.svelte';
 	import { onMount } from 'svelte';
-	import type { Returned as GETReviews } from '@ayako/server/src/routes/reviews/+server.js';
-	import { PUBLIC_API } from '$env/static/public';
+	import type { PageServerData } from './$types';
+
+	export let data: PageServerData;
 
 	onMount(async () => {
 		const reload = $page.url.searchParams.get('reload');
@@ -20,13 +21,6 @@
 
 		window.location.href = '/';
 	});
-
-	const getReviews = async (): Promise<GETReviews> => {
-		const res = await fetch(`${PUBLIC_API}/reviews`);
-		return (await res.json()).sort(() => 0.5 - Math.random());
-	};
-
-	const reviews = getReviews();
 </script>
 
 <Flower />
@@ -46,18 +40,18 @@
 	</div>
 
 	<div class="mt-40">
-		<Count />
+		<Count stats={data.stats} />
 	</div>
 
-	<InfiniteGuildCarousel />
+	<InfiniteGuildCarousel guilds={data.guilds} />
 	<div class="mt-10">
-		<AverageReview {reviews} />
+		<AverageReview reviews={data.reviews} />
 	</div>
-	<InfiniteReviewCarousel {reviews} />
+	<InfiniteReviewCarousel reviews={data.reviews} />
 
 	<FancyBorder />
 
-	<FeatureTeaser />
+	<FeatureTeaser featureBlocks={data.features} />
 
 	<FancyBorder />
 

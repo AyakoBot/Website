@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Returned as GETAppeals } from '$api/guilds/[guildId]/appeals/[punishmentId]/appeal/+server.js';
+	import type { Returned as GETAppeals } from '@ayako/server/src/routes/guilds/[guildId]/appeals/[punishmentId]/appeal/+server.js';
 	import Select from '$lib/components/generic/Select.svelte';
 	import Switch from '$lib/components/generic/Switch.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
