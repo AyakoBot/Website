@@ -1,4 +1,4 @@
-import type { Returned as GETReviews } from '$api/reviews/+server.js';
+import type { Returned as GETReviews } from '@ayako/server/src/routes/reviews/+server.js';
 
 export type ReviewDispatch = {
 	hovered: GETReviews[number];
