@@ -95,7 +95,7 @@
 			{/each}
 		</ul>
 	</div>
-	<p class="text-xs color-neutral-500">hover to see more info</p>
+	<span class="text-xs color-neutral-500">hover to see more info</span>
 
 	<div class="op-0 absolute left--1000% z--1000 py-10 w-110%" bind:this={reviewDiv}>
 		{reviews.find((r) => r.userid === hoveredReviewId)?.content}

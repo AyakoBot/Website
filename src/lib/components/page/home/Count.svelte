@@ -5,8 +5,8 @@
 	export let stats: GETStats;
 </script>
 
-<p class="text-10">Ayako manages</p>
+<span class="text-10">Ayako manages</span>
 <div class="text-15"><ColorFadeAndCountUp num={stats.guildCount} /></div>
-<p class="text-10">Discord Communities with</p>
+<span class="text-10">Discord Communities with</span>
 <div class="text-15"><ColorFadeAndCountUp num={stats.userCount} /></div>
-<p class="text-10">Members</p>
+<span class="text-10">Members</span>

@@ -8,9 +8,9 @@
 
 <div class="mt-10">
 	<div class="flex flex-row justify-center items-center flex-wrap">
-		<p class="text-10">Add&nbsp;</p>
+		<span class="text-10">Add&nbsp;</span>
 		<div class="text-10"><ColorFadeText text="Ayako" /></div>
-		<p class="text-10">&nbsp;to your Server and get access to Features like</p>
+		<span class="text-10">&nbsp;to your Server and get access to Features like</span>
 	</div>
 
 	<div class="flex flex-col justify-center gap-10 items-center m-10">

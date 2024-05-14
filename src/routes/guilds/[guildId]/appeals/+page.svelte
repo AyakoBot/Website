@@ -15,7 +15,7 @@
 	</div>
 
 	{#if !data.punishments.filter((p) => p.reason.toLowerCase().includes(query)).length}
-		<p>No Punishments found. Try refining your Search-Query</p>
+		<span>No Punishments found. Try refining your Search-Query</span>
 	{/if}
 
 	<ul class="flex flex-col justify-center items-center gap-20 mx-5">
@@ -41,7 +41,7 @@
 {:else}
 	<div class="flex flex-col justify-center items-center">
 		<img src="https://cdn.ayakobot.com/website_assets/AyakoHappy.webp" loading="lazy" alt="" />
-		<p>No punishments</p>
+		<span>No punishments</span>
 		<FancyBorder />
 		<a class="btn-loud" href="/appeals">Back</a>
 	</div>

@@ -13,8 +13,8 @@
 		class="flex flex-col justify-evenly items-center w-full gap-5 flex-wrap text-shadow text-shadow-color-black text-shadow-md m-auto"
 	>
 		<div>
-			<u>Reason:</u>
-			<p>{p.reason}</p>
+			<span>Reason:</span>
+			<span>{p.reason}</span>
 		</div>
 		<FancyBorder />
 		<div class="flex flex-row justify-evenly items-center mb-5 gap-10 w-full">
@@ -29,7 +29,7 @@
 			</div>
 			<div class="flex flex-col justify-center items-center {appeal ? 'w-100' : ''}">
 				<u>Channel:</u>
-				<p class="mention text-shadow-none">#{p.channelname}</p>
+				<span class="mention text-shadow-none">#{p.channelname}</span>
 			</div>
 			{#if appeal}
 				<a class="btn-loud self-end" href="/guilds/{$page.params.guildId}/appeals/{p.id}/appeal">

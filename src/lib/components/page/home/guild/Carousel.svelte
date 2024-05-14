@@ -43,8 +43,8 @@
 			{/each}
 		</ul>
 	</div>
-	<p class="color-neutral-500">A selection of large Discord Servers Ayako manages</p>
-	<p class="text-xs color-neutral-500">hover to see more info</p>
+	<span class="color-neutral-500">A selection of large Discord Servers Ayako manages</span>
+	<span class="text-xs color-neutral-500">hover to see more info</span>
 </div>
 
 <style>

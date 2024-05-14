@@ -11,4 +11,4 @@
 	/>
 </div>
 
-<p class="text-10">Stars per Review</p>
+<span class="text-10">Stars per Review</span>

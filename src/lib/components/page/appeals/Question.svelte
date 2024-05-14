@@ -2,7 +2,6 @@
 	import type { Returned as GETAppeals } from '@ayako/server/src/routes/guilds/[guildId]/appeals/[punishmentId]/appeal/+server.js';
 	import Select from '$lib/components/generic/Select.svelte';
 	import Switch from '$lib/components/generic/Switch.svelte';
-	import Label from '$lib/components/ui/label/label.svelte';
 	import { AnswerType } from '@prisma/client';
 	import Number from './Number.svelte';
 	import Paragraph from './Paragraph.svelte';
@@ -12,7 +11,7 @@
 </script>
 
 <div class="flex flex-col justify-center items-center gap-2 relative">
-	<Label for={String(q.uniquetimestamp)} class="text-2xl">{q.question}</Label>
+	<label for={String(q.uniquetimestamp)} class="text-2xl">{q.question}</label>
 
 	{#if q.answertype === AnswerType.number}
 		<Number {q} />
@@ -39,11 +38,11 @@
 			id={String(q.uniquetimestamp)}
 		/>
 	{:else if q.answertype === AnswerType.text}{:else}
-		<p>
+		<span>
 			Unknown Answer Type for Question: <span class="code">{q.question}</span>
 			<br />
 			Type: <span class="code">{q.answertype}</span>
-		</p>
+		</span>
 	{/if}
 	{#if q.required && q.answertype !== AnswerType.text}
 		<div

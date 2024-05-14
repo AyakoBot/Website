@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	export let num: number;
-	let element: HTMLParagraphElement;
+	let element: HTMLSpanElement;
 
 	onMount(() => {
 		const randomStartPosition = Math.floor(Math.random() * 101);
@@ -53,9 +53,9 @@
 	const numberWithCommas = (x: number) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 </script>
 
-<p
+<span
 	class="bg-gradient-to-r via-[#fe3521] from-[#b0ff00] to-[#b0ff00] bg-[length:200%] bg-repeat-x w-full m-auto bg-clip-text text-fill-color font-bold"
 	bind:this={element}
 >
 	{numberWithCommas(currentCount)}
-</p>
+</span>

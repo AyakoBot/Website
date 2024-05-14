@@ -61,7 +61,7 @@
 			{/if}
 		{:catch error}
 			{console.error(error)}
-			<p>Error</p>
+			<span>Error</span>
 		{/await}
 	</div>
 </div>

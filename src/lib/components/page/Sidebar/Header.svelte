@@ -15,7 +15,7 @@ hover:bg-[#fe3521] hover:color-white"
 		<Fa icon={faClose} size="1.5x" />
 	</button>
 
-	<p class="font-bold lg:text-9 text-8 color-[#b0ff00] of-unset">Ayako</p>
+	<span class="font-bold lg:text-9 text-8 color-[#b0ff00] of-unset">Ayako</span>
 
 	<a href="/" on:click={() => close()} on:keydown={() => close()}>
 		<img

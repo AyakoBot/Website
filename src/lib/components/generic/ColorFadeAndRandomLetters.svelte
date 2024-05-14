@@ -3,7 +3,7 @@
 
 	export let text: string;
 	export let isTitle: boolean = false;
-	let element: HTMLElement;
+	let element: HTMLSpanElement;
 
 	let title = String(text);
 	const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ_.,!=+~/\\*&^%$#@1234567890:;`';
@@ -47,9 +47,9 @@
 	});
 </script>
 
-<p
+<span
 	class="bg-gradient-to-r via-[#fe3521] from-[#b0ff00] to-[#b0ff00] bg-[length:200%] bg-repeat-x w-full m-auto bg-clip-text text-fill-color code-font opacity-0 font-bold"
 	bind:this={element}
 >
 	{text}
-</p>
+</span>
