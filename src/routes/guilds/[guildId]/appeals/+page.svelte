@@ -5,6 +5,7 @@
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
+	console.log(data);
 
 	$: query = '';
 </script>
@@ -32,7 +33,7 @@
 					{#each data.punishments
 						.filter((p) => p.type === type)
 						.filter((p) => p.reason.toLowerCase().includes(query)) as punishment, i (i)}
-						<Punishment p={punishment} appeal={true} />
+						<Punishment p={punishment} showAppealButton={true} showStatusButton={punishment.appealed} />
 					{/each}
 				</ul>
 			</li>

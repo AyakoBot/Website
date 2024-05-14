@@ -5,7 +5,8 @@
 	import type { Returned as GETPunishments } from '@ayako/server/src/routes/guilds/[guildId]/appeals/+server.js';
 
 	export let p: GETPunishments[number];
-	export let appeal: boolean = false;
+	export let showAppealButton: boolean = false;
+	export let showStatusButton: boolean = false;
 </script>
 
 <li class="bg-fancy max-w-95%">
@@ -27,13 +28,16 @@
 					>
 				</div>
 			</div>
-			<div class="flex flex-col justify-center items-center {appeal ? 'w-100' : ''}">
+			<div class="flex flex-col justify-center items-center {showAppealButton ? 'w-100' : ''}">
 				<u>Channel:</u>
 				<span class="mention text-shadow-none">#{p.channelname}</span>
 			</div>
-			{#if appeal}
-				<a class="btn-loud self-end" href="/guilds/{$page.params.guildId}/appeals/{p.id}/appeal">
-					Appeal
+			{#if showAppealButton || showStatusButton}
+				<a
+					class="{showStatusButton ? 'btn-medium' : 'btn-loud'} self-end"
+					href="/guilds/{$page.params.guildId}/appeals/{p.id}/{showStatusButton ? 'status' : 'appeal'}"
+				>
+					{showStatusButton ? 'Status' : 'Appeal'}
 				</a>
 			{/if}
 		</div>

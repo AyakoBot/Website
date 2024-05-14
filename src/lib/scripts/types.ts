@@ -30,6 +30,7 @@ export enum PunishmentType {
 }
 
 export type AppealPunishment = {
+	appealed: boolean;
 	type: PunishmentType;
 	reason: string;
 	id: number;
