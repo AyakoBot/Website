@@ -3,7 +3,7 @@
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Punishment from '$lib/components/page/appeals/Punishment.svelte';
 	import Question from '$lib/components/page/appeals/Question.svelte';
-	import type { PageServerData, ActionData } from './$types';
+	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
 
