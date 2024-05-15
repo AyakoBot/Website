@@ -6,9 +6,9 @@
 		"node": "=22.1.0",
 		"pnpm": "=9.1.1"
 	},
- "packageManager": "pnpm@9.1.1",
+	"packageManager": "pnpm@9.1.1",
 	"scripts": {
-  "install": "pnpm install",
+		"install": "pnpm install",
 		"dev": "rm -r ./.svelte-kit && vite dev --port 5173",
 		"build": "vite build",
 		"preview": "vite preview --port 5174",
@@ -43,6 +43,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@ayako/server": "github:AyakoBot/Server",
 		"@fortawesome/fontawesome-svg-core": "^6.5.2",
 		"@fortawesome/free-brands-svg-icons": "^6.5.2",
 		"@fortawesome/free-regular-svg-icons": "^6.5.2",
