@@ -52,7 +52,7 @@
 
 <svelte:window on:click={clickWindow} on:keydown={clickWindow} />
 
-<div {id} class="relative">
+<div {id} class="relative w-full">
 	<input
 		type="text"
 		{required}
@@ -68,7 +68,7 @@
 		on:keydown={labelClick}
 		role="button"
 		tabindex="0"
-		class="cursor-pointer bg-neutral-900 w-100 rounded-2xl px-2 py-2 relative text-left"
+		class="cursor-pointer bg-neutral-900 w-full rounded-2xl px-2 py-2 relative text-left"
 	>
 		{#if selectedOptions.length}
 			<div class="flex flex-row flex-wrap gap-1 items-center">
@@ -116,7 +116,7 @@
 
 	{#if expanded}
 		<div
-			class="absolute top-full right-1/2 translate-x-1/2 bg-neutral-800 w-100 z-100 rounded-2xl max-h-50 scroll-auto of-x-hidden"
+			class="absolute top-full right-1/2 translate-x-1/2 bg-neutral-800 w-full z-100 rounded-2xl max-h-50 scroll-auto of-x-hidden"
 		>
 			{#each options as opt}
 				<div

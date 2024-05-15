@@ -19,7 +19,7 @@ export default defineConfig({
 		mention: 'bg-[rgba(88,101,242,0.3)] px-1 rounded-md',
 		'bg-fancy': `border-solid border-4 relative border-orange-700 rounded-2xl duration-1000 transition-all p-2
    before:content-[''] before:w-full before:h-full before:absolute before:top-0 before:left-0 before:[background-image:linear-gradient(130deg,_transparent_0%_33%,_rgb(236,64,122)_66%,_rgb(253,196,53)_100%)]
-   before:bg-[length:300%_300%] before:bg-[0%_0%] before:transition-all before:duration-1000 before:ease-in-out before:z-1 before:ease-in-out before:duration-1000 before:rounded-2xl
+   before:bg-[length:300%_300%] before:transition-all before:duration-1000 before:ease-in-out before:z-1 before:ease-in-out before:duration-1000 before:rounded-2xl
    hover:before:bg-[position:100%_100%] hover:before:border-transparent hover:before:scale-x-106 hover:before:scale-y-103 hover:before:-z-20
    hover:border-op-0`,
 	},

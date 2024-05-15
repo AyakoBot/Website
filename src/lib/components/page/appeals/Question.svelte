@@ -10,7 +10,7 @@
 	export let q: GETAppeals['questions'][number];
 </script>
 
-<div class="flex flex-col justify-center items-center gap-2 relative">
+<div class="flex flex-col justify-center items-center gap-2 relative w-full">
 	<label for={String(q.uniquetimestamp)} class="text-2xl">{q.question}</label>
 
 	{#if q.answertype === AnswerType.number}

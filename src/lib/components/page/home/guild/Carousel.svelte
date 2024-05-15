@@ -44,7 +44,7 @@
 		</ul>
 	</div>
 	<span class="color-neutral-500">A selection of large Discord Servers Ayako manages</span>
-	<span class="text-xs color-neutral-500">hover to see more info</span>
+	<span class="text-xs color-neutral-500">hover/tap to see more info</span>
 </div>
 
 <style>

@@ -9,7 +9,7 @@
 	export let showStatusButton: boolean = false;
 </script>
 
-<li class="bg-fancy max-w-95%">
+<li class="bg-fancy max-w-95% min-w-95%">
 	<div
 		class="flex flex-col justify-evenly items-center w-full gap-5 flex-wrap text-shadow text-shadow-color-black text-shadow-md m-auto"
 	>
@@ -18,7 +18,7 @@
 			<span>{p.reason}</span>
 		</div>
 		<FancyBorder />
-		<div class="flex flex-row justify-evenly items-center mb-5 gap-10 w-full">
+		<div class="flex flex-row flex-wrap justify-evenly items-center mb-5 gap-10 w-full">
 			<div>
 				<u>Date:</u>
 				<div class="flex flex-col justify-center items-center gap-1">
@@ -28,7 +28,7 @@
 					>
 				</div>
 			</div>
-			<div class="flex flex-col justify-center items-center {showAppealButton ? 'w-100' : ''}">
+			<div class="flex flex-col justify-center items-center">
 				<u>Channel:</u>
 				<span class="mention text-shadow-none">#{p.channelname}</span>
 			</div>

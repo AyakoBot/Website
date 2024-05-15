@@ -116,6 +116,6 @@
 			loading="lazy"
 		/>
 
-		<div bind:this={hoverMeText} class="text-sm text-neutral-300/75">Hover</div>
+		<div bind:this={hoverMeText} class="text-sm text-neutral-300/75">Hover/Tap</div>
 	</div>
 </div>

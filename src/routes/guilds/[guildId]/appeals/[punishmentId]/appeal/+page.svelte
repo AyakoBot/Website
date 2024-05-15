@@ -11,14 +11,14 @@
 	$: submitted = false;
 </script>
 
-<ul class="flex flex-col justify-center items-center mb-20 gap-5 min-w-100vw lg:min-w-50vw">
+<ul class="flex flex-col justify-center items-center mb-20 gap-5 w-fit m-auto">
 	<li class="text-2xl">Appealing Punishment:</li>
 	<Punishment p={data.appeal.punishment} />
 </ul>
 
 {#if !('message' in data)}
 	<form
-		class="flex flex-col justify-center items-center gap-5"
+		class="flex flex-col justify-center items-center gap-5 max-w-90vw lg:max-w-50vw m-auto"
 		method="post"
 		action="?/appeal"
 		use:enhance
