@@ -2,7 +2,12 @@
 	"name": "@ayako/website",
 	"version": "0.0.1",
 	"private": true,
+	"engines": {
+		"node": "22.1.0",
+		"pnpm": "9.1.1"
+	},
 	"scripts": {
+  "install": "pnpm install",
 		"dev": "rm -r ./.svelte-kit && vite dev --port 5173",
 		"build": "vite build",
 		"preview": "vite preview --port 5174",
