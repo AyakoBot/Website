@@ -8,7 +8,7 @@
 	},
 	"packageManager": "pnpm@9.1.1",
 	"scripts": {
-  "start": "pnpm build && pnpm preview --port 5173",
+  "start": "rm -r ./.svelte-kit && pnpm build && pnpm preview --port 5173",
 		"dev": "rm -r ./.svelte-kit && vite dev --port 5173",
 		"build": "vite build",
 		"preview": "vite preview",
