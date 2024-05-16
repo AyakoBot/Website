@@ -16,7 +16,7 @@
 
 		<a
 			href="https://discord.com/oauth2/authorize?client_id={PUBLIC_ID}&response_type=code&redirect_uri={encodeURIComponent(
-				`${PUBLIC_HOSTNAME}/login`,
+				`https://ayakobot.com/login`,
 			)}&scope=identify+guilds{checked ? '+guilds.join' : ''}"
 			class="text-xl btn-loud"
 		>
