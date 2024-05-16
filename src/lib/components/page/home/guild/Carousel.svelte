@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Guild from '$lib/components/generic/Guild.svelte';
-	import Loading from '$lib/components/generic/Loading.svelte';
 	import type { Returned as GETGuilds } from '@ayako/server/src/routes/guilds/+server.js';
 	import { onMount } from 'svelte';
 
@@ -10,19 +9,10 @@
 	let scroller: HTMLUListElement;
 
 	onMount(() => {
-		addAnimation();
-	});
-
-	const addAnimation = async () => {
-		if (!container || !scroller) return;
-
-		const scrollerContent = Array.from(scroller.children);
-
-		scrollerContent.forEach((item) => {
-			const duplicatedItem = item.cloneNode(true);
-			if (scroller) scroller.appendChild(duplicatedItem);
+		Array.from(scroller.children).forEach((item) => {
+			scroller.appendChild(item.cloneNode(true));
 		});
-	};
+	});
 
 	const numberWithCommas = (x: number) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 </script>

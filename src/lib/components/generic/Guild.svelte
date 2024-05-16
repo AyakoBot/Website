@@ -7,14 +7,24 @@
 		membercount?: number;
 		name: string;
 	};
+
+	const unhoverE = () => {
+		console.log('unhovered', guild.name);
+		hover = false;
+	};
+
+	const hoverE = () => {
+		console.log('hovered', guild.name);
+		hover = true;
+	};
 </script>
 
 <li>
 	<div
-		on:mouseover={() => (hover = true)}
-		on:mouseleave={() => (hover = false)}
-		on:focus={() => (hover = true)}
-		on:blur={() => (hover = false)}
+		on:mouseover={hoverE}
+		on:mouseleave={unhoverE}
+		on:focus={hoverE}
+		on:blur={unhoverE}
 		tabindex="-1"
 		role="button"
 		class="w-75 max-h-full h-auto rounded-2xl flex-shrink-0 mx-8 aspect-video hover:scale-105 transition-all ease-in-out relative flex flex-col justify-center items-center of-hidden cursor-default"
@@ -50,9 +60,9 @@
 		{/if}
 
 		<div
-			class="z-20 op-0 {hover
-				? 'op-100 scale-105 z-unset'
-				: 'z--1'} transition-all scale-90 ease-in-out flex flex-col justify-center items-center w-full h-full"
+			class="z-20 {hover
+				? 'op-100 scale-105 z-1000'
+				: 'op-0 z--1'} transition-all scale-90 ease-in-out flex flex-col justify-center items-center w-full h-full"
 		>
 			<img
 				loading="eager"
@@ -64,7 +74,7 @@
 					? 'scale-105'
 					: ''} scale-90 transition-all ease-in-out"
 			/>
-			<span class="{hover ? 'scale-105' : ''} scale-90 transition-all ease-in-out w-full p-2">
+			<span class="{hover ? 'scale-105' : ''} scale-90 transition-all ease-in-out w-full p-2 text-sm">
 				{guild.name.slice(0, 50)}
 			</span>
 			<span class="scale-90 transition-all ease-in-out">

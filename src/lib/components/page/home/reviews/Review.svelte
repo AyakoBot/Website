@@ -50,9 +50,9 @@
 		{/if}
 
 		<div
-			class="z-20 op-0 {hover
+			class="z-20 {hover
 				? 'op-100 scale-105% z-unset'
-				: 'z--1'} transition-all scale-90% ease-in-out flex flex-col justify-center items-center w-full h-full"
+				: 'z--1 op-0'} transition-all scale-90% ease-in-out flex flex-col justify-center items-center w-full h-full"
 		>
 			<span
 				class="{hover ? 'scale-105%' : ''} scale-90% transition-all ease-in-out w-full p-2 text-2xl"
