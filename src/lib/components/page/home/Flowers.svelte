@@ -152,7 +152,7 @@
 		flower5?.remove();
 	};
 
-	const src = 'https://cdn.ayakobot.com/website_assets/flower.png';
+	const src = '/images/WhiteFlower.webp';
 	const alt = 'Flower';
 </script>
 

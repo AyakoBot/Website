@@ -18,7 +18,7 @@
 			type="checkbox"
 			class="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-full focus:outline-none {checked
 				? 'bg-[#3dff56]'
-				: 'bg-[#fe3521]'}"
+				: 'bg-[#FE6152]'}"
 			on:click={() => {
 				checked = !checked;
 			}}
@@ -26,10 +26,10 @@
 				checked = !checked;
 			}}
 		/>
-		<span class="absolute font-medium uppercase text-.5rem right-1 text-white"
+		<span class="absolute font-medium uppercase text-.5rem right-1 text-black"
 			>{type === 'y/n' ? 'no' : 'off'}</span
 		>
-		<span class="absolute font-medium uppercase text-.5rem right-9 text-white"
+		<span class="absolute font-medium uppercase text-.5rem right-9 text-black"
 			>{type === 'y/n' ? 'yes' : 'on'}</span
 		>
 		<span

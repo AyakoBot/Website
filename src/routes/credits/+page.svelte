@@ -8,9 +8,9 @@
 
 <div class="flex flex-col items-center justify-center w-full">
 	<img
-		src="https://cdn.ayakobot.com/website_assets/ayakoLove.png"
+		src="/images/AyakoLove.png"
 		width="128"
-		alt=""
+		alt="Ayako holding a heart"
 		loading="lazy"
 	/>
 

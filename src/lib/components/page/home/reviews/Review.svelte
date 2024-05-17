@@ -39,7 +39,7 @@
 		{#if review.avatar}
 			<img
 				src={`${review.avatar.replace('?size=512', '')}?size=2048`}
-				alt=""
+				alt="Reviewer Avatar"
 				width="128"
 				height="128"
 				class="{review.avatar ? 'rounded-full' : ''} aspect-square absolute {hover

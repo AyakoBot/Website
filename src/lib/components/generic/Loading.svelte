@@ -1,5 +1,5 @@
 <img
-	src="https://cdn.ayakobot.com/Loading.gif"
+	src="/images/Loading.webp"
 	width="128"
 	height="128"
 	alt="Loading..."

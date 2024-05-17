@@ -1,7 +1,7 @@
 <div class="flex flex-col items-center">
 	<img
-		src="https://cdn.ayakobot.com/website_assets/AyakoCry.webp"
-		alt=""
+		src="/emotes/AyakoCry.webp"
+		alt="Ayako Crying"
 		width="64"
 		loading="eager"
 	/>

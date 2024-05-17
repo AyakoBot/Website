@@ -7,7 +7,7 @@
 </a>
 <img
 	id="flowerSpin"
-	src="https://cdn.ayakobot.com/website_assets/greenFlower.png"
+	src="/images/GreenFlower.webp"
 	alt="Flower"
 	width="64"
 	height="64"

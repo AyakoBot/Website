@@ -109,6 +109,7 @@
 		on:blur={() => resetReview(true)}
 		class="shadow-black shadow-op-50 shadow-inner w-110% px-10 sm:px-15 md:px-20 lg:px-30 xl:px-40 rounded-2xl bg-neutral-700 text-neutral-100 transition-all ease-in-out flex flex-row flex-wrap justify-center items-center"
 		style="height: {reviewHeight}px"
+		aria-label="Review"
 	>
 		<div bind:this={review}>
 			{#each content.split(/\s/g) as word, i (i)}

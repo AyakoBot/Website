@@ -86,26 +86,27 @@
 	on:focus={hoverE}
 	on:blur={unhoverE}
 	role="tooltip"
+ aria-label="{title}"
 >
 	<div class="flex justify-between items-center flex-col m-auto h-full">
-		<h3 class="text-xl">
+		<h1 class="text-xl">
 			{title}
-		</h3>
-		<h4>
+		</h1>
+		<h2>
 			{#each subtitleArgs as arg, i (i)}
 				<span
 					class="inline-block relative translate-y-[40%] transition-none op-0 text-lg"
 					bind:this={subtitleElements[i]}>{arg}&nbsp;</span
 				>
 			{/each}
-		</h4>
+  </h2>
 
 		<img
 			bind:this={imgElement}
 			src="https://cdn.ayakobot.com/website_assets/{img}"
 			class="rounded-2xl op-0 box-shadow-main"
 			width="95%"
-			alt=""
+			alt="Feature Preview"
 			loading="lazy"
 		/>
 
@@ -114,7 +115,7 @@
 			src="https://cdn.ayakobot.com/website_assets/{placeholder}"
 			class="rounded-2xl absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 -z-20"
 			width="264"
-			alt=""
+			alt="Feature Placeholder"
 			loading="lazy"
 		/>
 

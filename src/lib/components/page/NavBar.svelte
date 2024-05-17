@@ -11,13 +11,7 @@
 	<ul id="left" class="flex flex-row items-center ml-15">
 		<li class="pr-2">
 			<a href="/">
-				<img
-					src="https://cdn.ayakobot.com/website_assets/NavBarIcon.png"
-					alt="Ayako Logo Icon"
-					width="64"
-					height="64"
-					loading="eager"
-				/>
+				<img src="/images/Icon.webp" alt="Ayako Logo Icon" width="64" height="64" loading="eager" />
 			</a>
 		</li>
 		<li class="flex flex-row justify-between items-end w-40%">

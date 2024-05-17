@@ -39,7 +39,7 @@
 			<img
 				loading="lazy"
 				src="{guild.banner}?size=2048"
-				alt=""
+				alt="Server Banner"
 				class="w-[calc(18.75rem-3px)] h-[calc(100%-4px)] rounded-2xl aspect-video absolute {hover
 					? 'scale-90 op-20'
 					: ''} transition-all"
@@ -49,8 +49,8 @@
 				loading="eager"
 				src={guild.icon
 					? `${guild.icon}?size=2048`
-					: 'https://cdn.ayakobot.com/website_assets/UnknownPfp.png'}
-				alt=""
+					: 'image/ImageNotFound.webp'}
+				alt="Server Icon"
 				width="128"
 				height="128"
 				class="{guild.icon ? 'rounded-full' : ''} aspect-square absolute h-128px w-128px {hover
@@ -67,7 +67,7 @@
 			<img
 				loading="eager"
 				src="{guild.icon}?size=2048"
-				alt=""
+				alt="Server Icon"
 				height="64"
 				width="64"
 				class="rounded-full aspect-square {hover

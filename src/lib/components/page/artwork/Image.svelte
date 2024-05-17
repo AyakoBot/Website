@@ -45,6 +45,7 @@
 			on:mouseleave={() => (hovering = false)}
 			on:focus={() => (hovering = true)}
 			on:blur={() => (hovering = false)}
+			aria-label="Artwork by {artwork.user.username}"
 		>
 			<img
 				loading="lazy"
@@ -60,7 +61,7 @@
 			>
 				<img
 					src={artwork.user.avatar}
-					alt=""
+					alt="User Avatar"
 					width="32"
 					height="32"
 					class="rounded-full"

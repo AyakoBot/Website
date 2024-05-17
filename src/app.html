@@ -30,9 +30,9 @@
 		<meta property="og:site_name" content="AyakoBot.com" />
 		<meta property="og:title" content="Ayako" />
 		<meta property="twitter:title" content="Ayako" />
-		<meta property="twitter:image" content="https://cdn.ayakobot.com/website_assets/Icon.png" />
-		<meta property="og:image" content="https://cdn.ayakobot.com/website_assets/Icon.png" />
-		<meta property="og:image:secure_url" content="https://cdn.ayakobot.com/website_assets/Icon.png" />
+		<meta property="twitter:image" content="/images/Icon.webp" />
+		<meta property="og:image" content="/images/Icon.webp" />
+		<meta property="og:image:secure_url" content="/images/Icon.webp" />
 		<meta property="og:image:width" content="982" />
 		<meta property="og:image:height" content="1016" />
 		<meta property="og:image:type" content="image/png" />
@@ -42,9 +42,9 @@
 			property="og:description"
 			content="Ayako provides you with tons of optimized and easy to use features for your Discord experience."
 		/>
-		<link rel="icon" type="image/png" href="https://cdn.ayakobot.com/website_assets/Icon.png" />
-		<link rel="icon" type="image/x-icon" href="https://cdn.ayakobot.com/website_assets/ayako.ico" />
-		<link rel="apple-touch-icon" href="https://cdn.ayakobot.com/website_assets/Icon.png" />
+		<link rel="icon" type="image/png" href="/images/Icon.webp" />
+		<link rel="icon" type="image/x-icon" href="/images/Icon.ico" />
+		<link rel="apple-touch-icon" href="/images/Icon.webp" />
 		<link rel="canonical" href="https://ayakobot.com/" />
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-VL2J918CLL"></script>
 		<script>
@@ -56,20 +56,15 @@
 			gtag('config', 'G-VL2J918CLL');
 
 			(function (h, o, t, j, a, r) {
-				// @ts-ignore
 				h.hj =
-					// @ts-ignore
 					h.hj ||
 					function () {
-						// @ts-ignore
 						(h.hj.q = h.hj.q || []).push(arguments);
 					};
-				// @ts-ignore
 				h._hjSettings = { hjid: 2589609, hjsv: 6 };
 				a = o.getElementsByTagName('head')[0];
 				r = o.createElement('script');
 				r.async = 1;
-				// @ts-ignore
 				r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
 				a.appendChild(r);
 			})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
@@ -110,40 +105,7 @@
 				window.cmp_codesrc = '1';
 			}
 			window.cmp_getsupportedLangs = function () {
-				var b = [
-					'DE',
-					'EN',
-					'FR',
-					'IT',
-					'NO',
-					'DA',
-					'FI',
-					'ES',
-					'PT',
-					'RO',
-					'BG',
-					'ET',
-					'EL',
-					'GA',
-					'HR',
-					'LV',
-					'LT',
-					'MT',
-					'NL',
-					'PL',
-					'SV',
-					'SK',
-					'SL',
-					'CS',
-					'HU',
-					'RU',
-					'SR',
-					'ZH',
-					'TR',
-					'UK',
-					'AR',
-					'BS',
-				];
+				var b = ['DE','EN','FR','IT','NO','DA','FI','ES','PT','RO','BG','ET','EL','GA','HR','LV','LT','MT','NL','PL','SV','SK','SL','CS','HU','RU','SR','ZH','TR','UK','AR','BS'];
 				if ('cmp_customlanguages' in window) {
 					for (var a = 0; a < window.cmp_customlanguages.length; a++) {
 						b.push(window.cmp_customlanguages[a].l.toUpperCase());

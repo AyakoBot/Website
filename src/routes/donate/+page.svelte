@@ -4,8 +4,8 @@
 
 <div class="flex flex-col items-center">
 	<img
-		src="https://cdn.ayakobot.com/website_assets/ayakodevil.png"
-		alt=""
+		src="/emotes/AyakoDevil.webp"
+		alt="Evil Ayako"
 		width="128"
 		loading="lazy"
 	/>

@@ -58,6 +58,7 @@
 hover:bg-[#fe3521] hover:color-white"
 	on:click={() => open()}
 	on:keydown={() => open()}
+	name="Open Sidebar"
 >
 	<Fa icon={faBars} size="1.5x" />
 </button>
@@ -79,9 +80,12 @@ hover:bg-[#fe3521] hover:color-white"
 	<Profile {close} />
 </nav>
 
-<button
-	class="w-100vw h-100vh bg-neutral-900/50 {opened ? 'z-9999' : '-z-1000'} op-0 absolute"
-	bind:this={backdrop}
-	on:click={() => close()}
-	on:keydown={() => close()}
-></button>
+{#if opened}
+	<button
+		class="w-100vw h-100vh bg-neutral-900/50 z-9999 op-0 absolute"
+		bind:this={backdrop}
+		on:click={() => close()}
+		on:keydown={() => close()}
+		name="Close Sidebar"
+	></button>
+{/if}

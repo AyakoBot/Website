@@ -11,6 +11,7 @@
 hover:bg-[#fe3521] hover:color-white"
 		on:click={() => close()}
 		on:keydown={() => close()}
+  name="Close Sidebar"
 	>
 		<Fa icon={faClose} size="1.5x" />
 	</button>
@@ -19,7 +20,7 @@ hover:bg-[#fe3521] hover:color-white"
 
 	<a href="/" on:click={() => close()} on:keydown={() => close()}>
 		<img
-			src="https://cdn.ayakobot.com/website_assets/NavBarIcon.png"
+			src="/images/Icon.webp"
 			alt="Ayako Logo Icon"
 			width="64"
 			height="64"

@@ -40,7 +40,7 @@
 	</ul>
 {:else}
 	<div class="flex flex-col justify-center items-center">
-		<img src="https://cdn.ayakobot.com/website_assets/AyakoHappy.webp" loading="lazy" alt="" />
+		<img src="/images/AyakoHappy.webp" loading="lazy" alt="Ayako Happy" />
 		<span>No punishments</span>
 		<FancyBorder />
 		<a class="btn-loud" href="/appeals">Back</a>

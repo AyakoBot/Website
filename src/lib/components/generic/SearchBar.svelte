@@ -53,7 +53,9 @@
 	</div>
 
 	{#if options.length}
+		<label for="type" class="sr-only">Type</label>
 		<select
+			name="type"
 			class="p-2 rounded-r-full mb-4 border-l-black border-l-1px"
 			on:change={(e) => changeType(e.currentTarget.value)}
 		>

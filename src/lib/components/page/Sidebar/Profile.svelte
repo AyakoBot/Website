@@ -37,7 +37,7 @@
 				<div class="flex flex-row justify-evenly items-center mr-10">
 					<img
 						src={pfp}
-						alt=""
+						alt="User Avatar"
 						width="48"
 						height="48"
 						class="rounded-full mx-2 box-shadow-main"

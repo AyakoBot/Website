@@ -4,8 +4,8 @@
 
 <footer class="bg-neutral-900/75 w-full box-shadow-main flex md:mt-0 mt-20 z-2 relative">
 	<img
-		src="https://cdn.ayakobot.com/website_assets/AyakoPeek.webp"
-		alt=""
+		src="/emotes/AyakoPeek.webp"
+		alt="Ayako Peeking over the Footer"
 		width="32"
 		height="32"
 		class="absolute right-15 -top-8"
@@ -17,7 +17,7 @@
 				<li class="pr-4">
 					<a href="/">
 						<img
-							src="https://cdn.ayakobot.com/website_assets/Icon.png"
+							src="/images/Icon.webp"
 							alt="Ayako's Icon"
 							class="md:w-128px md:h-128px w-64px h-64px"
 							width="128"
