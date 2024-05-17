@@ -207,7 +207,7 @@
 		loading="eager"
 	/>
 	<div
-		class="text-15 fw-bold code-fontcode bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 sm:text-20 z-2 mt-0 lg:mt-80 md:mt-60 sm:mt-65"
+		class="text-15 fw-bold code-font bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 md:text-20 lg:text-25 xl:text-30 2xl:text-35 z-2 mt-0 xl:mt-100 lg:mt-80 md:mt-60 sm:mt-65"
 	>
 		<ColorFadeAndRandomLetters text="AYAKO" />
 	</div>

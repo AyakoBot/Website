@@ -49,7 +49,7 @@
 				loading="eager"
 				src={guild.icon
 					? `${guild.icon}?size=2048`
-					: 'image/ImageNotFound.webp'}
+					: 'images/ImageNotFound.webp'}
 				alt="Server Icon"
 				width="128"
 				height="128"
