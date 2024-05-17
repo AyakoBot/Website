@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { AppealStatus } from '@ayako/server/node_modules/@prisma/client';
+	import { AppealStatus } from '@ayako/server/src/lib/scripts/index';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
@@ -9,7 +9,7 @@
 	<span class="text-2xl">Status:</span>
 	<span class="text-2xl">{data.status.slice(0, 1).toUpperCase() + data.status.slice(1)}</span>
 </div>
-<div>
+<div class="text-sm">
 	{#if data.status === AppealStatus.pending}
 		Your punishment appeal is pending. Please wait for a staff member to review it. <br />
 		<br />
