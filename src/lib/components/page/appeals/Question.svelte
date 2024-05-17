@@ -2,7 +2,7 @@
 	import type { Returned as GETAppeals } from '@ayako/server/src/routes/guilds/[guildId]/appeals/[punishmentId]/appeal/+server.js';
 	import Select from '$lib/components/generic/Select.svelte';
 	import Switch from '$lib/components/generic/Switch.svelte';
-	import { AnswerType } from '@ayako/server/src/lib/scripts/index';
+	import { AnswerType } from '@prisma/client';
 	import Number from './Number.svelte';
 	import Paragraph from './Paragraph.svelte';
 	import Short from './Short.svelte';

@@ -8,14 +8,15 @@
 	},
 	"packageManager": "pnpm@9.1.1",
 	"scripts": {
-  "start": "rm -r ./.svelte-kit && pnpm build && pnpm preview --port 5173",
+		"start": "rm -r ./.svelte-kit && pnpm build && pnpm preview --port 5173",
 		"dev": "rm -r ./.svelte-kit && vite dev --port 5173",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+  "postinstall": "pnpx prisma generate"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.2.0",
@@ -47,6 +48,7 @@
 		"@fortawesome/free-brands-svg-icons": "^6.5.2",
 		"@fortawesome/free-regular-svg-icons": "^6.5.2",
 		"@fortawesome/free-solid-svg-icons": "^6.5.2",
+		"@prisma/client": "^5.13.0",
 		"@sveltejs/adapter-cloudflare": "^4.4.0",
 		"@unocss/reset": "^0.60.0",
 		"bits-ui": "^0.21.7",
@@ -56,5 +58,8 @@
 		"js-cookie": "^3.0.5",
 		"svelte-fa": "^4.0.2",
 		"tailwind-merge": "^2.3.0"
+	},
+	"prisma": {
+		"schema": "../../prisma/schema.prisma"
 	}
 }
