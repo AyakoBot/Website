@@ -25,8 +25,8 @@
 
 <Flower />
 
-<div class="w-full h-full mt-100vh">
-	<div class="flex flex-col justify-center items-center -mt-140 sm:-mt-120">
+<div class="w-full h-full">
+	<div class="flex flex-col justify-center items-center">
 		<div class="md:text-4xl text-2xl code-font">
 			<RandomLetters text="Powerful Server Management" />
 			<RandomLetters text="And Moderation Bot" />

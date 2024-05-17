@@ -20,57 +20,57 @@
 		sm: {
 			flower2: {
 				left: 'calc(50% - 33vmin)',
-				top: '37vmin',
+				top: '17vmin',
 			},
 			flower3: {
 				left: 'calc(50% + 20vmin)',
-				top: '38vmin',
+				top: '18vmin',
 			},
 			flower4: {
 				left: 'calc(50% + 10vmin)',
-				top: '32vmin',
+				top: '12vmin',
 			},
 			flower5: {
 				left: 'calc(50% - 17vmin)',
-				top: '33vmin',
+				top: '13vmin',
 			},
 		},
 
 		md: {
 			flower2: {
 				left: 'calc(50% - 33vmin)',
-				top: '35vmin',
+				top: '15vmin',
 			},
 			flower3: {
 				left: 'calc(50% + 20vmin)',
-				top: '35vmin',
+				top: '15vmin',
 			},
 			flower4: {
 				left: 'calc(50% + 11vmin)',
-				top: '30vmin',
+				top: '10vmin',
 			},
 			flower5: {
 				left: 'calc(50% - 18vmin)',
-				top: '30vmin',
+				top: '10vmin',
 			},
 		},
 
 		lg: {
 			flower2: {
 				left: 'calc(50% - 32vmin)',
-				top: '35vmin',
+				top: '15vmin',
 			},
 			flower3: {
 				left: 'calc(50% + 21vmin)',
-				top: '35vmin',
+				top: '15vmin',
 			},
 			flower4: {
 				left: 'calc(50% - 17vmin)',
-				top: '30vmin',
+				top: '10vmin',
 			},
 			flower5: {
 				left: 'calc(50% + 14vmin)',
-				top: '30vmin',
+				top: '10vmin',
 			},
 		},
 	};
@@ -86,8 +86,8 @@
 
 		flower1?.animate(
 			[
-				{ top: '40vmin', opacity: '0' },
-				{ top: '17vmin', opacity: '1' },
+				{ top: '17vmin', opacity: '0' },
+				{ top: '0vmin', opacity: '1' },
 			],
 			animationOptions,
 		);
@@ -96,7 +96,7 @@
 			[
 				{
 					left: 'calc(50% - 7vmin)',
-					top: md ? '45vmin' : '37vmin',
+					top: md ? '15vmin' : '7vmin',
 					opacity: '0',
 					rotate: '-45deg',
 				},
@@ -109,7 +109,7 @@
 			[
 				{
 					left: 'calc(50% - 6vmin)',
-					top: md ? '46vmin' : '38vmin',
+					top: md ? '16vmin' : '8vmin',
 					opacity: '0',
 					rotate: '12deg',
 				},
@@ -122,7 +122,7 @@
 			[
 				{
 					left: 'calc(50% - 3vmin)',
-					top: md ? '41vmin' : '40vmin',
+					top: md ? '11vmin' : '10vmin',
 					opacity: '0',
 					rotate: '-10deg',
 				},
@@ -135,7 +135,7 @@
 			[
 				{
 					left: 'calc(50% - 3vmin)',
-					top: md ? '41vmin' : '40vmin',
+					top: md ? '11vmin' : '10vmin',
 					opacity: '0',
 					rotate: '80deg',
 				},
@@ -162,7 +162,7 @@
 <svelte:window bind:innerWidth />
 
 <div
-	class="flex justify-center items-center absolute w-90vw h-50vh of-hidden of-y-hidden left-0 top-5 z-1 lg:mt-0 md:mt-5 sm:-mt-10 mt-10 translate-x-5%"
+	class="flex justify-center items-center relative m-auto w-90vw h-30vh mt-15% of-hidden of-y-hidden z-1"
 >
 	<img
 		id="flower1"
@@ -210,7 +210,8 @@
 		loading="eager"
 	/>
 	<div
-		class="text-15 fw-bold code-font bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 lg:text-20 xl:text-25 2xl:text-30 z-2 mt-0 lg:mt-80 md:mt-60 sm:mt-65 op-0"
+		class="text-15 absolute fw-bold code-font lg:text-20 xl:text-25 2xl:text-30 z-2 op-0
+  top-75% left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
 		bind:this={blendIn}
 	>
 		<ColorFadeText text="AYAKO" />
