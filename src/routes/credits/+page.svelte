@@ -8,7 +8,7 @@
 
 <div class="flex flex-col items-center justify-center w-full">
 	<img
-		src="/images/AyakoLove.webp"
+		src="/emotes/AyakoLove.webp"
 		width="128"
 		alt="Ayako holding a heart"
 		loading="lazy"
