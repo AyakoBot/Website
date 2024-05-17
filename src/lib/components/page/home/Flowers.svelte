@@ -96,7 +96,7 @@
 			[
 				{
 					left: 'calc(50% - 7vmin)',
-					top: md ? '15vmin' : '7vmin',
+					top: '15vmin',
 					opacity: '0',
 					rotate: '-45deg',
 				},
@@ -109,7 +109,7 @@
 			[
 				{
 					left: 'calc(50% - 6vmin)',
-					top: md ? '16vmin' : '8vmin',
+					top: '15vmin',
 					opacity: '0',
 					rotate: '12deg',
 				},
@@ -122,7 +122,7 @@
 			[
 				{
 					left: 'calc(50% - 3vmin)',
-					top: md ? '11vmin' : '10vmin',
+					top: '15vmin',
 					opacity: '0',
 					rotate: '-10deg',
 				},
@@ -135,7 +135,7 @@
 			[
 				{
 					left: 'calc(50% - 3vmin)',
-					top: md ? '11vmin' : '10vmin',
+					top: '15vmin',
 					opacity: '0',
 					rotate: '80deg',
 				},
@@ -162,7 +162,7 @@
 <svelte:window bind:innerWidth />
 
 <div
-	class="flex justify-center items-center relative m-auto w-90vw h-30vh mt-15% of-hidden of-y-hidden z-1"
+	class="flex justify-center items-center relative m-auto w-90vw h-22vh md:h-30vh mt-5% of-hidden of-y-hidden z-1"
 >
 	<img
 		id="flower1"
@@ -210,7 +210,7 @@
 		loading="eager"
 	/>
 	<div
-		class="text-15 absolute fw-bold code-font lg:text-20 xl:text-25 2xl:text-30 z-2 op-0
+		class="text-15 absolute fw-bold code-font lg:text-20 xl:text-25 z-2 op-0
   top-75% left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
 		bind:this={blendIn}
 	>
