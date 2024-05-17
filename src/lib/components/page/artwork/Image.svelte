@@ -8,7 +8,7 @@
 
 	const src = `https://cdn.ayakobot.com/Ayako_Artwork/${artwork.art.url}`;
 	const abortLoad = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEAAAAALAAAAAABAAEAAAI=;';
-	const img = new Image();
+	let img: HTMLImageElement;
 
 	let loaded = false;
 	let failed = false;
@@ -16,6 +16,7 @@
 	let hovering = false;
 
 	onMount(() => {
+		img = new Image();
 		img.src = src;
 		loading = true;
 
@@ -30,6 +31,9 @@
 	});
 
 	onDestroy(() => {
+		if (!img) return;
+
+		img = new Image();
 		img.src = abortLoad;
 		img.onload = null;
 		img.onerror = null;
