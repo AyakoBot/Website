@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" crossorigin="anonymous">
 	import { PUBLIC_API } from '$env/static/public';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
