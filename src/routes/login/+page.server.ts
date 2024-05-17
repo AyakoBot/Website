@@ -24,7 +24,7 @@ export const load: PageServerLoad = async (event) => {
 		maxAge: json.expires,
 		sameSite: 'strict',
 		httpOnly: false,
-		secure: false,
+		secure: true,
 	};
 
 	event.cookies.set('discord-id', json.id, basicCookieOptions);

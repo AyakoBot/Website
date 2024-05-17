@@ -14,14 +14,10 @@
 			domain: '.ayakobot.com',
 			sameSite: 'strict',
 			httpOnly: false,
-			secure: false,
+			secure: true,
 		};
 
-		Cookies.remove('discord-token', {
-			...basicCookieOptions,
-			secure: import.meta.env.VITE_ENV === 'prod',
-		});
-
+		Cookies.remove('discord-token', basicCookieOptions);
 		Cookies.remove('discord-id', basicCookieOptions);
 		Cookies.remove('discord-username', basicCookieOptions);
 		Cookies.remove('discord-avatar', basicCookieOptions);
