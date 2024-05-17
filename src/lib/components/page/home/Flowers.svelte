@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import ColorFadeAndRandomLetters from '$lib/components/generic/ColorFadeAndRandomLetters.svelte';
+	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 
 	const animationOptions = {
 		duration: 2000,
@@ -14,6 +14,7 @@
 	let flower3: HTMLElement | null;
 	let flower4: HTMLElement | null;
 	let flower5: HTMLElement | null;
+	let blendIn: HTMLElement | null;
 
 	const coords = {
 		sm: {
@@ -80,6 +81,8 @@
 		const sm = innerWidth < 768;
 		const md = innerWidth < 1024 && innerWidth >= 768;
 		const applyingCoords = coords[md ? 'md' : sm ? 'sm' : 'lg'];
+
+		blendIn?.animate([{ opacity: '0' }, { opacity: '1' }], animationOptions);
 
 		flower1?.animate(
 			[
@@ -207,9 +210,10 @@
 		loading="eager"
 	/>
 	<div
-		class="text-15 fw-bold code-font bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 md:text-20 lg:text-25 xl:text-30 2xl:text-35 z-2 mt-0 xl:mt-100 lg:mt-80 md:mt-60 sm:mt-65"
+		class="text-15 fw-bold code-font bottom-40 lg:bottom-0 md:bottom-0 sm:bottom-0 lg:text-20 xl:text-25 2xl:text-30 z-2 mt-0 lg:mt-80 md:mt-60 sm:mt-65 op-0"
+		bind:this={blendIn}
 	>
-		<ColorFadeAndRandomLetters text="AYAKO" />
+		<ColorFadeText text="AYAKO" />
 	</div>
 </div>
 
