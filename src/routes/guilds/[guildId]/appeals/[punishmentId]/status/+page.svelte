@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { AppealStatus } from '@prisma/client';
+	import { AppealStatus } from '@ayako/server/node_modules/@prisma/client';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
