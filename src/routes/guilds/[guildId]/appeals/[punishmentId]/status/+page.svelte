@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { AppealStatus } from '@prisma/client';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
@@ -10,16 +9,16 @@
 	<span class="text-2xl">{data.status.slice(0, 1).toUpperCase() + data.status.slice(1)}</span>
 </div>
 <div class="text-sm">
-	{#if data.status === AppealStatus.pending}
+	{#if data.status === 'pending'}
 		Your punishment appeal is pending. Please wait for a staff member to review it. <br />
 		<br />
 		Please do not contact Ayako Support about this appeal as we do not have any information about it.
 		<br />
-	{:else if data.status === AppealStatus.accepted}
+	{:else if data.status === 'accepted'}
 		Your punishment appeal has been accepted and your punishment has been deleted. <br />
 		Please notify server staff about possible limiations on your account.<br />
 		<br />
-	{:else if data.status === AppealStatus.rejected}
+	{:else if data.status === 'rejected'}
 		Your punishment appeal has been rejected.<br />
 		You may not re-appeal this punishment unless the appeal is deleted by a staff member.<br />
 		<br />
