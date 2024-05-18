@@ -9,12 +9,10 @@
 	};
 
 	const unhoverE = () => {
-		console.log('unhovered', guild.name);
 		hover = false;
 	};
 
 	const hoverE = () => {
-		console.log('hovered', guild.name);
 		hover = true;
 	};
 </script>
