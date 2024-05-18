@@ -18,7 +18,7 @@
 	<NavBar />
 	<Sidebar />
 
-	<hr class="op-0"/>
+	<hr class="op-0" />
 
 	<main class="mx-2 z-1 my-40 md:my-30 w-fit max-w-100%">
 		<slot />

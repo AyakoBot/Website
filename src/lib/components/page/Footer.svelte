@@ -36,13 +36,15 @@
 
 			<ul id="right" class="flex flex-row justify-around items-center my-6">
 				<li>
-					<ul class="flex flex-col justify-around items-start px-4">
-						<li><a class="btn-quiet text-5 font-bold" href="https://support.ayakobot.com">Support</a></li>
-						<li><a class="btn-quiet text-5 font-bold color-yellow" href="/donate">👑Premium👑</a></li>
+					<ul class="flex flex-col justify-around items-start px-4 gap-1">
 						<li>
-							<a class="text-5 font-bold" href="https://top.gg/bot/650691698409734151/vote"
-								><ColorFadeText text="Vote" /></a
-							>
+							<a class="btn-quiet text-5 font-bold" href="https://support.ayakobot.com">Support</a>
+						</li>
+						<li><a class="btn-quiet text-5 font-bold color-yellow" href="/donate">Premium</a></li>
+						<li>
+							<a class="text-5 font-bold" href="https://top.gg/bot/650691698409734151/vote">
+								<ColorFadeText text="Vote" />
+							</a>
 						</li>
 						<li><a class="text-5 font-bold" href="/donate"><ColorFadeText text="Donate" /></a></li>
 					</ul>

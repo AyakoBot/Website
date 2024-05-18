@@ -5,3 +5,10 @@ import '@unocss/reset/sanitize/assets.css';
 import '@unocss/reset/eric-meyer.css';
 import '@unocss/reset/tailwind.css';
 import '@unocss/reset/tailwind.css';
+
+export type ConsentCookie = {
+	'strictly-necessary': true;
+	functionality: boolean;
+	tracking: boolean;
+	targeting: boolean;
+};
