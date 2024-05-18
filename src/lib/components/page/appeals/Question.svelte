@@ -19,7 +19,7 @@
 	{:else if q.answertype === 'short'}
 		<Short {q} />
 	{:else if q.answertype === 'boolean'}
-		<Switch title={''} required={q.required} />
+		<Switch title={''} required={q.required} name={String(q.uniquetimestamp)} />
 	{:else if q.answertype === 'multiple_choice'}
 		<Select
 			options={q.options}
