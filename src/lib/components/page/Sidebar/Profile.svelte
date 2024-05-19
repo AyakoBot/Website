@@ -42,10 +42,10 @@
 					<ColorFadeText text={name} />
 				</div>
 
-				<button class="btn-medium" on:click={logout} on:keydown={logout}>Log-Out</button>
+				<button class="btn-medium text-sm text-nowrap" on:click={logout} on:keydown={logout}>Log-Out</button>
 			</div>
 		{:else}
-			<a href="/login" class="btn-medium" on:click={() => close()}>Log-In</a>
+			<a href="/login" class="btn-medium text-sm text-nowrap" on:click={() => close()}>Log-In</a>
 		{/if}
 	</div>
 </div>
