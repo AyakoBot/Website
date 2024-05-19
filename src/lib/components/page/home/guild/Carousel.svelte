@@ -27,7 +27,7 @@
 			class="flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap animate-[scroll_80s_reverse_linear_infinite] hover:animate-paused"
 		>
 			{#each guilds as guild (guild.guildid)}
-				<Guild {guild}>
+				<Guild {guild} clickable={false}>
 					{numberWithCommas(guild.membercount)} Members
 				</Guild>
 			{/each}

@@ -32,7 +32,7 @@
 	<FancyBorder />
 	<ul class="flex flex-row gap-4 flex-wrap justify-center items-center mt-7.5">
 		{#each data.appealEnabled.filter((g) => g.name.toLowerCase().includes(name)) as guild, i (i)}
-			<Guild guild={fixLinks(guild)}>
+			<Guild guild={fixLinks(guild)} clickable={true}>
 				<a class="btn-medium" href="guilds/{guild.id}/appeals">Appeal</a>
 			</Guild>
 		{/each}
@@ -50,7 +50,7 @@
 		{#each data.otherMutuals.filter((g) => g.name
 				.toLowerCase()
 				.includes(name.toLowerCase())) as guild, i (i)}
-			<Guild guild={fixLinks(guild)} />
+			<Guild guild={fixLinks(guild)} clickable={false} />
 		{/each}
 	</ul>
 {/if}

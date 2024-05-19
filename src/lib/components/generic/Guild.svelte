@@ -8,6 +8,8 @@
 		name: string;
 	};
 
+	export let clickable: boolean = false;
+
 	const unhoverE = () => {
 		hover = false;
 	};
@@ -25,7 +27,9 @@
 		on:blur={unhoverE}
 		tabindex="-1"
 		role="button"
-		class="w-75 max-h-full h-auto rounded-2xl flex-shrink-0 mx-8 aspect-video hover:scale-105 transition-all ease-in-out relative flex flex-col justify-center items-center of-hidden cursor-default"
+		class="w-75 max-h-full h-auto rounded-2xl flex-shrink-0 mx-8 aspect-video hover:scale-105 transition-all ease-in-out relative flex flex-col justify-center items-center of-hidden {clickable
+			? 'cursor-pointer'
+			: 'cursor-not-allowed'}"
 	>
 		<div
 			class="absolute h-100rem w-100rem animate-[spin_4s_linear_infinite] custom-gradient transition-all ease-in-out box-shadow-main {hover
@@ -45,9 +49,7 @@
 		{:else}
 			<img
 				loading="eager"
-				src={guild.icon
-					? `${guild.icon}?size=2048`
-					: 'images/ImageNotFound.webp'}
+				src={guild.icon ? `${guild.icon}?size=2048` : 'images/ImageNotFound.webp'}
 				alt="Server Icon"
 				width="128"
 				height="128"
