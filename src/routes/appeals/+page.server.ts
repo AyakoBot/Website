@@ -12,7 +12,8 @@ export const load: PageServerLoad = async (event) => {
 		.fetch(`${PUBLIC_API}/@me/appeals/guilds`, {
 			headers: { Authorization: `Bearer ${event.cookies.get('discord-token')}` },
 		})
-		.then((r) => r.json() as Promise<GETAppealableGuilds>);
+		.then((r) => (!r.ok ? undefined : (r.json() as Promise<GETAppealableGuilds>)));
+	if (!guilds) throw redirect(307, '/login');
 
 	return {
 		appealEnabled: guilds.appealEnabled.sort((a, b) => a.name.localeCompare(b.name)),

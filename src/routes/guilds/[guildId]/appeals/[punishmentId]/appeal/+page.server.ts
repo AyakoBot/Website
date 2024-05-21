@@ -10,7 +10,8 @@ export const load: PageServerLoad = async (event) => {
 			`${PUBLIC_API}/guilds/${event.params.guildId}/appeals/${event.params.punishmentId}/appeal`,
 			{ headers: { Authorization: `Bearer ${event.cookies.get('discord-token')}` } },
 		)
-		.then((r) => r.json() as Promise<GETAppeals>);
+		.then((r) => (!r.ok ? undefined : (r.json() as Promise<GETAppeals>)));
+	if (!appeal) throw redirect(307, '/login');
 
 	if (appeal.alreadyAppealed) {
 		throw redirect(
@@ -40,6 +41,7 @@ export const actions = {
 			},
 		);
 
+		if (res.status === 403) throw redirect(307, '/login');
 		if (!res.ok) return await res.json().then((r) => r.message);
 		throw redirect(
 			308,
