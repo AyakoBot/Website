@@ -21,6 +21,8 @@
 		Cookies.remove('discord-id', basicCookieOptions);
 		Cookies.remove('discord-username', basicCookieOptions);
 		Cookies.remove('discord-avatar', basicCookieOptions);
+
+  window.location.reload();
 	};
 </script>
 
