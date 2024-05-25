@@ -10,9 +10,12 @@ export const load: PageServerLoad = async (event) => {
 	if (!code && userId) redirect(307, '/');
 	if (!code) return;
 
+	const state = event.url.searchParams.get('state');
+
 	const res = await event.fetch(`${PUBLIC_API}/login`, {
 		method: 'POST',
 		headers: { Authorization: `Bearer ${code}` },
+		body: state ? JSON.stringify({ state }) : undefined,
 	});
 	if (!res.ok) throw redirect(307, '/login');
 
