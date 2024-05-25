@@ -17,7 +17,8 @@ export const load: PageServerLoad = async (event) => {
 		headers: { Authorization: `Bearer ${code}` },
 		body: state ? JSON.stringify({ state }) : undefined,
 	});
-	if (!res.ok) throw redirect(307, '/login');
+ console.log(await res.text());
+ if (!res.ok) throw redirect(307, '/login');
 
 	const json = (await res.json()) as GETLogin;
 
