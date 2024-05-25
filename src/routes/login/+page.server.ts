@@ -7,10 +7,11 @@ export const load: PageServerLoad = async (event) => {
 	const code = event.url.searchParams.get('code');
 	const userId = event.cookies.get('discord-id');
 
- if (!code && userId) redirect(307, '/');
+	if (!code && userId) redirect(307, '/');
 	if (!code) return;
 
 	const res = await event.fetch(`${PUBLIC_API}/login`, {
+		method: 'POST',
 		headers: { Authorization: `Bearer ${code}` },
 	});
 	if (!res.ok) throw redirect(307, '/login');
