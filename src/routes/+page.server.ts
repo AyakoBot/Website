@@ -34,6 +34,8 @@ const handleError = async (
 		}),
 	});
 
+ console.log(`Request to \`${r.url}\` failed with Status Code \`${r.status}\` - \`${r.statusText}\``, await r.text())
+
 	return fallback;
 };
 
