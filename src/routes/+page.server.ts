@@ -17,12 +17,18 @@ const handleError = async (
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({
-			content: `Request to \`${r.url}\` failed with Status Code \`${r.status}\ - \`${r.statusText}\``,
+			content: `Request to \`${r.url}\` failed with Status Code \`${r.status}\` - \`${r.statusText}\``,
 			embeds: [
 				{
 					color: 0xff0000,
 					author: { name: 'Error', icon_url: 'https://cdn.ayakobot.com/Ayako_Assets/Warning.png' },
-					description: `\`\`\`${await r.text()}\`\`\``,
+					description: `\`\`\`${await r
+						.text()
+						.then((r) =>
+							r.startsWith('<!doctype html>')
+								? r.split('<div class="error">')[1].split('</div>').slice(0, -1).join('</div>') ?? r
+								: r,
+						)}\`\`\``,
 				},
 			],
 		}),
