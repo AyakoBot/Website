@@ -7,7 +7,11 @@ export const load: PageServerLoad = async (event) => {
 	const credits = await event
 		.fetch(`${PUBLIC_API}/contributers`)
 		.then((r) =>
-			(r.json() as Promise<GETCredits>).then((j) => j.sort((a, b) => b.roles.length - a.roles.length)),
+			r.ok
+				? (r.json() as Promise<GETCredits>).then((j) =>
+						j.sort((a, b) => b.roles.length - a.roles.length),
+					)
+				: [],
 		);
 
 	return { credits };
