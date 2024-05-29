@@ -40,6 +40,8 @@ const handleError = async (
 };
 
 export const load: PageServerLoad = async (event) => {
+ console.log('Handling Request to', event.url)
+
 	const [reviews, stats, features, guilds] = await Promise.all([
 		event
 			.fetch(`${PUBLIC_API}/reviews`)
