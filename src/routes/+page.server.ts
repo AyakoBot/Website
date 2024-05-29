@@ -13,6 +13,8 @@ const handleError = async (
 	r: Response,
 	fallback: any,
 ) => {
+	const text = await r.text();
+
 	fetch(`https://discord.com/api/webhooks/${DEBUG_ID}/${DEBUG_TOKEN}`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
@@ -22,25 +24,26 @@ const handleError = async (
 				{
 					color: 0xff0000,
 					author: { name: 'Error', icon_url: 'https://cdn.ayakobot.com/Ayako_Assets/Warning.png' },
-					description: `\`\`\`${await r
-						.text()
-						.then((r) =>
-							r.startsWith('<!doctype html>')
-								? r.split('<div class="error">')[1].split('</div>').slice(0, -1).join('</div>') ?? r
-								: r,
-						)}\`\`\``,
+					description: `\`\`\`${
+						text.startsWith('<!doctype html>')
+							? text.split('<div class="error">')[1].split('</div>').slice(0, -1).join('</div>') ?? text
+							: text
+					}\`\`\``,
 				},
 			],
 		}),
 	});
 
- console.log(`Request to \`${r.url}\` failed with Status Code \`${r.status}\` - \`${r.statusText}\``, await r.text())
+	console.log(
+		`Request to \`${r.url}\` failed with Status Code \`${r.status}\` - \`${r.statusText}\``,
+		text,
+	);
 
 	return fallback;
 };
 
 export const load: PageServerLoad = async (event) => {
- console.log('Handling Request to', event.url)
+	console.log('Handling Request to', event.url);
 
 	const [reviews, stats, features, guilds] = await Promise.all([
 		event
