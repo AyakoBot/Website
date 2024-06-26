@@ -40,8 +40,7 @@
 	</ul>
 {:else}
 	<div class="flex flex-col justify-center items-center">
-		<img src="/emotes/AyakoHappy.webp" loading="lazy" alt="Ayako Happy" />
-		<span>No punishments</span>
+		<span>Punishment appeals are not enabled on this Server</span>
 		<FancyBorder />
 		<a class="btn-loud" href="/appeals">Back</a>
 	</div>

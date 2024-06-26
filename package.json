@@ -4,9 +4,8 @@
 	"private": true,
 	"engines": {
 		"node": "=22.1.0",
-		"pnpm": "=9.1.2"
+		"pnpm": "^9.2.0"
 	},
-	"packageManager": "pnpm@9.1.2",
 	"scripts": {
 		"start": "rm -r ./.svelte-kit && pnpm build && pnpm preview --port 5173",
 		"dev": "rm -r ./.svelte-kit && vite dev --port 5173",

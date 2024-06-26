@@ -9,8 +9,14 @@ export const load: PageServerLoad = async (event) => {
 		.fetch(`${PUBLIC_API}/guilds/${event.params.guildId}/appeals`, {
 			headers: { Authorization: `Bearer ${event.cookies.get('discord-token')}` },
 		})
-		.then((r) => (!r.ok ? undefined : (r.json() as Promise<GETPunishments>)));
-	if (!punishments) throw redirect(307, '/login');
+		.then((r): Promise<GETPunishments | number> => {
+			if (!r.ok) return new Promise((res) => res(r.status)) as Promise<number>;
+			return r.json() as Promise<GETPunishments>;
+		});
 
-	return { punishments };
+	if (punishments === 403) throw redirect(307, '/login');
+	if (punishments === 400) return { punishments: [], enabled: false };
+	if (typeof punishments === 'number') throw redirect(307, '/login');
+
+	return { punishments, enabled: true };
 };
