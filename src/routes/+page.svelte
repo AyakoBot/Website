@@ -12,7 +12,6 @@
 	import InfiniteReviewCarousel from '$lib/components/page/home/reviews/Carousel.svelte';
 	import { onMount } from 'svelte';
 	import type { PageServerData } from './$types';
- import AppealArrow from '$lib/components/generic/AppealArrow.svelte';
 
 	export let data: PageServerData;
 
@@ -23,8 +22,6 @@
 		window.location.href = '/';
 	});
 </script>
-
-<AppealArrow />
 
 <Flower />
 
