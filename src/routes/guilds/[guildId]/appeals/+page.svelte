@@ -9,13 +9,13 @@
 	$: query = '';
 </script>
 
-{#if data.punishments.length}
+{#if data.enabled}
 	<div class="w-100vw">
 		<SearchBar on:any={(e) => (query = e.detail.query)} options={[]} />
 	</div>
 
 	{#if !data.punishments.filter((p) => p.reason.toLowerCase().includes(query)).length}
-		<span>No Punishments found. Try refining your Search-Query</span>
+		<span>No Punishments found</span>
 	{/if}
 
 	<ul class="flex flex-col justify-center items-center gap-20 mx-5">
