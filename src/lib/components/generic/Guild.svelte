@@ -19,7 +19,6 @@
 	};
 </script>
 
-<li>
 	<div
 		on:mouseover={hoverE}
 		on:mouseleave={unhoverE}
@@ -27,12 +26,12 @@
 		on:blur={unhoverE}
 		tabindex="-1"
 		role="button"
-		class="w-75 max-h-full h-auto rounded-2xl flex-shrink-0 mx-8 aspect-video hover:scale-105 transition-all ease-in-out relative flex flex-col justify-center items-center of-hidden {clickable
+		class="w-75 max-h-full h-auto rounded-2xl flex-shrink-0 mx-8 aspect-video hover:scale-105 transition-all ease-in-out relative flex flex-col justify-center items-center of-hidden pointer-events-initial {clickable
 			? 'cursor-pointer'
 			: 'cursor-not-allowed'}"
 	>
 		<div
-			class="absolute h-100rem w-100rem animate-[spin_4s_linear_infinite] custom-gradient transition-all ease-in-out box-shadow-main {hover
+			class="absolute h-100rem w-100rem animate-[spin_4s_linear_infinite] [background-image:conic-gradient(from_90deg_at_50%_50%,#31de40_0%,#fe3521_50%,#31de40_100%)] transition-all ease-in-out box-shadow-main {hover
 				? 'op-20'
 				: ''}"
 		></div>
@@ -82,7 +81,6 @@
 			</span>
 		</div>
 	</div>
-</li>
 
 <style>
 	@keyframes spin {
@@ -92,9 +90,5 @@
 		100% {
 			transform: rotate(360deg);
 		}
-	}
-
-	.custom-gradient {
-		background-image: conic-gradient(from 90deg at 50% 50%, #31de40 0%, #fe3521 50%, #31de40 100%);
 	}
 </style>
