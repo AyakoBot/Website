@@ -162,7 +162,7 @@
 <svelte:window bind:innerWidth />
 
 <div
-	class="flex justify-center items-center relative m-auto w-90vw h-22vh md:h-30vh mt-5% of-hidden of-y-hidden z-1"
+	class="flex justify-center items-center relative m-auto w-90vw h-22dvh md:h-30dvh mt-5% of-hidden of-y-hidden z-1"
 >
 	<img
 		id="flower1"

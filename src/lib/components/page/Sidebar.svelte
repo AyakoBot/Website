@@ -81,7 +81,7 @@ hover:bg-[#fe3521] hover:color-white"
 </nav>
 
 <button
-	class="w-100vw h-100vh bg-neutral-900/50 {opened ? 'z-9999' : '-z-1000'} op-0 absolute"
+	class="w-100vw h-100dvh bg-neutral-900/50 {opened ? 'z-9999' : '-z-1000'} op-0 absolute"
 	bind:this={backdrop}
 	on:click={() => close()}
 	on:keydown={() => close()}
