@@ -20,8 +20,6 @@ export const load: PageServerLoad = async (event) => {
 		event.fetch(`${PUBLIC_API}/guilds`).then((r) => (r.ok ? (r.json() as Promise<GETGuilds>) : [])),
 	]);
 
- console.log(stats);
-
 	return {
 		reviews: reviews.sort(() => 0.5 - Math.random()),
 		stats,
