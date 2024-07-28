@@ -31,31 +31,31 @@
 	<div
 		class="flex flex-row flex-wrap justify-evenly gap-5 items-center w-95% sm:w-75% md:w-65% lg:w-50%"
 	>
-		<a class="btn-medium w-40" target="_blank" href="https://discord.bots.gg/bots/650691698409734151">
+		<a class="btn-medium w-60" target="_blank" href="https://discord.bots.gg/bots/650691698409734151">
 			Bots.gg
 		</a>
-		<a class="btn-medium w-40" target="_blank" href="https://discordbotlist.com/bots/tmh">
+		<a class="btn-medium w-60" target="_blank" href="https://discordbotlist.com/bots/tmh">
 			Discord&nbsp;Bot&nbsp;List
 		</a>
-		<a class="btn-medium w-40" target="_blank" href="https://wumpus.store/bot/650691698409734151">
+		<a class="btn-medium w-60" target="_blank" href="https://wumpus.store/bot/650691698409734151">
 			Wumpus&nbsp;Store
 		</a>
 		<a
-			class="btn-medium w-40"
+			class="btn-medium w-60"
 			target="_blank"
 			href="https://discords.com/bots/bot/650691698409734151"
 		>
 			Discords.com
 		</a>
 		<a
-			class="btn-medium w-40"
+			class="btn-medium w-60"
 			target="_blank"
 			href="https://discord.rovelstars.com/bots/650691698409734151">Rovelstars</a
 		>
-		<a class="btn-medium w-40" target="_blank" href="https://infinitybots.gg/bot/650691698409734151">
+		<a class="btn-medium w-60" target="_blank" href="https://infinitybots.gg/bot/650691698409734151">
 			Infinity&nbsp;Bots
 		</a>
-		<a class="btn-medium w-40" target="_blank" href="https://botlist.me/bots/650691698409734151">
+		<a class="btn-medium w-60" target="_blank" href="https://botlist.me/bots/650691698409734151">
 			Botlist.me
 		</a>
 	</div>
