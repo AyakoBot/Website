@@ -1,11 +1,11 @@
 import { PUBLIC_API } from '$env/static/public';
-
 import type { PageServerLoad } from './$types.js';
 
 import type { Returned as GETFeatures } from '@ayako/server/src/routes/features/+server';
 import type { Returned as GETGuilds } from '@ayako/server/src/routes/guilds/+server.js';
 import type { Returned as GETReviews } from '@ayako/server/src/routes/reviews/+server.js';
 import type { Returned as GETStats } from '@ayako/server/src/routes/stats/+server.js';
+
 export const load: PageServerLoad = async (event) => {
 	console.log('Handling Request to', event.url);
 
