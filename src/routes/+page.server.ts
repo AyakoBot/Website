@@ -7,8 +7,6 @@ import type { Returned as GETReviews } from '@ayako/server/src/routes/reviews/+s
 import type { Returned as GETStats } from '@ayako/server/src/routes/stats/+server.js';
 
 export const load: PageServerLoad = async (event) => {
-	console.log('Handling Request to', event.url);
-
 	const [reviews, stats, features, guilds] = await Promise.all([
 		event.fetch(`${PUBLIC_API}/reviews`).then((r) => (r.ok ? (r.json() as Promise<GETReviews>) : [])),
 		event
