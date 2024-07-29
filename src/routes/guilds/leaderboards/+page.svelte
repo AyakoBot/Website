@@ -43,6 +43,7 @@
 
 <div class="w-100dvw">
 	<SearchBar on:any={(e) => update(e.detail.query)} options={[]} />
+	<a class="btn-medium" href="/guilds/1/leaderboard"> Global Leaderboard </a>
 </div>
 
 <div class="flex flex-col m-auto w-full justify-center items-center">
@@ -56,9 +57,9 @@
 				{/if}
 
 				{#each data as guild}
-					<Guild clickable={true} {guild}>
-						<a href="/guilds/{guild.guildid}/leaderboard" class="btn-medium"> See Leaderboard </a>
-					</Guild>
+					<a href="/guilds/{guild.guildid}/leaderboard" class="py-2">
+						<Guild clickable={true} {guild} defaultHover={true} />
+					</a>
 				{/each}
 			</div>
 
