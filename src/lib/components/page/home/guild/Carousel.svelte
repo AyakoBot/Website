@@ -1,18 +1,19 @@
 <script lang="ts">
 	import Guild from '$lib/components/generic/Guild.svelte';
+	import { numberWithCommas } from '$lib/scripts/util/utils';
 	import type { Returned as GETGuilds } from '@ayako/server/src/routes/guilds/+server.js';
 
 	export let guilds: GETGuilds;
-
-	const numberWithCommas = (x: number) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 </script>
 
-<div class="mt-20 flex flex-col justify-center items-center [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
-style="
+<div
+	class="mt-20 flex flex-col justify-center items-center [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
+	style="
 		--slide-width: 400px;
   --slide-count: {guilds.length};
   --time-per-slide: 10s;
-">
+"
+>
 	<div
 		class="flex w-full of-hidden relative h-100px md:h-unset pointer-events-none h-full
  after:content-empty after:h-300px after:absolute after:z-2 after:right-0 after:top-0 after:rotate-z-180deg after:w-full
@@ -39,15 +40,12 @@ style="
 </div>
 
 <style>
-
-@keyframes scroll {
-   0% {
-    transform: translateX(0);
-   }
-   100% {
-    transform: translateX(
-     calc(calc(var(--slide-width) * -1) * var(--slide-count))
-    );
-   }
-  }
+	@keyframes scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(calc(var(--slide-width) * -1) * var(--slide-count)));
+		}
+	}
 </style>

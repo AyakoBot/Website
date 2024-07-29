@@ -11,3 +11,5 @@ export const findInParents = (element: HTMLElement, id: string) => {
 	}
 	return null;
 };
+
+export const numberWithCommas = (x: number) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');

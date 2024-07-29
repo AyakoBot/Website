@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { numberWithCommas } from '$lib/scripts/util/utils';
 	import { onMount } from 'svelte';
 
 	export let num: number;
@@ -40,7 +41,6 @@
 	});
 
 	const easeOutQuad = (t: number) => t * (2 - t);
-	const numberWithCommas = (x: number) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 </script>
 
 <div bind:this={counterElement}>{numberWithCommas(currentCount)}</div>
