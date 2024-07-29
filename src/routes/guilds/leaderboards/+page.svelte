@@ -1,0 +1,89 @@
+<script lang="ts">
+	import type { Returned as GETGuilds } from '@ayako/server/src/routes/guilds/+server';
+	import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+	import { onMount } from 'svelte';
+	import Fa from 'svelte-fa';
+
+	import Guild from '$lib/components/generic/Guild.svelte';
+	import Loading from '$lib/components/generic/Loading.svelte';
+	import SearchBar from '$lib/components/generic/SearchBar.svelte';
+
+	let promise: Promise<GETGuilds> | null = null;
+	$: name = '';
+
+	let page = 0;
+	let query = '';
+
+	const getData = async () => {
+		const res = await fetch(`/guilds/leaderboards?skip=${page * 100}&q=${query}`);
+		if (!res.ok) throw new Error(await res.text());
+
+		return (await res.json()) as GETGuilds;
+	};
+
+	const update = (q: string) => {
+		query = q;
+		promise = getData();
+	};
+
+	onMount(() => {
+		promise = getData();
+	});
+
+	const decrement = () => {
+		page -= 1;
+		promise = getData();
+	};
+
+	const increment = () => {
+		page += 1;
+		promise = getData();
+	};
+</script>
+
+<div class="w-100dvw">
+	<SearchBar on:any={(e) => update(e.detail.query)} options={[]} />
+</div>
+
+<div class="flex flex-col m-auto w-full justify-center items-center">
+	{#await promise}
+		<Loading />
+	{:then data}
+		{#if data && data.length}
+			<div class="flex flex-row flex-wrap gap-4 justify-center items-center mt-7.5">
+				{#if !data.length}
+					<p>No guilds found. Please refine your search</p>
+				{/if}
+
+				{#each data as guild}
+					<Guild clickable={true} {guild}>
+						<a href="/guilds/{guild.guildid}/leaderboard" class="btn-medium"> See Leaderboard </a>
+					</Guild>
+				{/each}
+			</div>
+
+			<div class="w-100dvw flex flex-row justify-center items-center mt-10">
+				<button
+					on:click={() => decrement()}
+					on:keydown={() => decrement()}
+					disabled={page === 0}
+					class="bg-[#171717] hover:bg-[#888] p-3 rounded-r rounded-full border-r border-solid border-black pl-4"
+					><Fa icon={faArrowLeft} scale="1" /></button
+				>
+				<button
+					on:click={() => increment()}
+					on:keydown={() => decrement()}
+					disabled={!data.length}
+					class="bg-[#171717] hover:bg-[#888] p-3 rounded-l rounded-full border-l border-solid border-black pr-4"
+					><Fa icon={faArrowRight} scale="1" /></button
+				>
+			</div>
+		{:else if !data}
+			<Loading />
+		{:else}
+			<p>No guilds found. Please refine your search</p>
+		{/if}
+	{:catch error}
+		<p>{error.message}</p>
+	{/await}
+</div>

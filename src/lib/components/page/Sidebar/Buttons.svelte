@@ -8,6 +8,7 @@
 			Appeals
 		</a>
 		<a href="/artwork" class="btn-quiet" on:click={() => close()} on:keydown={() => close()}> Art </a>
+		<a href="/guilds/leaderboards" class="btn-quiet" on:click={() => close()} on:keydown={() => close()}> Leaderboards </a>
 	</div>
 
 	<div class="flex flex-col justify-start items-center mb-25 gap-2">
