@@ -74,7 +74,7 @@
 										: '254,254,254'},0.3)"
 						>
 							<span class="ml-2">{i + 1 + batch * 100}.</span>
-							<img src={user.user.avatar} alt="User Avatar" class="rounded-full" width="48" height="48" />
+							<img src={user.user.avatar} alt="" class="rounded-full" width="48" height="48" />
 							<div class="flex flex-row justify-between items-center w-full">
 								<span class="text-5">
 									{user.user.name}

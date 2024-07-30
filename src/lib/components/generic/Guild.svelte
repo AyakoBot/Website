@@ -50,7 +50,7 @@
 		<img
 			loading="lazy"
 			src="{guild.banner}?size=2048"
-			alt="Server Banner"
+			alt=""
 			class="w-[calc(18.75rem-3px)] h-[calc(100%-4px)] rounded-2xl aspect-video absolute {hover
 				? 'scale-90 op-20'
 				: ''} transition-all"
@@ -59,7 +59,7 @@
 		<img
 			loading="eager"
 			src={guild.icon ? `${guild.icon}?size=2048` : '/images/ImageNotFound.webp'}
-			alt="Server Icon"
+			alt=""
 			width="128"
 			height="128"
 			class="{guild.icon ? 'rounded-full' : ''} aspect-square absolute h-128px w-128px {hover
@@ -76,7 +76,7 @@
 		<img
 			loading="eager"
 			src="{guild.icon}?size=2048"
-			alt="Server Icon"
+			alt=""
 			height="64"
 			width="64"
 			class="rounded-full aspect-square {hover ? 'scale-105' : ''} scale-90 transition-all ease-in-out"
@@ -84,7 +84,7 @@
 		<span
 			class="{hover ? 'scale-105' : ''} scale-90 transition-all ease-in-out w-full p-2 {$$slots.default
 				? 'text-4'
-				: 'text-5'}"
+				: 'text-5 m-2'}"
 		>
 			{guild.name?.slice(0, 50)}
 		</span>
