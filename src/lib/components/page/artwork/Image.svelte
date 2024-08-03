@@ -65,7 +65,7 @@
 			>
 				<img
 					src={artwork.user.avatar}
-					alt="User Avatar"
+					alt=""
 					width="32"
 					height="32"
 					class="rounded-full"

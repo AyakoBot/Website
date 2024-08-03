@@ -20,7 +20,7 @@
 	export let review: GETReviews[number];
 </script>
 
-<li class="container">
+<div class="container">
 	<div
 		on:mouseover={hovered}
 		on:mouseleave={unhovered}
@@ -28,7 +28,7 @@
 		on:blur={unhovered}
 		tabindex="-1"
 		role="button"
-		class="w-75 max-h-full h-auto rounded-2xl flex-shrink-0 mx-8 aspect-video hover:scale-105% transition-all ease-in-out relative flex flex-col justify-center items-center of-hidden cursor-default"
+		class="w-75 max-h-full h-auto rounded-2xl flex-shrink-0 mx-8 aspect-video hover:scale-105% transition-all ease-in-out relative flex flex-col justify-center items-center of-hidden cursor-default pointer-events-initial"
 	>
 		<div
 			class="absolute h-100rem w-100rem animate-[spin_4s_linear_infinite] custom-gradient transition-all ease-in-out box-shadow-main {hover
@@ -65,7 +65,7 @@
 			</span>
 		</div>
 	</div>
-</li>
+</div>
 
 <style>
 	@keyframes spin {

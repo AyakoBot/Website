@@ -1,13 +1,8 @@
 <script lang="ts">
-	import Loading from '$lib/components/generic/Loading.svelte';
-	import { onMount } from 'svelte';
 	import type { Returned as GETReviews } from '@ayako/server/src/routes/reviews/+server.js';
 	import Review from './Review.svelte';
 
 	export let reviews: GETReviews;
-
-	let container: HTMLDivElement;
-	let scroller: HTMLUListElement;
 
 	let hoveredReviewId: string | null;
 	$: hoveredReviewId = null;
@@ -25,23 +20,6 @@
 	$: reviewHeight = 0;
 
 	let review: HTMLDivElement;
-
-	onMount(() => {
-		addAnimation();
-	});
-
-	const addAnimation = async () => {
-		await reviews;
-
-		if (!container || !scroller) return;
-
-		const scrollerContent = Array.from(scroller.children);
-
-		scrollerContent.forEach((item) => {
-			const duplicatedItem = item.cloneNode(true);
-			if (scroller) scroller.appendChild(duplicatedItem);
-		});
-	};
 
 	const resetReview = (wait: boolean = true) => {
 		const reset = () => {
@@ -67,7 +45,7 @@
 		hoveredReviewId = newReviewId;
 		reviewWidth = reviewDiv?.offsetWidth;
 		reviewHeight = reviewDiv?.offsetHeight;
-		content = (await reviews).find((r) => r.userid === hoveredReviewId)?.content ?? '';
+		content = reviews.find((r) => r.userid === hoveredReviewId)?.content ?? '';
 	};
 
 	const hoverText = () => {
@@ -75,25 +53,36 @@
 	};
 </script>
 
-<div class="mt-20 flex flex-col justify-center items-center">
+<div
+	class="mt-20 flex flex-col justify-center items-center [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
+	style="
+		--slide-width: 400px;
+  --slide-count: {reviews.length};
+  --time-per-slide: 10s;
+"
+>
 	<div
-		bind:this={container}
 		class="relative z-20 max-w-100vw overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
 	>
-		<ul
-			bind:this={scroller}
-			class="flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap animate-[scroll_60s_normal_linear_infinite] hover:animate-paused"
+		<div
+			class="flex animate-[scroll_calc(var(--time-per-slide)*var(--slide-count))_linear_infinite] min-w-[max-w-[calc(var(--slide-width)*var(--slide-count))]] max-w-[calc(var(--slide-width)*var(--slide-count))]"
 		>
-			{#each reviews as review (review.userid)}
-				<Review
-					{review}
-					on:hovered={(e) => {
-						setReview(e.detail.userid);
-					}}
-					on:unhovered={() => resetReview(true)}
-				/>
+			{#each new Array(2).fill(null) as _}
+				{#each reviews as review (review.userid)}
+					<div
+						class="h-200px min-w-[var(--slide-width)] max-w-[var(--slide-width)] flex flex-col items-start justify-center pointer-events-none"
+					>
+						<Review
+							{review}
+							on:hovered={(e) => {
+								setReview(e.detail.userid);
+							}}
+							on:unhovered={() => resetReview(true)}
+						/>
+					</div>
+				{/each}
 			{/each}
-		</ul>
+		</div>
 	</div>
 	<span class="text-xs color-neutral-500">hover/tap to see more info</span>
 
@@ -126,8 +115,11 @@
 
 <style>
 	@keyframes scroll {
-		to {
-			transform: translate(calc(-50% - 0.5rem));
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(calc(var(--slide-width) * -1) * var(--slide-count)));
 		}
 	}
 

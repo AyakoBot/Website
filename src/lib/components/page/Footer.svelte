@@ -34,30 +34,24 @@
 				</li>
 			</ul>
 
-			<ul id="right" class="flex flex-row justify-around items-center my-6">
+			<ul id="right" class="flex flex-row justify-around items-start my-6">
 				<li>
-					<ul class="flex flex-col justify-around items-start px-4 gap-1">
-						<li>
-							<a class="btn-quiet text-5 font-bold" href="https://support.ayakobot.com">Support</a>
-						</li>
-						<li><a class="btn-quiet text-5 font-bold color-yellow" href="/donate">Premium</a></li>
-						<li>
-							<a class="text-5 font-bold" href="https://top.gg/bot/650691698409734151/vote">
-								<ColorFadeText text="Vote" />
-							</a>
-						</li>
-						<li><a class="text-5 font-bold" href="/donate"><ColorFadeText text="Donate" /></a></li>
-					</ul>
+					<div class="flex flex-col justify-evenly items-start px-4">
+						<a class="btn-quiet text-5 font-bold" href="https://support.ayakobot.com" target="_blank">Support</a>
+						<a class="btn-quiet text-5 font-bold color-yellow" href="/donate">Premium</a>
+						<a class="text-5 font-bold" href="https://top.gg/bot/650691698409734151/vote" target="_blank">
+							<ColorFadeText text="Vote" />
+						</a>
+						<a class="text-5 font-bold" href="/donate"><ColorFadeText text="Donate" /></a>
+					</div>
 				</li>
 				<li>
-					<ul class="flex flex-col justify-around items-start px-4">
-						<li>
-							<a class="btn-quiet text-5 font-bold" href="https://support.ayakobot.com">Animekos</a>
-						</li>
-						<li><a class="btn-quiet text-5 font-bold" href="/credits">Creators</a></li>
-						<li><a class="btn-quiet text-5 font-bold" href="/terms">Terms</a></li>
-						<li><a class="btn-quiet text-5 font-bold" href="/privacy">Privacy</a></li>
-					</ul>
+					<div class="flex flex-col justify-evenly items-start px-4">
+						<a class="btn-quiet text-5 font-bold" href="https://support.ayakobot.com" target="_blank">Animekos</a>
+						<a class="btn-quiet text-5 font-bold" href="/credits">Creators</a>
+						<a class="btn-quiet text-5 font-bold" href="/terms">Terms</a>
+						<a class="btn-quiet text-5 font-bold" href="/privacy">Privacy</a>
+					</div>
 				</li>
 			</ul>
 		</li>
