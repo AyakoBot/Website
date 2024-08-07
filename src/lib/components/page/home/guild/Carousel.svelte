@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Guild from '$lib/components/generic/Guild.svelte';
 	import { numberWithCommas } from '$lib/scripts/util/utils';
-	import type { Returned as GETGuilds } from '@ayako/server/src/routes/guilds/+server.js';
+	import type { Returned as GETGuilds } from '@ayako/server/src/routes/v1/guilds/+server.js';
 
 	export let guilds: GETGuilds;
 </script>

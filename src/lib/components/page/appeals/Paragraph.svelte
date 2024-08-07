@@ -1,13 +1,13 @@
 <script lang="ts">
-	import type { Returned as GETAppeals } from '@ayako/server/src/routes/guilds/[guildId]/appeals/[punishmentId]/appeal/+server.js';
+	import type { Returned as GETAppealQuestions } from '@ayako/server/src/routes/v1/guilds/[guildId]/settings/appeal-questions/+server.ts';
 
-	export let q: GETAppeals['questions'][number];
+	export let q: GETAppealQuestions[number];
 	let value = '';
 </script>
 
 <div class="relative w-full">
 	<textarea
-		name={String(q.uniquetimestamp)}
+		name={String(q.id)}
 		required={q.required}
 		maxlength="2000"
 		minlength={q.required ? 1 : 0}

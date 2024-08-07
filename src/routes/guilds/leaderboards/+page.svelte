@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Returned as GETGuilds } from '@ayako/server/src/routes/guilds/+server';
+	import type { Returned as GETGuilds } from '@ayako/server/src/routes/v1/guilds/+server';
 	import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 	import { onMount } from 'svelte';
 	import Fa from 'svelte-fa';
@@ -15,7 +15,9 @@
 	let query = '';
 
 	const getData = async () => {
+  console.log('getting');
 		const res = await fetch(`/guilds/leaderboards?skip=${page * 100}&q=${query}`);
+  console.log('got');
 		if (!res.ok) throw new Error(await res.text());
 
 		return (await res.json()) as GETGuilds;

@@ -1,5 +1,5 @@
 import { PUBLIC_API } from '$env/static/public';
-import type { Returned as GETGuild } from '@ayako/server/src/routes/guilds/[guildId]/+server';
+import type { Returned as GETGuild } from '@ayako/server/src/routes/v1/guilds/[guildId]/+server';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {

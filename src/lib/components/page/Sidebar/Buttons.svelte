@@ -15,6 +15,6 @@
 		<a href="/credits" class="btn-quiet" on:click={() => close()} on:keydown={() => close()}>
 			Creators
 		</a>
-		<a href="https://support.ayakobot.com" target="_blank" class="btn-quiet"> Animekos </a>
+		<a href="https://animekos.com" target="_blank" class="btn-quiet"> Animekos </a>
 	</div>
 </div>

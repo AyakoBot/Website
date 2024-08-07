@@ -1,8 +1,7 @@
 import { PUBLIC_API } from '$env/static/public';
+import type { Returned as GETAppealableGuilds } from '@ayako/server/src/routes/v1/@me/appeals/guilds/+server.js';
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-
-import type { Returned as GETAppealableGuilds } from '@ayako/server/src/routes/@me/appeals/guilds/+server.js';
 
 export const load: PageServerLoad = async (event) => {
 	const userId = event.cookies.get('discord-id');

@@ -47,7 +47,7 @@
 				</li>
 				<li>
 					<div class="flex flex-col justify-evenly items-start px-4">
-						<a class="btn-quiet text-5 font-bold" href="https://support.ayakobot.com" target="_blank">Animekos</a>
+						<a class="btn-quiet text-5 font-bold" href="https://animekos.com" target="_blank">Animekos</a>
 						<a class="btn-quiet text-5 font-bold" href="/credits">Creators</a>
 						<a class="btn-quiet text-5 font-bold" href="/terms">Terms</a>
 						<a class="btn-quiet text-5 font-bold" href="/privacy">Privacy</a>

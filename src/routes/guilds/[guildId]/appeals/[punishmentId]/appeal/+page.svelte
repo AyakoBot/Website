@@ -13,17 +13,17 @@
 
 <ul class="flex flex-col justify-center items-center mb-20 gap-5 w-fit m-auto">
 	<li class="text-2xl">Appealing Punishment:</li>
-	<Punishment p={data.appeal.punishment} />
+	<Punishment p={data.punishment} />
 </ul>
 
-{#if !('message' in data)}
+{#if !('message' in data) && data.questions}
 	<form
 		class="flex flex-col justify-center items-center gap-5 max-w-90vw lg:max-w-50vw m-auto"
 		method="post"
 		action="?/appeal"
 		use:enhance
 	>
-		{#each data.appeal.questions as question, i (i)}
+		{#each data.questions as question, i (i)}
 			{#if i}
 				<FancyBorder />
 			{/if}

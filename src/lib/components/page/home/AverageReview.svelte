@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ColorFadeAndCountUp from '$lib/components/generic/ColorFadeAndCountUp.svelte';
-	import type { Returned as GETReviews } from '@ayako/server/src/routes/reviews/+server.js';
+	import type { Returned as GETReviews } from '@ayako/server/src/routes/v1/bot/reviews/+server.js';
 
 	export let reviews: GETReviews;
 </script>

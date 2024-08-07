@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
-	import type { Returned as GETFeatures } from '@ayako/server/src/routes/features/+server';
+	import type { Returned as GETFeatures } from '@ayako/server/src/routes/v1/bot/features/+server';
 	import Item from './item.svelte';
 
 	export let featureBlocks: GETFeatures;

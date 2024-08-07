@@ -12,9 +12,15 @@ export const load: PageServerLoad = async (event) => {
 
 	const state = event.url.searchParams.get('state');
 
-	const res = await event.fetch(`${PUBLIC_API}/login${state ? `?state=${state}` : ''}`, {
-		headers: { Authorization: `Bearer ${code}` },
-	});
+	const res = await event.fetch(
+		`${PUBLIC_API.split(/\//g)
+			.filter((p) => !!p.length)
+			.slice(0, 2)
+			.join('//')}/login${state ? `?state=${state}` : ''}`,
+		{
+			headers: { Authorization: `Bearer ${code}` },
+		},
+	);
 	if (!res.ok) throw redirect(307, '/login');
 
 	const json = (await res.json()) as GETLogin;

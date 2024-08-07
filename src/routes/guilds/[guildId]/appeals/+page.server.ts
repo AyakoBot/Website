@@ -1,12 +1,11 @@
 import { PUBLIC_API } from '$env/static/public';
+import type { Returned as GETPunishments } from '@ayako/server/src/routes/v1/@me/punishments/+server.ts';
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
-import type { Returned as GETPunishments } from '@ayako/server/src/routes/guilds/[guildId]/appeals/+server.js';
-
 export const load: PageServerLoad = async (event) => {
 	const punishments = await event
-		.fetch(`${PUBLIC_API}/guilds/${event.params.guildId}/appeals`, {
+		.fetch(`${PUBLIC_API}/@me/punishments?guildId=${event.params.guildId}`, {
 			headers: { Authorization: `Bearer ${event.cookies.get('discord-token')}` },
 		})
 		.then((r): Promise<GETPunishments | number> => {

@@ -30,7 +30,7 @@
 			</div>
 			<div class="flex flex-col justify-center items-center">
 				<u>Channel:</u>
-				<span class="mention text-shadow-none">#{p.channelname}</span>
+				<span class="mention text-shadow-none">#{p.channel.name}</span>
 			</div>
 			{#if showAppealButton || showStatusButton}
 				<a

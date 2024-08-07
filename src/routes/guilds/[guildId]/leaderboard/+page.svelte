@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import Loading from '$lib/components/generic/Loading.svelte';
 	import { numberWithCommas } from '$lib/scripts/util/utils.js';
-	import type { Returned as GETLb } from '@ayako/server/src/routes/guilds/[guildId]/lb/+server';
+	import type { Returned as GETLb } from '@ayako/server/src/routes/v1/guilds/[guildId]/lb/+server';
 	import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 	import { onMount } from 'svelte';
 	import Fa from 'svelte-fa';

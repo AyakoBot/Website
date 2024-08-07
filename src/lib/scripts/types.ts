@@ -30,11 +30,14 @@ export enum PunishmentType {
 }
 
 export type AppealPunishment = {
-	appealed: boolean;
+ appealed: boolean;
 	type: PunishmentType;
 	reason: string;
 	id: number;
-	channelname: string;
+	channel: {
+		name: string;
+		id: string;
+	};
 	duration?: number;
 };
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ReviewDispatch } from '$lib/scripts/types.js';
 	import { createEventDispatcher } from 'svelte';
-	import type { Returned as GETReviews } from '@ayako/server/src/routes/reviews/+server.js';
+	import type { Returned as GETReviews } from '@ayako/server/src/routes/v1/bot/reviews/+server.js';
 
 	const dispatch = createEventDispatcher<ReviewDispatch>();
 
