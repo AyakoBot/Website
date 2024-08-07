@@ -16,5 +16,6 @@
 			Creators
 		</a>
 		<a href="https://animekos.com" target="_blank" class="btn-quiet"> Animekos </a>
+  <a href="https://docs.ayakobot.com" target="_blank" class="btn-quiet"> API Docs </a>
 	</div>
 </div>
