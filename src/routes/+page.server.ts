@@ -7,7 +7,9 @@ import type { PageServerLoad } from './$types.js';
 
 export const load: PageServerLoad = async (event) => {
 	const [reviews, stats, features, guilds] = await Promise.all([
-		event.fetch(`${PUBLIC_API}/bot/reviews`).then((r) => (r.ok ? (r.json() as Promise<GETReviews>) : [])),
+		event
+			.fetch(`${PUBLIC_API}/bot/reviews`)
+			.then((r) => (r.ok ? (r.json() as Promise<GETReviews>) : [])),
 		event
 			.fetch(`${PUBLIC_API}/bot/stats`)
 			.then((r) => (r.ok ? (r.json() as Promise<GETStats>) : { guildCount: 0, userCount: 0 })),
