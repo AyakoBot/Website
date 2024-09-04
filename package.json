@@ -29,11 +29,11 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.2.4",
-		"@sveltejs/kit": "^2.5.25",
+		"@sveltejs/kit": "^2.5.26",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
 		"@types/eslint": "^8.56.12",
 		"@types/js-cookie": "^3.0.6",
-		"@types/node": "^20.16.3",
+		"@types/node": "^20.16.5",
 		"@typescript-eslint/eslint-plugin": "^8.4.0",
 		"@typescript-eslint/parser": "^8.4.0",
 		"@unocss/svelte-scoped": "^0.62.3",
