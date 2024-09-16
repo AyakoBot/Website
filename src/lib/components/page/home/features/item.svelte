@@ -1,8 +1,10 @@
 <script lang="ts">
-	export let subtitle: string;
-	export let title: string;
-	export let img: string;
-	export let placeholder: string;
+	const {
+		subtitle,
+		title,
+		img,
+		placeholder,
+	}: { subtitle: string; title: string; img: string; placeholder: string } = $props();
 
 	const subtitleArgs = subtitle.split(/\s/g);
 	let isHovering = false;
@@ -81,12 +83,12 @@
 <div
 	class="bg-fancy max-w-100 h-150
  hover:border-op-0"
-	on:mouseover={hoverE}
-	on:mouseleave={unhoverE}
-	on:focus={hoverE}
-	on:blur={unhoverE}
+	onmouseover={hoverE}
+	onmouseleave={unhoverE}
+	onfocus={hoverE}
+	onblur={unhoverE}
 	role="tooltip"
- aria-label="{title}"
+	aria-label={title}
 >
 	<div class="flex justify-between items-center flex-col m-auto h-full">
 		<h1 class="text-xl">
@@ -99,7 +101,7 @@
 					bind:this={subtitleElements[i]}>{arg}&nbsp;</span
 				>
 			{/each}
-  </h2>
+		</h2>
 
 		<img
 			bind:this={imgElement}

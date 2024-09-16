@@ -1,12 +1,11 @@
 <a
-	class="btn-medium op-0 font-bold w-full sm:w-40% md:w-30% px-0"
+	class="btn-medium op-0 font-bold w-full sm:w-40% md:w-30% px-0 animate-[1s_ease-in-out_2s_invite_forwards]"
 	href="https://invite.ayakobot.com"
-	id="invite"
 >
 	Invite Ayako
 </a>
 <img
-	id="flowerSpin"
+	class="animate-[flowerSpin_1s_ease-in-out_2s]"
 	src="/images/GreenFlower.webp"
 	alt="Flower"
 	width="64"
@@ -14,7 +13,7 @@
 	loading="eager"
 />
 <a
-	class="btn-loud op-0 opacity-0 font-bold w-full sm:w-40% md:w-30% px-0"
+	class="btn-loud op-0 opacity-0 font-bold w-full sm:w-40% md:w-30% px-0 animate-[1s_ease-in-out_2s_support_forwards]"
 	href="https://invite.ayakobot.com"
 	id="support"
 >
@@ -22,18 +21,6 @@
 </a>
 
 <style scoped>
-	#invite {
-		animation: 1s ease-in-out 2s invite forwards;
-	}
-
-	#support {
-		animation: 1s ease-in-out 2s support forwards;
-	}
-
-	#flowerSpin {
-		animation: flowerSpin 1s ease-in-out 2s;
-	}
-
 	@keyframes flowerSpin {
 		from {
 			rotate: 0deg;

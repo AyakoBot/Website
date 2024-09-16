@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { numberWithCommas } from '$lib/scripts/util/utils';
-	import { onMount } from 'svelte';
 
-	export let num: number;
+	const { num }: { num: number } = $props();
 	let counterElement: HTMLDivElement;
 	const counters: Map<number, NodeJS.Timeout> = new Map();
-	$: currentCount = 0;
+	let currentCount = $state(0);
 
 	const animateCountUp = (targetValue: number) => {
 		const frameDuration = 1000 / 60;
@@ -26,7 +25,7 @@
 		);
 	};
 
-	onMount(() => {
+	$effect(() => {
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((e) => {
 				if (e.isIntersecting) animateCountUp(num);

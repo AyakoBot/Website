@@ -2,7 +2,7 @@
 	import type { PageServerData } from './$types';
 	import { page } from '$app/stores';
 
-	export let data: PageServerData;
+	const { data }: { data: PageServerData } = $props();
 </script>
 
 <div class="flex flex-col justify-center items-center">

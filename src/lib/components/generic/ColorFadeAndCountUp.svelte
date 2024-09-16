@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { numberWithCommas } from '$lib/scripts/util/utils';
-	import { onMount } from 'svelte';
 
-	export let num: number;
+	const { num }: { num: number } = $props();
 	let element: HTMLSpanElement;
 
-	onMount(() => {
+	$effect(() => {
 		const randomStartPosition = Math.floor(Math.random() * 101);
 		element.animate(
 			[
@@ -29,7 +28,7 @@
 	});
 
 	const counters: Map<number, NodeJS.Timeout> = new Map();
-	$: currentCount = 0;
+	let currentCount = $state(0);
 
 	const animateCountUp = (targetValue: number) => {
 		const frameDuration = 1000 / 60;

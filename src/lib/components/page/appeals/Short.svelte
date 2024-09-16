@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { Returned as GETAppealQuestions } from '@ayako/server/src/routes/v1/guilds/[guildId]/settings/appeal-questions/+server.ts';
 
-	export let q: GETAppealQuestions[number];
-	let value = '';
+	const { q }: { q: GETAppealQuestions[number] } = $props();
+	let value = $state('');
 </script>
 
 <div class="relative w-full">

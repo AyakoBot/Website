@@ -6,9 +6,9 @@
 	import { ArtType } from '$lib/scripts/types.js';
 	import type { PageServerData } from './$types.js';
 
+	const { data }: { data: PageServerData } = $props();
 	let type: ArtType = ArtType.all;
-	let query: string;
-	$: query = '';
+	let query = $state('');
 
 	const assignFilters = async (q?: string, t?: ArtType) => {
 		if (!q && !t) return data.art;
@@ -16,8 +16,6 @@
 		type = t || ArtType.all;
 		query = q?.toLowerCase() || '';
 	};
-
-	export let data: PageServerData;
 </script>
 
 <div class="flex flex-col justify-center items-center w-full mt-25">
@@ -29,7 +27,7 @@
 				{ key: 'full', value: 'Full Image' },
 				{ key: 'icon', value: 'Icon' },
 			]}
-			on:any={(e) => (assignFilters(e.detail.query, e.detail.option as ArtType))}
+			on:any={(e) => assignFilters(e.detail.query, e.detail.option as ArtType)}
 		/>
 
 		<FancyBorder />

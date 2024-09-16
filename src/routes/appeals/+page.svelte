@@ -2,12 +2,11 @@
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Guild from '$lib/components/generic/Guild.svelte';
 	import SearchBar from '$lib/components/generic/SearchBar.svelte';
-	import type { Returned as GETAppealableGuilds } from '@ayako/server/src/routes/@me/appeals/guilds/+server.js';
+	import type { Returned as GETAppealableGuilds } from '@ayako/server/src/routes/v1/@me/appeals/guilds/+server.ts';
 	import type { PageServerData } from './$types';
 
-	export let data: PageServerData;
-
-	$: name = '';
+	const { data }: { data: PageServerData } = $props();
+	let name = $state('');
 
 	const filter = (g: GETAppealableGuilds['appealEnabled'][0]) =>
 		g.name.toLowerCase().includes(name.toLowerCase());

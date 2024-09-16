@@ -2,23 +2,15 @@
 	import type { Returned as GETReviews } from '@ayako/server/src/routes/v1/bot/reviews/+server.js';
 	import Review from './Review.svelte';
 
-	export let reviews: GETReviews;
+	const { reviews }: { reviews: GETReviews } = $props();
 
-	let hoveredReviewId: string | null;
-	$: hoveredReviewId = null;
-
+	let hoveredReviewId: string | null = $state(null);
 	let timeout: NodeJS.Timeout | null = null;
 	let reviewDiv: HTMLDivElement;
 
-	let content: string;
-	$: content = '';
-
-	let reviewWidth: number;
-	$: reviewWidth = 0;
-
-	let reviewHeight: number;
-	$: reviewHeight = 0;
-
+	let content = $state('');
+	let reviewWidth = $state(0);
+	let reviewHeight = $state(0);
 	let review: HTMLDivElement;
 
 	const resetReview = (wait: boolean = true) => {
@@ -34,9 +26,7 @@
 			return;
 		}
 
-		timeout = setTimeout(() => {
-			reset();
-		}, 1000);
+		timeout = setTimeout(() => reset(), 1000);
 	};
 
 	const setReview = async (newReviewId: string) => {
@@ -92,10 +82,10 @@
 
 	<div
 		role="tooltip"
-		on:mouseover={hoverText}
-		on:mouseleave={() => resetReview(true)}
-		on:focus={hoverText}
-		on:blur={() => resetReview(true)}
+		onmouseover={hoverText}
+		onmouseleave={() => resetReview(true)}
+		onfocus={hoverText}
+		onblur={() => resetReview(true)}
 		class="shadow-black shadow-op-50 shadow-inner w-110% px-10 sm:px-15 md:px-20 lg:px-30 xl:px-40 rounded-2xl bg-neutral-700 text-neutral-100 transition-all ease-in-out flex flex-row flex-wrap justify-center items-center"
 		style="height: {reviewHeight}px"
 		aria-label="Review"

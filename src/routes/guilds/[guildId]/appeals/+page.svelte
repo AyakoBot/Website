@@ -4,9 +4,8 @@
 	import Punishment from '$lib/components/page/appeals/Punishment.svelte';
 	import type { PageServerData } from './$types';
 
-	export let data: PageServerData;
-
-	$: query = '';
+	const { data }: { data: PageServerData } = $props();
+	let query = $state('');
 </script>
 
 {#if data.enabled}

@@ -1,11 +1,15 @@
 <script lang="ts">
-	export let credit: {
-		userid: string;
-		username?: string;
-		avatar?: string;
-		roles?: string[];
-		socials?: { url: string; type: string }[];
-	};
+	const {
+		credit,
+	}: {
+		credit: {
+			userid: string;
+			username?: string;
+			avatar?: string;
+			roles?: string[];
+			socials?: { url: string; type: string }[];
+		};
+	} = $props();
 </script>
 
 <div class="flex justify-start items-center flex-col w-100%">

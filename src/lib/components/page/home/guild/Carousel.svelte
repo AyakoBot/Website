@@ -3,7 +3,7 @@
 	import { numberWithCommas } from '$lib/scripts/util/utils';
 	import type { Returned as GETGuilds } from '@ayako/server/src/routes/v1/guilds/+server.js';
 
-	export let guilds: GETGuilds;
+ const { guilds }: { guilds: GETGuilds } = $props();
 </script>
 
 <div

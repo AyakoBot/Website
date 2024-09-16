@@ -6,20 +6,23 @@
 	import { findInParents } from '$lib/scripts/util/utils.js';
 	const dispatch = createEventDispatcher<{ update: string[] }>();
 
-	export let options: string[];
-	export let single: boolean = true;
-	export let required: boolean = false;
-	export let label: string;
- export let id: string;
-	let element: HTMLDivElement;
+	const {
+		options,
+		single = true,
+		required = false,
+		label,
+		id = Math.random().toString(36).substring(7),
+	}: {
+		options: string[];
+		single: boolean;
+		required: boolean;
+		label: string;
+		id?: string;
+	} = $props();
 
-	id ??= Math.random().toString(36).substring(7);
-
-	let expanded: boolean;
-	$: expanded = false;
-
-	let selectedOptions: string[] = [];
-	$: selectedOptions = [];
+ let element: HTMLDivElement;
+	let expanded = $state(false);
+	let selectedOptions: typeof options = $state([]);
 
 	const update = () => {
 		if (expanded) return;
@@ -59,13 +62,13 @@
 		value={selectedOptions.length ? JSON.stringify(selectedOptions) : ''}
 		class="w-1px h-1px absolute top-full"
 		name={id}
-		on:focus={() => element.focus()}
+		onfocus={() => element.focus()}
 		tabindex="-1"
 	/>
 	<div
 		bind:this={element}
-		on:click={labelClick}
-		on:keydown={labelClick}
+		onclick={labelClick}
+		onkeydown={labelClick}
 		role="button"
 		tabindex="0"
 		class="cursor-pointer bg-neutral-900 w-full rounded-2xl px-2 py-2 relative text-left"
@@ -76,8 +79,8 @@
 					{#if single}
 						<div
 							class="relative w-full"
-							on:click={() => optionClick(opt)}
-							on:keydown={() => optionClick(opt)}
+							onclick={() => optionClick(opt)}
+							onkeydown={() => optionClick(opt)}
 							role="button"
 							tabindex="0"
 						>
@@ -86,8 +89,8 @@
 					{:else}
 						<div
 							class="px-2 py-1 bg-neutral-800 relative rounded-2xl"
-							on:click={() => optionClick(opt)}
-							on:keydown={() => optionClick(opt)}
+							onclick={() => optionClick(opt)}
+							onkeydown={() => optionClick(opt)}
 							role="button"
 							tabindex="0"
 						>
@@ -120,8 +123,8 @@
 		>
 			{#each options as opt}
 				<div
-					on:click={() => optionClick(opt)}
-					on:keydown={() => optionClick(opt)}
+					onclick={() => optionClick(opt)}
+					onkeydown={() => optionClick(opt)}
 					role="button"
 					tabindex="0"
 					class="text-left px-2 py-2 hover:bg-neutral-600 rounded-2xl relative"

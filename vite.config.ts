@@ -9,6 +9,5 @@ export default defineConfig({
 	plugins: [
 		sveltekit(),
 		UnoCSS({ injectReset: '' }),
-		// Unlighthouse({}),
 	],
 });

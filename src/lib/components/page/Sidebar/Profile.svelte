@@ -3,7 +3,7 @@
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Cookies from 'js-cookie';
 
-	export let close: Function;
+	const { close }: { close: Function } = $props();
 
 	const name = Cookies.get('discord-username');
 	const pfp = decodeURIComponent(Cookies.get('discord-avatar') ?? '');
@@ -22,7 +22,7 @@
 		Cookies.remove('discord-username', basicCookieOptions);
 		Cookies.remove('discord-avatar', basicCookieOptions);
 
-  window.location.reload();
+		window.location.reload();
 	};
 </script>
 
@@ -44,10 +44,12 @@
 					<ColorFadeText text={name} />
 				</div>
 
-				<button class="btn-medium text-sm text-nowrap" on:click={logout} on:keydown={logout}>Log-Out</button>
+				<button class="btn-medium text-sm text-nowrap" onclick={logout} onkeydown={logout}
+					>Log-Out</button
+				>
 			</div>
 		{:else}
-			<a href="/login" class="btn-medium text-sm text-nowrap" on:click={() => close()}>Log-In</a>
+			<a href="/login" class="btn-medium text-sm text-nowrap" onclick={() => close()}>Log-In</a>
 		{/if}
 	</div>
 </div>

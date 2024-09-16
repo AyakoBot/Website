@@ -1,6 +1,6 @@
 <script lang="ts">
-	export let time: number;
-	export let type: 'd' | 'D' | 't' | 'T' | 'f' | 'F' | 'R' = 'F';
+	const { time, type = 'F' }: { time: number; type: 'd' | 'D' | 't' | 'T' | 'f' | 'F' | 'R' } =
+		$props();
 	const date = new Date(time);
 
 	const get = {

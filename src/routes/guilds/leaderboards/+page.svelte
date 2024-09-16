@@ -1,23 +1,18 @@
 <script lang="ts">
 	import type { Returned as GETGuilds } from '@ayako/server/src/routes/v1/guilds/+server';
 	import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-	import { onMount } from 'svelte';
 	import Fa from 'svelte-fa';
 
 	import Guild from '$lib/components/generic/Guild.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
 	import SearchBar from '$lib/components/generic/SearchBar.svelte';
 
-	let promise: Promise<GETGuilds> | null = null;
-	$: name = '';
-
-	let page = 0;
-	let query = '';
+	let promise: Promise<GETGuilds> | null = $state(null);
+	let page = $state(0);
+	let query = $state('');
 
 	const getData = async () => {
-  console.log('getting');
 		const res = await fetch(`/guilds/leaderboards?skip=${page * 100}&q=${query}`);
-  console.log('got');
 		if (!res.ok) throw new Error(await res.text());
 
 		return (await res.json()) as GETGuilds;
@@ -28,7 +23,7 @@
 		promise = getData();
 	};
 
-	onMount(() => {
+	$effect(() => {
 		promise = getData();
 	});
 
@@ -67,15 +62,15 @@
 
 			<div class="w-100dvw flex flex-row justify-center items-center mt-10">
 				<button
-					on:click={() => decrement()}
-					on:keydown={() => decrement()}
+					onclick={() => decrement()}
+					onkeydown={() => decrement()}
 					disabled={page === 0}
 					class="bg-[#171717] hover:bg-[#888] p-3 rounded-r rounded-full border-r border-solid border-black pl-4"
 					><Fa icon={faArrowLeft} scale="1" /></button
 				>
 				<button
-					on:click={() => increment()}
-					on:keydown={() => decrement()}
+					onclick={() => increment()}
+					onkeydown={() => decrement()}
 					disabled={!data.length}
 					class="bg-[#171717] hover:bg-[#888] p-3 rounded-l rounded-full border-l border-solid border-black pr-4"
 					><Fa icon={faArrowRight} scale="1" /></button

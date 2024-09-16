@@ -4,15 +4,13 @@
 	import { numberWithCommas } from '$lib/scripts/util/utils.js';
 	import type { Returned as GETLb } from '@ayako/server/src/routes/v1/guilds/[guildId]/lb/+server';
 	import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-	import { onMount } from 'svelte';
 	import Fa from 'svelte-fa';
 	import type { PageServerData } from './$types';
 	import Guild from '$lib/components/generic/Guild.svelte';
 
-	let promise: Promise<GETLb> | null = null;
-	export let data: PageServerData;
-
-	let batch = 0;
+	const { data }: { data: PageServerData } = $props();
+	let promise: Promise<GETLb> | null = $state(null);
+	let batch = $state(0);
 
 	const getData = async () => {
 		const res = await fetch(`/guilds/${$page.params.guildId}/leaderboard?skip=${batch * 100}`);
@@ -21,7 +19,7 @@
 		return (await res.json()) as GETLb;
 	};
 
-	onMount(() => {
+	$effect(() => {
 		promise = getData();
 	});
 
@@ -92,15 +90,15 @@
 
 		<div class="w-100dvw flex flex-row justify-center items-center mt-10">
 			<button
-				on:click={() => decrement()}
-				on:keydown={() => decrement()}
+				onclick={() => decrement()}
+				onkeydown={() => decrement()}
 				disabled={batch === 0}
 				class="bg-[#171717] hover:bg-[#888] p-3 rounded-r rounded-full border-r border-solid border-black pl-4"
 				><Fa icon={faArrowLeft} scale="1" /></button
 			>
 			<button
-				on:click={() => increment()}
-				on:keydown={() => decrement()}
+				onclick={() => increment()}
+				onkeydown={() => decrement()}
 				disabled={!users.length}
 				class="bg-[#171717] hover:bg-[#888] p-3 rounded-l rounded-full border-l border-solid border-black pr-4"
 				><Fa icon={faArrowRight} scale="1" /></button

@@ -3,9 +3,9 @@
 	import { createEventDispatcher } from 'svelte';
 	import type { Returned as GETReviews } from '@ayako/server/src/routes/v1/bot/reviews/+server.js';
 
+	const { review }: { review: GETReviews[number] } = $props();
 	const dispatch = createEventDispatcher<ReviewDispatch>();
-
-	$: hover = false;
+	let hover = $state(false);
 
 	const hovered = () => {
 		hover = true;
@@ -16,16 +16,14 @@
 		hover = false;
 		dispatch('unhovered', review);
 	};
-
-	export let review: GETReviews[number];
 </script>
 
 <div class="container">
 	<div
-		on:mouseover={hovered}
-		on:mouseleave={unhovered}
-		on:focus={hovered}
-		on:blur={unhovered}
+		onmouseover={hovered}
+		onmouseleave={unhovered}
+		onfocus={hovered}
+		onblur={unhovered}
 		tabindex="-1"
 		role="button"
 		class="w-75 max-h-full h-auto rounded-2xl flex-shrink-0 mx-8 aspect-video hover:scale-105% transition-all ease-in-out relative flex flex-col justify-center items-center of-hidden cursor-default pointer-events-initial"

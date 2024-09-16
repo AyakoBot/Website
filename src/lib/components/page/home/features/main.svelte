@@ -3,7 +3,7 @@
 	import type { Returned as GETFeatures } from '@ayako/server/src/routes/v1/bot/features/+server';
 	import Item from './item.svelte';
 
-	export let featureBlocks: GETFeatures;
+	const { featureBlocks }: { featureBlocks: GETFeatures } = $props();
 </script>
 
 <div class="mt-10">

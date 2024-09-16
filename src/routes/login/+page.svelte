@@ -5,24 +5,20 @@
 	import Switch from '$lib/components/generic/Switch.svelte';
 	import type { ConsentCookie } from '$lib/scripts';
 	import Cookies from 'js-cookie';
-	import { onDestroy, onMount } from 'svelte';
 
-	let consent: ConsentCookie | null;
-
+	let consent: ConsentCookie | null = $state(null);
 	let interval: NodeJS.Timeout;
 
-	onMount(() => {
+	$effect(() => {
 		interval = setInterval(() => {
 			consent = JSON.parse(Cookies.get('cookie_consent_level') ?? '{}') as ConsentCookie;
 		}, 1000);
-	});
 
-	onDestroy(() => {
-		clearInterval(interval);
+		return () => clearInterval(interval);
 	});
 
 	const code = $page.url.searchParams.has('code');
-	let checked = true;
+	let checked = $state(true);
 </script>
 
 {#if code || !consent}

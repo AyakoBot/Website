@@ -6,7 +6,7 @@
 	import Paragraph from './Paragraph.svelte';
 	import Short from './Short.svelte';
 
-	export let q: GETAppealQuestions[number];
+	const { q }: { q: GETAppealQuestions[number] } = $props();
 </script>
 
 <div class="flex flex-col justify-center items-center gap-2 relative w-full">

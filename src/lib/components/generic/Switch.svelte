@@ -1,9 +1,17 @@
 <script lang="ts">
-	export let title: string;
-	export let name: string;
-	export let checked: boolean = false;
-	export let required: boolean = false;
-	export let type: 'y/n' | 'on/off' = 'on/off';
+	let {
+		title,
+		name,
+		checked = $bindable(false),
+		required = false,
+		type = 'on/off',
+	}: {
+		title: string;
+		name: string;
+		checked?: boolean;
+		required?: boolean;
+		type?: 'y/n' | 'on/off';
+	} = $props();
 </script>
 
 <div class="p-2">

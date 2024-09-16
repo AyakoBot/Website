@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let text: string;
+	const { text }: { text: string } = $props();
 	const randomStartPosition = Math.floor(Math.random() * 101);
 </script>
 

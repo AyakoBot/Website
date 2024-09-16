@@ -5,10 +5,8 @@
 	import Question from '$lib/components/page/appeals/Question.svelte';
 	import type { PageServerData } from './$types';
 
-	export let data: PageServerData;
-
-	let submitted: boolean;
-	$: submitted = false;
+	const { data }: { data: PageServerData } = $props();
+	let submitted = $state(false);
 </script>
 
 <ul class="flex flex-col justify-center items-center mb-20 gap-5 w-fit m-auto">

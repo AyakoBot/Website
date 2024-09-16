@@ -3,7 +3,7 @@
 	import CreditItem from '$lib/components/page/credits/item.svelte';
 	import type { PageServerData } from './$types';
 
-	export let data: PageServerData;
+	const { data }: { data: PageServerData } = $props();
 </script>
 
 <div class="flex flex-col items-center justify-center w-full">

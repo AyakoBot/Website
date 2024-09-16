@@ -1,15 +1,13 @@
 <script setup lang="ts">
-	import { onMount } from 'svelte';
 	import ColorFade from './ColorFadeText.svelte';
 
-	export let text: string;
-	export let isTitle: boolean = false;
+	const { text, isTitle = false }: { text: string; isTitle?: boolean } = $props();
 	let randomLetters: HTMLElement | ColorFade;
 
-	let title = String(text);
+	let title = $state(String(text));
 	const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ_.,!=+~/\\*&^%$#@1234567890:;`';
 
-	onMount(() => {
+	$effect(() => {
 		setTimeout(() => {
 			randomLetters.animate([{ opacity: 0 }, { opacity: 1 }], {
 				duration: 500,

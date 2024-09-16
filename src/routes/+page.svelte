@@ -10,12 +10,11 @@
 	import FeatureTeaser from '$lib/components/page/home/features/main.svelte';
 	import InfiniteGuildCarousel from '$lib/components/page/home/guild/Carousel.svelte';
 	import InfiniteReviewCarousel from '$lib/components/page/home/reviews/Carousel.svelte';
-	import { onMount } from 'svelte';
 	import type { PageServerData } from './$types';
 
-	export let data: PageServerData;
+	const { data }: { data: PageServerData } = $props();
 
-	onMount(async () => {
+	$effect(() => {
 		const reload = $page.url.searchParams.get('reload');
 		if (!reload) return;
 

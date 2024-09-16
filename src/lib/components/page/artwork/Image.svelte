@@ -1,21 +1,20 @@
 <script lang="ts">
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
-	import { onDestroy, onMount } from 'svelte';
 	import type { Returned as GETArt } from '@ayako/server/src/routes/v1/bot/artworks/+server.js';
 	import Loading from '$lib/components/generic/Loading.svelte';
 
-	export let artwork: GETArt[number];
+	const { artwork }: { artwork: GETArt[number] } = $props();
 
 	const src = `https://cdn.ayakobot.com/Ayako_Artwork/${artwork.art.url}`;
 	const abortLoad = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEAAAAALAAAAAABAAEAAAI=;';
 	let img: HTMLImageElement;
 
-	let loaded = false;
-	let failed = false;
-	let loading = false;
-	let hovering = false;
+	let loaded = $state(false);
+	let failed = $state(false);
+	let loading = $state(false);
+	let hovering = $state(false);
 
-	onMount(() => {
+	$effect(() => {
 		img = new Image();
 		img.src = src;
 		loading = true;
@@ -28,15 +27,15 @@
 			loading = false;
 			failed = true;
 		};
-	});
 
-	onDestroy(() => {
-		if (!img) return;
+		return () => {
+			if (!img) return;
 
-		img = new Image();
-		img.src = abortLoad;
-		img.onload = null;
-		img.onerror = null;
+			img = new Image();
+			img.src = abortLoad;
+			img.onload = null;
+			img.onerror = null;
+		};
 	});
 </script>
 
@@ -45,10 +44,10 @@
 		<div
 			class="flex flex-col justify-center items-center relative"
 			role="tooltip"
-			on:mouseover={() => (hovering = true)}
-			on:mouseleave={() => (hovering = false)}
-			on:focus={() => (hovering = true)}
-			on:blur={() => (hovering = false)}
+			onmouseover={() => (hovering = true)}
+			onmouseleave={() => (hovering = false)}
+			onfocus={() => (hovering = true)}
+			onblur={() => (hovering = false)}
 			aria-label="Artwork by {artwork.user.username}"
 		>
 			<img

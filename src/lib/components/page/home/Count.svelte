@@ -2,7 +2,7 @@
 	import ColorFadeAndCountUp from '$lib/components/generic/ColorFadeAndCountUp.svelte';
 	import type { Returned as GETStats } from '@ayako/server/src/routes/v1/bot/stats/+server.js';
 
-	export let stats: GETStats;
+	const { stats }: { stats: GETStats } = $props();
 </script>
 
 <span class="text-10">Ayako manages</span>

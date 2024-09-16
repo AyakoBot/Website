@@ -1,14 +1,13 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 
 	let blobSlow: HTMLDivElement;
 	let blobFast: HTMLDivElement;
 	let lastUpdate = Date.now();
 
-	$: x = 0;
-	$: y = 0;
+	let x = $state(0);
+	let y = $state(0);
 
-	onMount(() => {
+	$effect(() => {
 		[blobSlow, blobFast].forEach((b) => {
 			b?.animate([{ opacity: `0%` }, { opacity: `50%` }], {
 				duration: 3000,
@@ -16,13 +15,11 @@
 				fill: 'forwards',
 			});
 		});
-	});
 
-	$: {
-		[blobSlow, blobFast].forEach((b) => {
+  [blobSlow, blobFast].forEach((b) => {
 			b?.animate({ left: `${x}px`, top: `${y}px` }, { duration: 3000, fill: 'forwards' });
 		});
-	}
+	});
 </script>
 
 <svelte:window

@@ -9,8 +9,8 @@
 
 	let sidebar: HTMLElement;
 	let backdrop: HTMLButtonElement;
-	$: opened = false;
-	$: width = 0;
+	let opened = $state(false);
+	let width = $state(0);
 
 	const open = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -56,8 +56,8 @@
 <button
 	class="bg-white color-[#fe3521] rounded-full top-4 left-4 absolute z-9999 p-3 w-12 h-12 transition ease-in-out aspect-square flex justify-center items-center
 hover:bg-[#fe3521] hover:color-white"
-	on:click={() => open()}
-	on:keydown={() => open()}
+	onclick={() => open()}
+	onkeydown={() => open()}
 	name="Open Sidebar"
 >
 	<Fa icon={faBars} size="1.5x" />
@@ -83,7 +83,7 @@ hover:bg-[#fe3521] hover:color-white"
 <button
 	class="w-100vw h-100dvh bg-neutral-900/50 {opened ? 'z-9999' : '-z-1000'} op-0 absolute"
 	bind:this={backdrop}
-	on:click={() => close()}
-	on:keydown={() => close()}
+	onclick={() => close()}
+	onkeydown={() => close()}
 	name="Close Sidebar"
 ></button>

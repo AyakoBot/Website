@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Returned as GETAppealQuestions } from '@ayako/server/src/routes/v1/guilds/[guildId]/settings/appeal-questions/+server.ts';
 
-	export let q: GETAppealQuestions[number];
+	const { q }: { q: GETAppealQuestions[number] } = $props();
 </script>
 
 <input
@@ -12,5 +12,5 @@
 	min={Number.MIN_SAFE_INTEGER}
 	class="rounded-2xl px-2 py-2 text-center w-full bg-neutral-900"
 	placeholder="Type a Number"
-	on:wheel={(e) => (e.target as HTMLInputElement)?.blur()}
+	onwheel={(e) => (e.target as HTMLInputElement)?.blur()}
 />

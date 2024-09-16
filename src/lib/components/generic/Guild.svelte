@@ -1,18 +1,24 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { type Snippet } from 'svelte';
 
-	$: hover = false;
+	let hover = $state(false);
 
-	export let guild: {
-		icon: string | null;
-		banner: string | null;
-		membercount?: number;
-		name: string;
-	};
-
-	export let clickable: boolean = false;
-
-	export let defaultHover: boolean = false;
+	const {
+		guild,
+		clickable = false,
+		defaultHover = false,
+		children,
+	}: {
+		guild: {
+			icon: string | null;
+			banner: string | null;
+			membercount?: number;
+			name: string;
+		};
+		clickable?: boolean;
+		defaultHover?: boolean;
+		children?: Snippet;
+	} = $props();
 
 	const unhoverE = () => {
 		if (defaultHover) return;
@@ -24,16 +30,16 @@
 		hover = true;
 	};
 
-	onMount(() => {
+	$effect(() => {
 		if (defaultHover) hover = true;
 	});
 </script>
 
 <div
-	on:mouseover={hoverE}
-	on:mouseleave={unhoverE}
-	on:focus={hoverE}
-	on:blur={unhoverE}
+	onmouseover={hoverE}
+	onmouseleave={unhoverE}
+	onfocus={hoverE}
+	onblur={unhoverE}
 	tabindex="-1"
 	role="button"
 	class="w-75 max-h-full h-auto rounded-2xl flex-shrink-0 mx-8 aspect-video hover:scale-105 transition-all ease-in-out relative flex flex-col justify-center items-center of-hidden pointer-events-initial {clickable
@@ -82,14 +88,16 @@
 			class="rounded-full aspect-square {hover ? 'scale-105' : ''} scale-90 transition-all ease-in-out"
 		/>
 		<span
-			class="{hover ? 'scale-105' : ''} scale-90 transition-all ease-in-out w-full p-2 {$$slots.default
+			class="{hover ? 'scale-105' : ''} scale-90 transition-all ease-in-out w-full p-2 {children
 				? 'text-4'
 				: 'text-5 m-2'}"
 		>
 			{guild.name?.slice(0, 50)}
 		</span>
 		<span class="scale-90 transition-all ease-in-out">
-			<slot />
+			{#if children}
+				{@render children()}
+			{/if}
 		</span>
 	</div>
 </div>

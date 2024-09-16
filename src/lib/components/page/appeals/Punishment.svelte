@@ -2,11 +2,17 @@
 	import { page } from '$app/stores';
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Timestamp from '$lib/components/generic/Timestamp.svelte';
-	import type { Returned as GETPunishments } from '@ayako/server/src/routes/guilds/[guildId]/appeals/+server.js';
+	import type { Returned as GETPunishments } from '@ayako/server/src/routes/v1/@me/punishments/+server.ts';
 
-	export let p: GETPunishments[number];
-	export let showAppealButton: boolean = false;
-	export let showStatusButton: boolean = false;
+	const {
+		p,
+		showAppealButton = false,
+		showStatusButton = false,
+	}: {
+		p: GETPunishments[number];
+		showAppealButton?: boolean;
+		showStatusButton?: boolean;
+	} = $props();
 </script>
 
 <li class="bg-fancy max-w-95% min-w-95%">
