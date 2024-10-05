@@ -1,0 +1,7 @@
+/*
+ Content-Security-Policy: default-src 'self'; frame-ancestors 'self' https://top.gg; img-src 'self' cdn.discordapp.com; font-src 'self' fonts.googleapis.com; script-src 'self' www.freeprivacypolicy.com;
+ Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;
+ X-Frame-Options: ALLOW-FROM https://top.gg;
+ X-Content-Type-Options: nosniff;
+ Referrer-Policy: strict-origin-when-cross-origin;
+ Permissions-Policy: camera=(), microphone=(), document-domain=();
