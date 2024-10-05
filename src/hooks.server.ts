@@ -10,7 +10,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	response.headers.delete('x-sveltekit-page');
 	response.headers.append(
 		'Content-Security-Policy',
-		"default-src 'self'; frame-ancestors 'self' https://top.gg; img-src 'self' cdn.discordapp.com; font-src 'self' fonts.googleapis.com; script-src 'self' www.freeprivacypolicy.com;",
+		"default-src 'self'; frame-ancestors 'self' https://top.gg; img-src 'self' cdn.ayakobot.com cdn.discordapp.com; font-src 'self' fonts.googleapis.com; script-src 'self' www.freeprivacypolicy.com; connect-src 'self' api.ayakobot.com;",
 	);
 	response.headers.append(
 		'Strict-Transport-Security',
