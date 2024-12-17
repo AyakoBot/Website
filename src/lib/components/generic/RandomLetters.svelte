@@ -1,8 +1,6 @@
-<script setup lang="ts">
-	import ColorFade from './ColorFadeText.svelte';
-
+<script lang="ts">
 	const { text, isTitle = false }: { text: string; isTitle?: boolean } = $props();
-	let randomLetters: HTMLElement | ColorFade;
+	let randomLetters: HTMLElement;
 
 	let title = $state(String(text));
 	const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ_.,!=+~/\\*&^%$#@1234567890:;`';

@@ -1,7 +1,4 @@
 <script lang="ts">
-	import Fa from 'svelte-fa';
-	import { faChevronUp, faChevronDown, faClose } from '@fortawesome/free-solid-svg-icons';
-	import { faSquareCheck, faSquare } from '@fortawesome/free-regular-svg-icons';
 	import { createEventDispatcher } from 'svelte';
 	import { findInParents } from '$lib/scripts/util/utils.js';
 	const dispatch = createEventDispatcher<{ update: string[] }>();
@@ -20,7 +17,7 @@
 		id?: string;
 	} = $props();
 
- let element: HTMLDivElement;
+	let element: HTMLDivElement;
 	let expanded = $state(false);
 	let selectedOptions: typeof options = $state([]);
 
@@ -95,7 +92,7 @@
 							tabindex="0"
 						>
 							{opt}
-							<Fa icon={faClose} size="1x" class="!inline pointer-events-none" />
+							<span class="block i-tabler-x pointer-events-none"></span>
 						</div>
 					{/if}
 				{/each}
@@ -110,9 +107,9 @@
 
 		<div class="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
 			{#if expanded}
-				<Fa icon={faChevronUp} size="1.5x" />
+				<span class="block i-tabler-chevron-up"></span>
 			{:else}
-				<Fa icon={faChevronDown} size="1.5x" />
+				<span class="block i-tabler-chevron-down"></span>
 			{/if}
 		</div>
 	</div>
@@ -132,9 +129,9 @@
 					{opt}
 					<div class="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
 						{#if selectedOptions.includes(opt)}
-							<Fa icon={faSquareCheck} size="1.5x" />
+							<span class="block i-tabler-checkbox"></span>
 						{:else}
-							<Fa icon={faSquare} size="1.5x" />
+							<span class="block i-tabler-square-dashed"></span>
 						{/if}
 					</div>
 				</div>

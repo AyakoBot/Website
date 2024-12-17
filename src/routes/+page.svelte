@@ -39,7 +39,13 @@
 	</div>
 
 	<div class="mt-40">
-		<Count stats={data.stats} />
+		<Count
+			stats={{
+				guildInstallCount: data.stats.guildCount,
+				userInstallCount: data.stats.userCount,
+				...data.stats,
+			}}
+		/>
 	</div>
 
 	<InfiniteGuildCarousel guilds={data.guilds} />

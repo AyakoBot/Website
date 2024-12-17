@@ -23,7 +23,7 @@
 </script>
 
 <div class="w-100vw">
-	<SearchBar on:any={(e) => (name = e.detail.query)} options={[]} />
+	<SearchBar onany={(e) => (name = e.query)} options={[]} />
 </div>
 
 {#if data.appealEnabled.filter(filter)}

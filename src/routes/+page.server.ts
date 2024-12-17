@@ -3,7 +3,7 @@ import type { Returned as GETFeatures } from '@ayako/server/src/routes/v1/bot/fe
 import type { Returned as GETReviews } from '@ayako/server/src/routes/v1/bot/reviews/+server.js';
 import type { Returned as GETStats } from '@ayako/server/src/routes/v1/bot/stats/+server.js';
 import type { Returned as GETGuilds } from '@ayako/server/src/routes/v1/guilds/+server.js';
-import type { PageServerLoad } from './$types.js';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
 	const [reviews, stats, features, guilds] = await Promise.all([

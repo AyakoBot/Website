@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts">
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 
 	const src = '/images/WhiteFlower.webp';

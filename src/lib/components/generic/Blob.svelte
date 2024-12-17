@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	let blobSlow: HTMLDivElement;
 	let blobFast: HTMLDivElement;
 	let lastUpdate = Date.now();
@@ -16,7 +15,7 @@
 			});
 		});
 
-  [blobSlow, blobFast].forEach((b) => {
+		[blobSlow, blobFast].forEach((b) => {
 			b?.animate({ left: `${x}px`, top: `${y}px` }, { duration: 3000, fill: 'forwards' });
 		});
 	});

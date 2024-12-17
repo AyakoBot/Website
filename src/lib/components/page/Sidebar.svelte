@@ -4,8 +4,6 @@
 	import Header from '$lib/components/page/Sidebar/Header.svelte';
 	import Buttons from '$lib/components/page/Sidebar/Buttons.svelte';
 	import Profile from '$lib/components/page/Sidebar/Profile.svelte';
-	import { faBars } from '@fortawesome/free-solid-svg-icons';
-	import Fa from 'svelte-fa';
 
 	let sidebar: HTMLElement;
 	let backdrop: HTMLButtonElement;
@@ -59,8 +57,9 @@ hover:bg-[#fe3521] hover:color-white"
 	onclick={() => open()}
 	onkeydown={() => open()}
 	name="Open Sidebar"
+	aria-label="Open Sidebar"
 >
-	<Fa icon={faBars} size="1.5x" />
+	<span class="block i-tabler-menu-2 w-10 h-10"></span>
 </button>
 
 <nav
@@ -85,5 +84,6 @@ hover:bg-[#fe3521] hover:color-white"
 	bind:this={backdrop}
 	onclick={() => close()}
 	onkeydown={() => close()}
-	name="Close Sidebar"
+	aria-label="Open Sidebar"
+	name="Open Sidebar"
 ></button>

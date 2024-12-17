@@ -1,5 +1,5 @@
 <script lang="ts">
-	const { close }: { close: Function } = $props();
+	const { close }: { close: () => void } = $props();
 </script>
 
 <div class="justify-self-start h-full w-full flex flex-col justify-between items-center">

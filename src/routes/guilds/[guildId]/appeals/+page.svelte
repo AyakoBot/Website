@@ -10,7 +10,7 @@
 
 {#if data.enabled}
 	<div class="w-100vw">
-		<SearchBar on:any={(e) => (query = e.detail.query)} options={[]} />
+		<SearchBar onany={(e) => (query = e.query)} options={[]} />
 	</div>
 
 	{#if !data.punishments.filter((p) => p.reason.toLowerCase().includes(query)).length}

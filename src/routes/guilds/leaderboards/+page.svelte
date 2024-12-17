@@ -1,7 +1,5 @@
 <script lang="ts">
 	import type { Returned as GETGuilds } from '@ayako/server/src/routes/v1/guilds/+server';
-	import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-	import Fa from 'svelte-fa';
 
 	import Guild from '$lib/components/generic/Guild.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
@@ -39,7 +37,7 @@
 </script>
 
 <div class="w-100dvw">
-	<SearchBar on:any={(e) => update(e.detail.query)} options={[]} />
+	<SearchBar onany={(e) => update(e.query)} options={[]} />
 	<a class="btn-medium" href="/guilds/1/leaderboard"> Global Leaderboard </a>
 </div>
 
@@ -66,15 +64,19 @@
 					onkeydown={() => decrement()}
 					disabled={page === 0}
 					class="bg-[#171717] hover:bg-[#888] p-3 rounded-r rounded-full border-r border-solid border-black pl-4"
-					><Fa icon={faArrowLeft} scale="1" /></button
+					aria-label="Previous Page"
 				>
+					<span class="block i-tabler-arrow-left"></span>
+				</button>
 				<button
 					onclick={() => increment()}
 					onkeydown={() => decrement()}
 					disabled={!data.length}
 					class="bg-[#171717] hover:bg-[#888] p-3 rounded-l rounded-full border-l border-solid border-black pr-4"
-					><Fa icon={faArrowRight} scale="1" /></button
+					aria-label="Next Page"
 				>
+					<span class="block i-tabler-arrow-right"></span>
+				</button>
 			</div>
 		{:else if !data}
 			<Loading />

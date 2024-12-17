@@ -1,20 +1,25 @@
 <script lang="ts">
-	import type { ReviewDispatch } from '$lib/scripts/types.js';
-	import { createEventDispatcher } from 'svelte';
 	import type { Returned as GETReviews } from '@ayako/server/src/routes/v1/bot/reviews/+server.js';
 
-	const { review }: { review: GETReviews[number] } = $props();
-	const dispatch = createEventDispatcher<ReviewDispatch>();
+	const {
+		review,
+		onhovered,
+		onunhovered,
+	}: {
+		review: GETReviews[number];
+		onhovered: (r: GETReviews[number]) => void;
+		onunhovered: (r: GETReviews[number]) => void;
+	} = $props();
 	let hover = $state(false);
 
 	const hovered = () => {
 		hover = true;
-		dispatch('hovered', review);
+		onhovered(review);
 	};
 
 	const unhovered = () => {
 		hover = false;
-		dispatch('unhovered', review);
+		onunhovered(review);
 	};
 </script>
 

@@ -1,12 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import Guild from '$lib/components/generic/Guild.svelte';
 	import Loading from '$lib/components/generic/Loading.svelte';
 	import { numberWithCommas } from '$lib/scripts/util/utils.js';
 	import type { Returned as GETLb } from '@ayako/server/src/routes/v1/guilds/[guildId]/lb/+server';
-	import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-	import Fa from 'svelte-fa';
 	import type { PageServerData } from './$types';
-	import Guild from '$lib/components/generic/Guild.svelte';
 
 	const { data }: { data: PageServerData } = $props();
 	let promise: Promise<GETLb> | null = $state(null);
@@ -42,7 +40,7 @@
 	{/if}
 
 	<a href="/guilds/leaderboards" class="flex flex-row justify-center items-center gap-2 btn-medium">
-		<Fa icon={faArrowLeft} scale="1" />
+		<span class="block i-tabler-arrow-left"></span>
 		Server List
 	</a>
 </div>
@@ -94,15 +92,19 @@
 				onkeydown={() => decrement()}
 				disabled={batch === 0}
 				class="bg-[#171717] hover:bg-[#888] p-3 rounded-r rounded-full border-r border-solid border-black pl-4"
-				><Fa icon={faArrowLeft} scale="1" /></button
+				aria-label="Previous Page"
 			>
+				<span class="block i-tabler-arrow-left"></span>
+			</button>
 			<button
 				onclick={() => increment()}
 				onkeydown={() => decrement()}
 				disabled={!users.length}
 				class="bg-[#171717] hover:bg-[#888] p-3 rounded-l rounded-full border-l border-solid border-black pr-4"
-				><Fa icon={faArrowRight} scale="1" /></button
+				aria-label="Next Page"
 			>
+				<span class="block i-tabler-arrow-right"></span>
+			</button>
 		</div>
 	{:else if !users}
 		<div class="flex flex-col m-auto w-full justify-center items-center">

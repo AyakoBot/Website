@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Buttons from '$lib/components/page/NavBar/Buttons.svelte';
-	$: width = 0;
+	let width = $state(0);
 </script>
 
 <svelte:window bind:innerWidth={width} />

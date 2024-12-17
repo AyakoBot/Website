@@ -1,9 +1,4 @@
-import type { Returned as GETReviews } from '@ayako/server/src/routes/v1/bot/reviews/+server.js';
-
-export type ReviewDispatch = {
-	hovered: GETReviews[number];
-	unhovered: GETReviews[number];
-};
+import { StoredPunishmentTypes } from '@prisma/client';
 
 export type SearchBarDispatch = {
 	query: { query: string; option: string | undefined };
@@ -18,20 +13,9 @@ export enum ArtType {
 	all = 'all',
 }
 
-export enum PunishmentType {
-	bans = 'bans',
-	channelbans = 'channelbans',
-	kicks = 'kicks',
-	mutes = 'mutes',
-	warns = 'warns',
-	tempchannelbans = 'tempchannelbans',
-	tempbans = 'tempbans',
-	tempmutes = 'tempmutes',
-}
-
 export type AppealPunishment = {
- appealed: boolean;
-	type: PunishmentType;
+	appealed: boolean;
+	type: StoredPunishmentTypes;
 	reason: string;
 	id: number;
 	channel: {

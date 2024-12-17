@@ -1,7 +1,7 @@
 <div class="text-left text-sm flex gap-3 flex-col mx-10">
 	<div class="text-2xl">
 		<h1>Privacy Policy</h1>
-		<div class="ml-5">Effective date: September 06, 2021</div>
+		<div class="ml-5">Effective date: December 18, 2024</div>
 	</div>
 	<div class="ml-5">
 		<div class="ml-5">
@@ -129,11 +129,6 @@
 					<div class="ml-5">Cookies and Usage Data</div>
 				</li>
 			</ul>
-			<div class="ml-5">
-				I may use your Personal Data to contact you with newsletters, marketing or promotional materials
-				and other information that may be of interest to you. You may opt out of receiving any, or all,
-				of these communications from me by contacting me.
-			</div>
 		</div>
 		<div class="ml-5">
 			<h4>Usage Data</h4>
@@ -142,8 +137,7 @@
 				Usage Data may include information such as your computer&#39;s Internet Protocol address (e.g.
 				IP address), browser type, browser version, the pages of my Service that you visit, the time and
 				date of your visit, the time spent on those pages, unique device identifiers and other
-				diagnostic data. This is all stored by google, and not me. I may use email addresses in the
-				future, only to send registered users emails about my service.
+				diagnostic data. This is all stored by google, and not me.
 			</div>
 		</div>
 		<div class="ml-5">
@@ -200,11 +194,7 @@
 			<li>To gather analysis or valuable information so that I can improve my Service</li>
 			<li>To monitor the usage of my Service</li>
 			<li>To detect, prevent and address technical issues</li>
-			<li>
-				To provide you with news, special offers and general information about other goods, services and
-				events which I offer that are similar to those that you have already purchased or enquired about
-				unless you have opted not to receive such information
-			</li>
+			<li></li>
 		</ul>
 	</div>
 	<div class="ml-5">
@@ -506,8 +496,8 @@
 		<h2 class="text-xl">Links to Other Sites</h2>
 		<div class="ml-5">
 			My Service may contain links to other sites that are not operated by me. If you click a third
-			party link, you will be directed to that third party&#39;s site. I uly advise you to review
-			the Privacy Policy of every site you visit.
+			party link, you will be directed to that third party&#39;s site. I uly advise you to review the
+			Privacy Policy of every site you visit.
 		</div>
 		<div class="ml-5">
 			I have no control over and assume no responsibility for the content, privacy policies or
@@ -534,8 +524,13 @@
 			new Privacy Policy on this page.
 		</div>
 		<div class="ml-5">
-			I will let you know via email and/or a prominent notice on my Service, prior to the change
-			becoming effective and update the &quot;effective date&quot; at the top of this Privacy Policy.
+			I will let you know via prominent notice on my Discord Server (<a
+				href="https://discord.com/channels/298954459172700181/765743834118225961"
+			>
+				#ayako-updates
+			</a>
+			news-channel on <a href="https://discord.gg/animekos"> Animekos </a>), prior to the change becoming
+			effective and update the &quot;effective date&quot; at the top of this Privacy Policy.
 		</div>
 		<div class="ml-5">
 			You are advised to review this Privacy Policy periodically for any changes. Changes to this

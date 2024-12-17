@@ -1,27 +1,26 @@
 <script lang="ts">
 	import type { SearchBarDispatch } from '$lib/scripts/types';
 	import sleep from '$lib/scripts/util/sleep.js';
-	import { createEventDispatcher } from 'svelte';
-	import Fa from 'svelte-fa';
-	import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 	const {
 		options,
 		queryDelay = 500,
+		onany,
+		ontype,
 	}: {
 		options: { key: string; value: string; default?: boolean }[];
 		queryDelay?: number;
+		onany?: ({ option, query }: { option: string | undefined; query: string }) => void;
+		ontype?: ({ option, query }: { option: string | undefined; query: string }) => void;
 	} = $props();
-
-	const dispatch = createEventDispatcher<SearchBarDispatch>();
 
 	let type = $state(options.find((o) => o.default)?.value);
 	let query = $state('');
 
 	const changeType = (value: string) => {
 		type = value;
-		dispatch('type', { option: type, query });
-		dispatch('any', { option: type, query });
+		ontype?.({ option: type, query });
+		onany?.({ option: type, query });
 	};
 
 	let wasTypingAt: null | number = null;
@@ -32,8 +31,8 @@
 		if (wasTypingAt > Date.now() - queryDelay) return;
 
 		query = value.toLowerCase();
-		dispatch('any', { option: type, query });
-		dispatch('query', { option: type, query });
+		ontype?.({ option: type, query });
+		onany?.({ option: type, query });
 	};
 </script>
 
@@ -46,13 +45,16 @@
 			bind:value={query}
 			oninput={(e) => changeQuery(e.currentTarget.value)}
 		/>
-		<button onclick={() => changeQuery('')} onkeydown={() => changeQuery('')} title="Reset Query">
-			<Fa
-				icon={faClose}
-				class="absolute right-1% top-1/2 -translate-y-1/2 rounded-full color-white transition bg-transparent aspect-square w-6
+		<button
+			onclick={() => changeQuery('')}
+			onkeydown={() => changeQuery('')}
+			title="Reset Query"
+			aria-label="Reset Query"
+		>
+			<span
+				class="i-tabler-x absolute right-1% top-1/2 -translate-y-1/2 rounded-full color-white transition bg-transparent aspect-square w-6
   hover:bg-white hover:color-neutral-400 p-1"
-				size="1.5x"
-			/>
+			></span>
 		</button>
 	</div>
 

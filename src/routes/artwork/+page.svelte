@@ -27,7 +27,7 @@
 				{ key: 'full', value: 'Full Image' },
 				{ key: 'icon', value: 'Icon' },
 			]}
-			on:any={(e) => assignFilters(e.detail.query, e.detail.option as ArtType)}
+			onany={(e) => assignFilters(e.query, e.option as ArtType)}
 		/>
 
 		<FancyBorder />

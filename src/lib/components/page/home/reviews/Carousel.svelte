@@ -64,10 +64,10 @@
 					>
 						<Review
 							{review}
-							on:hovered={(e) => {
-								setReview(e.detail.userid);
+							onhovered={(e) => {
+								setReview(e.userid);
 							}}
-							on:unhovered={() => resetReview(true)}
+							onunhovered={() => resetReview(true)}
 						/>
 					</div>
 				{/each}

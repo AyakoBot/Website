@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { faClose } from '@fortawesome/free-solid-svg-icons';
-	import Fa from 'svelte-fa';
-
-	const { close }: { close: Function } = $props();
+	const { close }: { close: () => void } = $props();
 </script>
 
 <div class="flex flex-row items-center justify-between p-2 pb-0 mx-2">
@@ -12,8 +9,9 @@ hover:bg-[#fe3521] hover:color-white"
 		onclick={() => close()}
 		onkeydown={() => close()}
 		name="Close Sidebar"
+		aria-label="Close Sidebar"
 	>
-		<Fa icon={faClose} size="1.5x" />
+		<span class="block i-tabler-x  w-10 h-10"></span>
 	</button>
 
 	<span class="font-bold lg:text-9 text-8 color-[#b0ff00] of-unset">Ayako</span>

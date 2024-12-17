@@ -1,4 +1,6 @@
-import { defineConfig } from 'unocss';
+import presetRemToPx from '@unocss/preset-rem-to-px';
+import { defineConfig, presetIcons, presetTypography, presetUno } from 'unocss';
+import presetAnimations from 'unocss-preset-animations';
 
 export default defineConfig({
 	rules: [
@@ -23,4 +25,11 @@ export default defineConfig({
    hover:before:bg-[position:100%_100%] hover:before:border-transparent hover:before:scale-x-106 hover:before:scale-y-103 hover:before:-z-20
    hover:border-op-0`,
 	},
+	presets: [
+		presetAnimations(),
+		presetRemToPx(),
+		presetUno(),
+		presetIcons({ scale: 1.2 }),
+		presetTypography(),
+	],
 });

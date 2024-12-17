@@ -3,7 +3,7 @@
 	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Cookies from 'js-cookie';
 
-	const { close }: { close: Function } = $props();
+	const { close }: { close: () => void } = $props();
 
 	const name = Cookies.get('discord-username');
 	const pfp = decodeURIComponent(Cookies.get('discord-avatar') ?? '');

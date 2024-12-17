@@ -1,10 +1,14 @@
 <script lang="ts">
+	import '$lib/scripts/index.js';
+ import './main.css'
+
 	import Blob from '$lib/components/generic/Blob.svelte';
 	import Footer from '$lib/components/page/Footer.svelte';
 	import NavBar from '$lib/components/page/NavBar.svelte';
 	import Sidebar from '$lib/components/page/Sidebar.svelte';
+	import type { Snippet } from 'svelte';
 
-	import '$lib/scripts/index.js';
+	const { children }: { children: Snippet } = $props();
 </script>
 
 <div
@@ -21,7 +25,7 @@
 	<hr class="op-0" />
 
 	<main class="mx-2 z-1 my-40 md:my-30 w-fit max-w-100%">
-		<slot />
+		{@render children()}
 	</main>
 
 	<Footer />
