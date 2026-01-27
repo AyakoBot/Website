@@ -38,7 +38,7 @@ export const load: PageServerLoad = async (event) => {
 	event.cookies.set('discord-id', json.id, basicCookieOptions);
 	event.cookies.set('discord-username', json.username, basicCookieOptions);
 	event.cookies.set('discord-avatar', json.avatar, basicCookieOptions);
-	event.cookies.set('discord-token', json.access_token, basicCookieOptions);
+	event.cookies.set('discord-token', json.access_token, { ...basicCookieOptions, httpOnly: true });
 
 	throw redirect(307, '/?reload=true');
 };

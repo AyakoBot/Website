@@ -2,11 +2,16 @@
 	let blobSlow: HTMLDivElement;
 	let blobFast: HTMLDivElement;
 	let lastUpdate = Date.now();
+	let mounted = false;
 
 	let x = $state(0);
 	let y = $state(0);
 
+	// One-time fade-in on mount
 	$effect(() => {
+		if (mounted) return;
+		mounted = true;
+
 		[blobSlow, blobFast].forEach((b) => {
 			b?.animate([{ opacity: `0%` }, { opacity: `50%` }], {
 				duration: 3000,
@@ -14,7 +19,10 @@
 				fill: 'forwards',
 			});
 		});
+	});
 
+	// Position tracking — only re-runs when x/y change
+	$effect(() => {
 		[blobSlow, blobFast].forEach((b) => {
 			b?.animate({ left: `${x}px`, top: `${y}px` }, { duration: 3000, fill: 'forwards' });
 		});
@@ -22,7 +30,7 @@
 </script>
 
 <svelte:window
-	on:mousemove={(e) => {
+	onmousemove={(e) => {
 		if (lastUpdate + 10 < Date.now()) {
 			lastUpdate = Date.now();
 			x = e.clientX;

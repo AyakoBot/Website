@@ -1,7 +1,27 @@
 import { redirect, type Handle } from '@sveltejs/kit';
 
+const API_BASE = 'https://api.ayakobot.com';
+
 /** @type {import('@sveltejs/kit').Handle} */
 export const handle: Handle = async ({ event, resolve }) => {
+	if (event.url.pathname.startsWith('/api')) {
+		const path = event.url.pathname.replace(/^\/api/, '') + event.url.search;
+		const res = await fetch(`${API_BASE}${path}`, {
+			method: event.request.method,
+			headers: event.request.headers,
+			body: event.request.method !== 'GET' && event.request.method !== 'HEAD'
+				? event.request.body
+				: undefined,
+			duplex: 'half',
+		} as RequestInit);
+
+		return new Response(res.body, {
+			status: res.status,
+			statusText: res.statusText,
+			headers: res.headers,
+		});
+	}
+
 	const response = await resolve(event, {
 		transformPageChunk: (event) =>
 			event.html.replace('%unocss-svelte-scoped.global%', 'unocss_svelte_scoped_global_styles'),

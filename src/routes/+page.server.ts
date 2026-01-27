@@ -5,6 +5,15 @@ import type { Returned as GETStats } from '@ayako/server/src/routes/v1/bot/stats
 import type { Returned as GETGuilds } from '@ayako/server/src/routes/v1/guilds/+server.js';
 import type { PageServerLoad } from './$types';
 
+function shuffle<T>(array: T[]): T[] {
+	const shuffled = [...array];
+	for (let i = shuffled.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+	}
+	return shuffled;
+}
+
 export const load: PageServerLoad = async (event) => {
 	const [reviews, stats, features, guilds] = await Promise.all([
 		event
@@ -20,9 +29,9 @@ export const load: PageServerLoad = async (event) => {
 	]);
 
 	return {
-		reviews: reviews.sort(() => 0.5 - Math.random()),
+		reviews: shuffle(reviews),
 		stats,
 		features,
-		guilds: guilds.sort(() => 0.5 - Math.random()),
+		guilds: shuffle(guilds),
 	};
 };
