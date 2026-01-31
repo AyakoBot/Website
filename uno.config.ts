@@ -1,8 +1,53 @@
-import presetRemToPx from '@unocss/preset-rem-to-px';
 import { defineConfig, presetIcons, presetTypography, presetUno } from 'unocss';
 import presetAnimations from 'unocss-preset-animations';
 
 export default defineConfig({
+	theme: {
+		breakpoints: {
+			sm: '640px',
+			md: '768px',
+			lg: '1024px',
+			xl: '1280px',
+			'2xl': '1536px',
+			'3xl': '1800px',
+		},
+	},
+	safelist: [
+		// Feature card icons
+		'i-tabler-certificate',
+		'i-tabler-check',
+		'i-tabler-external-link',
+		'i-tabler-gif',
+		'i-tabler-reload',
+		'i-tabler-shield-check',
+		'i-tabler-shield-lock',
+		'i-tabler-trending-up',
+		'i-tabler-tags',
+		'i-tabler-list-details',
+		'i-tabler-door-enter',
+		'i-tabler-gift',
+		'i-tabler-bulb',
+		'i-tabler-coin',
+		// Feature card colors
+		'bg-[rgba(139,92,246,0.2)]',
+		'text-[#a78bfa]',
+		'bg-[rgba(239,68,68,0.2)]',
+		'text-[#f87171]',
+		'bg-[rgba(249,115,22,0.2)]',
+		'text-[#fb923c]',
+		'bg-[rgba(59,130,246,0.2)]',
+		'text-[#60a5fa]',
+		'bg-[rgba(6,182,212,0.2)]',
+		'text-[#22d3ee]',
+		'bg-[rgba(34,197,94,0.2)]',
+		'text-[#4ade80]',
+		'bg-[rgba(236,72,153,0.2)]',
+		'text-[#f472b6]',
+		'bg-[rgba(234,179,8,0.2)]',
+		'text-[#facc15]',
+		'bg-[rgba(99,102,241,0.2)]',
+		'text-[#818cf8]',
+	],
 	rules: [
 		['box-shadow-main', { 'box-shadow': '0 0.1em 0.3em 0.1em rgba(23, 23, 23, 0.75)' }],
 		['text-fill-color', { '-webkit-text-fill-color': 'transparent' }],
@@ -25,11 +70,5 @@ export default defineConfig({
    hover:before:bg-[position:100%_100%] hover:before:border-transparent hover:before:scale-x-106 hover:before:scale-y-103 hover:before:-z-20
    hover:border-op-0`,
 	},
-	presets: [
-		presetAnimations(),
-		presetRemToPx(),
-		presetUno(),
-		presetIcons({ scale: 1.2 }),
-		presetTypography(),
-	],
+	presets: [presetAnimations(), presetUno(), presetIcons({ scale: 1.2 }), presetTypography()],
 });

@@ -2,10 +2,11 @@
 	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
 	import type { Returned as GETArt } from '@ayako/server/src/routes/v1/bot/artworks/+server.js';
 	import Loading from '$lib/components/generic/Loading.svelte';
+	import { cdnUrl } from '$lib/scripts/util/utils';
 
 	const { artwork }: { artwork: GETArt[number] } = $props();
 
-	const src = `https://cdn.ayakobot.com/Ayako_Artwork/${artwork.art.url}`;
+	const src = cdnUrl(`Ayako_Artwork/${artwork.art.url}`);
 	const abortLoad = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEAAAAALAAAAAABAAEAAAI=;';
 	let img: HTMLImageElement;
 

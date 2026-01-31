@@ -1,76 +1,23 @@
+<script lang="ts">
+	import { trackInviteClick } from '$lib/scripts/tracking';
+</script>
+
 <a
-	class="btn-medium op-0 font-bold w-full sm:w-40% md:w-30% px-0 animate-[1s_ease-in-out_2s_invite_forwards]"
+	class="btn-loud font-bold px-8 py-3 text-lg"
 	href="https://invite.ayakobot.com"
+	target="_blank"
+	onclick={trackInviteClick}
 >
 	Invite Ayako
 </a>
-<img
-	class="animate-[flowerSpin_1s_ease-in-out_2s]"
-	src="/images/GreenFlower.webp"
-	alt="Flower"
-	width="64"
-	height="64"
-	loading="eager"
-/>
 <a
-	class="btn-loud op-0 opacity-0 font-bold w-full sm:w-40% md:w-30% px-0 animate-[1s_ease-in-out_2s_support_forwards]"
-	href="https://invite.ayakobot.com"
-	id="support"
+	class="btn-medium font-bold px-8 py-3 text-lg"
+	href="https://discord.gg/euTdctganf"
+	target="_blank"
 >
 	Support Server
 </a>
-
-<style scoped>
-	@keyframes flowerSpin {
-		from {
-			rotate: 0deg;
-		}
-		to {
-			rotate: 1080deg;
-		}
-	}
-
-	@media only screen and (min-width: 768px) {
-		@keyframes invite {
-			from {
-				opacity: 0;
-			}
-			to {
-				opacity: 1;
-				transform: translateX(-1.5rem);
-			}
-		}
-
-		@keyframes support {
-			from {
-				opacity: 0;
-			}
-			to {
-				opacity: 1;
-				transform: translateX(1.5rem);
-			}
-		}
-	}
-
-	@media only screen and (max-width: 768px) {
-		@keyframes invite {
-			from {
-				opacity: 0;
-			}
-			to {
-				opacity: 1;
-				transform: translateY(-1.5rem);
-			}
-		}
-
-		@keyframes support {
-			from {
-				opacity: 0;
-			}
-			to {
-				opacity: 1;
-				transform: translateY(1.5rem);
-			}
-		}
-	}
-</style>
+<a class="btn-quiet text-lg flex items-center gap-1" href="#features">
+	Learn More
+	<span class="i-tabler-arrow-down text-sm"></span>
+</a>

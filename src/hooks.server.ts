@@ -28,7 +28,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	});
 
 	response.headers.delete('x-sveltekit-page');
-	response.headers.append('Content-Security-Policy', "frame-ancestors 'self' https://top.gg;");
+	response.headers.append('Content-Security-Policy', "frame-ancestors 'self' https://top.gg; img-src 'self' https://cdn.ayakobot.com https://cdn.discordapp.com data: blob:;");
 	response.headers.append(
 		'Strict-Transport-Security',
 		'max-age=31536000; includeSubDomains; preload;',

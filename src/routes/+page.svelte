@@ -1,64 +1,63 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
-	import RandomLetters from '$lib/components/generic/RandomLetters.svelte';
-	import AverageReview from '$lib/components/page/home/AverageReview.svelte';
-	import Buttons from '$lib/components/page/home/Buttons.svelte';
-	import Count from '$lib/components/page/home/Count.svelte';
-	import Flower from '$lib/components/page/home/Flowers.svelte';
-	import LastCall from '$lib/components/page/home/LastCall.svelte';
-	import FeatureTeaser from '$lib/components/page/home/features/main.svelte';
-	import InfiniteGuildCarousel from '$lib/components/page/home/guild/Carousel.svelte';
-	import InfiniteReviewCarousel from '$lib/components/page/home/reviews/Carousel.svelte';
 	import type { PageServerData } from './$types';
+	import HeroContent from '$lib/components/page/home/landing/HeroContent.svelte';
+	import DiscordMockup from '$lib/components/page/home/landing/mockup/DiscordMockup.svelte';
+	import Features from '$lib/components/page/home/landing/Features.svelte';
+	import Servers from '$lib/components/page/home/landing/Servers.svelte';
+	import Reviews from '$lib/components/page/home/landing/Reviews.svelte';
+	import Cta from '$lib/components/page/home/landing/Cta.svelte';
 
 	const { data }: { data: PageServerData } = $props();
 
 	$effect(() => {
 		const reload = $page.url.searchParams.get('reload');
 		if (!reload) return;
-
 		window.location.href = '/';
 	});
+
+	const averageRating = $derived(
+		data.reviews.map((r) => r.score / 20).reduce((acc, cur) => acc + cur, 0) / data.reviews.length,
+	);
 </script>
 
-<Flower />
+<div class="w-full overflow-x-hidden">
+	<!-- HERO SECTION -->
+	<section
+		class="min-h-100vh grid grid-cols-1 3xl:grid-cols-2 gap-16 3xl:gap-4 items-center px-8 3xl:px-40 py-24 relative overflow-hidden"
+	>
+		<div
+			class="hero-glow [animation:pulse-glow_10s_ease-in-out_infinite] absolute w-200 h-200 top--50 left--50 pointer-events-none bg-[radial-gradient(circle,rgba(176,255,0,0.15)_0%,transparent_70%)]"
+		></div>
+		<div
+			class="hero-glow-2 [animation:pulse-glow_10s_ease-in-out_infinite_reverse] absolute w-150 h-150 bottom--25 right--25 pointer-events-none bg-[radial-gradient(circle,rgba(254,53,33,0.1)_0%,transparent_70%)]"
+		></div>
 
-<div class="w-full h-full">
-	<div class="flex flex-col justify-center items-center">
-		<div class="md:text-4xl text-2xl code-font">
-			<RandomLetters text="Powerful Server Management" />
-			<RandomLetters text="And Moderation Bot" />
-		</div>
-	</div>
-
-	<div class="w-full flex flex-row justify-center items-center mt-20">
-		<div class="z-2 flex flex-col items-center justify-center items-center md:flex-row w-1/2">
-			<Buttons />
-		</div>
-	</div>
-
-	<div class="mt-40">
-		<Count
-			stats={{
-				guildInstallCount: data.stats.guildCount,
-				userInstallCount: data.stats.userCount,
-				...data.stats,
-			}}
+		<HeroContent
+			serverCount={data.stats.guildCount}
+			userCount={data.stats.userCount}
+			{averageRating}
 		/>
-	</div>
 
-	<InfiniteGuildCarousel guilds={data.guilds} />
-	<div class="mt-10">
-		<AverageReview reviews={data.reviews} />
-	</div>
-	<InfiniteReviewCarousel reviews={data.reviews} />
+		<DiscordMockup />
+	</section>
 
-	<FancyBorder />
-
-	<FeatureTeaser featureBlocks={data.features} />
-
-	<FancyBorder />
-
-	<LastCall />
+	<Features />
+	<Servers guilds={data.guilds} />
+	<Reviews reviews={data.reviews} />
+	<Cta />
 </div>
+
+<style>
+	@keyframes pulse-glow {
+		0%,
+		100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+		50% {
+			transform: scale(1.1);
+			opacity: 0.8;
+		}
+	}
+</style>

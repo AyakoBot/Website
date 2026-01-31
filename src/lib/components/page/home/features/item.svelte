@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { cdnUrl } from '$lib/scripts/util/utils';
+
 	const {
 		subtitle,
 		title,
@@ -105,7 +107,7 @@
 
 		<img
 			bind:this={imgElement}
-			src="https://cdn.ayakobot.com/website_assets/{img}"
+			src={cdnUrl(`website_assets/${img}`)}
 			class="rounded-2xl op-0 box-shadow-main"
 			width="95%"
 			alt="Feature Preview"
@@ -114,7 +116,7 @@
 
 		<img
 			bind:this={placeholderElement}
-			src="https://cdn.ayakobot.com/website_assets/{placeholder}"
+			src={cdnUrl(`website_assets/${placeholder}`)}
 			class="rounded-2xl absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 -z-20"
 			width="264"
 			alt="Feature Placeholder"

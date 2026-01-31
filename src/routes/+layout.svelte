@@ -1,6 +1,8 @@
 <script lang="ts">
 	import '$lib/scripts/index.js';
- import './main.css'
+	import './main.css';
+	import { onMount } from 'svelte';
+	import { checkAndFireConversion } from '$lib/scripts/tracking';
 
 	import Blob from '$lib/components/generic/Blob.svelte';
 	import Footer from '$lib/components/page/Footer.svelte';
@@ -9,6 +11,11 @@
 	import type { Snippet } from 'svelte';
 
 	const { children }: { children: Snippet } = $props();
+
+	// Check for conversion on page load (user returning from invite flow)
+	onMount(() => {
+		checkAndFireConversion();
+	});
 </script>
 
 <div
@@ -24,7 +31,7 @@
 
 	<hr class="op-0" />
 
-	<main class="mx-2 z-1 my-40 md:my-30 w-fit max-w-100%">
+	<main class="mx-2 z-1 w-fit max-w-100%">
 		{@render children()}
 	</main>
 

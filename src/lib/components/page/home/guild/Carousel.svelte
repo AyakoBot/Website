@@ -11,7 +11,7 @@
 	style="
 		--slide-width: 400px;
   --slide-count: {guilds.length};
-  --time-per-slide: 10s;
+  --time-per-slide: 15s;
 "
 >
 	<div
