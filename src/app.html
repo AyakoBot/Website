@@ -31,197 +31,62 @@
   content="Ayako provides you with tons of optimized and easy to use features for your Discord experience." />
 
  <link rel="canonical" href="https://ayakobot.com/" />
- <meta name="google-site-verification" content="bEQNoorq512jiwfd5Jm2rJN_1t-zEoB4qRS-3JUiFAE" />
-
- <!-- Google Consent Mode v2 - MUST load before gtag.js -->
- <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-
-  // Default: granted for all regions
-  gtag('consent', 'default', {
-   'ad_storage': 'granted',
-   'ad_user_data': 'granted',
-   'ad_personalization': 'granted',
-   'analytics_storage': 'granted',
-   'functionality_storage': 'granted',
-   'personalization_storage': 'granted',
-   'security_storage': 'granted'
-  });
-
-  // Override for GDPR regions: denied by default until user consents
-  gtag('consent', 'default', {
-   'ad_storage': 'denied',
-   'ad_user_data': 'denied',
-   'ad_personalization': 'denied',
-   'analytics_storage': 'denied',
-   'functionality_storage': 'denied',
-   'personalization_storage': 'denied',
-   'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'GB', 'IS', 'LI', 'NO', 'CH']
-  });
-
-  // Enable URL passthrough and redaction for privacy-safe conversion tracking
-  gtag('set', 'url_passthrough', true);
-  gtag('set', 'ads_data_redaction', true);
- </script>
-
- <!-- Google Analytics & Google Ads - loads immediately, respects Consent Mode -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL2J918CLL"></script>
- <script>
-  gtag('js', new Date());
-  gtag('config', 'G-VL2J918CLL');
-  gtag('config', 'AW-10969236341');
- </script>
- <!-- end of Google Analytics & Google Ads -->
-
- <!-- Cookie Consent by FreePrivacyPolicy.com -->
+ <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
  <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
   charset="UTF-8"></script>
  <script type="text/javascript" charset="UTF-8">
-  // EU/EEA (GDPR)
-  var gdprCountries = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'GB', 'IS', 'LI', 'NO', 'CH'];
-  var regionDetected = false;
-  var isGdprRegion = true; // Default to GDPR
-
-  function updateGoogleConsent(granted) {
-   var consentState = granted ? 'granted' : 'denied';
-   gtag('consent', 'update', {
-    'ad_storage': consentState,
-    'ad_user_data': consentState,
-    'ad_personalization': consentState,
-    'analytics_storage': consentState,
-    'functionality_storage': consentState,
-    'personalization_storage': consentState
-   });
-  }
-
-  // Load Cloudflare analytics
-  function loadCloudflare() {
-   var cf = document.createElement('script');
-   cf.defer = true;
-   cf.src = 'https://static.cloudflareinsights.com/beacon.min.js';
-   cf.dataset.cfBeacon = '{"token": "7000e6a65e924271b47af909773e0038"}';
-   document.head.appendChild(cf);
-  }
-
-  // Load HotJar
-  function loadHotjar() {
-   (function (h, o, t, j, a, r) {
-    h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments); };
-    h._hjSettings = { hjid: 2589609, hjsv: 6 };
-    a = o.getElementsByTagName('head')[0];
-    r = o.createElement('script');
-    r.async = 1;
-    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-    a.appendChild(r);
-   })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-  }
-
-  // Grant all tracking (for non-GDPR regions)
-  function grantAllTracking() {
-   updateGoogleConsent(true);
-   loadCloudflare();
-   loadHotjar();
-  }
-
-  // Initialize cookie consent banner (for GDPR regions only)
-  function initCookieConsent() {
-   cookieconsent?.run({
-    "notice_banner_type": "interstitial",
-    "consent_type": "express",
-    "palette": "dark",
-    "language": "en",
-    "page_load_consent_levels": ["strictly-necessary"],
-    "notice_banner_reject_button_hide": false,
-    "preferences_center_close_button_hide": true,
-    "page_refresh_confirmation_buttons": false,
-    "website_privacy_policy_url": "https://ayakobot.com/privacy",
-    "website_name": "AyakoBot.com",
-    "callbacks": {
-     "scripts_specific_loaded": function(level) {
-      if (level === 'tracking') {
-       updateGoogleConsent(true);
-       loadCloudflare();
-       loadHotjar();
-      }
-     }
-    },
-    "callbacks_force": true
-   });
-
-   // Show privacy settings button
-   var privacyBtn = document.getElementById('open_preferences_center');
-   if (privacyBtn) privacyBtn.style.display = 'block';
-  }
-
-  // Detect region and configure consent
-  fetch('https://ipapi.co/country/')
-   .then(function(response) { return response.text(); })
-   .then(function(country) {
-    regionDetected = true;
-    isGdprRegion = gdprCountries.includes(country.trim());
-
-    if (isGdprRegion) {
-     // GDPR region: check existing consent or show banner
-     var hasTrackingConsent = document.cookie.includes('cookie_consent_level') &&
-      document.cookie.includes('tracking%22:true');
-
-     if (hasTrackingConsent) {
-      updateGoogleConsent(true);
-      loadCloudflare();
-      loadHotjar();
-     }
-
-     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initCookieConsent);
-     } else {
-      initCookieConsent();
-     }
-    } else {
-     // Non-GDPR region: grant everything, no banner
-     grantAllTracking();
-    }
-   })
-   .catch(function() {
-    // If detection fails, assume GDPR (safer default)
-    regionDetected = true;
-    isGdprRegion = true;
-
-    if (document.readyState === 'loading') {
-     document.addEventListener('DOMContentLoaded', initCookieConsent);
-    } else {
-     initCookieConsent();
-    }
-   });
-
-  // Listen for consent changes (GDPR regions)
-  document.addEventListener('cookie_consent_preferences_restored', function() {
-   if (!isGdprRegion) return;
-   var hasTracking = document.cookie.includes('tracking%22:true');
-   updateGoogleConsent(hasTracking);
-   if (hasTracking) {
-    loadCloudflare();
-    loadHotjar();
-   }
-  });
-
-  document.addEventListener('cookie_consent_preferences_updated', function() {
-   if (!isGdprRegion) return;
-   var hasTracking = document.cookie.includes('tracking%22:true');
-   updateGoogleConsent(hasTracking);
-   if (hasTracking) {
-    loadCloudflare();
-    loadHotjar();
-   }
+  document.addEventListener('DOMContentLoaded', function () {
+   cookieconsent?.run({ "notice_banner_type": "interstitial", "consent_type": "express", "palette": "dark", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": true, "page_refresh_confirmation_buttons": false, "website_privacy_policy_url": "https://ayakobot.com/privacy", "website_name": "AyakoBot.com" });
   });
  </script>
 
- <noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/">Free Privacy Policy Generator</a></noscript>
- <!-- End Cookie Consent by FreePrivacyPolicy.com -->
+ <!-- Cloudflare -->
+ <script type="text/plain" data-cookie-consent="tracking" defer
+  src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token": "7000e6a65e924271b47af909773e0038"}'></script>
+ <!-- end of Cloudflare-->
 
- <!-- Privacy settings button - hidden by default, shown only in GDPR regions -->
- <a href="#" id="open_preferences_center" style="display: none;">
-  <img src="/images/Privacy.webp" height="32" width="32"
+ <!-- Google Analytics & Google Ads -->
+ <script type="text/plain" data-cookie-consent="tracking" async
+  src="https://www.googletagmanager.com/gtag/js?id=G-VL2J918CLL"></script>
+ <meta name="google-site-verification" content="bEQNoorq512jiwfd5Jm2rJN_1t-zEoB4qRS-3JUiFAE" />
+ <script type="text/plain" data-cookie-consent="tracking">
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			// Google Analytics
+			gtag('config', 'G-VL2J918CLL');
+
+			// Google Ads
+			gtag('config', 'AW-10969236341');
+		</script>
+ <!-- end of Google Analytics & Google Ads -->
+
+ <!-- HotJar -->
+ <script type="text/plain" data-cookie-consent="tracking">
+   	(function (h, o, t, j, a, r) {
+				h.hj =
+					h.hj ||
+					function () {
+						(h.hj.q = h.hj.q || []).push(arguments);
+					};
+				h._hjSettings = { hjid: 2589609, hjsv: 6 };
+				a = o.getElementsByTagName('head')[0];
+				r = o.createElement('script');
+				r.async = 1;
+				r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+				a.appendChild(r);
+			})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
+ <!-- end of HotJar-->
+
+ <noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/">Free Privacy Policy Generator</a></noscript>
+ <!-- End Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
+
+ <a href="#" id="open_preferences_center"> <img src="/images/Privacy.webp" height="32" width="32"
    style="position: fixed; bottom: 8px; left: 8px; background-color: white; padding: 4px; border-radius: 50%; z-index: 9999999;">
  </a>
 
