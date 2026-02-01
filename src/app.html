@@ -38,7 +38,18 @@
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
 
-  // Default consent state
+  // Default: granted for all regions
+  gtag('consent', 'default', {
+   'ad_storage': 'granted',
+   'ad_user_data': 'granted',
+   'ad_personalization': 'granted',
+   'analytics_storage': 'granted',
+   'functionality_storage': 'granted',
+   'personalization_storage': 'granted',
+   'security_storage': 'granted'
+  });
+
+  // Override for GDPR regions: denied by default until user consents
   gtag('consent', 'default', {
    'ad_storage': 'denied',
    'ad_user_data': 'denied',
@@ -46,8 +57,7 @@
    'analytics_storage': 'denied',
    'functionality_storage': 'denied',
    'personalization_storage': 'denied',
-   'security_storage': 'granted',
-   'wait_for_update': 500
+   'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'GB', 'IS', 'LI', 'NO', 'CH']
   });
 
   // Enable URL passthrough and redaction for privacy-safe conversion tracking

@@ -28,7 +28,12 @@ export const handle: Handle = async ({ event, resolve }) => {
 	});
 
 	response.headers.delete('x-sveltekit-page');
-	response.headers.append('Content-Security-Policy', "frame-ancestors 'self' https://top.gg; img-src 'self' https://cdn.ayakobot.com https://cdn.discordapp.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com data: blob:;");
+	response.headers.append('Content-Security-Policy', [
+		"frame-ancestors 'self' https://top.gg",
+		"script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://static.cloudflareinsights.com https://static.hotjar.com https://script.hotjar.com https://www.freeprivacypolicy.com",
+		"connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://*.hotjar.com https://*.hotjar.io wss://*.hotjar.com https://ipapi.co https://api.ayakobot.com",
+		"img-src 'self' https://cdn.ayakobot.com https://cdn.discordapp.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com data: blob:"
+	].join('; ') + ';');
 	response.headers.append(
 		'Strict-Transport-Security',
 		'max-age=31536000; includeSubDomains; preload;',
