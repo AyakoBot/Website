@@ -1,8 +1,6 @@
 <script lang="ts">
 	import '$lib/scripts/index.js';
 	import './main.css';
-	import { onMount } from 'svelte';
-	import { checkAndFireConversion } from '$lib/scripts/tracking';
 
 	import Blob from '$lib/components/generic/Blob.svelte';
 	import Footer from '$lib/components/page/Footer.svelte';
@@ -11,11 +9,6 @@
 	import type { Snippet } from 'svelte';
 
 	const { children }: { children: Snippet } = $props();
-
-	// Check for conversion on page load (user returning from invite flow)
-	onMount(() => {
-		checkAndFireConversion();
-	});
 </script>
 
 <div

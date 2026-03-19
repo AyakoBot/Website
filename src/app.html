@@ -31,12 +31,66 @@
   content="Ayako provides you with tons of optimized and easy to use features for your Discord experience." />
 
  <link rel="canonical" href="https://ayakobot.com/" />
+ <!-- Google Consent Mode v2 (Advanced) - MUST be before gtag.js -->
+ <script type="text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  // Default: deny all until user consents (GDPR compliant)
+  gtag('consent', 'default', {
+   'ad_storage': 'denied',
+   'ad_user_data': 'denied',
+   'ad_personalization': 'denied',
+   'analytics_storage': 'denied',
+   'wait_for_update': 500
+  });
+  // Preserve click IDs in URLs when cookies are denied
+  gtag('set', 'url_passthrough', true);
+ </script>
+
+ <!-- Google tag (gtag.js) - loads immediately, respects consent state -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL2J918CLL"></script>
+ <meta name="google-site-verification" content="bEQNoorq512jiwfd5Jm2rJN_1t-zEoB4qRS-3JUiFAE" />
+ <script type="text/javascript">
+  gtag('js', new Date());
+  gtag('config', 'G-VL2J918CLL');
+  gtag('config', 'AW-10969236341');
+ </script>
+
  <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
  <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
   charset="UTF-8"></script>
  <script type="text/javascript" charset="UTF-8">
   document.addEventListener('DOMContentLoaded', function () {
-   cookieconsent?.run({ "notice_banner_type": "interstitial", "consent_type": "express", "palette": "dark", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": true, "page_refresh_confirmation_buttons": false, "website_privacy_policy_url": "https://ayakobot.com/privacy", "website_name": "AyakoBot.com" });
+   cookieconsent?.run({ "notice_banner_type": "simple", "consent_type": "express", "palette": "dark", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": true, "page_refresh_confirmation_buttons": false, "website_privacy_policy_url": "https://ayakobot.com/privacy", "website_name": "AyakoBot.com" });
+  });
+ </script>
+
+ <!-- Consent Mode update handler - bridges FreePrivacyPolicy to Google Consent Mode v2 -->
+ <script type="text/javascript">
+  var _lastConsentState = null;
+  function _updateGoogleConsent() {
+   try {
+    var cookie = document.cookie.split(';').find(function(c) {
+     return c.trim().startsWith('cookie_consent_level=');
+    });
+    if (!cookie) return;
+    var value = decodeURIComponent(cookie.split('=')[1]);
+    if (value === _lastConsentState) return;
+    _lastConsentState = value;
+    var consent = JSON.parse(value);
+    gtag('consent', 'update', {
+     'analytics_storage': consent.tracking ? 'granted' : 'denied',
+     'ad_storage': consent.tracking ? 'granted' : 'denied',
+     'ad_user_data': consent.tracking ? 'granted' : 'denied',
+     'ad_personalization': consent.targeting ? 'granted' : 'denied'
+    });
+   } catch (e) { /* Cookie not yet set */ }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+   _updateGoogleConsent();
+   var _ci = setInterval(_updateGoogleConsent, 1000);
+   setTimeout(function() { clearInterval(_ci); }, 300000);
   });
  </script>
 
@@ -45,25 +99,6 @@
   src="https://static.cloudflareinsights.com/beacon.min.js"
   data-cf-beacon='{"token": "7000e6a65e924271b47af909773e0038"}'></script>
  <!-- end of Cloudflare-->
-
- <!-- Google Analytics & Google Ads -->
- <script type="text/plain" data-cookie-consent="tracking" async
-  src="https://www.googletagmanager.com/gtag/js?id=G-VL2J918CLL"></script>
- <meta name="google-site-verification" content="bEQNoorq512jiwfd5Jm2rJN_1t-zEoB4qRS-3JUiFAE" />
- <script type="text/plain" data-cookie-consent="tracking">
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
-
-			// Google Analytics
-			gtag('config', 'G-VL2J918CLL');
-
-			// Google Ads
-			gtag('config', 'AW-10969236341');
-		</script>
- <!-- end of Google Analytics & Google Ads -->
 
  <!-- HotJar -->
  <script type="text/plain" data-cookie-consent="tracking">
