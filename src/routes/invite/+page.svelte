@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import PageHead from '$lib/components/seo/PageHead.svelte';
 
 	const inviteUrl = 'https://invite.ayakobot.com';
 
@@ -9,27 +8,30 @@
 	});
 </script>
 
-<PageHead
-	title="Add Ayako to Discord"
-	description="Authorizing Ayako on your Discord server."
-	url="https://ayakobot.com/invite"
-/>
-
 <svelte:head>
+	<title>Add Ayako to Discord</title>
+	<meta name="description" content="Authorizing Ayako on your Discord server." />
 	<meta name="robots" content="noindex, nofollow" />
+	<link rel="canonical" href="https://ayakobot.com/invite" />
 </svelte:head>
 
-<div class="flex flex-col items-center justify-center px-4 py-24 max-w-120 mx-auto text-center min-h-[60vh]">
-	<img src="/emotes/AyakoDevil.webp" alt="Ayako" width="96" loading="eager" class="mb-6 animate-pulse" />
+<div class="flex flex-col items-center justify-center py-16">
+	<img
+		src="/emotes/AyakoDevil.webp"
+		alt="Ayako"
+		width="128"
+		loading="eager"
+		class="animate-pulse"
+	/>
 
-	<h1 class="text-7 font-700 color-warm-white mb-2">Adding Ayako to Discord…</h1>
-	<p class="text-3.5 color-warm-white op-50 mb-8">You'll be redirected to Discord to authorize.</p>
+	<h1 class="text-xl mt-4">Adding Ayako to Discord…</h1>
+	<span>You'll be redirected to Discord to authorize.</span>
 
 	<noscript>
-		<a href={inviteUrl} class="btn-primary">Continue to Discord</a>
+		<a href={inviteUrl} class="btn-loud mt-6 w-60">Continue to Discord</a>
 	</noscript>
 
-	<a href={inviteUrl} class="text-3 color-warm-white op-30 underline mt-4">
+	<a href={inviteUrl} class="op-60 underline mt-6 text-sm">
 		Not redirecting? Click here.
 	</a>
 </div>
