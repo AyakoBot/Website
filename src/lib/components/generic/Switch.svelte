@@ -15,32 +15,40 @@
 </script>
 
 <div class="p-2">
-	<label class="flex items-center relative w-max cursor-pointer select-none relative">
+	<label class="flex items-center relative w-max cursor-pointer select-none">
 		{#if title}
-			<span class="font-bold mr-3">
+			<span class="font-display font-semibold text-ink mr-3">
 				{title}
 			</span>
 		{/if}
 
-		<input
-			{required}
-			{name}
-			type="checkbox"
-			class="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-full focus:outline-none {checked
-				? 'bg-[#3dff56]'
-				: 'bg-[#FE6152]'}"
-			bind:checked
-		/>
-		<span class="absolute font-medium uppercase text-.5rem right-1 text-black">
-			{type === 'y/n' ? 'no' : 'off'}
+		<span class="relative inline-flex items-center">
+			<input
+				{required}
+				{name}
+				type="checkbox"
+				class="appearance-none cursor-pointer w-14 h-7 rounded-full border-2 transition-colors duration-300 focus:outline-none {checked
+					? 'bg-leaf border-leaf'
+					: 'bg-paper-deep border-ink-faint'}"
+				bind:checked
+			/>
+			<span
+				class="absolute left-2.5 font-mono font-medium uppercase text-[0.5rem] tracking-[0.08em] text-paper pointer-events-none"
+				aria-hidden="true"
+			>
+				{type === 'y/n' ? 'yes' : 'on'}
+			</span>
+			<span
+				class="absolute right-2.5 font-mono font-medium uppercase text-[0.5rem] tracking-[0.08em] text-ink-soft pointer-events-none"
+				aria-hidden="true"
+			>
+				{type === 'y/n' ? 'no' : 'off'}
+			</span>
+			<span
+				class="absolute left-1 w-5 h-5 rounded-full bg-paper shadow-press border border-ink/15 transition-transform duration-300 [transition-timing-function:var(--ease-organic)] pointer-events-none {checked
+					? 'translate-x-7'
+					: ''}"
+			></span>
 		</span>
-		<span class="absolute font-medium uppercase text-.5rem right-9 text-black"
-			>{type === 'y/n' ? 'yes' : 'on'}
-		</span>
-		<span
-			class="w-6 h-6 right-7.2 absolute rounded-full transition ease-in-out duration-.15s bg-neutral-100 {checked
-				? 'translate-x-6.4'
-				: ''}"
-		></span>
 	</label>
 </div>

@@ -1,30 +1,26 @@
 <script lang="ts">
 	import Buttons from '$lib/components/page/NavBar/Buttons.svelte';
-	let width = $state(0);
 </script>
 
-<svelte:window bind:innerWidth={width} />
-
 <nav
-	class="absolute w-full p-2 bg-neutral-900/75 flex flex-col justify-between items-center box-shadow-main md:flex-row z-99"
+	class="sticky top-0 z-50 w-full bg-paper/85 backdrop-blur-md border-b border-ink/10 flex flex-row justify-between items-center gap-4 py-2.5 pl-17 pr-4 sm:pr-6"
 >
-	<ul id="left" class="flex flex-row items-center ml-15">
-		<li class="pr-2">
-			<a href="/">
-				<img src="/images/Icon.webp" alt="Ayako Logo Icon" width="64" height="64" loading="eager" />
-			</a>
-		</li>
-		<li class="flex flex-row justify-between items-end w-40%">
-			<span class="font-bold lg:text-9 text-8 color-[#b0ff00] of-unset">Ayako</span>
-			<span
-				class="break-keep whitespace-nowrap pb-1.5 color-[#fe3521] font-bold pl-2 lg:text-5 text-4 of-unset hidden sm:display-unset"
-			>
-				Discord Bot
-			</span>
-		</li>
-	</ul>
+	<a href="/" class="flex flex-row items-center gap-3 group">
+		<img
+			src="/images/Icon.webp"
+			alt="Ayako Logo Icon"
+			width="44"
+			height="44"
+			loading="eager"
+			class="rounded-full border border-ink/20 transition-transform duration-500 ease-out group-hover:rotate-12"
+		/>
+		<span class="flex flex-col items-start leading-none">
+			<span class="font-display font-semibold text-2xl text-ink">Ayako</span>
+			<span class="annotation text-base leading-tight hidden sm:block">the flower child</span>
+		</span>
+	</a>
 
-	{#if width > 640}
+	<div class="hidden sm:block">
 		<Buttons />
-	{/if}
+	</div>
 </nav>

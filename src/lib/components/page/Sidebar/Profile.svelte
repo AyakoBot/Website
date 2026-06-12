@@ -1,6 +1,4 @@
 <script lang="ts">
-	import ColorFadeText from '$lib/components/generic/ColorFadeText.svelte';
-	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
 	import Cookies from 'js-cookie';
 
 	const { close }: { close: () => void } = $props();
@@ -26,30 +24,26 @@
 	};
 </script>
 
-<div class="absolute bottom-1.5 h-20 left-0 w-full">
-	<FancyBorder />
-
-	<div class="absolute top-0 h-20 w-full flex flex-row justify-center items-center mt-2">
-		{#if name}
-			<div class="flex flex-row justify-between items-center">
-				<div class="flex flex-row justify-evenly items-center mr-10">
-					<img
-						src={pfp}
-						alt=""
-						width="48"
-						height="48"
-						class="rounded-full mx-2 box-shadow-main"
-						loading="lazy"
-					/>
-					<ColorFadeText text={name} />
-				</div>
-
-				<button class="btn-medium text-sm text-nowrap" onclick={logout} onkeydown={logout}
-					>Log-Out</button
-				>
+<div class="border-t border-ink/10 px-6 py-5 mt-auto relative z-1 bg-paper">
+	{#if name}
+		<div class="flex flex-row items-center justify-between gap-4">
+			<div class="flex flex-row items-center gap-3 min-w-0">
+				<img
+					src={pfp}
+					alt="Your Discord avatar"
+					width="44"
+					height="44"
+					class="rounded-full border border-ink/25 shrink-0"
+					loading="lazy"
+				/>
+				<span class="font-display font-medium text-lg text-ink truncate">{name}</span>
 			</div>
-		{:else}
-			<a href="/login" class="btn-medium text-sm text-nowrap" onclick={() => close()}>Log-In</a>
-		{/if}
-	</div>
+
+			<button class="btn-ink !px-4 !py-1.5 text-sm whitespace-nowrap" onclick={logout}>
+				Log-Out
+			</button>
+		</div>
+	{:else}
+		<a href="/login" class="btn-petal !px-5 !py-2 text-sm w-full" onclick={close}>Log-In</a>
+	{/if}
 </div>

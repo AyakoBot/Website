@@ -3,7 +3,7 @@
 
 	const { num }: { num: number } = $props();
 	let counterElement: HTMLDivElement;
-	const counters: Map<number, NodeJS.Timeout> = new Map();
+	const counters: Map<number, ReturnType<typeof setInterval>> = new Map();
 	let currentCount = $state(0);
 
 	const animateCountUp = (targetValue: number) => {
@@ -42,4 +42,6 @@
 	const easeOutQuad = (t: number) => t * (2 - t);
 </script>
 
-<div bind:this={counterElement}>{numberWithCommas(currentCount)}</div>
+<div bind:this={counterElement} class="font-mono tabular-nums">
+	{numberWithCommas(currentCount)}
+</div>

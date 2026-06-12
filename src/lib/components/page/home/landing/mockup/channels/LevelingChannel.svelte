@@ -95,9 +95,12 @@
 		class="hint absolute flex flex-row-reverse items-center gap-1.5 pointer-events-none z-10"
 		style="left: 220px; top: 50px;"
 	>
-		<span class="hint-text">Multiple XP formulas<br />and voice XP</span>
+		<span
+			class="[font-family:'Caveat','Comic_Neue',cursive] text-[17px] font-600 text-[#fde047] leading-[1.2] whitespace-nowrap [text-shadow:0_0_8px_rgba(0,0,0,1),0_0_16px_rgba(0,0,0,0.9),0_0_32px_rgba(0,0,0,0.8),0_2px_4px_rgba(0,0,0,1)]"
+			>Multiple XP formulas<br />and voice XP</span
+		>
 		<svg
-			class="hint-arrow down-left"
+			class="block [filter:drop-shadow(0_0_4px_rgba(0,0,0,1))_drop-shadow(0_0_8px_rgba(0,0,0,0.9))_drop-shadow(0_2px_4px_rgba(0,0,0,1))]"
 			width="55"
 			height="10"
 			viewBox="0 0 219 41"
@@ -113,7 +116,7 @@
 		style="left: 120px; bottom: 55px;"
 	>
 		<svg
-			class="hint-arrow up-left"
+			class="block [filter:drop-shadow(0_0_4px_rgba(0,0,0,1))_drop-shadow(0_0_8px_rgba(0,0,0,0.9))_drop-shadow(0_2px_4px_rgba(0,0,0,1))]"
 			style="transform: scale(-1, -1) rotate(0deg);"
 			width="45"
 			height="34"
@@ -123,35 +126,9 @@
 				fill="#fde047"
 			/></svg
 		>
-		<span class="hint-text mb-10">Auto role rewards<br />at level milestones</span>
+		<span
+			class="mb-10 [font-family:'Caveat','Comic_Neue',cursive] text-[17px] font-600 text-[#fde047] leading-[1.2] whitespace-nowrap [text-shadow:0_0_8px_rgba(0,0,0,1),0_0_16px_rgba(0,0,0,0.9),0_0_32px_rgba(0,0,0,0.8),0_2px_4px_rgba(0,0,0,1)]"
+			>Auto role rewards<br />at level milestones</span
+		>
 	</div>
 </div>
-
-<style>
-	.hint-text {
-		font-family: 'Caveat', 'Comic Neue', cursive;
-		font-size: 17px;
-		font-weight: 600;
-		color: #fde047;
-		line-height: 1.2;
-		text-shadow:
-			0 0 8px rgba(0, 0, 0, 1),
-			0 0 16px rgba(0, 0, 0, 0.9),
-			0 0 32px rgba(0, 0, 0, 0.8),
-			0 2px 4px rgba(0, 0, 0, 1);
-		white-space: nowrap;
-	}
-	.hint-arrow {
-		display: block;
-		filter:
-			drop-shadow(0 0 4px rgba(0, 0, 0, 1))
-			drop-shadow(0 0 8px rgba(0, 0, 0, 0.9))
-			drop-shadow(0 2px 4px rgba(0, 0, 0, 1));
-	}
-	.hint-arrow.down-left {
-		transform: rotate(0deg);
-	}
-	.hint-arrow.up-left {
-		transform: scaleY(-1);
-	}
-</style>

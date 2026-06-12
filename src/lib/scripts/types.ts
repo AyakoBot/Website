@@ -1,4 +1,4 @@
-import { StoredPunishmentTypes } from '@prisma/client';
+import type { StoredPunishmentTypes } from '@prisma/client';
 
 export type SearchBarDispatch = {
 	query: { query: string; option: string | undefined };

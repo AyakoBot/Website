@@ -13,6 +13,11 @@ export const GET = () =>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://ayakobot.com/features</loc>
+  <lastmod>2026-06-12T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
   <loc>https://ayakobot.com/donate</loc>
   <lastmod>2024-07-14T15:02:22+00:00</lastmod>
   <priority>0.80</priority>

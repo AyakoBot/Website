@@ -9,8 +9,13 @@
 	const { q }: { q: GETAppealQuestions[number] } = $props();
 </script>
 
-<div class="flex flex-col justify-center items-center gap-2 relative w-full">
-	<label for={String(q.id)} class="text-2xl">{q.question}</label>
+<div class="flex flex-col justify-center items-center gap-3 relative w-full">
+	<label
+		for={String(q.id)}
+		class="font-display font-semibold text-xl sm:text-2xl text-ink text-center leading-snug"
+	>
+		{q.question}
+	</label>
 
 	{#if q.answertype === 'number'}
 		<Number {q} />
@@ -19,7 +24,7 @@
 	{:else if q.answertype === 'short'}
 		<Short {q} />
 	{:else if q.answertype === 'boolean'}
-		<Switch title={''} required={q.required} name={String(q.id)} />
+		<Switch title="" required={q.required} name={String(q.id)} />
 	{:else if q.answertype === 'multiple_choice'}
 		<Select
 			options={q.options}
@@ -37,14 +42,19 @@
 			id={String(q.id)}
 		/>
 	{:else if q.answertype === 'text'}{:else}
-		<span>
+		<span class="text-ink-soft text-center">
 			Unknown Answer Type for Question: <span class="code">{q.question}</span>
 			<br />
 			Type: <span class="code">{q.answertype}</span>
 		</span>
 	{/if}
+
 	{#if q.required && q.answertype !== 'text'}
-		<div class="absolute text-10px top-full {q.answertype === 'boolean' ? '' : 'right-2'} color-red">
+		<div
+			class="absolute top-full {q.answertype === 'boolean'
+				? ''
+				: 'right-2'} font-mono text-[0.625rem] uppercase tracking-[0.14em] text-petal"
+		>
 			Required
 		</div>
 	{/if}

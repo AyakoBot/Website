@@ -21,8 +21,15 @@
 		class="hint absolute flex items-center gap-1.5 pointer-events-none z-10"
 		style="right: -160px; top: 0;"
 	>
-		<span class="hint-text">20+ fun roleplay<br />commands</span>
-		<svg class="hint-arrow down-left" width="28" height="65" viewBox="0 0 75 175"
+		<span
+			class="[font-family:'Caveat','Comic_Neue',cursive] text-[17px] font-600 text-[#fde047] leading-[1.2] whitespace-nowrap [text-shadow:0_0_8px_rgba(0,0,0,1),0_0_16px_rgba(0,0,0,0.9),0_0_32px_rgba(0,0,0,0.8),0_2px_4px_rgba(0,0,0,1)]"
+			>20+ fun roleplay<br />commands</span
+		>
+		<svg
+			class="block [filter:drop-shadow(0_0_4px_rgba(0,0,0,1))_drop-shadow(0_0_8px_rgba(0,0,0,0.9))_drop-shadow(0_2px_4px_rgba(0,0,0,1))] [transform:rotate(0deg)]"
+			width="28"
+			height="65"
+			viewBox="0 0 75 175"
 			><path
 				d="M20.1871 726C15.7485 723.891 13.0008 723.469 12.1553 721.992C8.98489 716.508 5.39173 711.024 3.70083 704.908C-1.37187 688.666 -0.737781 672.214 2.64402 655.762C8.35081 627.709 21.0325 602.82 36.8847 579.197C38.5756 576.665 40.0552 574.134 41.7461 571.392C41.7461 571.181 41.5347 570.76 41.1119 570.127C36.462 571.392 31.6007 572.658 26.9507 573.713C24.4144 574.134 21.4552 574.134 18.9189 573.291C17.4394 572.869 15.3258 570.549 15.3258 569.072C15.3258 567.174 16.8053 564.854 18.0735 563.166C19.1303 562.112 21.0326 561.901 22.7235 561.479C35.4052 558.315 48.087 554.729 60.9801 551.776C71.9709 549.245 75.564 552.831 74.9299 563.588C74.2959 574.767 74.0845 585.946 73.6618 596.914C73.4505 600.289 72.8164 603.875 72.3936 607.671C63.5164 603.664 63.5164 603.664 60.346 569.494C47.0301 584.259 38.1529 600.289 29.9098 616.741C21.6666 633.193 16.1712 650.489 13.2121 668.839C10.2531 687.823 13.8462 705.751 20.1871 726Z"
 				fill="#fde047"
@@ -89,7 +96,7 @@
 		style="bottom: 50px; left: 300px;"
 	>
 		<svg
-			class="hint-arrow up-left"
+			class="block [filter:drop-shadow(0_0_4px_rgba(0,0,0,1))_drop-shadow(0_0_8px_rgba(0,0,0,0.9))_drop-shadow(0_2px_4px_rgba(0,0,0,1))]"
 			width="55"
 			height="22"
 			viewBox="0 0 220 87"
@@ -100,7 +107,10 @@
 				transform="translate(0,-196)"
 			/></svg
 		>
-		<span class="hint-text">Others can react<br />back with a click!</span>
+		<span
+			class="[font-family:'Caveat','Comic_Neue',cursive] text-[17px] font-600 text-[#fde047] leading-[1.2] whitespace-nowrap [text-shadow:0_0_8px_rgba(0,0,0,1),0_0_16px_rgba(0,0,0,0.9),0_0_32px_rgba(0,0,0,0.8),0_2px_4px_rgba(0,0,0,1)]"
+			>Others can react<br />back with a click!</span
+		>
 	</div>
 
 	<div
@@ -108,7 +118,7 @@
 		style="left: 200px; top: -10px;"
 	>
 		<svg
-			class="hint-arrow mt-3"
+			class="mt-3 block [filter:drop-shadow(0_0_4px_rgba(0,0,0,1))_drop-shadow(0_0_8px_rgba(0,0,0,0.9))_drop-shadow(0_2px_4px_rgba(0,0,0,1))]"
 			width="40"
 			height="50"
 			viewBox="0 0 122 136"
@@ -118,7 +128,10 @@
 				fill="#fde047"
 			/></svg
 		>
-		<span class="hint-text">Compact and <br /> large mode available</span>
+		<span
+			class="[font-family:'Caveat','Comic_Neue',cursive] text-[17px] font-600 text-[#fde047] leading-[1.2] whitespace-nowrap [text-shadow:0_0_8px_rgba(0,0,0,1),0_0_16px_rgba(0,0,0,0.9),0_0_32px_rgba(0,0,0,0.8),0_2px_4px_rgba(0,0,0,1)]"
+			>Compact and <br /> large mode available</span
+		>
 	</div>
 </div>
 
@@ -149,40 +162,21 @@
 		class="hint absolute flex items-center gap-1.5 pointer-events-none z-10 flex-row"
 		style="left: 150px; bottom:-25px;"
 	>
-		<svg class="hint-arrow" width="40" height="45" viewBox="0 0 122 148" style="transform: scale(-1, -1) rotate(-40deg)"
+		<svg
+			class="block [filter:drop-shadow(0_0_4px_rgba(0,0,0,1))_drop-shadow(0_0_8px_rgba(0,0,0,0.9))_drop-shadow(0_2px_4px_rgba(0,0,0,1))]"
+			width="40"
+			height="45"
+			viewBox="0 0 122 148"
+			style="transform: scale(-1, -1) rotate(-40deg)"
 			><path
 				d="M0 345.65C6.14938 341.626 12.2988 342.897 17.812 344.803C25.4458 347.557 32.8674 351.157 39.6529 355.393C70.3998 375.727 88.8479 404.744 96.4816 440.539C98.39 449.647 99.0262 459.178 100.299 469.556C108.78 464.685 113.233 455.154 121.715 449.647C122.776 453.883 120.655 456.636 118.959 458.966C111.961 468.497 104.752 478.028 97.3299 487.348C93.7251 491.796 90.9684 492.219 87.1515 488.407C79.0937 480.57 74.2167 471.039 72.7323 460.025C72.7323 459.601 73.3684 458.966 74.2166 457.907C83.3347 460.237 81.2142 471.886 89.06 476.122C92.4527 461.508 89.9082 447.529 86.0913 433.973C82.0624 419.782 76.7612 406.227 68.2793 394.154C60.0095 382.293 49.6191 372.761 38.1686 363.866C26.93 354.758 14.2072 349.039 0 345.65Z"
 				fill="#fde047"
 				transform="translate(0,-343)"
 			/></svg
 		>
-		<span class="hint-text ml-2">Made to be <br /> low-profile</span>
+		<span
+			class="ml-2 [font-family:'Caveat','Comic_Neue',cursive] text-[17px] font-600 text-[#fde047] leading-[1.2] whitespace-nowrap [text-shadow:0_0_8px_rgba(0,0,0,1),0_0_16px_rgba(0,0,0,0.9),0_0_32px_rgba(0,0,0,0.8),0_2px_4px_rgba(0,0,0,1)]"
+			>Made to be <br /> low-profile</span
+		>
 	</div>
 </div>
-
-<style>
-	.hint-text {
-		font-family: 'Caveat', 'Comic Neue', cursive;
-		font-size: 17px;
-		font-weight: 600;
-		color: #fde047;
-		line-height: 1.2;
-		text-shadow:
-			0 0 8px rgba(0, 0, 0, 1),
-			0 0 16px rgba(0, 0, 0, 0.9),
-			0 0 32px rgba(0, 0, 0, 0.8),
-			0 2px 4px rgba(0, 0, 0, 1);
-		white-space: nowrap;
-	}
-	.hint-arrow {
-		display: block;
-		filter: drop-shadow(0 0 4px rgba(0, 0, 0, 1)) drop-shadow(0 0 8px rgba(0, 0, 0, 0.9))
-			drop-shadow(0 2px 4px rgba(0, 0, 0, 1));
-	}
-	.hint-arrow.down-left {
-		transform: rotate(0deg);
-	}
-	.hint-arrow.up-left {
-		transform: scaleY(-1);
-	}
-</style>

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { SearchBarDispatch } from '$lib/scripts/types';
 	import sleep from '$lib/scripts/util/sleep.js';
 
 	const {
@@ -14,7 +13,9 @@
 		ontype?: ({ option, query }: { option: string | undefined; query: string }) => void;
 	} = $props();
 
-	let type = $state(options.find((o) => o.default)?.value);
+	// only the initial default is wanted here
+	// svelte-ignore state_referenced_locally
+	let type = $state(options.find((o) => o.default)?.key);
 	let query = $state('');
 
 	const changeType = (value: string) => {
@@ -36,36 +37,41 @@
 	};
 </script>
 
-<div class="flex flex-row justify-center items-center">
-	<div class="w-full sm:w-3/4 md:w-1/2 relative mb-4 flex flex-row justify-center items-center">
+<!-- card-catalogue search slip -->
+<div class="flex flex-row justify-center items-stretch mb-4">
+	<div class="relative w-full sm:w-3/4 md:w-1/2 max-w-xl">
+		<span
+			class="i-tabler-search absolute left-3 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-ink-faint pointer-events-none"
+			aria-hidden="true"
+		></span>
 		<input
 			type="text"
 			placeholder="Search"
-			class="p-2 {options.length ? 'rounded-l-full' : 'rounded-full'} px-4 w-full"
+			class="input-paper w-full !pl-10 !pr-10 placeholder:text-ink-faint {options.length
+				? '!rounded-[0.4rem_0_0_0.9rem] !border-r-0'
+				: ''}"
 			bind:value={query}
 			oninput={(e) => changeQuery(e.currentTarget.value)}
 		/>
 		<button
+			class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-6 rounded-full text-ink-soft bg-transparent transition-colors duration-300 hover:bg-paper-deep hover:text-petal"
 			onclick={() => changeQuery('')}
-			onkeydown={() => changeQuery('')}
 			title="Reset Query"
 			aria-label="Reset Query"
 		>
-			<span
-				class="i-tabler-x absolute right-1% top-1/2 -translate-y-1/2 rounded-full color-white transition bg-transparent aspect-square w-6
-  hover:bg-white hover:color-neutral-400 p-1"
-			></span>
+			<span class="i-tabler-x block w-4 h-4"></span>
 		</button>
 	</div>
 
 	{#if options.length}
 		<label for="type" class="sr-only">Type</label>
 		<select
+			id="type"
 			name="type"
-			class="p-2 rounded-r-full mb-4 border-l-black border-l-1px"
+			class="bg-paper-deep border-2 border-l-0 border-ink/20 rounded-[0_0.9rem_0.4rem_0] px-3 font-mono text-xs uppercase tracking-[0.12em] text-ink-soft cursor-pointer transition-colors duration-300 focus:border-leaf focus:outline-none"
 			onchange={(e) => changeType(e.currentTarget.value)}
 		>
-			{#each options as option}
+			{#each options as option (option.key)}
 				<option value={option.key} selected={option.default}>{option.value}</option>
 			{/each}
 		</select>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	const { time, type = 'F' }: { time: number; type: 'd' | 'D' | 't' | 'T' | 'f' | 'F' | 'R' } =
 		$props();
-	const date = new Date(time);
+	const date = $derived(new Date(time));
 
 	const get = {
 		d: () =>
@@ -50,6 +50,8 @@
 	};
 </script>
 
-<div class="bg-[rgba(78,80,88,0.48)] px-1 rounded-md w-fit text-shadow-none">
+<div
+	class="inline-block w-fit font-mono text-[0.85em] bg-paper-deep text-ink px-1.5 py-0.5 rounded-md text-shadow-none"
+>
 	<span> {get[type]()} </span>
 </div>

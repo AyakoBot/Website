@@ -11,11 +11,13 @@
 		required={q.required}
 		maxlength="2000"
 		minlength={q.required ? 1 : 0}
-		class="rounded-2xl px-2 py-2 text-center w-full h-30 bg-neutral-900"
+		class="input-paper w-full h-32 resize-y leading-relaxed"
 		placeholder="Type some long Text"
 		bind:value
 	></textarea>
-	<div class="absolute -bottom-3 left-1/2 -translate-x-1/2 text-sm color-neutral-400">
+	<div
+		class="absolute -bottom-4.5 left-1/2 -translate-x-1/2 font-mono text-xs text-ink-soft tracking-wide"
+	>
 		{value.length}/2000
 	</div>
 </div>

@@ -5,10 +5,9 @@ import type { Returned as GETStatus } from '@ayako/server/src/routes/v1/punishme
 
 export const load: PageServerLoad = async (event) => {
 	const res = await event
-		.fetch(
-			`${PUBLIC_API}/punishments/${event.params.punishmentId}/status`,
-			{ headers: { Authorization: `Bearer ${event.cookies.get('discord-token')}` } },
-		)
+		.fetch(`${PUBLIC_API}/punishments/${event.params.punishmentId}/status`, {
+			headers: { Authorization: `Bearer ${event.cookies.get('discord-token')}` },
+		})
 		.then((r) => (!r.ok ? undefined : (r.json() as Promise<GETStatus>)));
 	if (!res) throw redirect(307, '/login');
 

@@ -11,8 +11,8 @@
  <link rel="apple-touch-icon" href="/images/Icon.webp" />
  <title>Ayako</title>
  <meta name="viewport" content="width=device-width,initial-scale=1" />
- <meta name="color-scheme" content="dark only" />
- <meta name="theme-color" content="#b0ff00" />
+ <meta name="color-scheme" content="light only" />
+ <meta name="theme-color" content="#f6efdf" />
  <meta name="description"
   content="Ayako provides you with tons of optimized and easy to use features for your Discord experience." />
  <meta name="twitter:description"
@@ -31,6 +31,12 @@
   content="Ayako provides you with tons of optimized and easy to use features for your Discord experience." />
 
  <link rel="canonical" href="https://ayakobot.com/" />
+
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link
+  href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+  rel="stylesheet" />
  <!-- Google Consent Mode v2 (Advanced) - MUST be before gtag.js -->
  <script type="text/javascript">
   window.dataLayer = window.dataLayer || [];
@@ -62,7 +68,7 @@
   charset="UTF-8"></script>
  <script type="text/javascript" charset="UTF-8">
   document.addEventListener('DOMContentLoaded', function () {
-   cookieconsent?.run({ "notice_banner_type": "simple", "consent_type": "express", "palette": "dark", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": true, "page_refresh_confirmation_buttons": false, "website_privacy_policy_url": "https://ayakobot.com/privacy", "website_name": "AyakoBot.com" });
+   cookieconsent?.run({ "notice_banner_type": "simple", "consent_type": "express", "palette": "light", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": true, "page_refresh_confirmation_buttons": false, "website_privacy_policy_url": "https://ayakobot.com/privacy", "website_name": "AyakoBot.com" });
   });
  </script>
 
@@ -122,13 +128,12 @@
  <!-- End Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
 
  <a href="#" id="open_preferences_center"> <img src="/images/Privacy.webp" height="32" width="32"
-   style="position: fixed; bottom: 8px; left: 8px; background-color: white; padding: 4px; border-radius: 50%; z-index: 9999999;">
+   style="position: fixed; bottom: 8px; left: 8px; background-color: #f6efdf; border: 1px solid rgba(44, 38, 24, 0.35); padding: 4px; border-radius: 50%; z-index: 9999999;">
  </a>
 
 
  %unocss-svelte-scoped.global%
  %sveltekit.head%
- </style>
 </head>
 
 <body data-sveltekit-preload-data="hover">

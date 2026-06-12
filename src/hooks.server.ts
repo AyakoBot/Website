@@ -1,4 +1,4 @@
-import { redirect, type Handle } from '@sveltejs/kit';
+import type { Handle } from '@sveltejs/kit';
 
 const API_BASE = 'https://api.ayakobot.com';
 
@@ -9,9 +9,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 		const res = await fetch(`${API_BASE}${path}`, {
 			method: event.request.method,
 			headers: event.request.headers,
-			body: event.request.method !== 'GET' && event.request.method !== 'HEAD'
-				? event.request.body
-				: undefined,
+			body:
+				event.request.method !== 'GET' && event.request.method !== 'HEAD'
+					? event.request.body
+					: undefined,
 			duplex: 'half',
 		} as RequestInit);
 
@@ -28,13 +29,16 @@ export const handle: Handle = async ({ event, resolve }) => {
 	});
 
 	response.headers.delete('x-sveltekit-page');
-	response.headers.append('Content-Security-Policy', [
-		"frame-ancestors 'self' https://top.gg",
-		"frame-src https://www.googletagmanager.com",
-		"script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://pagead2.googlesyndication.com https://static.cloudflareinsights.com https://static.hotjar.com https://script.hotjar.com https://www.freeprivacypolicy.com",
-		"connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.google.com https://*.hotjar.com https://*.hotjar.io wss://*.hotjar.com https://ipapi.co https://api.ayakobot.com",
-		"img-src 'self' https://cdn.ayakobot.com https://cdn.discordapp.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com data: blob:"
-	].join('; ') + ';');
+	response.headers.append(
+		'Content-Security-Policy',
+		[
+			"frame-ancestors 'self' https://top.gg",
+			'frame-src https://www.googletagmanager.com',
+			"script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://pagead2.googlesyndication.com https://static.cloudflareinsights.com https://static.hotjar.com https://script.hotjar.com https://www.freeprivacypolicy.com",
+			"connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.google.com https://*.hotjar.com https://*.hotjar.io wss://*.hotjar.com https://ipapi.co https://api.ayakobot.com",
+			"img-src 'self' https://cdn.ayakobot.com https://cdn.discordapp.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com data: blob:",
+		].join('; ') + ';',
+	);
 	response.headers.append(
 		'Strict-Transport-Security',
 		'max-age=31536000; includeSubDomains; preload;',

@@ -4,7 +4,7 @@
  * Conversion event: Invite button click (user clicks to add bot to Discord)
  *
  * Fires immediately on click because users leave ayakobot.com
- * for Discord and never return — the click IS the conversion.
+ * for Discord and never return - the click IS the conversion.
  */
 
 const GOOGLE_ADS_CONVERSION_ID = 'AW-10969236341';

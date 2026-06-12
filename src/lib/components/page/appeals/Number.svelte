@@ -10,7 +10,7 @@
 	required={q.required}
 	max={Number.MAX_SAFE_INTEGER}
 	min={Number.MIN_SAFE_INTEGER}
-	class="rounded-2xl px-2 py-2 text-center w-full bg-neutral-900"
+	class="input-paper w-full text-center font-mono"
 	placeholder="Type a Number"
 	onwheel={(e) => (e.target as HTMLInputElement)?.blur()}
 />

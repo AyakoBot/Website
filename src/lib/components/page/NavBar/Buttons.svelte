@@ -2,18 +2,32 @@
 	import { trackInviteClick } from '$lib/scripts/tracking';
 </script>
 
-<ul
-	id="right"
-	class="flex flex-row w-full md:w-3/5 lg:w-1/2 justify-between md:justify-evenly items-center lg:py-0 py-3 px-0 sm:px-4 md:px-0 hidden"
->
+<ul class="flex flex-row flex-wrap items-center gap-x-7 gap-y-1">
 	<li>
-		<a class="btn-quiet text-5 font-bold" href="https://invite.ayakobot.com" target="_blank" onclick={trackInviteClick}>Invite</a
+		<a class="link-vine font-display font-medium text-lg text-ink" href="/features">Features</a>
+	</li>
+	<li>
+		<a
+			class="link-vine font-display font-medium text-lg text-ink"
+			href="https://invite.ayakobot.com"
+			target="_blank"
+			onclick={trackInviteClick}
 		>
+			Invite
+		</a>
 	</li>
 	<li>
-		<a class="btn-quiet text-5 font-bold" href="https://support.ayakobot.com">Support</a>
+		<a
+			class="link-vine font-display font-medium text-lg text-ink"
+			href="https://support.ayakobot.com"
+		>
+			Support
+		</a>
 	</li>
 	<li>
-		<a class="color-yellow btn-quiet text-5 font-bold" href="/donate">👑Premium👑</a>
+		<a class="link-vine-gold font-display font-medium text-lg text-gold" href="/donate">
+			<span class="i-tabler-crown w-4 h-4 inline-block align-[-2px]" aria-hidden="true"></span>
+			Premium
+		</a>
 	</li>
 </ul>

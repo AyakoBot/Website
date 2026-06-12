@@ -1,89 +1,69 @@
 <script lang="ts">
-	import FancyBorder from '$lib/components/generic/FancyBorder.svelte';
+	import { afterNavigate } from '$app/navigation';
+	import Sprig from '$lib/components/design/Sprig.svelte';
 	import NavBarButtons from '$lib/components/page/NavBar/Buttons.svelte';
-	import Header from '$lib/components/page/Sidebar/Header.svelte';
 	import Buttons from '$lib/components/page/Sidebar/Buttons.svelte';
+	import Header from '$lib/components/page/Sidebar/Header.svelte';
 	import Profile from '$lib/components/page/Sidebar/Profile.svelte';
 
-	let sidebar: HTMLElement;
-	let backdrop: HTMLButtonElement;
 	let opened = $state(false);
-	let width = $state(0);
 
 	const open = () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-
 		document.documentElement.style.overflowY = 'hidden';
-
 		opened = true;
-
-		backdrop.animate([{ opacity: '0%' }, { opacity: '100%' }], {
-			duration: 300,
-			easing: 'ease-in-out',
-			fill: 'forwards',
-		});
-
-		sidebar.animate([{ left: `-${sidebar.offsetWidth}px` }, { left: '0' }], {
-			duration: 300,
-			easing: 'ease-in-out',
-			fill: 'forwards',
-		});
 	};
 
 	const close = () => {
+		document.documentElement.style.overflowY = '';
 		opened = false;
-
-		document.documentElement.style.overflowY = 'scroll';
-
-		backdrop.animate([{ opacity: '100%' }, { opacity: '0%' }], {
-			duration: 300,
-			easing: 'ease-in-out',
-			fill: 'forwards',
-		});
-
-		sidebar.animate([{ left: '0' }, { left: `-${sidebar.offsetWidth}px` }], {
-			duration: 300,
-			easing: 'ease-in-out',
-			fill: 'forwards',
-		});
 	};
+
+	afterNavigate(() => {
+		if (opened) close();
+	});
 </script>
 
-<svelte:window bind:innerWidth={width} />
-
 <button
-	class="bg-white color-[#fe3521] rounded-full top-4 left-4 absolute z-9999 p-3 w-12 h-12 transition ease-in-out aspect-square flex justify-center items-center
-hover:bg-[#fe3521] hover:color-white"
-	onclick={() => open()}
-	onkeydown={() => open()}
+	class="fixed top-2 left-3 z-60 w-12 h-12 flex justify-center items-center rounded-full bg-paper text-ink border border-ink/25 shadow-press transition-all duration-300 hover:text-petal hover:border-petal hover:rotate-90"
+	onclick={open}
 	name="Open Sidebar"
 	aria-label="Open Sidebar"
+	aria-expanded={opened}
 >
-	<span class="block i-tabler-menu-2 w-10 h-10"></span>
+	<span class="block i-tabler-menu-2 w-6 h-6" aria-hidden="true"></span>
 </button>
 
+<button
+	class="fixed inset-0 z-70 bg-ink/40 backdrop-blur-sm transition-opacity duration-400 {opened
+		? 'opacity-100'
+		: 'opacity-0 pointer-events-none'}"
+	onclick={close}
+	tabindex={opened ? 0 : -1}
+	aria-label="Close Sidebar"
+	name="Close Sidebar"
+></button>
+
 <nav
-	bind:this={sidebar}
-	class="z-10000 h-full w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-neutral-900 fixed -left-100% box-shadow-main transition ease-in-out flex flex-col scroll-auto overflow-hidden"
+	class="fixed inset-y-0 left-0 z-80 w-full sm:w-96 max-w-full bg-paper border-r border-ink/15 shadow-press-lg flex flex-col overflow-y-auto overflow-x-hidden transition-transform duration-450 ease-[var(--ease-organic)] motion-reduce:transition-none {opened
+		? 'translate-x-0'
+		: '-translate-x-full'}"
+	aria-hidden={!opened}
+	inert={!opened}
 >
 	<Header {close} />
 
-	{#if width < 640}
-		<div class="px-4"><NavBarButtons /></div>
-	{/if}
-
-	<FancyBorder />
+	<div class="sm:hidden px-6 pt-4">
+		<NavBarButtons />
+	</div>
 
 	<Buttons {close} />
 
 	<Profile {close} />
-</nav>
 
-<button
-	class="w-100vw h-100dvh bg-neutral-900/50 {opened ? 'z-9999' : '-z-1000'} op-0 absolute"
-	bind:this={backdrop}
-	onclick={() => close()}
-	onkeydown={() => close()}
-	aria-label="Open Sidebar"
-	name="Open Sidebar"
-></button>
+	<div
+		class="pointer-events-none absolute bottom-24 right-2 opacity-40 rotate-12"
+		aria-hidden="true"
+	>
+		<Sprig size={110} color="var(--leaf-soft)" />
+	</div>
+</nav>

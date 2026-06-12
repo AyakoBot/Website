@@ -50,7 +50,7 @@
 	};
 </script>
 
-<svelte:window on:click={clickWindow} on:keydown={clickWindow} />
+<svelte:window onclick={clickWindow} onkeydown={clickWindow} />
 
 <div {id} class="relative w-full">
 	<input
@@ -68,10 +68,12 @@
 		onkeydown={labelClick}
 		role="button"
 		tabindex="0"
-		class="cursor-pointer bg-neutral-900 w-full rounded-2xl px-2 py-2 relative text-left"
+		class="cursor-pointer w-full bg-paper border-2 rounded-[0.4rem_0.9rem_0.4rem_0.9rem] px-3 py-2 relative text-left text-ink transition-colors duration-300 {expanded
+			? 'border-leaf'
+			: 'border-ink/20'}"
 	>
 		{#if selectedOptions.length}
-			<div class="flex flex-row flex-wrap gap-1 items-center">
+			<div class="flex flex-row flex-wrap gap-1.5 items-center pr-6">
 				{#each [...selectedOptions] as opt, j (j)}
 					{#if single}
 						<div
@@ -85,27 +87,27 @@
 						</div>
 					{:else}
 						<div
-							class="px-2 py-1 bg-neutral-800 relative rounded-2xl"
+							class="flex flex-row items-center gap-1 px-2.5 py-0.5 bg-paper-deep border border-ink/15 rounded-full text-sm relative transition-colors duration-300 hover:border-petal hover:text-petal"
 							onclick={() => optionClick(opt)}
 							onkeydown={() => optionClick(opt)}
 							role="button"
 							tabindex="0"
 						>
 							{opt}
-							<span class="block i-tabler-x pointer-events-none"></span>
+							<span class="block i-tabler-x w-3.5 h-3.5 pointer-events-none"></span>
 						</div>
 					{/if}
 				{/each}
 
 				{#if !single}
-					<div class="color-neutral-500">{label}</div>
+					<div class="text-ink-faint">{label}</div>
 				{/if}
 			</div>
 		{:else}
-			<div class="color-neutral-500">{label}</div>
+			<div class="text-ink-faint pr-6">{label}</div>
 		{/if}
 
-		<div class="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
+		<div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-ink-soft">
 			{#if expanded}
 				<span class="block i-tabler-chevron-up"></span>
 			{:else}
@@ -116,22 +118,22 @@
 
 	{#if expanded}
 		<div
-			class="absolute top-full right-1/2 translate-x-1/2 bg-neutral-800 w-full z-100 rounded-2xl max-h-50 scroll-auto of-x-hidden"
+			class="card-paper !bg-paper absolute top-full mt-1.5 right-1/2 translate-x-1/2 w-full z-100 max-h-50 overflow-y-auto overflow-x-hidden"
 		>
-			{#each options as opt}
+			{#each options as opt (opt)}
 				<div
 					onclick={() => optionClick(opt)}
 					onkeydown={() => optionClick(opt)}
 					role="button"
 					tabindex="0"
-					class="text-left px-2 py-2 hover:bg-neutral-600 rounded-2xl relative"
+					class="text-left text-ink px-3 py-2 relative border-b border-ink/15 last:border-b-0 transition-colors duration-300 hover:bg-paper-warm"
 				>
 					{opt}
-					<div class="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
+					<div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
 						{#if selectedOptions.includes(opt)}
-							<span class="block i-tabler-checkbox"></span>
+							<span class="block i-tabler-checkbox text-leaf"></span>
 						{:else}
-							<span class="block i-tabler-square-dashed"></span>
+							<span class="block i-tabler-square-dashed text-ink-faint"></span>
 						{/if}
 					</div>
 				</div>
