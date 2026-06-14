@@ -1,0 +1,395 @@
+/*
+ * "Herbarium Folio" — global stylesheet.
+ *
+ * This is imported by +layout.svelte so SvelteKit bundles it into a normal
+ * <link>ed stylesheet. It must NOT live in a UnoCSS `preflights` getCSS:
+ * @unocss/svelte-scoped injects preflights through the
+ * `%unocss-svelte-scoped.global%` placeholder, which comes out EMPTY in the
+ * production build — so design tokens, keyframes, and (critically) the
+ * transform-variable defaults silently vanish and every named transform
+ * (translate/rotate/scale, e.g. the sidebar slide) computes to `none`.
+ */
+
+:root {
+	/* paper */
+	--paper: #f6efdf;
+	--paper-warm: #f0e5cc;
+	--paper-deep: #e6d7b4;
+
+	/* ink */
+	--ink: #2c2618;
+	--ink-soft: #6b5f45;
+	--ink-faint: #a3967a;
+
+	/* flora */
+	--moss: #2f4a33;
+	--leaf: #5d7a48;
+	--leaf-soft: #93a877;
+	--petal: #b3543f;
+	--petal-soft: #d99f8c;
+	--blossom: #c97c92;
+	--gold: #a8842f;
+
+	/* inverted "plate" sections */
+	--plate: #22372b;
+	--plate-soft: #33503e;
+	--plate-line: #4a6a52;
+
+	/* type */
+	--font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+	--font-body: 'Spectral', Georgia, 'Times New Roman', serif;
+	--font-hand: 'Caveat', 'Segoe Script', cursive;
+	--font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+	/* motion */
+	--ease-organic: cubic-bezier(0.22, 1, 0.36, 1);
+	--ease-bloom: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+	color-scheme: light;
+}
+
+/*
+ * Initialize UnoCSS transform-composition variables. The named transform
+ * utilities (translate-x/y, rotate, scale, skew) all emit one shared
+ * `transform: translateX(var(--un-translate-x)) ... scaleZ(var(--un-scale-z))`
+ * referencing TWELVE --un-* vars. An element that sets only one (the sidebar's
+ * -translate-x-full, a button's hover:-translate-y) leaves the rest undefined,
+ * which invalidates the whole transform -> `transform: none`. Defaulting them
+ * here makes every named transform compose correctly.
+ */
+*,
+::before,
+::after {
+	--un-rotate: 0;
+	--un-rotate-x: 0;
+	--un-rotate-y: 0;
+	--un-rotate-z: 0;
+	--un-skew-x: 0;
+	--un-skew-y: 0;
+	--un-scale-x: 1;
+	--un-scale-y: 1;
+	--un-scale-z: 1;
+	--un-translate-x: 0;
+	--un-translate-y: 0;
+	--un-translate-z: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	background: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+body {
+	margin: 0;
+	min-height: 100lvh;
+	color: var(--ink);
+	background: var(--paper);
+	font-family: var(--font-body);
+	font-size: 17px;
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+/* paper grain - one fixed overlay above everything, never interactive */
+body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	z-index: 2147483646;
+	pointer-events: none;
+	opacity: 0.05;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	background-size: 240px 240px;
+	mix-blend-mode: multiply;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-display);
+	font-weight: 600;
+	line-height: 1.12;
+	letter-spacing: -0.01em;
+	margin: 0;
+	text-wrap: balance;
+}
+
+p {
+	margin: 0;
+	text-wrap: pretty;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	font-family: inherit;
+	border: none;
+	background: none;
+	cursor: pointer;
+	color: inherit;
+	font-size: inherit;
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+::selection {
+	background: var(--petal);
+	color: var(--paper);
+}
+
+:focus-visible {
+	outline: 2px solid var(--moss);
+	outline-offset: 3px;
+	border-radius: 2px;
+}
+
+/* scrollbar - a thin pressed stem */
+::-webkit-scrollbar {
+	width: 11px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--paper-warm);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--leaf-soft);
+	border: 3px solid var(--paper-warm);
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--leaf);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type='number'] {
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+
+input,
+textarea,
+select {
+	font-family: var(--font-body);
+}
+
+::placeholder {
+	color: var(--ink-faint);
+	opacity: 1;
+}
+
+/* ────────────────────────────────────────────────────────────
+   Keyframes - global so any component can reference them via
+   [animation:...] utilities.
+   ──────────────────────────────────────────────────────────── */
+
+@keyframes drift {
+	0% {
+		transform: translate3d(0, -6vh, 0) rotate(0deg);
+		opacity: 0;
+	}
+	8% {
+		opacity: var(--drift-opacity, 0.8);
+	}
+	88% {
+		opacity: var(--drift-opacity, 0.8);
+	}
+	100% {
+		transform: translate3d(var(--drift-x, -9vw), 104vh, 0) rotate(var(--drift-spin, 300deg));
+		opacity: 0;
+	}
+}
+
+@keyframes sway {
+	0%,
+	100% {
+		transform: rotate(-2.5deg);
+	}
+	50% {
+		transform: rotate(2.5deg);
+	}
+}
+
+@keyframes bloom {
+	from {
+		transform: scale(0) rotate(-24deg);
+	}
+	to {
+		transform: scale(1) rotate(0deg);
+	}
+}
+
+@keyframes fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(26px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes spin-slow {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes ink-pulse {
+	0%,
+	100% {
+		opacity: 0.55;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.06);
+	}
+}
+
+@keyframes wiggle {
+	0%,
+	100% {
+		transform: rotate(-1.2deg);
+	}
+	50% {
+		transform: rotate(1.2deg);
+	}
+}
+
+/* appeal status page: the verdict stamp pressing onto the page */
+@keyframes stamp-press {
+	from {
+		opacity: 0;
+		transform: rotate(-16deg) scale(1.7);
+	}
+	to {
+		opacity: 0.92;
+		transform: rotate(-7deg) scale(1);
+	}
+}
+
+/* Servers marquee */
+@keyframes press-scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+/* Loading sprout cycle */
+@keyframes seed-cycle {
+	0% {
+		opacity: 0;
+	}
+	6%,
+	92% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes stem-draw {
+	0% {
+		stroke-dashoffset: 60;
+	}
+	45%,
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes leaf-unfold {
+	0%,
+	28% {
+		transform: scale(0);
+	}
+	48%,
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes leaf-unfold-late {
+	0%,
+	38% {
+		transform: scale(0);
+	}
+	58%,
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes bloom-open {
+	0%,
+	55% {
+		transform: scale(0);
+	}
+	74% {
+		transform: scale(1.12);
+	}
+	82%,
+	100% {
+		transform: scale(1);
+	}
+}
+
+/* scroll-reveal: elements with .reveal start hidden, .revealed plays in.
+   The reveal action (src/lib/scripts/util/reveal.ts) toggles the class. */
+.reveal {
+	opacity: 0;
+	transform: translateY(26px);
+	transition:
+		opacity 0.9s var(--ease-organic),
+		transform 0.9s var(--ease-organic);
+	transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal.revealed {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	.reveal {
+		opacity: 1;
+		transform: none;
+	}
+}

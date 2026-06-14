@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '$lib/scripts/index.js';
+	import './main.css';
 
 	import VineSpine from '$lib/components/design/VineSpine.svelte';
 	import Footer from '$lib/components/page/Footer.svelte';
