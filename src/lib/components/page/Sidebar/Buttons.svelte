@@ -21,6 +21,10 @@
 			<span class="i-tabler-flower {iconClass}" aria-hidden="true"></span>
 			Features
 		</a>
+		<a href="/bots" class={linkClass} onclick={close}>
+			<span class="i-tabler-plant {iconClass}" aria-hidden="true"></span>
+			Our bots
+		</a>
 		<a href="/appeals" class={linkClass} onclick={close}>
 			<span class="i-tabler-scale {iconClass}" aria-hidden="true"></span>
 			Appeals

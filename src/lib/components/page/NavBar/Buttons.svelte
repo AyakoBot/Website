@@ -7,6 +7,9 @@
 		<a class="link-vine font-display font-medium text-lg text-ink" href="/features">Features</a>
 	</li>
 	<li>
+		<a class="link-vine font-display font-medium text-lg text-ink" href="/bots">Our bots</a>
+	</li>
+	<li>
 		<a
 			class="link-vine font-display font-medium text-lg text-ink"
 			href="https://invite.ayakobot.com"

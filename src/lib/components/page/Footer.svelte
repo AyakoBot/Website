@@ -54,6 +54,7 @@
 					<div class="flex flex-col items-start gap-2">
 						<span class="label-specimen !text-leaf-soft mb-1">Explore</span>
 						<a class="link-garden" href="/features">Features</a>
+						<a class="link-garden" href="/bots">Our bots</a>
 						<a class="link-garden" href="https://animekos.com" target="_blank" rel="noopener noreferrer">
 							Animekos
 						</a>

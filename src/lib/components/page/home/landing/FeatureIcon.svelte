@@ -15,7 +15,10 @@
 			| 'economy'
 			| 'roleplay'
 			| 'utility'
-			| 'power';
+			| 'power'
+			| 'ticket'
+			| 'relay'
+			| 'lens';
 		size?: number;
 	} = $props();
 </script>
@@ -132,5 +135,50 @@
 			stroke-width="1.4"
 		/>
 		<path d="M19 16.2 C 21 15 23 14 25 13.5" stroke-width="0.8" opacity="0.55" />
+	{:else if name === 'ticket'}
+		<!-- herbarium specimen tag: torn perforation, punched hole, tendril string with leaf -->
+		<path d="M10.7 8.6 L25.6 9.3 L26.2 25.8 L11.2 26.6" />
+		<path
+			d="M10.6 9.6 L10.2 11.6 M10.9 13.4 L10.4 15.5 M10.3 17.3 L10.8 19.3 M10.6 21.1 L10.3 23.2 M10.9 24.8 L11.1 26.3"
+			stroke-width="1.5"
+		/>
+		<circle cx="14.8" cy="12.3" r="1.6" stroke-width="1.5" />
+		<path
+			d="M13.7 11.2 C12.2 8.6 10 6.9 7.3 6.6 C5.1 6.4 4.3 8.1 5.5 9.3 C6.7 10.4 8.3 9.6 7.9 8"
+			stroke-width="1.5"
+		/>
+		<path d="M14.6 10.9 C13.4 8.9 11.6 7.4 9.4 6.8" stroke-width="0.8" opacity="0.55" />
+		<path d="M10.8 7.4 C11 5.7 12.4 4.7 14.2 4.9 C13.9 6.7 12.6 7.7 10.8 7.4 Z" stroke-width="1.3" />
+		<path d="M13.8 17.6 L23 17.3 M13.8 21.3 L20.6 21.1" stroke-width="1.2" />
+	{:else if name === 'relay'}
+		<!-- two-way relay: opposed envelopes grafted onto one vine, a leaf on each half -->
+		<rect x="3.5" y="4.5" width="10" height="7" rx="1" />
+		<path d="M3.9 5.1 L8.7 8.4 L13.1 5.1" stroke-width="1.3" />
+		<rect x="18.5" y="20.5" width="10" height="7" rx="1" />
+		<path d="M18.9 26.9 L23.3 23.7 L28.1 26.9" stroke-width="1.3" />
+		<path d="M11.8 11.9 C13.5 15.5 18.6 16.5 20.3 20.1" stroke-width="1.5" />
+		<path
+			d="M14.1 14.6 C15.2 12.8 17.2 12 19.3 12.4 C18.6 14.3 16.6 15.3 14.5 14.9 Z"
+			stroke-width="1.3"
+		/>
+		<path
+			d="M18 17.5 C16.8 19.2 14.8 20 12.8 19.6 C13.5 17.7 15.4 16.7 17.6 17.1 Z"
+			stroke-width="1.3"
+		/>
+		<path d="M14.6 14.3 C16 13.5 17.4 13 18.8 12.8" stroke-width="0.8" opacity="0.55" />
+	{:else if name === 'lens'}
+		<!-- botanist's hand loupe: turned wooden handle, crosshair, leaf specimen under glass -->
+		<circle cx="13" cy="12.5" r="8" />
+		<path
+			d="M17.9 19.6 C 20.2 22.4 23 24.7 25.5 26.9 C 26.9 27.5 27.8 26.3 27.1 25.1 C 24.8 22.6 22.4 20.2 20.1 17.4"
+		/>
+		<path d="M17.9 19.6 L20.1 17.4" stroke-width="1.5" />
+		<path
+			d="M8.8 15.2 C 8.5 12.5 10.1 10.3 12.9 9.6 C 13.3 12.3 11.7 14.5 8.8 15.2 Z"
+			stroke-width="1.4"
+		/>
+		<path d="M9.5 14.4 C 10.5 12.9 11.5 11.4 12.5 10.2" stroke-width="0.8" opacity="0.55" />
+		<path d="M7.4 12.9 C 11 12.4 15 12.4 18.6 12.9" stroke-width="0.8" opacity="0.55" />
+		<path d="M13.3 6.6 C 12.8 10.5 12.8 14.5 13.3 18.4" stroke-width="0.8" opacity="0.55" />
 	{/if}
 </svg>
