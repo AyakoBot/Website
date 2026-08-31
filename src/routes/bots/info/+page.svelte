@@ -23,10 +23,10 @@
 		},
 		{
 			icon: 'utility',
-			title: 'Change the channel, keep the answer',
+			title: 'Pick a channel from the answer',
 			body:
-				'Pick a different channel from a menu. The bot shows all 47 permissions for that ' +
-				'channel, without running the command again.',
+				'/info user and /info role come with a channel picker. Choose a channel and the bot ' +
+				'works out that member’s or role’s permissions there, without running the command again.',
 		},
 		{
 			icon: 'lens',
@@ -118,18 +118,6 @@
 			desc: 'The permissions of a user or role, for the whole server or for one channel.',
 		},
 	];
-
-	/** Section 5 - what View Raw actually prints, abbreviated for the page. */
-	const rawSample = `{
-  "id": "1289334712058445824",
-  "type": 0,
-  "content": "see #rules before posting",
-  "author": { "id": "…", "username": "…", "public_flags": 4194432 },
-  "timestamp": "2026-08-12T19:04:11.288000+00:00",
-  "edited_timestamp": "2026-08-12T19:06:02.117000+00:00",
-  "mentions": [], "attachments": [], "embeds": [],
-  "pinned": false, "flags": 0
-}`;
 
 	/** Section 6 - the badge census. The 14 flags the census actually counts. */
 	const badges = [
@@ -573,8 +561,19 @@
 						<span class="i-tabler-search w-4 h-4 text-ink-soft" aria-hidden="true"></span>
 						<span class="label-specimen">Specimen A · View Raw</span>
 					</div>
-					<pre
-						class="code-font text-[0.72rem] leading-relaxed text-ink bg-paper-deep/70 rounded-[0.35rem] px-3 py-3 overflow-x-auto">{rawSample}</pre>
+					<!--
+						A real capture rather than a hand-written sample. The photo keeps Discord's own
+						dark look; only the mount around it is folio, per DESIGN.md.
+					-->
+					<img
+						src="/images/ads/info-viewraw.webp"
+						alt="The View Raw output in Discord, showing one message as raw JSON: its id, timestamp, flags, components and author."
+						width="550"
+						height="1626"
+						loading="lazy"
+						decoding="async"
+						class="block w-full h-auto rounded-[0.35rem]"
+					/>
 				</div>
 				<figcaption class="text-[0.95rem] text-ink-soft leading-relaxed mt-4 px-1">
 					The message exactly as Discord's API sends it: flags, embeds, attachments, timestamps, and
@@ -803,4 +802,18 @@
 			</p>
 		</div>
 	</div>
+
+	<!--
+	Closes the plate band back to paper. It must sit INSIDE the plate container and must
+	NOT be flipped: TornEdge fills below the wave, so the transparent half above it reveals
+	the plate. Placed after the container (or flipped) it paints paper over paper, the wave
+	vanishes and the band ends on a hard straight edge.
+-->
 </section>
+
+<!--
+	Plate to paper: fill with the PLATE colour and flip, so the dark sits above the wave
+	and paper below. Filling with paper instead eats ~30px of the dark band. The -1px
+	margin overlaps the container so the two plate areas cannot leave a seam.
+-->
+<TornEdge fill="var(--plate)" flip class="mt-[-1px]" />

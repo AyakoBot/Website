@@ -38,10 +38,10 @@
 		},
 		{
 			icon: 'security',
-			name: '13 permissions. Ban is not one of them.',
+			name: 'No moderation permissions',
 			desc:
-				'No ban, no kick, no timeout. Your server can run a support desk without giving the ' +
-				'bot any moderation power.',
+				'It asks for 13 permissions, and they cover only channels, threads, messages and ' +
+				'roles. Your server can run a support desk without giving the bot any moderation power.',
 		},
 	] as const;
 
@@ -336,7 +336,7 @@
 	<title>Ayako | Ticketing: Discord support tickets that arrive in DMs</title>
 	<meta
 		name="description"
-		content="A free Discord ticket bot: members open tickets in their DMs, staff answer from your server. Ranked staff tiers, saved replies, transcripts, and a close timer that warns first. 13 permissions, and ban is not one of them."
+		content="A free Discord ticket bot: members open tickets in their DMs, staff answer from your server. Ranked staff tiers, saved replies, transcripts, and a close timer that warns first. It asks for 13 permissions, and none of them is for moderation."
 	/>
 	<link rel="canonical" href="https://ayakobot.com/bots/ticketing" />
 </svelte:head>
@@ -389,7 +389,7 @@
 		<p
 			class="font-mono text-xs uppercase tracking-[0.14em] text-ink-soft mt-6 [animation:fade-up_0.7s_var(--ease-organic)_0.4s_both]"
 		>
-			Free. 13 permissions, and ban is not one of them.
+			Free. No paid version and no locked features.
 		</p>
 
 		<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mt-12">
@@ -630,6 +630,53 @@
 				</p>
 			</div>
 
+			<!--
+				The same ticket, captured at both ends. This pairing is the whole argument: the
+				member's copy has the prefix stripped and never shows the internal note. The mounts
+				are folio; the photos keep Discord's own dark look, per DESIGN.md.
+			-->
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start mt-10">
+				<figure class="relative rotate-[-1.2deg] m-0" use:reveal>
+					<Tape angle={-6} width={84} class="-top-3 left-8" />
+					<div class="bg-paper p-2.5 shadow-press-lg">
+						<img
+							src="/images/ads/ticket-dm.webp"
+							alt="The member's direct messages with the bot: they report a problem, the bot opens a ticket, and a staff answer arrives with no prefix on it."
+							width="655"
+							height="781"
+							loading="lazy"
+							decoding="async"
+							class="block w-full h-auto rounded-[0.3rem]"
+						/>
+					</div>
+					<figcaption class="text-[0.95rem] text-leaf-soft leading-relaxed mt-4 px-1">
+						<span class="label-specimen !text-leaf-soft block mb-1">What the member sees</span>
+						The staff reply arrives with the prefix removed. The internal note below it never appears here at
+						all.
+					</figcaption>
+				</figure>
+
+				<figure class="relative rotate-[1deg] m-0" use:reveal={{ delay: 0.08 }}>
+					<Tape angle={7} width={84} class="-top-3 right-8" />
+					<div class="bg-paper p-2.5 shadow-press-lg">
+						<img
+							src="/images/ads/ticket-staff.webp"
+							alt="The staff side of the same ticket: the member's message mirrored in, a reply beginning with the r! prefix, and an unprefixed line kept as an internal note."
+							width="535"
+							height="1177"
+							loading="lazy"
+							decoding="async"
+							class="block w-full h-auto rounded-[0.3rem]"
+						/>
+					</div>
+					<figcaption class="text-[0.95rem] text-leaf-soft leading-relaxed mt-4 px-1">
+						<span class="label-specimen !text-leaf-soft block mb-1">What the team sees</span>
+						The reply starts with <span class="code">r!</span>, so it goes to the member. The line after
+						it has no prefix, so it stays in the ticket.
+					</figcaption>
+				</figure>
+			</div>
+
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10">
 				{#each relayPoints as point, i (point.name)}
 					<div
@@ -648,7 +695,12 @@
 		</div>
 	</div>
 
-	<TornEdge fill="var(--paper)" flip />
+	<!--
+		Plate to paper: fill with the PLATE colour and flip, so the dark sits above the wave
+		and paper below. Filling with paper instead eats ~30px of the dark band. The -1px
+		margin overlaps the container so the two plate areas cannot leave a seam.
+	-->
+	<TornEdge fill="var(--plate)" flip class="mt-[-1px]" />
 </section>
 
 <!-- ⑥ escalation as a growing ladder ------------------------------------------------------- -->
@@ -804,11 +856,10 @@
 				<FeatureIcon name="security" size={44} />
 			</div>
 			<h2 class="font-display font-semibold text-3xl sm:text-4xl text-ink">
-				13 permissions. Ban is not one of them.
+				13 permissions. No moderation power.
 			</h2>
 			<p class="text-lg text-ink-soft max-w-2xl mx-auto mt-3">
-				This bot is Ayako’s ticket system, on its own. Your server can run a support desk without giving
-				it any moderation power.
+				This bot is Ayako’s ticket system, on its own. The list below is everything it asks for.
 			</p>
 		</div>
 
@@ -884,7 +935,7 @@
 				Let your members open tickets from their DMs
 			</h2>
 			<p class="text-lg text-leaf-soft leading-relaxed mt-5">
-				{bot.name} is free. It asks for 13 permissions, and ban is not one of them.
+				{bot.name} is free. Members stay in their DMs, and your team answers from your server.
 			</p>
 
 			<div class="flex items-center justify-center gap-4 sm:gap-8 mt-10">
@@ -903,4 +954,11 @@
 			</div>
 		</div>
 	</div>
+
+	<!--
+		Plate to paper: fill with the PLATE colour and flip, so the dark sits above the wave
+		and paper below. Filling with paper instead eats ~30px of the dark band. The -1px
+		margin overlaps the container so the two plate areas cannot leave a seam.
+	-->
+	<TornEdge fill="var(--plate)" flip class="mt-[-1px]" />
 </section>

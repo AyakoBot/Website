@@ -144,7 +144,7 @@
 							<span class="label-specimen block mb-2">Permissions asked</span>
 							<span class="font-mono text-[2.75rem] leading-none text-ink block">13</span>
 							<span class="font-mono text-xs text-ink-soft leading-relaxed block mt-2">
-								and none of them is ban
+								and none of them is for moderation
 							</span>
 						</div>
 
@@ -248,13 +248,13 @@
 				<span class="font-mono text-sm text-ink-soft pt-1 shrink-0">02</span>
 				<div class="min-w-0">
 					<h3 class="font-display font-semibold text-xl text-ink leading-snug">
-						Do you want a ticket bot that never asks for ban permission?
+						Do you only need a ticket system?
 					</h3>
 					<p class="text-[1.02rem] text-ink-soft leading-relaxed mt-2">
 						Then you need <a href="/bots/ticketing" class="link-vine text-ink font-semibold">
 							Ayako | Ticketing
-						</a>. It asks for 13 permissions. Ban is not one of them. Members write to the bot in their
-						DMs. Staff answer from your server.
+						</a>. It asks for 13 permissions. None of them is for moderation. Members write to the bot in
+						their DMs. Staff answer from your server.
 					</p>
 				</div>
 			</li>
@@ -320,6 +320,6 @@
 			</div>
 		</div>
 
-		<TornEdge fill="var(--plate)" flip />
+		<TornEdge fill="var(--plate)" flip class="mt-[-1px]" />
 	</section>
 </div>

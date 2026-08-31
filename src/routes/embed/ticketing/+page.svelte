@@ -46,7 +46,7 @@
 		{
 			icon: 'security',
 			name: '13 permissions.',
-			qualifier: 'It never asks for ban permission.',
+			qualifier: 'None of them is for moderation.',
 		},
 	];
 
@@ -149,77 +149,21 @@
 					<Tape angle={-8} width={62} class="-top-3 left-4" />
 					<Tape angle={7} width={62} class="-top-3 right-4" />
 
-					<!-- the mount: a paper print, cream in both themes -->
+					<!--
+						A real capture, mounted like a photograph. The mount is folio, the photo keeps
+						Discord's own dark look in both themes, per DESIGN.md. Only one fits the 640px
+						frame; the staff side of this same ticket runs on /bots/ticketing.
+					-->
 					<div class="bg-paper p-2 shadow-press-lg [outline:1px_solid_rgba(44,38,24,0.2)]">
-						<!--
-							A photograph of Discord: it keeps its Discord-dark look in both
-							themes, per DESIGN.md. Only the mount around it is folio.
-						-->
-						<div class="bg-[#313338] rounded-[3px] overflow-hidden">
-							<div class="flex items-center gap-1.5 bg-[#1e1f22] px-2 py-1">
-								<span class="i-tabler-at w-3 h-3 text-white/40" aria-hidden="true"></span>
-								<span class="font-mono text-[0.58rem] text-white/55">Direct Message</span>
-							</div>
-
-							<div class="flex gap-1.5 px-2 py-1.5">
-								<span class="w-4 h-4 mt-[2px] shrink-0 rounded-full bg-[#5865f2]"></span>
-								<p class="text-[0.7rem] leading-[1.35] text-white/75 m-0">
-									<span class="font-600 text-white/95">Alex</span><br />
-									I can’t see the events channel.
-								</p>
-							</div>
-
-							<div class="flex gap-1.5 px-2 pb-1.5">
-								<span class="w-4 h-4 mt-[2px] shrink-0 rounded-full bg-[#5d7a48]"></span>
-								<p class="text-[0.7rem] leading-[1.35] text-white/75 m-0">
-									<span class="font-600 text-white/95">Support</span><br />
-									You were missing the Events role. I added it.
-								</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="flex items-center gap-1.5 pl-4 py-1">
-						<span class="accent i-tabler-arrow-narrow-right w-4 h-4 rotate-90" aria-hidden="true"></span>
-						<span class="label-specimen muted">copied to the staff channel</span>
-					</div>
-
-					<div class="bg-paper p-2 shadow-press [outline:1px_solid_rgba(44,38,24,0.2)]">
-						<div class="bg-[#313338] rounded-[3px] overflow-hidden">
-							<div class="flex items-center gap-1.5 bg-[#1e1f22] px-2 py-1">
-								<span class="i-tabler-hash w-3 h-3 text-white/40" aria-hidden="true"></span>
-								<span class="font-mono text-[0.58rem] text-white/55">ticket-0042</span>
-							</div>
-
-							<div class="flex gap-1.5 px-2 py-1.5">
-								<span class="w-4 h-4 mt-[2px] shrink-0 rounded-full bg-[#5865f2]"></span>
-								<p class="text-[0.7rem] leading-[1.35] text-white/75 m-0">
-									<span class="font-600 text-white/95">Alex</span><br />
-									I can’t see the events channel.
-								</p>
-							</div>
-
-							<div class="flex gap-1.5 px-2 pb-1.5">
-								<span class="w-4 h-4 mt-[2px] shrink-0 rounded-full bg-[#5d7a48]"></span>
-								<p class="text-[0.7rem] leading-[1.35] text-white/75 m-0">
-									<span class="font-600 text-white/95">Rin</span><br />
-									You were missing the Events role. I added it.
-								</p>
-							</div>
-
-							<div class="flex gap-1.5 bg-[#2b2d31] px-2 py-1.5">
-								<span class="w-4 h-4 mt-[2px] shrink-0 rounded-full bg-[#a8842f]"></span>
-								<p class="text-[0.7rem] leading-[1.35] text-white/60 m-0">
-									<span class="font-600 text-white/85">Rin</span>
-									<span
-										class="inline-flex items-center gap-0.5 font-mono text-[0.5rem] uppercase tracking-[0.1em] text-white/45"
-									>
-										<span class="i-tabler-lock w-2.5 h-2.5" aria-hidden="true"></span> internal note
-									</span><br />
-									Checked their join date. It looks normal.
-								</p>
-							</div>
-						</div>
+						<img
+							src="/images/ads/ticket-dm.webp"
+							alt="A member's direct messages with the bot: they report a problem, the bot opens a ticket, and a staff answer arrives in the same conversation."
+							width="655"
+							height="781"
+							loading="lazy"
+							decoding="async"
+							class="block w-full h-auto rounded-[3px]"
+						/>
 					</div>
 
 					<!-- the plate's mark, stamped over the corner of the print -->
@@ -230,7 +174,9 @@
 						<FeatureIcon name="ticket" size={40} />
 					</span>
 
-					<figcaption class="annotation muted leading-tight mt-2">one ticket, both sides</figcaption>
+					<figcaption class="annotation muted leading-tight mt-2">
+						the member never leaves their DMs
+					</figcaption>
 				</figure>
 			</div>
 		</div>

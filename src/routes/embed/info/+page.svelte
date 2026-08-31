@@ -28,8 +28,8 @@
 				'First @everyone, then every role, then the channel’s own settings. The same order Discord uses.',
 		},
 		{
-			lead: 'Change the channel with a menu.',
-			rest: 'The bot checks all 47 permissions again for the channel you pick.',
+			lead: 'A channel picker on /info user.',
+			rest: 'Pick a channel and the bot works out all 47 permissions there.',
 		},
 		{
 			lead: 'One command checks 17 kinds of things.',
@@ -41,14 +41,6 @@
 		{ value: '17', label: 'things it checks' },
 		{ value: '47', label: 'permissions read' },
 		{ value: '4', label: 'permissions needed' },
-	];
-
-	/** The specimen in the taped-in photograph: a timed-out member in #announcements. */
-	const resolved = [
-		{ name: 'View Channel', allowed: true },
-		{ name: 'Read Message History', allowed: true },
-		{ name: 'Send Messages', allowed: false },
-		{ name: 'Add Reactions', allowed: false },
 	];
 </script>
 
@@ -109,65 +101,30 @@
 				<FeatureIcon name="lens" size={40} />
 			</span>
 
-			<!-- a photograph of Discord, taped into the folio: the inner surface keeps
-			     its Discord-dark look in both themes; only the mat around it flips -->
+			<!--
+				A real capture, mounted like a photograph. The mount is folio, the photo keeps
+				Discord's own dark look in both themes, per DESIGN.md. Cropped to the header and
+				the first groups; the full capture runs on /bots/info, which has room to scroll.
+			-->
 			<div
 				class="mat relative rotate-[-2deg] rounded-[0.4rem_1.1rem_0.4rem_1.1rem] p-2.5 pt-4 shadow-press"
 			>
 				<Tape angle={-8} width={94} class="-top-2.5 right-5" />
 
-				<div class="rounded-[0.35rem] bg-[#313338] px-3 py-2.5">
-					<div class="flex items-center gap-1.5">
-						<span class="font-600 text-[#b0ff00] text-[0.78rem]">{bots.info.name}</span>
-						<span
-							class="inline-flex items-center bg-[#5865f2] text-white text-[0.5rem] px-1 rounded-sm font-500"
-						>
-							APP
-						</span>
-					</div>
-
-					<div class="flex bg-[#2b2d31] rounded overflow-hidden mt-1.5">
-						<div class="w-1 shrink-0 bg-gold"></div>
-						<div class="flex flex-col gap-1.5 flex-1 min-w-0 px-2.5 py-2">
-							<span class="font-700 text-[0.78rem] text-white">Permissions</span>
-							<span class="text-[0.72rem] text-white/75 leading-snug">
-								<span class="mention">@wanderer</span> in
-								<span class="mention">#announcements</span>
-							</span>
-
-							<ul class="flex flex-col gap-1 mt-0.5">
-								{#each resolved as permission (permission.name)}
-									<li
-										class="flex items-center gap-1.5 text-[0.72rem] leading-tight {permission.allowed
-											? 'text-white/85'
-											: 'text-white/70 line-through'}"
-									>
-										{#if permission.allowed}
-											<span class="i-tabler-check w-3 h-3 shrink-0 text-[#3ba55d]" aria-hidden="true"></span>
-										{:else}
-											<span class="i-tabler-x w-3 h-3 shrink-0 text-[#ed4245]" aria-hidden="true"></span>
-										{/if}
-										{permission.name}
-									</li>
-								{/each}
-							</ul>
-
-							<span class="text-[0.68rem] text-white/60 leading-snug mt-0.5">
-								Timed out: Send Messages turned off
-							</span>
-						</div>
-					</div>
-
-					<div
-						class="flex items-center justify-between gap-2 rounded bg-[#1e1f22] border border-white/10 px-2.5 py-1.5 mt-2"
-					>
-						<span class="text-[0.72rem] text-white/85">#announcements</span>
-						<span class="i-tabler-chevron-down w-3.5 h-3.5 text-white/50" aria-hidden="true"></span>
-					</div>
-				</div>
+				<img
+					src="/images/ads/info-permissions-panel.webp"
+					alt="The output of the info permissions command in Discord, listing every permission in named groups with each one switched on or off."
+					width="559"
+					height="640"
+					loading="lazy"
+					decoding="async"
+					class="block w-full h-auto rounded-[0.35rem]"
+				/>
 			</div>
 
-			<p class="caption annotation rotate-[-1.5deg] mt-2">the role allows it. the timeout blocks it</p>
+			<p class="caption annotation rotate-[-1.5deg] mt-2">
+				every permission, worked out for one channel
+			</p>
 		</div>
 	</div>
 </div>
