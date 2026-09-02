@@ -16,21 +16,20 @@
 	This page is the remedy top.gg's own Bot Guidelines prescribe for a bot family:
 	sibling bots built on shared code must not be submitted individually, they belong
 	"in your main bot's help command or website page". Only the flagship is listed
-	there; the collection is presented here, as one journal with three plates.
+	there; the collection is presented here, as one journal with four plates.
 
-	IMPORTANT: "Ayako | Ticketing" and "Ayako | Info" are NOT publicly installable
-	yet - their handlers are gated to debug guilds and no Discord application exists
-	for either. Their cards therefore link to their pages and carry no invite CTA.
-	The flagship is the only install target on this page. Add the two spin-off CTAs
-	(bots.ticketing.invite / bots.info.invite, both with trackInviteClick) once the
-	cutover gate is removed.
+	The spin-offs' handlers are still gated to debug guilds in the Service package,
+	so a public server cannot reach their features yet. The owner has chosen to
+	present them as launched. Their cards link to their own pages; the flagship
+	remains the only install CTA on this page, because it is the only one a visitor
+	can use today with any effect.
 -->
 
 <svelte:head>
-	<title>The Collection - Ayako, Ayako | Ticketing and Ayako | Info</title>
+	<title>The Collection - Ayako, Ayako | Ticketing, Ayako | Info and Ayako | Welcome</title>
 	<meta
 		name="description"
-		content="Ayako, Ayako | Ticketing and Ayako | Info - what each bot does, which one you need, and how many permissions each one asks for."
+		content="Ayako and its three spin-off bots - what each one does, which one you need, and how many permissions each one asks for."
 	/>
 	<link rel="canonical" href="https://ayakobot.com/bots" />
 </svelte:head>
@@ -47,7 +46,7 @@
 
 		<span class="label-specimen block mb-3">The Collection</span>
 		<h1 class="font-display font-semibold text-4xl sm:text-6xl text-ink leading-tight">
-			Three bots. <span class="italic text-petal">One family.</span>
+			Four bots. <span class="italic text-petal">One family.</span>
 		</h1>
 
 		<div class="flex justify-center mt-6" aria-hidden="true">
@@ -55,14 +54,14 @@
 		</div>
 
 		<p class="text-lg text-ink-soft leading-relaxed mt-6">
-			Ayako is the full bot. Two parts of it also work as bots of their own. So your server can take
+			Ayako is the full bot. Three parts of it also work as bots of their own. So your server can take
 			just the part it needs. Each bot asks only for the permissions it really uses.
 		</p>
 	</header>
 
-	<!-- 2. THREE SPECIMEN CARDS -->
+	<!-- 2. FOUR SPECIMEN CARDS -->
 	<section class="max-w-6xl mx-auto px-5 sm:px-8 pt-12 pb-8">
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-7">
+		<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 md:gap-7">
 			<!-- PLATE I - the flagship -->
 			<div use:reveal>
 				<article
@@ -205,10 +204,55 @@
 					</div>
 				</article>
 			</div>
+
+			<!-- PLATE IV - welcome -->
+			<div use:reveal={{ delay: 0.3 }}>
+				<article
+					class="group relative flex flex-col h-full card-paper !bg-paper px-6 pt-10 pb-6 rotate-[-1.4deg] [transition:transform_0.45s_var(--ease-organic),box-shadow_0.45s_var(--ease-organic)] hover:rotate-0 hover:translate-y-[-5px] hover:shadow-press-lg focus-within:rotate-0 focus-within:translate-y-[-5px] focus-within:shadow-press-lg"
+				>
+					<Tape angle={5} class="-top-2.5 left-1/2 -ml-9" />
+
+					<span class="label-specimen block mb-4">Plate IV · The Greeting</span>
+
+					<div class="flex items-center gap-4 mb-3">
+						<span
+							class="w-16 h-16 shrink-0 rounded-full border-[1.6px] border-current bg-paper flex items-center justify-center rotate-[2deg]"
+							style="color: var(--petal);"
+						>
+							<FeatureIcon name="greeting" size={40} />
+						</span>
+						<h2 class="font-display font-semibold text-2xl text-ink leading-tight">
+							{bots.welcome.name}
+						</h2>
+					</div>
+
+					<p class="text-[1.05rem] text-ink-soft leading-relaxed">A welcome message worth reading.</p>
+
+					<div class="mt-auto pt-6">
+						<div class="border-t border-ink/15 pt-4">
+							<span class="label-specimen block mb-2">Permissions asked</span>
+							<span class="font-mono text-[2.75rem] leading-none text-ink block">4</span>
+							<span class="font-mono text-xs text-ink-soft leading-relaxed block mt-2">
+								and it brings its own embed builder
+							</span>
+						</div>
+
+						<div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5">
+							<a
+								href="/bots/welcome"
+								class="btn-quiet font-display font-semibold inline-flex items-center gap-1.5"
+							>
+								See the welcome bot
+								<span class="i-tabler-arrow-right w-4 h-4" aria-hidden="true"></span>
+							</a>
+						</div>
+					</div>
+				</article>
+			</div>
 		</div>
 
 		<p class="annotation text-xl text-center mt-10 rotate-[-1deg]">
-			two of these are parts of the first
+			three of these are parts of the first
 		</p>
 	</section>
 
@@ -259,7 +303,7 @@
 				</div>
 			</li>
 
-			<li class="flex items-start gap-5 border-t border-b border-ink/15 py-6">
+			<li class="flex items-start gap-5 border-t border-ink/15 py-6">
 				<span class="font-mono text-sm text-ink-soft pt-1 shrink-0">03</span>
 				<div class="min-w-0">
 					<h3 class="font-display font-semibold text-xl text-ink leading-snug">
@@ -271,6 +315,22 @@
 						</a>. It asks for 4 permissions, all read-only. There is nothing to set up. One
 						<span class="code">/info</span> command calculates permissions the same way Discord does. It includes
 						channel overwrites and timeouts.
+					</p>
+				</div>
+			</li>
+
+			<li class="flex items-start gap-5 border-t border-b border-ink/15 py-6">
+				<span class="font-mono text-sm text-ink-soft pt-1 shrink-0">04</span>
+				<div class="min-w-0">
+					<h3 class="font-display font-semibold text-xl text-ink leading-snug">
+						Do you only need to greet people when they join?
+					</h3>
+					<p class="text-[1.02rem] text-ink-soft leading-relaxed mt-2">
+						Then you need <a href="/bots/welcome" class="link-vine text-ink font-semibold">
+							Ayako | Welcome
+						</a>. It asks for 4 permissions. It comes with an embed builder and a Components-V2 builder,
+						so you design the message yourself. It can also say goodbye, and attach a random GIF from a
+						channel your members fill.
 					</p>
 				</div>
 			</li>
@@ -288,7 +348,7 @@
 					Start with Ayako
 				</h2>
 				<p class="text-lg text-leaf-soft leading-relaxed max-w-xl mx-auto mt-5">
-					Ayako is the bot you can add today. The other 2 bots are coming soon. Free forever - no paid
+					Ayako is the bot you can add today. The other 3 bots are coming soon. Free forever - no paid
 					plan, no credit card, no paywall.
 				</p>
 

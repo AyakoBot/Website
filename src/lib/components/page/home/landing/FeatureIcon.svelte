@@ -18,7 +18,8 @@
 			| 'power'
 			| 'ticket'
 			| 'relay'
-			| 'lens';
+			| 'lens'
+			| 'greeting';
 		size?: number;
 	} = $props();
 </script>
@@ -180,5 +181,18 @@
 		<path d="M9.5 14.4 C 10.5 12.9 11.5 11.4 12.5 10.2" stroke-width="0.8" opacity="0.55" />
 		<path d="M7.4 12.9 C 11 12.4 15 12.4 18.6 12.9" stroke-width="0.8" opacity="0.55" />
 		<path d="M13.3 6.6 C 12.8 10.5 12.8 14.5 13.3 18.4" stroke-width="0.8" opacity="0.55" />
+	{:else if name === 'greeting'}
+		<!-- open envelope, a single sprig escaping the flap and breaking the top silhouette -->
+		<path d="M4.8 13.6 L27.2 13.1 L27.6 26.6 L5.2 27.1 Z" />
+		<path d="M5.4 14 L16.1 20.8 L26.8 13.5" stroke-width="1.3" />
+		<circle cx="16.1" cy="21.6" r="0.7" fill="currentColor" stroke="none" />
+		<path d="M15.9 13.4 C15.7 10.8 16.3 8.1 17.6 5.7" stroke-width="1.5" />
+		<path
+			d="M15.9 10.2 C14.6 9.5 13.1 9.7 12 10.8 C13.1 11.9 14.7 11.7 15.9 10.2 Z"
+			stroke-width="1.3"
+		/>
+		<path d="M16.3 8.1 C17.4 7.1 18.9 6.9 20.2 7.6 C19.5 9 17.9 9.3 16.3 8.1 Z" stroke-width="1.3" />
+		<path d="M17.4 6 C16.9 4.8 17.3 3.6 18.4 3.1 C19.3 4.1 19.1 5.3 17.4 6 Z" stroke-width="1.3" />
+		<path d="M15.2 10.2 C14.3 10.1 13.4 10.3 12.7 10.7" stroke-width="0.8" opacity="0.55" />
 	{/if}
 </svg>

@@ -11,10 +11,16 @@
  * `customBotPerms` sets declared in @ayako/service:
  *   Plugins/ticketing/Plugin.ts  13 permissions  395405552720
  *   Plugins/info/Plugin.ts        4 permissions       84992
- * If either plugin's permission set changes, recompute the integer here.
+ *   Plugins/welcome/Plugin.ts     4 permissions      150528
+ * If any plugin's permission set changes, recompute the integer here.
+ *
+ * Only the root plugin's own `customBotPerms` goes into an invite; a plugin's
+ * dependencies do not contribute theirs. Welcome depends on embedBuilder and
+ * componentBuilder and therefore ships their commands, but their ManageWebhooks
+ * flag is deliberately absent from 150528.
  */
 
-export type BotSlug = 'ayako' | 'ticketing' | 'info';
+export type BotSlug = 'ayako' | 'ticketing' | 'info' | 'welcome';
 
 export type Bot = {
 	slug: BotSlug;
@@ -46,5 +52,12 @@ export const bots: Record<BotSlug, Bot> = {
 		invite:
 			'https://discord.com/oauth2/authorize?client_id=1523774742945992847&permissions=84992&scope=bot',
 		cta: 'Add Info to Discord',
+	},
+	welcome: {
+		slug: 'welcome',
+		name: 'Ayako | Welcome',
+		invite:
+			'https://discord.com/oauth2/authorize?client_id=1544065213983236226&permissions=150528&scope=bot',
+		cta: 'Add Welcome to Discord',
 	},
 };
