@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PetalDrift from '$lib/components/design/PetalDrift.svelte';
 	import Sprig from '$lib/components/design/Sprig.svelte';
+	import Tape from '$lib/components/design/Tape.svelte';
 	import FeatureIcon from '$lib/components/page/home/landing/FeatureIcon.svelte';
 	import { bots } from '$lib/scripts/bots';
 
@@ -18,12 +19,11 @@
 	 *     never fire in a short non-scrolling frame. Motion is CSS keyframes with
 	 *     animation-delay only, and every base state is already visible.
 	 *
-	 * No photograph on this panel. The other three plates mount a real Discord
-	 * capture, but the one screenshot that would sell this bot is a designed
-	 * welcome embed, and no such capture exists yet (see ads/IMAGES-NEEDED.md).
-	 * A fabricated one is exactly what was stripped off these pages once already,
-	 * so the right-hand column carries drawn ornament instead. Swap in the
-	 * capture when it lands.
+	 * The photograph is real: a Components-V2 greeting actually sent by this bot in
+	 * Blooming Animekos. Its source JSON is ads/showcase/welcome-animekos.json,
+	 * validated by ads/tools/cv2-validate.mjs. Cropped to the first container so
+	 * the pink accent spine, the inline thumbnail and the section button all read
+	 * at panel size; the full capture runs on /bots/welcome, which can scroll.
 	 */
 
 	const points = [
@@ -106,28 +106,27 @@
 			</span>
 
 			<!--
-				Stands in for the photograph the other plates carry. It is a drawn
-				specimen card, not a mock Discord message: passing off invented UI as a
-				screenshot is precisely the mistake that had to be undone on these pages
-				before. It reads as ornament, which is honest.
+				A real capture, mounted like a photograph. The mount is folio, the photo keeps
+				Discord's own dark look in both themes, per DESIGN.md. Cropped to the first
+				container; the full message runs on /bots/welcome, which has room to scroll.
 			-->
-			<div class="card relative rotate-[-2deg] rounded-[0.4rem_1.1rem_0.4rem_1.1rem] px-4 py-4">
-				<span class="eyebrow label-specimen block text-[0.5625rem]">The message</span>
+			<div
+				class="mat relative rotate-[-2deg] rounded-[0.4rem_1.1rem_0.4rem_1.1rem] p-2.5 pt-4 shadow-press"
+			>
+				<Tape angle={-8} width={94} class="-top-2.5 right-5" />
 
-				<p class="greeting font-display font-semibold mt-2">
-					Welcome <span class="tok font-mono">{'{{user}}'}</span> to
-					<span class="tok font-mono">{'{{server}}'}</span>
-				</p>
-
-				<div class="rule my-3"></div>
-
-				<p class="soft text-[0.7rem] leading-relaxed">
-					Six placeholders fill themselves in: the member, their name, your server, the member count, and
-					a GIF.
-				</p>
+				<img
+					src="/images/ads/welcome-cv2-panel.webp"
+					alt="The greeting as Discord renders it: a pink accent bar down the left, a wide banner, a headline mentioning the new member with the server icon beside it, and a Bring a friend button."
+					width="733"
+					height="543"
+					loading="lazy"
+					decoding="async"
+					class="block w-full h-auto rounded-[0.35rem]"
+				/>
 			</div>
 
-			<p class="caption annotation rotate-[-1.5deg] mt-2.5">or design your own, and save it</p>
+			<p class="caption annotation rotate-[-1.5deg] mt-2.5">one message, built in Discord</p>
 		</div>
 	</div>
 </div>
@@ -200,28 +199,14 @@
 		background: var(--pane);
 	}
 
-	.panel .card {
+	/* the paper mount the Discord capture is taped onto */
+	.panel .mat {
 		background: var(--mat);
 		border: 1px solid var(--rule);
 	}
 
 	.panel .chip {
 		border-top: 1px solid var(--rule);
-	}
-
-	.panel .rule {
-		border-top: 1px solid var(--rule);
-	}
-
-	.panel .greeting {
-		color: var(--fg);
-		font-size: clamp(0.95rem, 1.9vw, 1.15rem);
-		line-height: 1.3;
-	}
-
-	.panel .tok {
-		color: var(--orn);
-		font-size: 0.86em;
 	}
 
 	/*

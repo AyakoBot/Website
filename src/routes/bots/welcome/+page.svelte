@@ -3,6 +3,7 @@
 	import Flourish from '$lib/components/design/Flourish.svelte';
 	import PetalDrift from '$lib/components/design/PetalDrift.svelte';
 	import Sprig from '$lib/components/design/Sprig.svelte';
+	import Tape from '$lib/components/design/Tape.svelte';
 	import TornEdge from '$lib/components/design/TornEdge.svelte';
 	import FeatureIcon from '$lib/components/page/home/landing/FeatureIcon.svelte';
 	import { bots } from '$lib/scripts/bots';
@@ -315,6 +316,36 @@
 					them.
 				</p>
 			</div>
+
+			<!--
+				The proof. A real Components-V2 greeting this bot sent in a 65,000-member server,
+				not a mockup. Source JSON: ads/showcase/welcome-animekos.json. The photo keeps
+				Discord's own dark look; only the mount around it is folio, per DESIGN.md.
+			-->
+			<figure class="relative max-w-xl mx-auto mt-14" use:reveal>
+				<div
+					class="relative rotate-[-1deg] rounded-[0.5rem_1.4rem_0.5rem_1.4rem] bg-paper-warm border border-ink/15 p-3 pt-5 shadow-press"
+				>
+					<Tape angle={-6} width={104} class="-top-3 left-8" />
+					<Tape angle={5} width={96} class="-top-2.5 right-9" />
+
+					<img
+						src="/images/ads/welcome-cv2.webp"
+						alt="The greeting as Discord renders it. A pink accent bar runs down the first block, which holds a wide banner, a headline mentioning the new member with the server icon inline beside it, and a Bring a friend button. A lavender bar runs down the second block, with artwork beside a paragraph about the server. Three link buttons close it."
+						width="733"
+						height="892"
+						loading="lazy"
+						decoding="async"
+						class="block w-full h-auto rounded-[0.4rem]"
+					/>
+				</div>
+
+				<figcaption class="text-[0.95rem] text-ink-soft leading-relaxed mt-5 px-1">
+					One saved design, sent to a real member. The coloured bars, the image beside the text, the
+					button sitting inside a paragraph and the buttons along the bottom are all components you place
+					yourself. The name and member count filled themselves in.
+				</figcaption>
+			</figure>
 		</div>
 	</div>
 </section>
