@@ -16,7 +16,7 @@
 	This page is the remedy top.gg's own Bot Guidelines prescribe for a bot family:
 	sibling bots built on shared code must not be submitted individually, they belong
 	"in your main bot's help command or website page". Only the flagship is listed
-	there; the collection is presented here, as one journal with four plates.
+	there; the collection is presented here, as one journal with six plates.
 
 	The spin-offs' handlers are still gated to debug guilds in the Service package,
 	so a public server cannot reach their features yet. The owner has chosen to
@@ -26,10 +26,10 @@
 -->
 
 <svelte:head>
-	<title>The Collection - Ayako, Ayako | Ticketing, Ayako | Info and Ayako | Welcome</title>
+	<title>The Collection - Ayako and its six spin-off bots</title>
 	<meta
 		name="description"
-		content="Ayako and its three spin-off bots - what each one does, which one you need, and how many permissions each one asks for."
+		content="Ayako and its six spin-off bots - what each one does, which one you need, and how many permissions each one asks for."
 	/>
 	<link rel="canonical" href="https://ayakobot.com/bots" />
 </svelte:head>
@@ -46,7 +46,7 @@
 
 		<span class="label-specimen block mb-3">The Collection</span>
 		<h1 class="font-display font-semibold text-4xl sm:text-6xl text-ink leading-tight">
-			Four bots. <span class="italic text-petal">One family.</span>
+			Seven bots. <span class="italic text-petal">One family.</span>
 		</h1>
 
 		<div class="flex justify-center mt-6" aria-hidden="true">
@@ -54,18 +54,18 @@
 		</div>
 
 		<p class="text-lg text-ink-soft leading-relaxed mt-6">
-			Ayako is the full bot. Three parts of it also work as bots of their own. So your server can take
+			Ayako is the full bot. Six parts of it also work as bots of their own. So your server can take
 			just the part it needs. Each bot asks only for the permissions it really uses.
 		</p>
 	</header>
 
-	<!-- 2. FOUR SPECIMEN CARDS -->
+	<!-- 2. FIVE SPECIMEN CARDS: the flagship across the top, its six spin-offs in a row beneath -->
 	<section class="max-w-6xl mx-auto px-5 sm:px-8 pt-12 pb-8">
 		<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 md:gap-7">
 			<!-- PLATE I - the flagship -->
-			<div use:reveal>
+			<div class="md:col-span-2 xl:col-span-4 flex justify-center" use:reveal>
 				<article
-					class="group relative flex flex-col h-full card-paper !bg-paper px-6 pt-10 pb-6 rotate-[-2deg] [transition:transform_0.45s_var(--ease-organic),box-shadow_0.45s_var(--ease-organic)] hover:rotate-0 hover:translate-y-[-5px] hover:shadow-press-lg focus-within:rotate-0 focus-within:translate-y-[-5px] focus-within:shadow-press-lg"
+					class="group relative flex flex-col w-full max-w-md card-paper !bg-paper px-6 pt-10 pb-6 rotate-[-2deg] [transition:transform_0.45s_var(--ease-organic),box-shadow_0.45s_var(--ease-organic)] hover:rotate-0 hover:translate-y-[-5px] hover:shadow-press-lg focus-within:rotate-0 focus-within:translate-y-[-5px] focus-within:shadow-press-lg"
 				>
 					<Tape angle={-5} class="-top-2.5 left-1/2 -ml-9" />
 
@@ -249,10 +249,57 @@
 					</div>
 				</article>
 			</div>
+
+			<!-- PLATE V - confessions -->
+			<div use:reveal={{ delay: 0.4 }}>
+				<article
+					class="group relative flex flex-col h-full card-paper !bg-paper px-6 pt-10 pb-6 rotate-[1.2deg] [transition:transform_0.45s_var(--ease-organic),box-shadow_0.45s_var(--ease-organic)] hover:rotate-0 hover:translate-y-[-5px] hover:shadow-press-lg focus-within:rotate-0 focus-within:translate-y-[-5px] focus-within:shadow-press-lg"
+				>
+					<Tape angle={-4} class="-top-2.5 left-1/2 -ml-9" />
+
+					<span class="label-specimen block mb-4">Plate V · The Locket</span>
+
+					<div class="flex items-center gap-4 mb-3">
+						<span
+							class="w-16 h-16 shrink-0 rounded-full border-[1.6px] border-current bg-paper flex items-center justify-center rotate-[-2.5deg]"
+							style="color: var(--blossom);"
+						>
+							<FeatureIcon name="confession" size={40} />
+						</span>
+						<h2 class="font-display font-semibold text-2xl text-ink leading-tight">
+							{bots.confessions.name}
+						</h2>
+					</div>
+
+					<p class="text-[1.05rem] text-ink-soft leading-relaxed">
+						Confessions, on your server's terms.
+					</p>
+
+					<div class="mt-auto pt-6">
+						<div class="border-t border-ink/15 pt-4">
+							<span class="label-specimen block mb-2">Permissions asked</span>
+							<span class="font-mono text-[2.75rem] leading-none text-ink block">4</span>
+							<span class="font-mono text-xs text-ink-soft leading-relaxed block mt-2">
+								and it cannot ban, kick or time out
+							</span>
+						</div>
+
+						<div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5">
+							<a
+								href="/bots/confessions"
+								class="btn-quiet font-display font-semibold inline-flex items-center gap-1.5"
+							>
+								See Confessions
+								<span class="i-tabler-arrow-right w-4 h-4" aria-hidden="true"></span>
+							</a>
+						</div>
+					</div>
+				</article>
+			</div>
 		</div>
 
 		<p class="annotation text-xl text-center mt-10 rotate-[-1deg]">
-			three of these are parts of the first
+			six of these are parts of the first
 		</p>
 	</section>
 
@@ -319,7 +366,7 @@
 				</div>
 			</li>
 
-			<li class="flex items-start gap-5 border-t border-b border-ink/15 py-6">
+			<li class="flex items-start gap-5 border-t border-ink/15 py-6">
 				<span class="font-mono text-sm text-ink-soft pt-1 shrink-0">04</span>
 				<div class="min-w-0">
 					<h3 class="font-display font-semibold text-xl text-ink leading-snug">
@@ -330,7 +377,23 @@
 							Ayako | Welcome
 						</a>. It asks for 4 permissions. It comes with an embed builder and a Components-V2 builder,
 						so you design the message yourself. It can also say goodbye, and attach a random GIF from a
-						channel your members fill.
+						pool you fill by right-click.
+					</p>
+				</div>
+			</li>
+
+			<li class="flex items-start gap-5 border-t border-b border-ink/15 py-6">
+				<span class="font-mono text-sm text-ink-soft pt-1 shrink-0">05</span>
+				<div class="min-w-0">
+					<h3 class="font-display font-semibold text-xl text-ink leading-snug">
+						Do you only need a confession channel?
+					</h3>
+					<p class="text-[1.02rem] text-ink-soft leading-relaxed mt-2">
+						Then you need <a href="/bots/confessions" class="link-vine text-ink font-semibold">
+							Ayako | Confessions
+						</a>. It asks for 4 permissions. Members send confessions through a form, and the bot posts
+						them without a name. You choose whether staff can still see who wrote one, and whether every
+						confession waits for review, only the ones your AutoMod rules flag, or none.
 					</p>
 				</div>
 			</li>
@@ -348,7 +411,7 @@
 					Start with Ayako
 				</h2>
 				<p class="text-lg text-leaf-soft leading-relaxed max-w-xl mx-auto mt-5">
-					Ayako is the bot you can add today. The other 3 bots are coming soon. Free forever - no paid
+					Ayako is the bot you can add today. The other 4 bots are coming soon. Free forever - no paid
 					plan, no credit card, no paywall.
 				</p>
 

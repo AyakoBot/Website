@@ -20,14 +20,17 @@ const routes: Record<string, { bot: BotSlug; source: string }> = {
 	'topgg-tickets': { bot: 'ticketing', source: 'top.gg' },
 	'topgg-info': { bot: 'info', source: 'top.gg' },
 	'topgg-welcome': { bot: 'welcome', source: 'top.gg' },
+	'topgg-confessions': { bot: 'confessions', source: 'top.gg' },
 	appdir: { bot: 'ayako', source: 'app-directory' },
 	'appdir-tickets': { bot: 'ticketing', source: 'app-directory' },
 	'appdir-info': { bot: 'info', source: 'app-directory' },
 	'appdir-welcome': { bot: 'welcome', source: 'app-directory' },
+	'appdir-confessions': { bot: 'confessions', source: 'app-directory' },
 	embed: { bot: 'ayako', source: 'embed' },
 	'embed-tickets': { bot: 'ticketing', source: 'embed' },
 	'embed-info': { bot: 'info', source: 'embed' },
 	'embed-welcome': { bot: 'welcome', source: 'embed' },
+	'embed-confessions': { bot: 'confessions', source: 'embed' },
 };
 
 export const GET: RequestHandler = ({ params }) => {
