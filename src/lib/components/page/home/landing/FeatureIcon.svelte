@@ -19,7 +19,8 @@
 			| 'ticket'
 			| 'relay'
 			| 'lens'
-			| 'greeting';
+			| 'greeting'
+			| 'confession';
 		size?: number;
 	} = $props();
 </script>
@@ -194,5 +195,20 @@
 		<path d="M16.3 8.1 C17.4 7.1 18.9 6.9 20.2 7.6 C19.5 9 17.9 9.3 16.3 8.1 Z" stroke-width="1.3" />
 		<path d="M17.4 6 C16.9 4.8 17.3 3.6 18.4 3.1 C19.3 4.1 19.1 5.3 17.4 6 Z" stroke-width="1.3" />
 		<path d="M15.2 10.2 C14.3 10.1 13.4 10.3 12.7 10.7" stroke-width="0.8" opacity="0.55" />
+	{:else if name === 'confession'}
+		<!-- closed locket on its chain: a pressed bloom engraved on the lid, whatever is inside stays inside -->
+		<path
+			d="M14.6 7.6 C12.6 6.2 10.6 5 8.4 4.1 M17.4 7.6 C19.4 6.2 21.4 5 23.6 4.1 M14.4 8.7 A1.6 1.6 0 1 0 17.6 8.7 A1.6 1.6 0 1 0 14.4 8.7"
+			stroke-width="1.4"
+		/>
+		<path
+			d="M16 10.4 C20.3 10.3 23.7 14 23.6 18.5 C23.5 23 20.1 26.7 15.9 26.7 C11.7 26.7 8.3 23 8.4 18.4 C8.5 13.9 11.7 10.5 16 10.4 Z"
+		/>
+		<circle cx="15.9" cy="18.5" r="2" stroke-width="1.4" />
+		<circle cx="15.9" cy="14.6" r="0.7" fill="currentColor" stroke="none" />
+		<circle cx="19.6" cy="17.3" r="0.7" fill="currentColor" stroke="none" />
+		<circle cx="18.3" cy="21.7" r="0.7" fill="currentColor" stroke="none" />
+		<circle cx="13.5" cy="21.6" r="0.7" fill="currentColor" stroke="none" />
+		<circle cx="12.2" cy="17.3" r="0.7" fill="currentColor" stroke="none" />
 	{/if}
 </svg>

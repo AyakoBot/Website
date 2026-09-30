@@ -12,6 +12,7 @@
  *   Plugins/ticketing/Plugin.ts  13 permissions  395405552720
  *   Plugins/info/Plugin.ts        4 permissions       84992
  *   Plugins/welcome/Plugin.ts     4 permissions      150528
+ *   Plugins/confessions/Plugin.ts 4 permissions 51539610624
  * If any plugin's permission set changes, recompute the integer here.
  *
  * Only the root plugin's own `customBotPerms` goes into an invite; a plugin's
@@ -20,7 +21,7 @@
  * flag is deliberately absent from 150528.
  */
 
-export type BotSlug = 'ayako' | 'ticketing' | 'info' | 'welcome';
+export type BotSlug = 'ayako' | 'ticketing' | 'info' | 'welcome' | 'confessions';
 
 export type Bot = {
 	slug: BotSlug;
@@ -59,5 +60,12 @@ export const bots: Record<BotSlug, Bot> = {
 		invite:
 			'https://discord.com/oauth2/authorize?client_id=1544065213983236226&permissions=150528&scope=bot',
 		cta: 'Add Welcome to Discord',
+	},
+	confessions: {
+		slug: 'confessions',
+		name: 'Ayako | Confessions',
+		invite:
+			'https://discord.com/oauth2/authorize?client_id=1551634214309462198&permissions=51539610624&scope=bot',
+		cta: 'Add Confessions to Discord',
 	},
 };
