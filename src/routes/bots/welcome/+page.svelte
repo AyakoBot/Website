@@ -14,12 +14,12 @@
 	 * PLATE IV - Ayako | Welcome.
 	 *
 	 * Every figure and claim on this page traces to ads/copy/welcome.md, which
-	 * carries a per-claim ledger with file and line numbers, read at Service
-	 * commit fa937bd.
+	 * carries a per-claim ledger with file and line numbers, re-verified at
+	 * Service commit 29ec8b7 (2026-09-29).
 	 *
 	 * The angle of the page is deliberate. This is not "a bot that posts a join
 	 * message"; the plugin declares dependencies on embedBuilder and
-	 * componentBuilder (welcome/Plugin.ts:73) and buildCommandBody resolves them
+	 * componentBuilder (welcome/Plugin.ts:98) and buildCommandBody resolves them
 	 * transitively, so the standalone bot ships /embed-builder and
 	 * /component-builder as well. That is the differentiator against every other
 	 * greeter, and it leads.
@@ -28,7 +28,7 @@
 	 *   - captcha or verification (a different plugin entirely)
 	 *   - autoroles on join (roleAutomation)
 	 *   - any figure for GIF pool size (unbounded, no cap in code)
-	 *   - German (Plugin.ts:83-85 registers en-GB only)
+	 *   - German (Plugin.ts:110 registers en-GB only)
 	 *   - sending as a webhook: the builder plugins declare ManageWebhooks in
 	 *     their own customBotPerms, but a standalone Welcome bot is invited with
 	 *     150528, which does not include it.
@@ -46,13 +46,13 @@
 			icon: 'greeting',
 			title: 'Two builders come with it',
 			body:
-				'An embed builder and a Components-V2 builder, both inside Discord. Build a message, save it under a name, point the welcome at that name.',
+				'An embed builder and a Components-V2 builder, both inside Discord. Build a message, save it, then pick it for the welcome.',
 		},
 		{
 			icon: 'roleplay',
 			title: 'A different GIF every time',
 			body:
-				'Choose a channel. Whatever your members post there becomes the pool, and each greeting picks one at random.',
+				'Right-click a message, open Apps and save its GIF to the pool. Each greeting picks one at random.',
 		},
 		{
 			icon: 'security',
@@ -71,37 +71,44 @@
 	/** Section 2 - the data strip. */
 	const specimen = [
 		{ value: '2', label: 'Builders included' },
-		{ value: '6', label: 'Placeholders' },
+		{ value: '13', label: 'Placeholders' },
 		{ value: '4', label: 'Permissions asked' },
 		{ value: '0', label: 'Paid features' },
 	];
 
-	/** Section 3 - the six placeholders, from Plugin.ts:60 and sendGreeting.ts:33-47. */
+	/** Section 3 - the thirteen placeholders, from Util/messagePlaceholders.ts and Util/placeholderVars.ts. */
 	const placeholders = [
 		{ token: '{{user}}', gives: 'A mention of the member who just joined' },
 		{ token: '{{username}}', gives: 'Their Discord username' },
 		{ token: '{{displayname}}', gives: 'Their display name, or the username if they have none' },
+		{ token: '{{userid}}', gives: 'Their user ID' },
+		{ token: '{{useravatar}}', gives: 'A link to their avatar image' },
+		{ token: '{{usercreated}}', gives: 'When their account was created, shown as a Discord date' },
 		{ token: '{{server}}', gives: 'Your server’s name' },
+		{ token: '{{serverid}}', gives: 'The ID of your server' },
+		{ token: '{{servericon}}', gives: 'A link to your server icon' },
 		{ token: '{{membercount}}', gives: 'How many members you now have' },
-		{ token: '{{gif}}', gives: 'A random image from your GIF channel' },
+		{ token: '{{boostcount}}', gives: 'How many boosts your server has' },
+		{ token: '{{boosttier}}', gives: 'The boost tier of your server' },
+		{ token: '{{gif}}', gives: 'A random image from your GIF pool' },
 	];
 
-	/** Section 5 - what the GIF pool does, from gifPool.ts and the four cleanup handlers. */
+	/** Section 5 - what the GIF pool does, from welcome/Util/gifPool.ts, saveGif.ts and gifList.ts. */
 	const gifFacts = [
 		{
-			title: 'Members fill it themselves',
+			title: 'Fill it with a right-click',
 			body:
-				'Anything posted in the channel you picked goes into the pool. Attachments, plain links and Tenor links all count.',
+				'Right-click a message, open Apps and choose Save GIF to welcome. Every image in it is saved, attached or linked. You need Manage Server.',
 		},
 		{
 			title: 'Tenor links are converted',
 			body:
-				'A Tenor share link is turned into the actual GIF file, so it renders as an image rather than a link preview.',
+				'A Tenor share link is saved as the actual GIF file. The bot reads it from Discord’s link preview, so the preview needs to have loaded first.',
 		},
 		{
-			title: 'It cleans up after itself',
+			title: 'Look through it any time',
 			body:
-				'Delete the message and the image leaves the pool. Delete the channel, or the thread, and everything from it goes too.',
+				'Open /settings automation welcome-gifs to see the pool, five per page with previews. Any image can be removed from the menu, and it stays until you remove it.',
 		},
 		{
 			title: 'You decide where it lands',
@@ -110,16 +117,16 @@
 		},
 	];
 
-	/** Section 6 - the settings surface, from Plugin.ts:171-330. */
+	/** Section 6 - the settings surface, from welcome/Plugin.ts:217-380. */
 	const settings = [
 		'The channel the message is sent in',
-		'A saved embed, by name',
-		'A saved Components-V2 message, by name',
+		'A saved design, chosen from a list of your embeds and Components-V2 messages',
 		'Whether the joining member is mentioned',
-		'Roles to mention above the message',
-		'Members to mention above the message',
-		'The channel your GIF pool is filled from',
+		'Roles to mention with the message',
+		'Members to mention with the message',
 		'A test button that sends the real thing',
+		'The image pool under welcome-gifs, with previews and a remove menu',
+		'A separate pool for goodbyes under goodbye-gifs',
 	];
 
 	/** Section 8 - FAQ. Every answer traceable to the ledger in ads/copy/welcome.md. */
@@ -134,11 +141,11 @@
 		},
 		{
 			q: 'What is the difference between the two builders?',
-			a: 'The embed builder makes a classic Discord embed. The component builder makes a Components-V2 message, which can hold buttons, sections and image galleries. If you save both, the Components-V2 one is used.',
+			a: 'The embed builder makes a classic Discord embed. The component builder makes a Components-V2 message, which can hold buttons, sections and image galleries. Each greeting uses one design, picked from a list that holds both kinds.',
 		},
 		{
 			q: 'What permissions does it need?',
-			a: 'Four: View Channel, Send Messages, Embed Links and Mention Everyone. The last one is only so role mentions above the greeting actually ping. It cannot ban, kick or time anyone out.',
+			a: 'Four: View Channel, Send Messages, Embed Links and Mention Everyone. The last one is only so role mentions with the greeting actually ping. It cannot ban, kick or time anyone out.',
 		},
 	];
 </script>
@@ -147,7 +154,7 @@
 	<title>Ayako | Welcome: welcome messages with a real builder</title>
 	<meta
 		name="description"
-		content="Welcome and goodbye messages you design yourself, in an embed builder and a Components-V2 builder that come with the bot. Random GIFs from a channel your members fill. Free, four permissions, set up inside Discord."
+		content="Welcome and goodbye messages you design in the embed and Components-V2 builders that come with the bot. Random GIFs saved by right-click. Free, no dashboard."
 	/>
 	<link rel="canonical" href="https://ayakobot.com/bots/welcome" />
 </svelte:head>
@@ -273,8 +280,8 @@
 					<div class="min-w-0">
 						<h3 class="font-display font-semibold text-xl text-ink leading-snug">Save it under a name</h3>
 						<p class="text-[1.02rem] text-ink-soft leading-relaxed mt-2">
-							The design is stored on your server, not inside the welcome setting. You can reuse it, send
-							it by hand, or edit it later.
+							The design is stored with your server, so you can reuse it, send it by hand, or edit it
+							later.
 						</p>
 					</div>
 				</li>
@@ -283,11 +290,11 @@
 					<span class="font-mono text-sm text-ink-soft pt-1 shrink-0">03</span>
 					<div class="min-w-0">
 						<h3 class="font-display font-semibold text-xl text-ink leading-snug">
-							Point the welcome at that name
+							Pick it from the list
 						</h3>
 						<p class="text-[1.02rem] text-ink-soft leading-relaxed mt-2">
-							In <span class="code">/settings automation welcome</span>, type the name you saved. Change
-							the design afterwards and the greeting follows, with nothing to re-enter.
+							In <span class="code">/settings automation welcome</span>, choose it in the Saved Design
+							field. Edit the design later and the greeting uses the new version.
 						</p>
 					</div>
 				</li>
@@ -312,8 +319,7 @@
 					<Sprig size={38} color="var(--leaf)" />
 				</span>
 				<p class="text-[1.02rem] text-ink-soft leading-relaxed">
-					Saved a design in both builders? The Components-V2 one wins. That is the only rule between
-					them.
+					Embeds and Components-V2 messages share one list, and each greeting holds one design from it.
 				</p>
 			</div>
 
@@ -356,7 +362,7 @@
 		<header class="text-center max-w-2xl mx-auto">
 			<span class="label-specimen block mb-3">Figure 2 · The Labels</span>
 			<h2 class="font-display font-semibold text-3xl sm:text-4xl text-ink leading-tight">
-				Six things the bot fills in
+				Thirteen things the bot fills in
 			</h2>
 			<p class="text-[1.05rem] text-ink-soft leading-relaxed mt-4">
 				Write these anywhere in your design. They work in every field, including inside buttons and
@@ -387,7 +393,8 @@
 				A different image every time
 			</h2>
 			<p class="text-[1.05rem] text-ink-soft leading-relaxed mt-4">
-				Point the bot at a channel. Your members fill it, and every greeting draws one at random.
+				Save images into the pool with a right-click on any message. Every greeting draws one at random,
+				and goodbyes have a pool of their own.
 			</p>
 		</header>
 
@@ -404,7 +411,7 @@
 		</div>
 
 		<p class="annotation text-xl text-center mt-10 rotate-[-1deg]">
-			if the channel is private, let the bot see it
+			the reply is just for you and says how many it saved
 		</p>
 	</div>
 </section>
@@ -415,11 +422,11 @@
 		<header class="text-center max-w-2xl mx-auto">
 			<span class="label-specimen block mb-3">Figure 4 · The Bench</span>
 			<h2 class="font-display font-semibold text-3xl sm:text-4xl text-ink leading-tight">
-				One command sets all of it
+				Everything sits under one command
 			</h2>
 			<p class="text-[1.05rem] text-ink-soft leading-relaxed mt-4">
-				<span class="code">/settings automation welcome</span>, inside Discord. There is no dashboard to
-				log into, and the same list exists twice: once for welcomes, once for goodbyes.
+				<span class="code">/settings automation</span>, inside Discord, with four subcommands: welcome,
+				goodbye, welcome-gifs and goodbye-gifs. There is no dashboard to log into.
 			</p>
 		</header>
 
@@ -440,8 +447,9 @@
 		</ul>
 
 		<p class="text-[0.95rem] text-ink-soft leading-relaxed mt-8" use:reveal>
-			A goodbye cannot mention the member who left, because they are no longer there to be pinged.
-			Everything else is the same on both sides.
+			Goodbyes have their own channel, design, mentions, test button and image pool. A goodbye cannot
+			mention the member who left, because they are no longer there to be pinged, and none is sent for
+			a member who was kicked, banned or removed by a prune.
 		</p>
 	</div>
 </section>
