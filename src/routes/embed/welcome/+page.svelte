@@ -34,7 +34,7 @@
 		},
 		{
 			lead: 'A random GIF each time.',
-			rest: 'Pick a channel. Whatever members post there becomes the pool.',
+			rest: 'Right-click any message and save its GIF to the pool.',
 		},
 		{
 			lead: 'It waits for the rules screen.',
@@ -44,7 +44,7 @@
 
 	const specimens = [
 		{ value: '2', label: 'builders included' },
-		{ value: '6', label: 'placeholders' },
+		{ value: '13', label: 'placeholders' },
 		{ value: '4', label: 'permissions needed' },
 	];
 </script>
