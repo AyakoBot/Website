@@ -289,7 +289,7 @@
 								href="/bots/confessions"
 								class="btn-quiet font-display font-semibold inline-flex items-center gap-1.5"
 							>
-								See Confessions
+								See the confessions bot
 								<span class="i-tabler-arrow-right w-4 h-4" aria-hidden="true"></span>
 							</a>
 						</div>
