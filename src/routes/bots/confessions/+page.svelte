@@ -71,14 +71,6 @@
 		},
 	];
 
-	/** Section 2 - the data strip. */
-	const specimen = [
-		{ value: '2', label: 'Anonymity modes' },
-		{ value: '3', label: 'Moderation modes' },
-		{ value: '4', label: 'Permissions asked' },
-		{ value: '0', label: 'Paid features' },
-	];
-
 	/** Section 3 - the two anonymity modes, from identity.ts, review.ts and logContainer.ts. */
 	const hiddenLines = [
 		'Staff can see who wrote it, and other members see only the text.',
@@ -286,9 +278,6 @@
 				<span class="i-tabler-seeding w-5 h-5" aria-hidden="true"></span>
 				{bot.cta}
 			</a>
-			<p class="font-mono text-xs uppercase tracking-[0.14em] text-ink-soft">
-				4 permissions. No dashboard. Free.
-			</p>
 		</div>
 	</div>
 
@@ -319,18 +308,35 @@
 	</div>
 </section>
 
-<!-- ══ 2 · specimen data strip ═══════════════════════════════════════════ -->
-<section class="px-5 sm:px-8 pb-16" use:reveal>
-	<div
-		class="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 border-t border-b border-ink/15 divide-x divide-ink/15"
-	>
-		{#each specimen as datum (datum.label)}
-			<div class="px-4 py-6 text-center">
-				<span class="block font-mono text-3xl sm:text-4xl text-ink">{datum.value}</span>
-				<span class="label-specimen block mt-2 leading-snug">{datum.label}</span>
-			</div>
-		{/each}
-	</div>
+<!-- ══ 2 · what lands in the channel ═════════════════════════════════════ -->
+<section class="px-5 sm:px-8 pb-20" use:reveal>
+	<!--
+		The proof: a real confession with a saved design, posted by this bot as its own
+		post in a forum channel, with an anonymous reply under it. Captured in a debug
+		server. The photo keeps Discord's own look; only the mount is folio, per DESIGN.md.
+	-->
+	<figure class="relative max-w-xl mx-auto">
+		<div
+			class="relative rotate-[-1deg] rounded-[0.5rem_1.4rem_0.5rem_1.4rem] bg-paper-warm border border-ink/15 p-3 pt-5 shadow-press"
+		>
+			<Tape angle={-6} width={104} class="-top-3 left-8" />
+			<Tape angle={5} width={96} class="-top-2.5 right-9" />
+			<!-- svelte-ignore a11y_img_redundant_alt -->
+			<img
+				src="/images/ads/confession-post.webp"
+				alt="A confession as Discord shows it, in a forum post titled Confession #1. A pink bar runs down a card with the heading Confession #1, the line My Server, shared anonymously, a round picture and the confession text. Below the card are a menu button, Submit a confession and Reply. Further down is a reply with no name on it."
+				width="790"
+				height="982"
+				loading="lazy"
+				decoding="async"
+				class="block w-full h-auto rounded-[0.4rem]"
+			/>
+		</div>
+		<figcaption class="text-[0.95rem] text-ink-soft leading-relaxed mt-5 px-1">
+			One saved design, posted as its own post in a forum channel, with a reply under it. The design
+			is the server’s own, and the bot adds the buttons underneath.
+		</figcaption>
+	</figure>
 </section>
 
 <!-- ══ 3 · the two modes — THE PAGE'S SIGNATURE ═════════════════════════ -->
@@ -577,34 +583,6 @@
 				</div>
 			{/each}
 		</div>
-
-		<!--
-			The proof: a real confession with a saved design, posted by this bot as its own
-			post in a forum channel, with an anonymous reply under it. Captured in a debug
-			server. The photo keeps Discord's own look; only the mount is folio, per DESIGN.md.
-		-->
-		<figure class="relative max-w-xl mx-auto mt-14" use:reveal>
-			<div
-				class="relative rotate-[-1deg] rounded-[0.5rem_1.4rem_0.5rem_1.4rem] bg-paper-warm border border-ink/15 p-3 pt-5 shadow-press"
-			>
-				<Tape angle={-6} width={104} class="-top-3 left-8" />
-				<Tape angle={5} width={96} class="-top-2.5 right-9" />
-				<!-- svelte-ignore a11y_img_redundant_alt -->
-				<img
-					src="/images/ads/confession-post.webp"
-					alt="A confession as Discord shows it, in a forum post titled Confession #1. A pink bar runs down a card with the heading Confession #1, the line My Server, shared anonymously, a round picture and the confession text. Below the card are a menu button, Submit a confession and Reply. Further down is a reply with no name on it."
-					width="790"
-					height="982"
-					loading="lazy"
-					decoding="async"
-					class="block w-full h-auto rounded-[0.4rem]"
-				/>
-			</div>
-			<figcaption class="text-[0.95rem] text-ink-soft leading-relaxed mt-5 px-1">
-				One saved design, posted as its own post in a forum channel, with a reply under it. The design
-				is the server’s own, and the bot adds the buttons underneath.
-			</figcaption>
-		</figure>
 	</div>
 </section>
 

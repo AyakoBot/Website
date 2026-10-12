@@ -43,6 +43,21 @@ export const GET = () =>
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://ayakobot.com/bots/reminders</loc>
+  <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ayakobot.com/bots/afk</loc>
+  <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ayakobot.com/bots/bump-reminders</loc>
+  <lastmod>2026-10-12T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://ayakobot.com/donate</loc>
   <lastmod>2024-07-14T15:02:22+00:00</lastmod>
   <priority>0.80</priority>

@@ -26,10 +26,10 @@
 -->
 
 <svelte:head>
-	<title>The Collection - Ayako and its six spin-off bots</title>
+	<title>The Collection - Ayako and its seven spin-off bots</title>
 	<meta
 		name="description"
-		content="Ayako and its six spin-off bots - what each one does, which one you need, and how many permissions each one asks for."
+		content="Ayako and its seven spin-off bots - what each one does, which one you need, and how many permissions each one asks for."
 	/>
 	<link rel="canonical" href="https://ayakobot.com/bots" />
 </svelte:head>
@@ -46,7 +46,7 @@
 
 		<span class="label-specimen block mb-3">The Collection</span>
 		<h1 class="font-display font-semibold text-4xl sm:text-6xl text-ink leading-tight">
-			Seven bots. <span class="italic text-petal">One family.</span>
+			Eight bots. <span class="italic text-petal">One family.</span>
 		</h1>
 
 		<div class="flex justify-center mt-6" aria-hidden="true">
@@ -54,16 +54,16 @@
 		</div>
 
 		<p class="text-lg text-ink-soft leading-relaxed mt-6">
-			Ayako is the full bot. Six parts of it also work as bots of their own. So your server can take
+			Ayako is the full bot. Seven parts of it also work as bots of their own. So your server can take
 			just the part it needs. Each bot asks only for the permissions it really uses.
 		</p>
 	</header>
 
-	<!-- 2. FIVE SPECIMEN CARDS: the flagship across the top, its six spin-offs in a row beneath -->
+	<!-- 2. SPECIMEN CARDS: the flagship across the top, its spin-offs beneath in rows of three -->
 	<section class="max-w-6xl mx-auto px-5 sm:px-8 pt-12 pb-8">
-		<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 md:gap-7">
+		<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-7">
 			<!-- PLATE I - the flagship -->
-			<div class="md:col-span-2 xl:col-span-4 flex justify-center" use:reveal>
+			<div class="md:col-span-2 xl:col-span-3 flex justify-center" use:reveal>
 				<article
 					class="group relative flex flex-col w-full max-w-md card-paper !bg-paper px-6 pt-10 pb-6 rotate-[-2deg] [transition:transform_0.45s_var(--ease-organic),box-shadow_0.45s_var(--ease-organic)] hover:rotate-0 hover:translate-y-[-5px] hover:shadow-press-lg focus-within:rotate-0 focus-within:translate-y-[-5px] focus-within:shadow-press-lg"
 				>
@@ -88,17 +88,7 @@
 					</p>
 
 					<div class="mt-auto pt-6">
-						<div class="border-t border-ink/15 pt-4">
-							<span class="label-specimen block mb-2">Permissions asked</span>
-							<span class="font-mono text-[1.35rem] leading-tight text-ink block">
-								Ban · Kick · Timeout
-							</span>
-							<span class="font-mono text-xs text-ink-soft leading-relaxed block mt-1.5">
-								plus Manage Roles, Manage Channels, Manage Messages and more - the full moderation set
-							</span>
-						</div>
-
-						<div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5">
+						<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
 							<a
 								href="/features"
 								class="btn-quiet font-display font-semibold inline-flex items-center gap-1.5"
@@ -139,15 +129,7 @@
 					<p class="text-[1.05rem] text-ink-soft leading-relaxed">Support that arrives in their DMs.</p>
 
 					<div class="mt-auto pt-6">
-						<div class="border-t border-ink/15 pt-4">
-							<span class="label-specimen block mb-2">Permissions asked</span>
-							<span class="font-mono text-[2.75rem] leading-none text-ink block">13</span>
-							<span class="font-mono text-xs text-ink-soft leading-relaxed block mt-2">
-								and none of them is for moderation
-							</span>
-						</div>
-
-						<div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5">
+						<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
 							<a
 								href="/bots/ticketing"
 								class="btn-quiet font-display font-semibold inline-flex items-center gap-1.5"
@@ -184,15 +166,7 @@
 					<p class="text-[1.05rem] text-ink-soft leading-relaxed">Why can’t they post here?</p>
 
 					<div class="mt-auto pt-6">
-						<div class="border-t border-ink/15 pt-4">
-							<span class="label-specimen block mb-2">Permissions asked</span>
-							<span class="font-mono text-[2.75rem] leading-none text-ink block">4</span>
-							<span class="font-mono text-xs text-ink-soft leading-relaxed block mt-2">
-								read-only, and nothing to set up
-							</span>
-						</div>
-
-						<div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5">
+						<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
 							<a
 								href="/bots/info"
 								class="btn-quiet font-display font-semibold inline-flex items-center gap-1.5"
@@ -229,15 +203,7 @@
 					<p class="text-[1.05rem] text-ink-soft leading-relaxed">A welcome message worth reading.</p>
 
 					<div class="mt-auto pt-6">
-						<div class="border-t border-ink/15 pt-4">
-							<span class="label-specimen block mb-2">Permissions asked</span>
-							<span class="font-mono text-[2.75rem] leading-none text-ink block">4</span>
-							<span class="font-mono text-xs text-ink-soft leading-relaxed block mt-2">
-								and it brings its own embed builder
-							</span>
-						</div>
-
-						<div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5">
+						<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
 							<a
 								href="/bots/welcome"
 								class="btn-quiet font-display font-semibold inline-flex items-center gap-1.5"
@@ -276,15 +242,7 @@
 					</p>
 
 					<div class="mt-auto pt-6">
-						<div class="border-t border-ink/15 pt-4">
-							<span class="label-specimen block mb-2">Permissions asked</span>
-							<span class="font-mono text-[2.75rem] leading-none text-ink block">4</span>
-							<span class="font-mono text-xs text-ink-soft leading-relaxed block mt-2">
-								and it cannot ban, kick or time out
-							</span>
-						</div>
-
-						<div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5">
+						<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
 							<a
 								href="/bots/confessions"
 								class="btn-quiet font-display font-semibold inline-flex items-center gap-1.5"
@@ -296,10 +254,121 @@
 					</div>
 				</article>
 			</div>
+
+			<!-- PLATE VI - reminders -->
+			<div use:reveal={{ delay: 0.5 }}>
+				<article
+					class="group relative flex flex-col h-full card-paper !bg-paper px-6 pt-10 pb-6 rotate-[-0.8deg] [transition:transform_0.45s_var(--ease-organic),box-shadow_0.45s_var(--ease-organic)] hover:rotate-0 hover:translate-y-[-5px] hover:shadow-press-lg focus-within:rotate-0 focus-within:translate-y-[-5px] focus-within:shadow-press-lg"
+				>
+					<Tape angle={3} class="-top-2.5 left-1/2 -ml-9" />
+
+					<span class="label-specimen block mb-4">Plate VI · The Seed Packet</span>
+
+					<div class="flex items-center gap-4 mb-3">
+						<span
+							class="w-16 h-16 shrink-0 rounded-full border-[1.6px] border-current bg-paper flex items-center justify-center rotate-[2deg]"
+							style="color: var(--moss);"
+						>
+							<FeatureIcon name="reminder" size={40} />
+						</span>
+						<h2 class="font-display font-semibold text-2xl text-ink leading-tight">
+							{bots.reminders.name}
+						</h2>
+					</div>
+
+					<p class="text-[1.05rem] text-ink-soft leading-relaxed">A DM when the time comes.</p>
+
+					<div class="mt-auto pt-6">
+						<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+							<a
+								href="/bots/reminders"
+								class="btn-quiet font-display font-semibold inline-flex items-center gap-1.5"
+							>
+								See Reminders
+								<span class="i-tabler-arrow-right w-4 h-4" aria-hidden="true"></span>
+							</a>
+						</div>
+					</div>
+				</article>
+			</div>
+
+			<!-- PLATE VII - afk -->
+			<div use:reveal={{ delay: 0.6 }}>
+				<article
+					class="group relative flex flex-col h-full card-paper !bg-paper px-6 pt-10 pb-6 rotate-[1.4deg] [transition:transform_0.45s_var(--ease-organic),box-shadow_0.45s_var(--ease-organic)] hover:rotate-0 hover:translate-y-[-5px] hover:shadow-press-lg focus-within:rotate-0 focus-within:translate-y-[-5px] focus-within:shadow-press-lg"
+				>
+					<Tape angle={-5} class="-top-2.5 left-1/2 -ml-9" />
+
+					<span class="label-specimen block mb-4">Plate VII · The Bookmark</span>
+
+					<div class="flex items-center gap-4 mb-3">
+						<span
+							class="w-16 h-16 shrink-0 rounded-full border-[1.6px] border-current bg-paper flex items-center justify-center rotate-[-2deg]"
+							style="color: var(--ink-soft);"
+						>
+							<FeatureIcon name="afk" size={40} />
+						</span>
+						<h2 class="font-display font-semibold text-2xl text-ink leading-tight">
+							{bots.afk.name}
+						</h2>
+					</div>
+
+					<p class="text-[1.05rem] text-ink-soft leading-relaxed">A note for whoever mentions you.</p>
+
+					<div class="mt-auto pt-6">
+						<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+							<a
+								href="/bots/afk"
+								class="btn-quiet font-display font-semibold inline-flex items-center gap-1.5"
+							>
+								See AFK
+								<span class="i-tabler-arrow-right w-4 h-4" aria-hidden="true"></span>
+							</a>
+						</div>
+					</div>
+				</article>
+			</div>
+
+			<!-- PLATE VIII - bump reminders -->
+			<div use:reveal={{ delay: 0.7 }}>
+				<article
+					class="group relative flex flex-col h-full card-paper !bg-paper px-6 pt-10 pb-6 rotate-[-1deg] [transition:transform_0.45s_var(--ease-organic),box-shadow_0.45s_var(--ease-organic)] hover:rotate-0 hover:translate-y-[-5px] hover:shadow-press-lg focus-within:rotate-0 focus-within:translate-y-[-5px] focus-within:shadow-press-lg"
+				>
+					<Tape angle={4} class="-top-2.5 left-1/2 -ml-9" />
+
+					<span class="label-specimen block mb-4">Plate VIII · The Watering Can</span>
+
+					<div class="flex items-center gap-4 mb-3">
+						<span
+							class="w-16 h-16 shrink-0 rounded-full border-[1.6px] border-current bg-paper flex items-center justify-center rotate-[2.5deg]"
+							style="color: var(--leaf);"
+						>
+							<FeatureIcon name="bump" size={40} />
+						</span>
+						<h2 class="font-display font-semibold text-2xl text-ink leading-tight">
+							{bots['bump-reminders'].name}
+						</h2>
+					</div>
+
+					<p class="text-[1.05rem] text-ink-soft leading-relaxed">A reminder when the cooldown ends.</p>
+
+					<div class="mt-auto pt-6">
+						<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+							<a
+								href="/bots/bump-reminders"
+								class="btn-quiet font-display font-semibold inline-flex items-center gap-1.5"
+							>
+								See Bump Reminders
+								<span class="i-tabler-arrow-right w-4 h-4" aria-hidden="true"></span>
+							</a>
+						</div>
+					</div>
+				</article>
+			</div>
 		</div>
 
 		<p class="annotation text-xl text-center mt-10 rotate-[-1deg]">
-			six of these are parts of the first
+			seven of these are parts of the first
 		</p>
 	</section>
 
@@ -382,7 +451,7 @@
 				</div>
 			</li>
 
-			<li class="flex items-start gap-5 border-t border-b border-ink/15 py-6">
+			<li class="flex items-start gap-5 border-t border-ink/15 py-6">
 				<span class="font-mono text-sm text-ink-soft pt-1 shrink-0">05</span>
 				<div class="min-w-0">
 					<h3 class="font-display font-semibold text-xl text-ink leading-snug">
@@ -394,6 +463,54 @@
 						</a>. It asks for 4 permissions. Members send confessions through a form, and the bot posts
 						them without a name. You choose whether staff can still see who wrote one, and whether every
 						confession waits for review, only the ones your AutoMod rules flag, or none.
+					</p>
+				</div>
+			</li>
+
+			<li class="flex items-start gap-5 border-t border-ink/15 py-6">
+				<span class="font-mono text-sm text-ink-soft pt-1 shrink-0">06</span>
+				<div class="min-w-0">
+					<h3 class="font-display font-semibold text-xl text-ink leading-snug">
+						Do you only need reminders?
+					</h3>
+					<p class="text-[1.02rem] text-ink-soft leading-relaxed mt-2">
+						Then you need <a href="/bots/reminders" class="link-vine text-ink font-semibold">
+							Ayako | Reminders
+						</a>. It asks for 1 permission, Send Messages, and there is nothing to set up. Run
+						<span class="code">/reminder create</span> with a time such as 1d 12h and a note, and the bot DMs
+						you when it is due. You can add it to your own account.
+					</p>
+				</div>
+			</li>
+
+			<li class="flex items-start gap-5 border-t border-ink/15 py-6">
+				<span class="font-mono text-sm text-ink-soft pt-1 shrink-0">07</span>
+				<div class="min-w-0">
+					<h3 class="font-display font-semibold text-xl text-ink leading-snug">
+						Do you only need an AFK command?
+					</h3>
+					<p class="text-[1.02rem] text-ink-soft leading-relaxed mt-2">
+						Then you need <a href="/bots/afk" class="link-vine text-ink font-semibold"> Ayako | AFK </a>.
+						It asks for 5 permissions. Manage Nicknames is only for the [AFK] tag. Run
+						<span class="code">/afk</span> with an optional reason. Whoever mentions you is told you are
+						away. Your next message brings you back and lists who pinged you. Moderators can end an AFK
+						with <span class="code">/mod afk clear</span>.
+					</p>
+				</div>
+			</li>
+
+			<li class="flex items-start gap-5 border-t border-b border-ink/15 py-6">
+				<span class="font-mono text-sm text-ink-soft pt-1 shrink-0">08</span>
+				<div class="min-w-0">
+					<h3 class="font-display font-semibold text-xl text-ink leading-snug">
+						Do you only need bump reminders?
+					</h3>
+					<p class="text-[1.02rem] text-ink-soft leading-relaxed mt-2">
+						Then you need <a href="/bots/bump-reminders" class="link-vine text-ink font-semibold">
+							Ayako | Bump Reminders
+						</a>. It asks for 4 permissions. Manage Messages is only for cleanup. It watches for your bump
+						bot's success message and posts a reminder when the cooldown is over. DISBOARD, Carl-bot and
+						D-ify.net come as templates. Setup lives in one settings page.
 					</p>
 				</div>
 			</li>

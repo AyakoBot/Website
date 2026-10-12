@@ -44,14 +44,6 @@
 		},
 	] as const;
 
-	/** Section 2 - specimen data, every figure traceable. */
-	const specimen = [
-		{ value: '17', label: 'Subcommands' },
-		{ value: '47', label: 'Permissions in 7 categories' },
-		{ value: '113', label: 'Discord features translated into plain words' },
-		{ value: '4', label: 'Permissions it asks for' },
-	];
-
 	/**
 	 * Section 3 - the resolution chain. Layer copy for the signature plate; the
 	 * order is the resolution order the bot walks, top to bottom.
@@ -239,9 +231,6 @@
 				<span class="i-tabler-seeding w-5 h-5" aria-hidden="true"></span>
 				{bot.cta}
 			</a>
-			<p class="font-mono text-xs uppercase tracking-[0.14em] text-ink-soft">
-				Read-only. 4 permissions. Nothing to set up.
-			</p>
 		</div>
 	</div>
 
@@ -272,18 +261,35 @@
 	</div>
 </section>
 
-<!-- ══ 2 · specimen data strip ═══════════════════════════════════════════ -->
-<section class="px-5 sm:px-8 pb-16" use:reveal>
-	<div
-		class="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 border-t border-b border-ink/15 divide-x divide-ink/15"
-	>
-		{#each specimen as datum (datum.label)}
-			<div class="px-4 py-6 text-center">
-				<span class="block font-mono text-3xl sm:text-4xl text-ink">{datum.value}</span>
-				<span class="label-specimen block mt-2 leading-snug">{datum.label}</span>
-			</div>
-		{/each}
-	</div>
+<!-- ══ 2 · what the bot answers ══════════════════════════════════════════ -->
+<section class="px-5 sm:px-8 pb-20" use:reveal>
+	<!--
+		A real capture of the info permissions output, cropped to the header and the first
+		groups (the same crop as the top.gg panel). The photo keeps Discord's own dark look;
+		only the mount around it is folio, per DESIGN.md.
+	-->
+	<figure class="relative max-w-lg mx-auto">
+		<div
+			class="relative rotate-[-1deg] rounded-[0.5rem_1.4rem_0.5rem_1.4rem] bg-paper-warm border border-ink/15 p-3 pt-5 shadow-press"
+		>
+			<Tape angle={-6} width={104} class="-top-3 left-8" />
+			<Tape angle={5} width={96} class="-top-2.5 right-9" />
+
+			<img
+				src="/images/ads/info-permissions-panel.webp"
+				alt="The output of the info permissions command in Discord, listing every permission in named groups with each one switched on or off."
+				width="559"
+				height="640"
+				loading="lazy"
+				decoding="async"
+				class="block w-full h-auto rounded-[0.4rem]"
+			/>
+		</div>
+
+		<figcaption class="annotation text-xl text-center mt-4">
+			every permission, worked out for one channel
+		</figcaption>
+	</figure>
 </section>
 
 <!-- ══ 3 · the resolution chain — THE PAGE'S SIGNATURE ═══════════════════ -->

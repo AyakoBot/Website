@@ -72,7 +72,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	}
 	response.headers.append('X-Content-Type-Options', 'nosniff');
 	response.headers.append('Referrer-Policy', 'strict-origin-when-cross-origin');
-	response.headers.append('Permissions-Policy', 'camera=(), microphone=(), document-domain=();');
+	response.headers.append('Permissions-Policy', 'camera=(), microphone=(), document-domain=()');
 
 	return response;
 };

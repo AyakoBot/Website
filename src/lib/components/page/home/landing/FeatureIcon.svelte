@@ -20,7 +20,10 @@
 			| 'relay'
 			| 'lens'
 			| 'greeting'
-			| 'confession';
+			| 'confession'
+			| 'reminder'
+			| 'afk'
+			| 'bump';
 		size?: number;
 	} = $props();
 </script>
@@ -210,5 +213,42 @@
 		<circle cx="18.3" cy="21.7" r="0.7" fill="currentColor" stroke="none" />
 		<circle cx="13.5" cy="21.6" r="0.7" fill="currentColor" stroke="none" />
 		<circle cx="12.2" cy="17.3" r="0.7" fill="currentColor" stroke="none" />
+	{:else if name === 'reminder'}
+		<!-- seed hourglass: the top bulb drains seed by seed, and a sprout is already up in the lower bulb -->
+		<path d="M8.6 4.6 H23.4 M8.8 27.4 H23.2" />
+		<path
+			d="M10.4 5 C10.2 10.6 15.2 13.2 15.2 16 C15.2 18.8 10.2 21.4 10.4 27 M21.6 5 C21.8 10.6 16.8 13.2 16.8 16 C16.8 18.8 21.8 21.4 21.6 27"
+		/>
+		<path d="M13.4 12.5 C14.5 13.9 17.5 13.9 18.6 12.5" stroke-width="1.2" />
+		<circle cx="15.9" cy="18.1" r="0.65" fill="currentColor" stroke="none" />
+		<circle cx="16.1" cy="20" r="0.65" fill="currentColor" stroke="none" />
+		<circle cx="16" cy="21.9" r="0.65" fill="currentColor" stroke="none" />
+		<path d="M16 27.1 V24.1" stroke-width="1.4" />
+		<path
+			d="M16 25.1 C14.6 25 13.6 24.1 13.5 22.7 C14.9 22.9 15.9 23.8 16 25.1 Z M16 25.1 C17.4 25 18.4 24.1 18.5 22.7 C17.1 22.9 16.1 23.8 16 25.1 Z"
+			stroke-width="1.2"
+		/>
+	{:else if name === 'afk'}
+		<!-- empty garden bench: nobody on the seat, only a leaf that fell while they were away -->
+		<path d="M8.3 18.4 L8.1 8.7 C13.2 7.6 18.8 7.7 23.9 8.5 L23.7 18.4" />
+		<path d="M4.6 18.6 L27.4 18.2 L27.2 21.4 L4.8 21.8 Z" />
+		<path d="M8.4 21.7 L7.6 27.4 M23.6 21.3 L24.4 27.2" />
+		<path
+			d="M11.2 18.3 C11.8 14.6 15.4 12.4 21 12.8 C20.4 16.6 16.6 18.9 11.2 18.3 Z"
+			stroke-width="1.3"
+		/>
+		<path d="M12 18 C14.8 16 17.6 14.4 20.2 13.3" stroke-width="0.8" opacity="0.55" />
+	{:else if name === 'bump'}
+		<!-- shoot heaving through the crust: soil cracks open, clods fly, two leaves make an arrowhead pointing up -->
+		<path d="M4.6 25.4 C7 22.9 10.3 21.5 13.3 21.3 M18.7 21.3 C21.7 21.5 25 22.9 27.4 25.4" />
+		<path d="M16 27.2 C16.3 22.4 15.7 16.2 16 9.9" />
+		<path
+			d="M16 9.9 C13.7 9.3 11.9 11.5 11.7 15.1 C14.4 15 15.9 12.9 16 9.9 Z M16 9.9 C18.4 9.2 20.3 11.4 20.5 15 C17.7 14.9 16.2 12.8 16 9.9 Z"
+			stroke-width="1.3"
+		/>
+		<path d="M15.3 10.7 C14.4 11.9 13.4 13.2 12.6 14.6" stroke-width="0.8" opacity="0.55" />
+		<circle cx="12.3" cy="18.8" r="0.7" fill="currentColor" stroke="none" />
+		<circle cx="19.9" cy="18.2" r="0.7" fill="currentColor" stroke="none" />
+		<circle cx="9.6" cy="20" r="0.55" fill="currentColor" stroke="none" />
 	{/if}
 </svg>

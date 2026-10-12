@@ -45,19 +45,6 @@
 		},
 	] as const;
 
-	/*
-	 * Specimen data in place of an install count — every figure traceable to the plugin.
-	 * A "4 ticket shapes" figure is deliberately absent: BaseTicket.createDbEntry throws
-	 * create_SettingsChannelNotFound when TicketSetting.channel is null, and nothing
-	 * writes that column today, so the two channel-backed shapes are unreachable on a
-	 * fresh setup. Add it back once that guard is fixed.
-	 */
-	const specimen = [
-		{ value: '47', label: 'Settings' },
-		{ value: '10', label: 'Logged events' },
-		{ value: '8', label: 'Transcript labels' },
-	];
-
 	const shapes = [
 		{
 			key: 'Channel',
@@ -414,20 +401,7 @@
 	</div>
 </section>
 
-<!-- ② specimen data strip ----------------------------------------------------------------- -->
-<section class="px-5 sm:px-8" use:reveal>
-	<div class="max-w-4xl mx-auto border-y border-ink/15 py-6 grid grid-cols-2 sm:grid-cols-4 gap-y-6">
-		{#each specimen as datum (datum.label)}
-			<div class="text-center">
-				<span class="font-mono text-3xl text-ink block leading-none">{datum.value}</span>
-				<span class="label-specimen mt-2 block">{datum.label}</span>
-			</div>
-		{/each}
-	</div>
-	<p class="annotation text-center max-w-2xl mx-auto mt-4">
-		no install count yet: this bot is new, so we show its real numbers instead
-	</p>
-</section>
+<!-- ponytail: slot ② waits for a real capture of a newly opened ticket. -->
 
 <!-- ③ THE LIFECYCLE CROSS-SECTION — the page's signature ---------------------------------- -->
 <section id="lifecycle" class="scroll-mt-24 px-5 sm:px-8 py-20 sm:py-24" use:reveal>

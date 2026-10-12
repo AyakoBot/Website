@@ -12,7 +12,10 @@
  *   Plugins/ticketing/Plugin.ts  13 permissions  395405552720
  *   Plugins/info/Plugin.ts        4 permissions       84992
  *   Plugins/welcome/Plugin.ts     4 permissions      150528
- *   Plugins/confessions/Plugin.ts 4 permissions 51539610624
+ *   Plugins/confessions/Plugin.ts 6 permissions 326417583104
+ *   Plugins/reminders/Plugin.ts   1 permission         2048
+ *   Plugins/afk/Plugin.ts         5 permissions   134302720
+ *   Plugins/bumpReminders/Plugin.ts 4 permissions     11328
  * If any plugin's permission set changes, recompute the integer here.
  *
  * Only the root plugin's own `customBotPerms` goes into an invite; a plugin's
@@ -21,7 +24,15 @@
  * flag is deliberately absent from 150528.
  */
 
-export type BotSlug = 'ayako' | 'ticketing' | 'info' | 'welcome' | 'confessions';
+export type BotSlug =
+	| 'ayako'
+	| 'ticketing'
+	| 'info'
+	| 'welcome'
+	| 'confessions'
+	| 'reminders'
+	| 'afk'
+	| 'bump-reminders';
 
 export type Bot = {
 	slug: BotSlug;
@@ -65,7 +76,28 @@ export const bots: Record<BotSlug, Bot> = {
 		slug: 'confessions',
 		name: 'Ayako | Confessions',
 		invite:
-			'https://discord.com/oauth2/authorize?client_id=1551634214309462198&permissions=51539610624&scope=bot',
+			'https://discord.com/oauth2/authorize?client_id=1551634214309462198&permissions=326417583104&scope=bot',
 		cta: 'Add Confessions to Discord',
+	},
+	reminders: {
+		slug: 'reminders',
+		name: 'Ayako | Reminders',
+		invite:
+			'https://discord.com/oauth2/authorize?client_id=1555231689029197904&permissions=2048&scope=bot',
+		cta: 'Add Reminders to Discord',
+	},
+	afk: {
+		slug: 'afk',
+		name: 'Ayako | AFK',
+		invite:
+			'https://discord.com/oauth2/authorize?client_id=1523778714545029371&permissions=134302720&scope=bot',
+		cta: 'Add AFK to Discord',
+	},
+	'bump-reminders': {
+		slug: 'bump-reminders',
+		name: 'Ayako | Bump Reminders',
+		invite:
+			'https://discord.com/oauth2/authorize?client_id=1557452886869413928&permissions=11328&scope=bot',
+		cta: 'Add Bump Reminders to Discord',
 	},
 };

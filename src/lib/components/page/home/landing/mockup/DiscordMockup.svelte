@@ -1,19 +1,64 @@
 <script lang="ts">
 	import Sprig from '$lib/components/design/Sprig.svelte';
 	import Tape from '$lib/components/design/Tape.svelte';
+	import BotCommandsChannel from './channels/BotCommandsChannel.svelte';
+	import BumpChannel from './channels/BumpChannel.svelte';
+	import ConfessionsChannel from './channels/ConfessionsChannel.svelte';
 	import GeneralChannel from './channels/GeneralChannel.svelte';
 	import GiveawaysChannel from './channels/GiveawaysChannel.svelte';
 	import LevelingChannel from './channels/LevelingChannel.svelte';
 	import LogsChannel from './channels/LogsChannel.svelte';
 	import ModCmdsChannel from './channels/ModCmdsChannel.svelte';
+	import RemindersDm from './channels/RemindersDm.svelte';
+	import TicketsChannel from './channels/TicketsChannel.svelte';
 	import WelcomeChannel from './channels/WelcomeChannel.svelte';
 
-	type Channel = 'welcome' | 'general' | 'mod-cmds' | 'logs' | 'giveaways' | 'leveling';
-	let activeChannel = $state<Channel>('welcome');
+	const views = {
+		welcome: WelcomeChannel,
+		confessions: ConfessionsChannel,
+		general: GeneralChannel,
+		leveling: LevelingChannel,
+		giveaways: GiveawaysChannel,
+		bump: BumpChannel,
+		'bot-commands': BotCommandsChannel,
+		tickets: TicketsChannel,
+		'mod-cmds': ModCmdsChannel,
+		logs: LogsChannel,
+		dm: RemindersDm,
+	};
+	type View = keyof typeof views;
+	type Channel = Exclude<View, 'dm'>;
+
+	const categories: { name: string; channels: Channel[] }[] = [
+		{ name: 'WELCOME', channels: ['welcome', 'confessions'] },
+		{ name: 'COMMUNITY', channels: ['general', 'leveling', 'giveaways', 'bump', 'bot-commands'] },
+		{ name: 'MODERATION', channels: ['tickets', 'mod-cmds', 'logs'] },
+	];
+	const forums: View[] = ['confessions', 'tickets'];
+
+	const foxAvatar =
+		'https://cdn.discordapp.com/avatars/650691698409734151/9ca4ad70d8ef529d31a3ec03923bddcb.webp?size=128';
+
+	let active = $state<View>('welcome');
+	let lastChannel = $state<Channel>('welcome');
+	// The reminder DM waits in the rail as an unread bubble until it is opened, as in Discord.
+	let dmUnread = $state(true);
+
+	const ActiveView = $derived(views[active]);
+
+	function openChannel(channel: Channel) {
+		active = channel;
+		lastChannel = channel;
+	}
+
+	function openDm() {
+		active = 'dm';
+		dmUnread = false;
+	}
 </script>
 
 <div
-	class="relative z-1 overflow-visible w-full mx-auto 2xl:w-2/3 3xl:w-auto 3xl:mx-0 lt-md:scale-65 lt-md:origin-top-left lt-md:w-[calc(100%/0.65)] lt-md:mb-[-13.5rem] lt-xs:scale-50 lt-xs:w-[calc(100%/0.5)] lt-xs:mb-[-19rem]"
+	class="relative z-1 overflow-visible w-full mx-auto 2xl:w-2/3 3xl:w-auto 3xl:mx-0 lt-md:scale-65 lt-md:origin-top-left lt-md:w-[calc(100%/0.65)] lt-md:mb-[-15.25rem] lt-xs:scale-50 lt-xs:w-[calc(100%/0.5)] lt-xs:mb-[-21.5rem]"
 >
 	<figure class="relative m-0 [animation:fade-up_0.7s_var(--ease-organic)_0.3s_both]">
 		<!-- Click to explore hint, scribbled in the margin above the photograph -->
@@ -75,26 +120,48 @@
 					</div>
 				</div>
 
-				<div class="flex h-130">
+				<div class="flex h-150">
 					<!-- Server Sidebar -->
 					<div
 						class="hidden lg:flex w-18 bg-[#1e1f22] pt-3 px-3 flex-col items-center gap-2 flex-shrink-0"
 					>
-						<div
-							class="w-12 h-12 rounded-full bg-[#313338] flex items-center justify-center text-[#dbdee1] transition-all cursor-pointer overflow-hidden hover:rounded-4 hover:bg-[#5865f2] hover:text-white"
+						<button
+							type="button"
+							aria-label="Direct messages"
+							onclick={openDm}
+							class="w-12 h-12 flex items-center justify-center transition-all cursor-pointer overflow-hidden border-none {active ===
+							'dm'
+								? 'rounded-4 bg-[#5865f2] text-white'
+								: 'rounded-full bg-[#313338] text-[#dbdee1] hover:rounded-4 hover:bg-[#5865f2] hover:text-white'}"
 						>
 							<span class="i-tabler-brand-discord-filled text-2xl"></span>
-						</div>
+						</button>
+						{#if dmUnread}
+							<button
+								type="button"
+								aria-label="Unread message from Ayako | Reminders"
+								onclick={openDm}
+								class="relative w-12 h-12 p-0 rounded-full border-none bg-transparent cursor-pointer"
+							>
+								<img src={foxAvatar} alt="" class="w-12 h-12 rounded-full" />
+								<span
+									class="absolute -bottom-1 -right-1 min-w-5 h-5 px-1 rounded-full bg-[#f23f43] border-3 border-solid border-[#1e1f22] text-white text-2.75 font-700 flex items-center justify-center"
+									>1</span
+								>
+							</button>
+						{/if}
 						<div class="w-8 h-0.5 bg-white/6 rounded-sm my-1"></div>
-						<div
-							class="w-12 h-12 rounded-4 bg-[#313338] flex items-center justify-center text-[#dbdee1] transition-all cursor-pointer overflow-hidden"
+						<button
+							type="button"
+							aria-label="Your Server"
+							onclick={() => openChannel(lastChannel)}
+							class="w-12 h-12 p-0 bg-[#313338] transition-all cursor-pointer overflow-hidden border-none hover:rounded-4 {active ===
+							'dm'
+								? 'rounded-full'
+								: 'rounded-4'}"
 						>
-							<img
-								src="https://cdn.discordapp.com/avatars/650691698409734151/9ca4ad70d8ef529d31a3ec03923bddcb.webp?size=128"
-								alt="Ayako"
-								class="w-full h-full object-cover"
-							/>
-						</div>
+							<img src={foxAvatar} alt="" class="w-full h-full object-cover" />
+						</button>
 						<div
 							class="w-12 h-12 rounded-full bg-[#313338] flex items-center justify-center text-[#dbdee1] transition-all cursor-pointer overflow-hidden hover:rounded-4 hover:bg-[#5865f2] hover:text-white"
 						>
@@ -113,99 +180,63 @@
 						</div>
 					</div>
 
-					<!-- Channel List -->
+					<!-- Channel List, or the DM list while the reminder DM is open -->
 					<div class="w-40 lg:w-60 bg-[#2b2d31] flex flex-col flex-shrink-0">
-						<div
-							class="px-4 font-600 text-3.75 text-white flex items-center justify-between h-12 border-b border-black/24 cursor-pointer transition-colors hover:bg-black/16"
-						>
-							<span class="text-3.75 font-600 whitespace-nowrap overflow-hidden text-ellipsis"
-								>Your Server</span
+						{#if active === 'dm'}
+							<div class="px-2.5 flex items-center h-12 border-b border-black/24">
+								<span
+									class="w-full h-7 px-2 rounded bg-[#1e1f22] text-3.25 text-white/40 flex items-center whitespace-nowrap overflow-hidden"
+									>Find or start a conversation</span
+								>
+							</div>
+							<div
+								class="flex items-center justify-between py-4 px-4 pb-1 text-2.75 font-700 text-white/40 uppercase tracking-wide"
 							>
-							<span class="i-tabler-chevron-down text-xs op-70"></span>
-						</div>
-						<div
-							class="flex items-center gap-1 py-4 px-4 pb-1 text-2.75 font-700 text-white/40 uppercase tracking-wide cursor-pointer hover:text-white/60"
-						>
-							<span class="i-tabler-chevron-down text-xs"></span>
-							<span>WELCOME</span>
-						</div>
-						<button
-							class="flex items-center gap-1.5 py-1.5 px-2 mx-2 my-px rounded text-3.75 cursor-pointer transition-all bg-none border-none w-[calc(100%-16px)] text-left font-inherit {activeChannel ===
-							'welcome'
-								? 'bg-white/6 text-white'
-								: 'text-white/40 hover:bg-white/4 hover:text-white/80'}"
-							onclick={() => (activeChannel = 'welcome')}
-						>
-							<span class="i-tabler-hash text-4.5 {activeChannel === 'welcome' ? 'op-100' : 'op-70'}"
-							></span>
-							<span>welcome</span>
-						</button>
-						<div
-							class="flex items-center gap-1 py-4 px-4 pb-1 text-2.75 font-700 text-white/40 uppercase tracking-wide cursor-pointer hover:text-white/60"
-						>
-							<span class="i-tabler-chevron-down text-xs"></span>
-							<span>COMMUNITY</span>
-						</div>
-						<button
-							class="flex items-center gap-1.5 py-1.5 px-2 mx-2 my-px rounded text-3.75 cursor-pointer transition-all bg-none border-none w-[calc(100%-16px)] text-left font-inherit {activeChannel ===
-							'general'
-								? 'bg-white/6 text-white'
-								: 'text-white/40 hover:bg-white/4 hover:text-white/80'}"
-							onclick={() => (activeChannel = 'general')}
-						>
-							<span class="i-tabler-hash text-4.5 {activeChannel === 'general' ? 'op-100' : 'op-70'}"
-							></span>
-							<span>general</span>
-						</button>
-						<button
-							class="flex items-center gap-1.5 py-1.5 px-2 mx-2 my-px rounded text-3.75 cursor-pointer transition-all bg-none border-none w-[calc(100%-16px)] text-left font-inherit {activeChannel ===
-							'leveling'
-								? 'bg-white/6 text-white'
-								: 'text-white/40 hover:bg-white/4 hover:text-white/80'}"
-							onclick={() => (activeChannel = 'leveling')}
-						>
-							<span class="i-tabler-hash text-4.5 {activeChannel === 'leveling' ? 'op-100' : 'op-70'}"
-							></span>
-							<span>leveling</span>
-						</button>
-						<button
-							class="flex items-center gap-1.5 py-1.5 px-2 mx-2 my-px rounded text-3.75 cursor-pointer transition-all bg-none border-none w-[calc(100%-16px)] text-left font-inherit {activeChannel ===
-							'giveaways'
-								? 'bg-white/6 text-white'
-								: 'text-white/40 hover:bg-white/4 hover:text-white/80'}"
-							onclick={() => (activeChannel = 'giveaways')}
-						>
-							<span class="i-tabler-hash text-4.5 {activeChannel === 'giveaways' ? 'op-100' : 'op-70'}"
-							></span>
-							<span>giveaways</span>
-						</button>
-						<div
-							class="flex items-center gap-1 py-4 px-4 pb-1 text-2.75 font-700 text-white/40 uppercase tracking-wide cursor-pointer hover:text-white/60"
-						>
-							<span class="i-tabler-chevron-down text-xs"></span>
-							<span>MODERATION</span>
-						</div>
-						<button
-							class="flex items-center gap-1.5 py-1.5 px-2 mx-2 my-px rounded text-3.75 cursor-pointer transition-all bg-none border-none w-[calc(100%-16px)] text-left font-inherit {activeChannel ===
-							'mod-cmds'
-								? 'bg-white/6 text-white'
-								: 'text-white/40 hover:bg-white/4 hover:text-white/80'}"
-							onclick={() => (activeChannel = 'mod-cmds')}
-						>
-							<span class="i-tabler-hash text-4.5 {activeChannel === 'mod-cmds' ? 'op-100' : 'op-70'}"
-							></span>
-							<span>mod-cmds</span>
-						</button>
-						<button
-							class="flex items-center gap-1.5 py-1.5 px-2 mx-2 my-px rounded text-3.75 cursor-pointer transition-all bg-none border-none w-[calc(100%-16px)] text-left font-inherit {activeChannel ===
-							'logs'
-								? 'bg-white/6 text-white'
-								: 'text-white/40 hover:bg-white/4 hover:text-white/80'}"
-							onclick={() => (activeChannel = 'logs')}
-						>
-							<span class="i-tabler-hash text-4.5 {activeChannel === 'logs' ? 'op-100' : 'op-70'}"></span>
-							<span>logs</span>
-						</button>
+								<span>Direct Messages</span>
+								<span class="i-tabler-plus text-xs"></span>
+							</div>
+							<div class="flex items-center gap-3 py-1.5 px-2 mx-2 my-px rounded bg-white/6 text-white">
+								<img src={foxAvatar} alt="" class="w-8 h-8 rounded-full flex-shrink-0" />
+								<span class="text-3.75 whitespace-nowrap overflow-hidden text-ellipsis"
+									>Ayako | Reminders</span
+								>
+							</div>
+						{:else}
+							<div
+								class="px-4 font-600 text-3.75 text-white flex items-center justify-between h-12 border-b border-black/24 cursor-pointer transition-colors hover:bg-black/16"
+							>
+								<span class="text-3.75 font-600 whitespace-nowrap overflow-hidden text-ellipsis"
+									>Your Server</span
+								>
+								<span class="i-tabler-chevron-down text-xs op-70"></span>
+							</div>
+							<div class="flex-1 min-h-0 overflow-y-auto [scrollbar-width:none]">
+								{#each categories as category (category.name)}
+									<div
+										class="flex items-center gap-1 py-4 px-4 pb-1 text-2.75 font-700 text-white/40 uppercase tracking-wide cursor-pointer hover:text-white/60"
+									>
+										<span class="i-tabler-chevron-down text-xs"></span>
+										<span>{category.name}</span>
+									</div>
+									{#each category.channels as channel (channel)}
+										<button
+											class="flex items-center gap-1.5 py-1.5 px-2 mx-2 my-px rounded text-3.75 cursor-pointer transition-all bg-none border-none w-[calc(100%-16px)] text-left font-inherit {active ===
+											channel
+												? 'bg-white/6 text-white'
+												: 'text-white/40 hover:bg-white/4 hover:text-white/80'}"
+											onclick={() => openChannel(channel)}
+										>
+											<span
+												class="text-4.5 {forums.includes(channel)
+													? 'i-tabler-messages'
+													: 'i-tabler-hash'} {active === channel ? 'op-100' : 'op-70'}"
+											></span>
+											<span>{channel}</span>
+										</button>
+									{/each}
+								{/each}
+							</div>
+						{/if}
 						<div class="mt-auto flex items-center gap-2 p-2 bg-[#232428]">
 							<img
 								src="https://cdn.discordapp.com/embed/avatars/0.png"
@@ -233,8 +264,16 @@
 					<!-- Chat Area -->
 					<div class="flex-1 flex flex-col bg-[#313338] min-w-0">
 						<div class="flex items-center gap-2 px-4 border-b border-black/24 h-12 flex-shrink-0">
-							<span class="i-tabler-hash op-60"></span>
-							<span class="font-600 text-3.75 text-white">{activeChannel}</span>
+							<span
+								class="op-60 {active === 'dm'
+									? 'i-tabler-at'
+									: forums.includes(active)
+										? 'i-tabler-messages'
+										: 'i-tabler-hash'}"
+							></span>
+							<span class="font-600 text-3.75 text-white"
+								>{active === 'dm' ? 'Ayako | Reminders' : active}</span
+							>
 							<div class="ml-auto flex items-center gap-4">
 								<span class="i-tabler-bell text-lg op-60"></span>
 								<span class="i-tabler-pin text-lg op-60"></span>
@@ -246,23 +285,13 @@
 							</div>
 						</div>
 						<div class="flex-1 p-4 pb-2 overflow-y-auto overflow-x-hidden flex flex-col gap-4">
-							{#if activeChannel === 'welcome'}
-								<WelcomeChannel />
-							{:else if activeChannel === 'general'}
-								<GeneralChannel />
-							{:else if activeChannel === 'mod-cmds'}
-								<ModCmdsChannel />
-							{:else if activeChannel === 'logs'}
-								<LogsChannel />
-							{:else if activeChannel === 'giveaways'}
-								<GiveawaysChannel />
-							{:else if activeChannel === 'leveling'}
-								<LevelingChannel />
-							{/if}
+							<ActiveView />
 						</div>
 						<div class="flex items-center gap-4 mx-4 mb-6 px-4 bg-[#383a40] rounded-lg h-11">
 							<span class="i-tabler-circle-plus text-xl op-40"></span>
-							<span class="flex-1 text-white/30 text-3.75">Message #{activeChannel}</span>
+							<span class="flex-1 text-white/30 text-3.75"
+								>Message {active === 'dm' ? '@Ayako | Reminders' : `#${active}`}</span
+							>
 							<div class="flex gap-2">
 								<span class="i-tabler-gift text-xl op-40"></span>
 								<span class="i-tabler-sticker text-xl op-40"></span>
@@ -278,7 +307,9 @@
 			class="annotation flex items-center justify-center gap-2.5 text-center min-w-160 mt-5"
 		>
 			<Sprig size={26} color="var(--leaf-soft)" class="shrink-0" />
-			<span>Fig. 2 - Ayako at work in a real server. Click the channels to explore!</span>
+			<span
+				>Fig. 2: Ayako and its spin-off bots in one mock server. Click the channels to explore!</span
+			>
 		</figcaption>
 	</figure>
 </div>

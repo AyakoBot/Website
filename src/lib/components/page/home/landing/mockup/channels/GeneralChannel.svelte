@@ -1,4 +1,8 @@
 <script lang="ts">
+	import BotMessage from '../parts/BotMessage.svelte';
+	import Container from '../parts/Container.svelte';
+	import Note from '../parts/Note.svelte';
+
 	const ayakoAvatar =
 		'https://cdn.discordapp.com/avatars/650691698409734151/9ca4ad70d8ef529d31a3ec03923bddcb.webp?size=80';
 
@@ -135,48 +139,56 @@
 	</div>
 </div>
 
-<!-- AFK Message -->
-<div class="relative flex gap-4 py-0.5">
-	<img src={ayakoAvatar} alt="Ayako" class="w-10 h-10 rounded-full flex-shrink-0 cursor-pointer" />
-	<div class="flex flex-col flex-1 min-w-0">
-		<div class="flex items-center gap-2">
-			<span class="font-600 text-[#b0ff00] text-3.75 cursor-pointer hover:underline">Ayako</span>
-			<span
-				class="inline-flex items-center gap-0.5 bg-[#5865f2] text-white text-2.5 px-1 rounded-sm font-500 h-3.75"
-				><span class="i-tabler-check text-2.5"></span> APP</span
-			>
-			<span class="text-3 text-white/25 font-400">02:03</span>
-		</div>
-		<span class="text-3.25 text-white/75"
-			><span class="font-500 text-white cursor-pointer hover:underline">Alex</span> went AFK</span
-		>
-		<!-- Embed with left border -->
-		<div class="flex rounded overflow-hidden max-w-50 mt-0.5">
-			<div class="w-1 bg-[#f0b132] flex-shrink-0"></div>
-			<div class="bg-[#2b2d31] pb-3 px-3">
-				<span class="text-3 text-white/60">taking a nap</span>
-			</div>
-		</div>
-	</div>
-	<div
-		class="hint absolute flex items-center gap-1.5 pointer-events-none z-10 flex-row"
-		style="left: 150px; bottom:-25px;"
+<!--
+	AFK, as Ayako | AFK renders it (packages/Service/src/Plugins/afk/Classes/Afk.ts):
+	the /afk reply with the reason in a yellow embed, then the Components V2 notice it
+	sends in reply to whoever mentions an AFK member. /afk appends " [AFK]" to the
+	nickname (afk/Util/nick.ts), and Discord shows mentions by nickname.
+-->
+<BotMessage name="Ayako | AFK" time="14:02" used={{ user: 'Alex [AFK]', command: '/afk' }} refAvatar={1}>
+	<span class="text-3 text-white/55"
+		><code class="font-mono text-2.75 bg-[#1e1f22] border border-white/6 rounded px-1">alex</code> went
+		AFK</span
 	>
-		<svg
-			class="block [filter:drop-shadow(0_0_4px_rgba(0,0,0,1))_drop-shadow(0_0_8px_rgba(0,0,0,0.9))_drop-shadow(0_2px_4px_rgba(0,0,0,1))]"
-			width="40"
-			height="45"
-			viewBox="0 0 122 148"
-			style="transform: scale(-1, -1) rotate(-40deg)"
-			><path
-				d="M0 345.65C6.14938 341.626 12.2988 342.897 17.812 344.803C25.4458 347.557 32.8674 351.157 39.6529 355.393C70.3998 375.727 88.8479 404.744 96.4816 440.539C98.39 449.647 99.0262 459.178 100.299 469.556C108.78 464.685 113.233 455.154 121.715 449.647C122.776 453.883 120.655 456.636 118.959 458.966C111.961 468.497 104.752 478.028 97.3299 487.348C93.7251 491.796 90.9684 492.219 87.1515 488.407C79.0937 480.57 74.2167 471.039 72.7323 460.025C72.7323 459.601 73.3684 458.966 74.2166 457.907C83.3347 460.237 81.2142 471.886 89.06 476.122C92.4527 461.508 89.9082 447.529 86.0913 433.973C82.0624 419.782 76.7612 406.227 68.2793 394.154C60.0095 382.293 49.6191 372.761 38.1686 363.866C26.93 354.758 14.2072 349.039 0 345.65Z"
-				fill="#fde047"
-				transform="translate(0,-343)"
-			/></svg
-		>
-		<span
-			class="ml-2 [font-family:'Caveat','Comic_Neue',cursive] text-[17px] font-600 text-[#fde047] leading-[1.2] whitespace-nowrap [text-shadow:0_0_8px_rgba(0,0,0,1),0_0_16px_rgba(0,0,0,0.9),0_0_32px_rgba(0,0,0,0.8),0_2px_4px_rgba(0,0,0,1)]"
-			>Made to be <br /> low-profile</span
+	<div class="flex rounded overflow-hidden max-w-60">
+		<div class="w-1 bg-[#ffff00] flex-shrink-0"></div>
+		<div class="bg-[#2b2d31] py-2 px-3 text-3 text-white/55">taking a nap</div>
+	</div>
+</BotMessage>
+
+<div class="flex gap-4 py-0.5">
+	<img
+		src="https://cdn.discordapp.com/embed/avatars/3.png"
+		alt=""
+		class="w-10 h-10 rounded-full flex-shrink-0"
+	/>
+	<div class="flex flex-col gap-1 flex-1 min-w-0">
+		<div class="flex items-center gap-2">
+			<span class="font-600 text-white text-3.75">Sam</span>
+			<span class="text-3 text-white/25 font-400">14:07</span>
+		</div>
+		<span class="text-3.5 text-[#dbdee1]"
+			><span class="mention">@Alex [AFK]</span> the raid starts in ten, grab your gear</span
 		>
 	</div>
+</div>
+
+<div class="relative">
+	<BotMessage
+		name="Ayako | AFK"
+		time="14:07"
+		replyTo={{ user: 'Sam', text: '@Alex [AFK] the raid starts in ten, grab your gear' }}
+		refAvatar={3}
+	>
+		<Container accent="#ffff00">
+			<span
+				><span class="mention">@Alex [AFK]</span> is AFK since
+				<span class="bg-white/6 rounded px-0.5">12 October 2026 14:02</span>
+				(<span class="bg-white/6 rounded px-0.5">5 minutes ago</span>)</span
+			>
+			<span class="border-l-4 border-[#4e5058] rounded-sm pl-3 text-3 text-white/55">taking a nap</span>
+		</Container>
+	</BotMessage>
+
+	<Note left={330} bottom={6} angle={-10}>Tells whoever pinged,<br />then deletes itself</Note>
 </div>

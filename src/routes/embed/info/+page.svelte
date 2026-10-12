@@ -104,7 +104,7 @@
 			<!--
 				A real capture, mounted like a photograph. The mount is folio, the photo keeps
 				Discord's own dark look in both themes, per DESIGN.md. Cropped to the header and
-				the first groups; the full capture runs on /bots/info, which has room to scroll.
+				the first groups; /bots/info shows the same crop under its hero.
 			-->
 			<div
 				class="mat relative rotate-[-2deg] rounded-[0.4rem_1.1rem_0.4rem_1.1rem] p-2.5 pt-4 shadow-press"
